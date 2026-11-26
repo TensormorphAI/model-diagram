@@ -17,6 +17,9 @@ An analysis is not a decision. When it leads to one, the decision is recorded in
 - End with a recommendation and, when the answer is not "no", an action plan whose steps are useful on their own.
 - An analysis is not rewritten when the code or the decision moves on. A new analysis replaces it, and the old one
   links to its successor.
+- A dated `## Status in this repository` section, placed right after the header, may record which facts still hold
+  and which steps of the action plan are done, with the commit it was checked against. It is not a rewrite: the
+  analysis itself stays unchanged.
 - Line width 120, consistent with the rest of the repository.
 
 ## Index

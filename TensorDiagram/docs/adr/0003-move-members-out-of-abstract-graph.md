@@ -11,6 +11,34 @@
 > All line numbers in this document refer to commit `5c8cf90d8`. They drift as soon as any of the moves below lands, so
 > treat them as pointers to help locate a member, not as an authoritative index.
 
+## Status in this repository
+
+Checked on 2026-11-27 against commit `a2e1bd3`, version 0.25.2 of `packages/core`. **The decisions stand, but only part
+of the implementation plan has landed here.** The [Implementation feedback](#implementation-feedback) section describes
+pull requests #1131 to #1136 as they happened upstream, and most of them are not part of this codebase.
+
+| Step | State in this repository |
+|---|---|
+| 1. Shared-state tests, regrouping `pageFormat` and `warningImage` | **Landed.** The per-instance block holds `alternateEdgeStyle`, `cells`, `mouseListeners`, `multiplicities`, `options`, `pageFormat` and `warningImage`, all covered by `__tests__/view/no-global-state-for-mixin-properties.ts` |
+| 2. Comment in `sizeDidChange` | **Landed.** It is in `EventsMixin.sizeDidChange` |
+| 3. Viewport translation to `PanningMixin` | **Not landed.** `scrollPointToVisible`, `center`, `ignoreScrollbars` and `translateToScrollPosition` are still in `AbstractGraph`, and their accessors are still arrow function properties |
+| 4. Appendix A high-confidence batch | **Not landed.** `recursiveResize`, `exportEnabled`, `importEnabled`, `defaultOverlap`, `getOverlap`, `multigraph`, `allowLoops`, the two resource keys, `convertValueToString`, `getLinkForCell`, `keepEdgesInForeground` / `keepEdgesInBackground` and the page properties are still in `AbstractGraph`. `PageBreaksMixin` has not been renamed to `PageMixin` |
+| 5. Drill-down to `GroupingMixin` | **Not landed.** `getCurrentRoot`, `getTranslateForRoot`, `getChildOffsetForCell`, `home`, `isValidRoot` and `resetViewOnRootChange` are still in `AbstractGraph` |
+
+Consequences for a reader of this repository:
+
+- `src/view/AbstractGraph.ts` is 1234 lines, not 811.
+- **Appendices A and B are an open backlog here**, not a record of completed work. Steps 3 to 5 remain to be done, and
+  the order of work above still applies.
+- The runtime break recorded under [What the analysis missed](#what-the-analysis-missed), arrow function properties
+  becoming prototype methods, has not happened, since the members did not move. It will happen when step 3 or step 4 is
+  carried out, and needs the same release note then.
+- The serialization finding of step 1 does apply, since step 1 landed.
+- From the work of issue #762 (D7, Appendix B.3), the handler factories have already left `AbstractGraph` for the
+  `SelectionCellsHandler` plugin. `defaultLoopStyle` and `isOrthogonal` are still in `AbstractGraph`.
+- The basis commit `5c8cf90d8` is not part of the history of this repository, and the line numbers no longer match. Look
+  members up by name.
+
 ## Context
 
 `AbstractGraph` is 1337 lines. It inherits the God-object design of `mxGraph`, whose `mxGraph.js` reached 13229 lines in

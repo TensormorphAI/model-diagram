@@ -16,6 +16,24 @@
     user documentation: [`plugins.md`](../../packages/website/docs/usage/plugins.md),
     [`migrate-from-mxgraph.md`](../../packages/website/docs/guides/migrate-from-mxgraph.md)
 
+## Status in this repository
+
+Checked on 2026-11-27 against commit `a2e1bd3`, version 0.25.2 of `packages/core`. The decision and its consequences
+still describe the source. The analysis basis `5c8cf90d8` is not part of the history of this repository, and the line
+numbers below are off by about ten lines, so look members up by name.
+
+- Still true: 21 mixins, applied by `applyGraphMixins` in `src/view/mixin/_graph-mixins-apply.ts`, which is called at
+  module scope at the end of `src/view/AbstractGraph.ts`. Their types are merged through
+  `src/view/mixin/_graph-mixins-types.ts`, imported by `src/index.ts`.
+- `mixInto` is in `src/internal/utils.ts`. It still leaves `enumerable` unset and still documents the shared-state
+  limitation.
+- The per-instance block of `AbstractGraph` is in place, and `__tests__/view/no-global-state-for-mixin-properties.ts`
+  covers it.
+- `ImageMixin` no longer exists. `ImageBundlePlugin` replaced it.
+
+For the current structure, see [`ARCHITECTURE.md`](../../ARCHITECTURE.md) and
+[`spec/graph-lifecycle.md`](../spec/graph-lifecycle.md).
+
 ## Context
 
 `TensorDiagram` inherits the design of `mxGraph`, whose `mxGraph` class is a

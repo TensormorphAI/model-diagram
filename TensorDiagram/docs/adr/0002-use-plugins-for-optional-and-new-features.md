@@ -14,6 +14,22 @@
   user documentation: [`plugins.md`](../../packages/website/docs/usage/plugins.md),
   [`migrate-from-mxgraph.md`](../../packages/website/docs/guides/migrate-from-mxgraph.md)
 
+## Status in this repository
+
+Checked on 2026-11-27 against commit `a2e1bd3`, version 0.25.2 of `packages/core`. The decision holds and the contract
+is unchanged. The analysis basis `5c8cf90d8` is not part of the history of this repository, so look members up by name
+rather than by line.
+
+- The contract is still `GraphPlugin { onDestroy }` and `GraphPluginConstructor { pluginId; new (graph) }`, in
+  `src/types.ts`. There is no other lifecycle hook: the `onConfigure` hook of issue #1149 does not exist yet.
+- `BuiltinPluginId` lists 10 ids, and `getDefaultPlugins()` in `src/view/plugin/index.ts` returns 9 plugins.
+  `RubberBandHandler` is the only built-in plugin that `Graph` does not load by default.
+- The legacy `*Handler.ts` files have not been renamed.
+- The handler factories (`createHandler`, `createEdgeHandler` and the others) no longer live on `AbstractGraph`. They are
+  methods of the `SelectionCellsHandler` plugin.
+- This repository has no `CHANGELOG.md`, so the `CHANGELOG.md` entry this ADR requires for a migration has no file to
+  go into yet.
+
 ## Context
 
 [ADR 0001](0001-use-mixins-to-split-the-graph-class.md) split the God object into mixins. That solved readability and

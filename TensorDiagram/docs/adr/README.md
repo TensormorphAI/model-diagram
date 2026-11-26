@@ -13,6 +13,9 @@ lives, why an obvious refactoring was set aside, which constraint blocks a move.
   the body of the ADR, not in its status.
 - Record the reasoning, not only the outcome. An ADR that states what was decided without stating what was rejected and
   why is of little use six months later.
+- When the source moves on, record how far the ADR is implemented, and which of its facts still hold, in a dated
+  `## Status in this repository` section placed right after the header. Give the commit it was checked against. Keep
+  the body unchanged.
 - Line width 120, consistent with the rest of the repository.
 
 ## Index

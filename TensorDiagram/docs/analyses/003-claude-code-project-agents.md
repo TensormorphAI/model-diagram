@@ -10,6 +10,12 @@
   [skills](https://code.claude.com/docs/en/skills) and [hooks](https://code.claude.com/docs/en/hooks) documentation,
   [analysis 001](001-extract-SelectionMixin-to-plugin.md), [analysis 002](002-extract-PanningMixin-to-plugin.md)
 
+## Status in this repository
+
+Checked on 2026-11-27 against commit `a2e1bd3`. `.claude/agents/` holds nine agents: the seven of the table below marked
+"added", plus `mxgraph-archaeologist` and `bundle-impact-analyst`, which have been added since this analysis listed them
+as candidates. `issue-triager` and `call-site-migrator` are still not present.
+
 ## Summary
 
 | Agent | Kind | Model | Status |

@@ -15,6 +15,20 @@
   `PanningMixin`),
   [issue #1297](https://github.com/TensorDiagram/TensorDiagram/issues/1297) (open, `PanningHandler.isActive()` always true)
 
+## Status in this repository
+
+Checked on 2026-11-27 against commit `a2e1bd3`, version 0.25.2 of `packages/core`. The analysis and its recommendation
+still apply. The basis commit is not part of the history of this repository, and the line numbers are about ten lower
+here. Look members up by name.
+
+- PR #1132 has not landed. `scrollPointToVisible`, `center`, `ignoreScrollbars` and `translateToScrollPosition` are still
+  in `AbstractGraph`, see the status block of
+  [ADR 0003](../adr/0003-move-members-out-of-abstract-graph.md#status-in-this-repository). Step 2 of the action plan is
+  open.
+- The side finding still holds. `PanningHandler.isActive` returns `this.active || this.initialScale !== null`, and
+  `initialScale` is initialized to `0`, so it still always returns `true`. Step 1 is open.
+- `__tests__/view/mixin/PanningMixin.test.ts` exists but is a placeholder of a few lines. Step 3 is open.
+
 ## Relation to ADR 0003 and PR #1132
 
 These three documents answer successive questions.

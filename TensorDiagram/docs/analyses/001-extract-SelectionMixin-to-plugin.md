@@ -11,6 +11,20 @@
   [issue #762](https://github.com/TensorDiagram/TensorDiagram/issues/762), `ImageMixin` to `ImageBundlePlugin` precedent (#1050),
   [issue #1149](https://github.com/TensorDiagram/TensorDiagram/issues/1149) (`onConfigure` plugin lifecycle hook)
 
+## Status in this repository
+
+Checked on 2026-11-27 against commit `a2e1bd3`, version 0.25.2 of `packages/core`. The analysis and its recommendation
+still apply. The size figures were not measured again. The basis commit is not part of the history of this repository,
+and the line counts and line numbers are about ten lower here. Look members up by name.
+
+- The side finding still holds. `singleSelection`, `doneResource` and `updatingSelectionResource` are still declared in
+  `SelectionMixin.type.ts`, and `singleSelection` is still in the `Pick` list of `SelectionMixin.ts`. Step 1 is open.
+- `__tests__/view/mixin/SelectionMixin.test.ts` now exists, but it covers `getSelectionCellsForChanges` only. Step 2 is
+  still open.
+- The `onConfigure` hook of issue #1149 does not exist yet, so step 4 is open.
+- This repository has no `CHANGELOG.md`, see the status block of
+  [ADR 0002](../adr/0002-use-plugins-for-optional-and-new-features.md#status-in-this-repository).
+
 ## Summary
 
 | Option | Gain on `ts-example-without-defaults` | Breaking | Effort |
