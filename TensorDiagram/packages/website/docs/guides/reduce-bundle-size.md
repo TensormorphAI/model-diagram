@@ -128,7 +128,7 @@ import {
   getDefaultPlugins,
   registerDefaultStyleElements,
   RubberBandHandler,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 registerDefaultStyleElements();
 

@@ -67,13 +67,13 @@ else
         # '|| build_exit_code=$?' keeps 'set -e' from aborting here, and only here, so the remaining examples are still
         # built and the size sections are still printed
         build_exit_code=0
-        (cd "$dir" && npm run build) || build_exit_code=$?
+        (cd "$dir" && bun run build) || build_exit_code=$?
         if [[ "$build_exit_code" -ne 0 ]]; then
           echo "Build of $dir FAILED with exit code $build_exit_code"
           FAILED_EXAMPLES+=("$(basename "$dir") (exit code $build_exit_code)")
         fi
       else
-        (cd "$dir" && npm run build)
+        (cd "$dir" && bun run build)
       fi
     fi
   done

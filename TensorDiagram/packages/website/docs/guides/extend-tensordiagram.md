@@ -132,8 +132,8 @@ import {
   RubberBandHandler,
   SelectionCellsHandler,
   SelectionHandler,
-} from '@tensordiagram/core';
-import type { Cell, CellStateStyle, InternalMouseEvent } from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
+import type { Cell, CellStateStyle, InternalMouseEvent } from '@tensormorph/tensordiagramcore';
 
 class MyCustomSelectionHandler extends SelectionHandler {
   // Application specific: a cell is a part when its style says so
@@ -205,7 +205,7 @@ them. A factory only affects the handlers created after the call. See
 and `Stylesheet` through factory methods, so a subclass replaces any of them:
 
 ```typescript
-import { CellRenderer, Graph } from '@tensordiagram/core';
+import { CellRenderer, Graph } from '@tensormorph/tensordiagramcore';
 
 import { MyCustomCellRenderer } from './MyCustomCellRenderer';
 
@@ -260,8 +260,8 @@ therefore a property initialized with an arrow function. `insertVertex` and `ins
 overloaded methods and overridden as methods:
 
 ```typescript
-import { Graph } from '@tensordiagram/core';
-import type { Cell } from '@tensordiagram/core';
+import { Graph } from '@tensormorph/tensordiagramcore';
+import type { Cell } from '@tensormorph/tensordiagramcore';
 
 class MyGraph extends Graph {
   override isCellEditable = (cell: Cell): boolean => {
@@ -444,8 +444,8 @@ whose style sets no image calls `paintBackground`.
 Translate the canvas to the top left corner of the cell, then draw the path between `begin()` and `fillAndStroke()`:
 
 ```typescript
-import type { AbstractCanvas2D } from '@tensordiagram/core';
-import { Shape, ShapeRegistry } from '@tensordiagram/core';
+import type { AbstractCanvas2D } from '@tensormorph/tensordiagramcore';
+import { Shape, ShapeRegistry } from '@tensormorph/tensordiagramcore';
 
 class FoldedCornerShape extends Shape {
   override paintVertexShape(
@@ -681,7 +681,7 @@ Without such a declaration, the only ways to pass that value are to hardcode it 
 ```typescript
 export {}; // only needed when the file has no other import or export
 
-declare module '@tensordiagram/core' {
+declare module '@tensormorph/tensordiagramcore' {
   interface CellStateStyle {
     myCustomStyleProperty?: number;
     myCustomBooleanStyleProperty?: boolean;
@@ -691,8 +691,8 @@ declare module '@tensordiagram/core' {
 
 :::warning
 That `export {}` is not decoration. A file with no top-level `import` or `export` is a script, and there
-`declare module '@tensordiagram/core'` declares a **new** module instead of augmenting the package, which silently replaces
-its typings. Every import of the application then fails with `error TS2305: Module '"@tensordiagram/core"' has no exported
+`declare module '@tensormorph/tensordiagramcore'` declares a **new** module instead of augmenting the package, which silently replaces
+its typings. Every import of the application then fails with `error TS2305: Module '"@tensormorph/tensordiagramcore"' has no exported
 member`, pointing at the import sites rather than at the file that caused it. A file that already imports or exports
 something, as the shape example below does, is a module already and needs nothing.
 :::
@@ -700,7 +700,7 @@ something, as the shape example below does, is a module already and needs nothin
 `CellStyle` extends `CellStateStyle`, so a property declared on `CellStateStyle` is visible on both: it is accepted in the style set on a Cell as well as in the computed state style.
 
 ```typescript
-import type { CellStyle } from '@tensordiagram/core';
+import type { CellStyle } from '@tensormorph/tensordiagramcore';
 
 const style: CellStyle = { shape: 'rectangle', myCustomStyleProperty: 42 };
 ```
@@ -714,10 +714,10 @@ Declare the properties as optional (`?`), as `TensorDiagram` does for its own, o
 A custom shape reading a property of its own from the style of the cell it draws, with the declaration that makes it type check:
 
 ```typescript
-import type { AbstractCanvas2D } from '@tensordiagram/core';
-import { RectangleShape, ShapeRegistry } from '@tensordiagram/core';
+import type { AbstractCanvas2D } from '@tensormorph/tensordiagramcore';
+import { RectangleShape, ShapeRegistry } from '@tensormorph/tensordiagramcore';
 
-declare module '@tensordiagram/core' {
+declare module '@tensormorph/tensordiagramcore' {
   interface CellStateStyle {
     badgeColor?: string;
   }
@@ -746,7 +746,7 @@ Each cell then chooses its own badge with `style: { shape: 'badgedRectangle', ba
 Give each property a simple type, `number`, `string` or `boolean`, and declare each value as a property of its own rather than gathering several of them in one object. An array is fine as long as it holds those same simple types, which is what `TensorDiagram` does itself: `baseStyleNames: string[]` is the only one of its style properties that is always an array, and `portConstraint`, `sourcePortConstraint` and `targetPortConstraint` accept one or several `DirectionValue`.
 
 ```typescript
-declare module '@tensordiagram/core' {
+declare module '@tensormorph/tensordiagramcore' {
   interface CellStateStyle {
     // Avoid: a single property holding an object
     badge?: { color: string; size: number };
@@ -755,7 +755,7 @@ declare module '@tensordiagram/core' {
 ```
 
 ```typescript
-declare module '@tensordiagram/core' {
+declare module '@tensormorph/tensordiagramcore' {
   interface CellStateStyle {
     // Prefer: one property per value, a shared prefix showing they belong together
     badgeColor?: string;

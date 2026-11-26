@@ -126,7 +126,7 @@ Pass the id of the plugin as a string literal, as in the example above, rather t
 its class:
 
 ```typescript
-import type { PanningHandler } from '@tensordiagram/core';
+import type { PanningHandler } from '@tensormorph/tensordiagramcore';
 
 // Good: the class is only used as a type
 const panningHandler = graph.getPlugin<PanningHandler>('PanningHandler');

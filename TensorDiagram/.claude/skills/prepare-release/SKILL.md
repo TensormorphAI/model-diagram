@@ -340,7 +340,7 @@ Only when the CI data is not available (no usable run, logs expired), and after 
   export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm use
   ```
 - **Build core first.** `build-all-examples.bash` only builds the examples; they bundle
-  `@tensordiagram/core` from `packages/core/lib`, so a stale or missing `lib/` yields wrong sizes. Run
+  `@tensormorph/tensordiagramcore` from `packages/core/lib`, so a stale or missing `lib/` yields wrong sizes. Run
   `npm run build -w packages/core` before the examples.
 - Then run `./scripts/build-all-examples.bash --fail-at-end`. Delegate the whole build to the
   `build-runner` agent, asking it for the final table and CSV, to keep the verbose output out of context. The script

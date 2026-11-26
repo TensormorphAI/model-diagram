@@ -34,7 +34,7 @@ To create a new editor instance and configure it using a config file, you can pa
 To create a new editor instance and configure it, the following code is used:
 
 ```javascript
-import { requestUtils } from '@tensordiagram/core';
+import { requestUtils } from '@tensormorph/tensordiagramcore';
 const config = requestUtils.load('editors/config/keyhandler-commons.xml').getDocumentElement();
 const editor = new Editor(config);
 ```

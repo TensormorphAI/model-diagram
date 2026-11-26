@@ -72,7 +72,7 @@ Since they are plain objects, configuring them is a matter of assigning properti
 graph. Handlers read them when they are created, so a change only affects cells selected afterwards.
 
 ```typescript
-import { EdgeHandlerConfig, HandleConfig, VertexHandlerConfig } from '@tensordiagram/core';
+import { EdgeHandlerConfig, HandleConfig, VertexHandlerConfig } from '@tensormorph/tensordiagramcore';
 
 HandleConfig.fillColor = '#99ccff';
 VertexHandlerConfig.rotationEnabled = true;
@@ -167,7 +167,7 @@ The handler classes instantiated by `SelectionCellsHandler` can be replaced per 
 Both methods are set on the plugin instance:
 
 ```typescript
-import { SelectionCellsHandler, VertexHandler } from '@tensordiagram/core';
+import { SelectionCellsHandler, VertexHandler } from '@tensormorph/tensordiagramcore';
 
 class MyVertexHandler extends VertexHandler {
   // for instance, override createCustomHandles() to add shape specific controls

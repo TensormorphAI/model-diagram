@@ -1,6 +1,6 @@
 # TensorDiagram
 
-[![npm version](https://img.shields.io/npm/v/@tensordiagram/core?color=blue&style=flat)](https://www.npmjs.com/package/@tensordiagram/core)
+[![npm version](https://img.shields.io/npm/v/@tensormorph/tensordiagramcore?color=blue&style=flat)](https://www.npmjs.com/package/@tensormorph/tensordiagramcore)
 [![build status](https://github.com/TensorDiagram/TensorDiagram/workflows/Build/badge.svg)](https://github.com/TensorDiagram/TensorDiagram/actions/workflows/build.yml)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/TensorDiagram/TensorDiagram)
 
@@ -52,21 +52,21 @@ You can also try `TensorDiagram` right away in the [online demo](https://tensord
 ## Install
 <!-- copied into packages/website/docs/getting-started.mdx -->
 
-Install the latest version of `TensorDiagram` from the [npm registry](https://www.npmjs.com/package/@tensordiagram/core).
+Install the latest version of `TensorDiagram` from the [npm registry](https://www.npmjs.com/package/@tensormorph/tensordiagramcore).
 
 npm
 ```
-npm install @tensordiagram/core
+npm install @tensormorph/tensordiagramcore
 ```
 
 pnpm
 ```
-pnpm add @tensordiagram/core
+pnpm add @tensormorph/tensordiagramcore
 ```
 
 yarn
 ```
-yarn add @tensordiagram/core
+yarn add @tensormorph/tensordiagramcore
 ```
 
 `TensorDiagram` is written in TypeScript and provides type definitions for seamless integration into TypeScript applications.
@@ -89,7 +89,7 @@ This example assumes that
 - you're using `TypeScript`. For `JavaScript`, simply remove references to the 'type' syntax.
 
 ```typescript
-import {type CellStyle, Graph, InternalEvent} from '@tensordiagram/core';
+import {type CellStyle, Graph, InternalEvent} from '@tensormorph/tensordiagramcore';
 
 const container = <HTMLElement>document.getElementById('graph-container');
 // Disables the built-in context menu
@@ -249,7 +249,7 @@ For comprehensive commands and architecture details, see [CLAUDE.md](CLAUDE.md).
 
 ### Building the npm Package Locally
 
-Released versions are available at [npmjs](https://www.npmjs.com/package/@tensordiagram/core).
+Released versions are available at [npmjs](https://www.npmjs.com/package/@tensormorph/tensordiagramcore).
 
 To build locally:
 
@@ -261,7 +261,7 @@ npm install
 npm pack
 ```
 
-The `packages/core` folder or the generated `tensordiagram-core-*.tgz` file can be used in your application via [npm link](https://docs.npmjs.com/cli/v8/commands/npm-link) or `npm install`.
+The `packages/core` folder or the generated `tensormorph-tensordiagramcore-*.tgz` file can be used in your application via [npm link](https://docs.npmjs.com/cli/v8/commands/npm-link) or `npm install`.
 
 Integration examples can be found in the [tensordiagram-integration-examples](https://github.com/TensorDiagram/tensordiagram-integration-examples) repository.
 

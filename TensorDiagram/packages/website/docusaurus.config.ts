@@ -4,7 +4,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 import type { PluginOptions as SearchPluginOptions } from '@easyops-cn/docusaurus-search-local';
 
 const baseUrl = '/TensorDiagram/';
-const editUrl = 'https://github.com/TensorDiagram/TensorDiagram/edit/main/packages/website/';
+const editUrl =
+  'https://github.com/TensorDiagram/TensorDiagram/edit/main/packages/website/';
 
 const config: Config = {
   title: 'TensorDiagram',

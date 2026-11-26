@@ -56,7 +56,7 @@ bytes there silently disables the guard, since no chunk is ever 240 000 kB.
 - webpack `maxEntrypointSize` is checked against the **sum of the files needed to load one entry**, typically the
   JavaScript bundle plus the extracted CSS. Files emitted outside any entry, such as a favicon copied by
   `CopyWebpackPlugin` or an image referenced from the CSS, are not counted.
-- vite compares the limit against **each emitted chunk** individually. The examples isolate `@tensordiagram/core` in a
+- vite compares the limit against **each emitted chunk** individually. The examples isolate `@tensormorph/tensordiagramcore` in a
   dedicated `tensordiagram` chunk, which is by far the largest, so that chunk is what sets the value.
 
 The two webpack limits therefore differ from each other, and they are not interchangeable.

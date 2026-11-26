@@ -4,7 +4,7 @@ description: Explain how to do a release of TensorDiagram.
 
 # Release how-to
 
-This page explains how to release a new version of `@tensordiagram/core`.
+This page explains how to release a new version of `@tensormorph/tensordiagramcore`.
 
 The release process is partially automated with GitHub Actions, but initialization steps (version updates, tagging) are manual. Further automation is tracked in [#664](https://github.com/TensorDiagram/TensorDiagram/issues/664).
 

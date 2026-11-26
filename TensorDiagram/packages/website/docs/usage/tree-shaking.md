@@ -147,7 +147,7 @@ Importing `Graph` pulls the following into your bundle, whether the application 
 `BaseGraph` registers **none** of them. Nothing is loaded that you did not ask for:
 
 ```typescript
-import { BaseGraph } from '@tensordiagram/core';
+import { BaseGraph } from '@tensormorph/tensordiagramcore';
 
 const graph = new BaseGraph({ container });
 ```
@@ -209,7 +209,7 @@ corresponding code into the bundle.
 Shapes are registered in `ShapeRegistry`. See [Global Configuration, Styles](./global-configuration.md#styles).
 
 ```typescript
-import { EllipseShape, ShapeRegistry } from '@tensordiagram/core';
+import { EllipseShape, ShapeRegistry } from '@tensormorph/tensordiagramcore';
 
 ShapeRegistry.add('ellipse', EllipseShape);
 ```
@@ -228,7 +228,7 @@ Stencil shapes are registered in `StencilShapeRegistry`, and none are registered
 Perimeters are registered in `PerimeterRegistry`. See the [Perimeters](./perimeters.md) page.
 
 ```typescript
-import { Perimeter, PerimeterRegistry } from '@tensordiagram/core';
+import { Perimeter, PerimeterRegistry } from '@tensormorph/tensordiagramcore';
 
 PerimeterRegistry.add('ellipsePerimeter', Perimeter.EllipsePerimeter);
 ```
@@ -243,7 +243,7 @@ each built-in edge style has a dedicated helper that sets the correct metadata f
 `EdgeStyleRegistry.add()` call:
 
 ```typescript
-import { registerOrthogonalEdgeStyle } from '@tensordiagram/core';
+import { registerOrthogonalEdgeStyle } from '@tensormorph/tensordiagramcore';
 
 registerOrthogonalEdgeStyle();
 ```
@@ -261,7 +261,7 @@ Edge markers are registered in `EdgeMarkerRegistry`. Several marker names share 
 registering a subset costs less than the number of names suggests:
 
 ```typescript
-import { EdgeMarker, EdgeMarkerRegistry } from '@tensordiagram/core';
+import { EdgeMarker, EdgeMarkerRegistry } from '@tensormorph/tensordiagramcore';
 
 const arrowFunction = EdgeMarker.createArrow(2);
 EdgeMarkerRegistry.add('classic', arrowFunction);
@@ -282,7 +282,7 @@ import {
   PanningHandler,
   SelectionCellsHandler,
   SelectionHandler,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 const graph = new BaseGraph({
   container,
@@ -333,7 +333,7 @@ existing i18n solution through a custom `I18nProvider` rather than enabling `Tra
 `GlobalConfig.logger` defaults to `NoOpLogger`, which does nothing and costs nothing.
 
 ```typescript
-import { ConsoleLogger, GlobalConfig } from '@tensordiagram/core';
+import { ConsoleLogger, GlobalConfig } from '@tensormorph/tensordiagramcore';
 
 GlobalConfig.logger = new ConsoleLogger();
 ```
@@ -348,7 +348,7 @@ logs without the UI.
 ### CSS and images
 
 CSS files are the only part of the package declared as having side effects, so an imported stylesheet is never removed.
-Import `@tensordiagram/core/css/common.css` only if you use a feature that needs it, and consider providing your own rules
+Import `@tensormorph/tensordiagramcore/css/common.css` only if you use a feature that needs it, and consider providing your own rules
 instead. [CSS and Images](./css-and-images.md#css) names what creates DOM needing those rules, four plugins among
 other classes.
 

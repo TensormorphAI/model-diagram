@@ -38,7 +38,7 @@ When the graph renders the cell, the key is replaced with the underlying URL or 
 `ImageBundlePlugin` ships in `getDefaultPlugins()` and is loaded automatically when a [`Graph`](./graph.md) is created:
 
 ```typescript
-import { Graph } from '@tensordiagram/core';
+import { Graph } from '@tensormorph/tensordiagramcore';
 
 const graph = new Graph(container); // ImageBundlePlugin already registered
 ```
@@ -48,7 +48,7 @@ const graph = new Graph(container); // ImageBundlePlugin already registered
 [`BaseGraph`](./graph.md#basegraph) does not register any plugins by default. To use image bundles, add `ImageBundlePlugin` to the `plugins` option:
 
 ```typescript
-import { BaseGraph, ImageBundlePlugin } from '@tensordiagram/core';
+import { BaseGraph, ImageBundlePlugin } from '@tensormorph/tensordiagramcore';
 
 const graph = new BaseGraph({
   container,
@@ -64,7 +64,7 @@ For more details about the plugin system, see the [Plugins](plugins.md) document
 Create an `ImageBundle`, register keys with `putImage`, then add the bundle to the plugin:
 
 ```typescript
-import { Graph, ImageBundle, ImageBundlePlugin } from '@tensordiagram/core';
+import { Graph, ImageBundle, ImageBundlePlugin } from '@tensormorph/tensordiagramcore';
 
 const graph = new Graph(container);
 

@@ -14,7 +14,7 @@ cd ../../packages/js-example/
 npm run dev
 ```
 
-For more build information see: [@tensordiagram/core](../../README.md#development).
+For more build information see: [@tensormorph/tensordiagramcore](../../README.md#development).
 
 
 ## Run

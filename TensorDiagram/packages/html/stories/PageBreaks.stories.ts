@@ -1,18 +1,7 @@
 /*
-Copyright 2021-present The TensorDiagram project Contributors
-Copyright (c) 2006-2020, JGraph Ltd
+Copyright (c) Tensormorph. All rights reserved.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+See LICENSE in the project root for license information.
 */
 
 import {
@@ -25,7 +14,7 @@ import {
   constants,
   PrintPreview,
   domUtils,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 import {
   contextMenuTypes,
@@ -37,7 +26,7 @@ import {
 } from './shared/args.js';
 import { createGraphContainer } from './shared/configure.js';
 // style required by RubberBand
-import '@tensordiagram/core/css/common.css';
+import '@tensormorph/tensordiagramcore/css/common.css';
 
 export default {
   title: 'Printing/PageBreaks',

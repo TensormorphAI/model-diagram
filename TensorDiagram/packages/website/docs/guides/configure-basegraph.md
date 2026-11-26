@@ -20,7 +20,7 @@ progressively, which is the safer order when the application already works.
 
 ## Before you start
 
-- **`@tensordiagram/core` installed, and a build that runs**, since every step below ends by checking the result.
+- **`@tensormorph/tensordiagramcore` installed, and a build that runs**, since every step below ends by checking the result.
 - **A container element with an explicit size in your page**, since a container of zero height shows nothing whatever
   the graph does.
 - **The list of interactions the application offers**: selecting, moving, editing a label in place, panning, rubber
@@ -34,7 +34,7 @@ This guide assumes you know how the two graph classes differ, see
 ## 1. Start from the bare graph
 
 ```typescript
-import { BaseGraph } from '@tensordiagram/core';
+import { BaseGraph } from '@tensormorph/tensordiagramcore';
 
 const container = document.getElementById('graph-container')!;
 const graph = new BaseGraph({ container });
@@ -77,13 +77,13 @@ does it through `getPlugin`, which returns `undefined` rather than throwing.
 ```typescript
 // CellEditorHandler is one of the four plugins that need the stylesheet shipped by the package.
 // See below.
-import '@tensordiagram/core/css/common.css';
+import '@tensormorph/tensordiagramcore/css/common.css';
 import {
   BaseGraph,
   CellEditorHandler,
   SelectionCellsHandler,
   SelectionHandler,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 const graph = new BaseGraph({
   container,
@@ -107,7 +107,7 @@ Three points decide most of the list:
   [The plugins you must switch on](../usage/plugins.md#the-plugins-you-must-switch-on) for the four and the call each
   one needs.
 - **Some plugins need the stylesheet shipped by the package**, which the `Requires loading CSS` mention of the table
-  flags per plugin. Import `@tensordiagram/core/css/common.css`, or write the equivalent rules yourself, see
+  flags per plugin. Import `@tensormorph/tensordiagramcore/css/common.css`, or write the equivalent rules yourself, see
   [CSS and Images](../usage/css-and-images.md#css).
 
 One limit is worth knowing at this point, since this guide is about shipping nothing unused: `SelectionCellsHandler`
@@ -140,7 +140,7 @@ import {
   PerimeterRegistry,
   registerOrthogonalEdgeStyle,
   ShapeRegistry,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 ShapeRegistry.add('ellipse', EllipseShape);
 PerimeterRegistry.add('ellipsePerimeter', Perimeter.EllipsePerimeter);

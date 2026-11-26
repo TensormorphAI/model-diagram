@@ -6,7 +6,7 @@ History of the bundle size of the examples, one file per repository:
   `packages/ts-example*`).
 - [`tensordiagram-integration-examples.csv`](./tensordiagram-integration-examples.csv): the projects of the
   [tensordiagram-integration-examples](https://github.com/TensorDiagram/tensordiagram-integration-examples) repository, built with the
-  same version of `@tensordiagram/core`.
+  same version of `@tensormorph/tensordiagramcore`.
 
 They are used to write the bundle size section of the release notes, and to follow the size evolution across versions.
 

@@ -1,4 +1,4 @@
-# @tensordiagram/core
+# @tensormorph/tensordiagramcore
 
 <!-- extract of ../../README.md -->
 `TensorDiagram` is a TypeScript library for building interactive diagram applications. At its core, it manages:
@@ -50,7 +50,7 @@ For more details, see the [TensorDiagram GitHub repository](https://github.com/T
 ## Install
 
 ```
-npm install @tensordiagram/core
+npm install @tensormorph/tensordiagramcore
 ```
 
 ## Getting started

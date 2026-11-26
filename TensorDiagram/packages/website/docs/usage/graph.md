@@ -37,8 +37,8 @@ EventSource
 The shortest setup uses `Graph` and lets it load all defaults automatically:
 
 ```typescript
-import '@tensordiagram/core/css/common.css';
-import { Graph, InternalEvent } from '@tensordiagram/core';
+import '@tensormorph/tensordiagramcore/css/common.css';
+import { Graph, InternalEvent } from '@tensormorph/tensordiagramcore';
 
 const container = document.getElementById('graph-container')!;
 InternalEvent.disableContextMenu(container);
@@ -132,7 +132,7 @@ import {
   getDefaultPlugins,
   Graph,
   RubberBandHandler,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 const graph = new Graph(container, undefined, [
   // getDefaultPlugins() is exposed so you can add to it without losing the defaults
@@ -172,7 +172,7 @@ This is the approach used in the TensorDiagram example applications.
 :::
 
 ```typescript
-import '@tensordiagram/core/css/common.css';
+import '@tensormorph/tensordiagramcore/css/common.css';
 import {
   BaseGraph,
   CellEditorHandler,
@@ -189,7 +189,7 @@ import {
   SelectionCellsHandler,
   SelectionHandler,
   ShapeRegistry,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 class CustomGraph extends BaseGraph {
   protected override registerDefaults() {
@@ -234,7 +234,7 @@ const graph = new CustomGraph({
 Alternatively, you can register style elements directly at application startup, before creating any `BaseGraph` instance. This keeps the registration code **at the application entry point**, separate from any class definition (simpler when you don't need a custom subclass).
 
 ```typescript
-import '@tensordiagram/core/css/common.css';
+import '@tensormorph/tensordiagramcore/css/common.css';
 import {
   BaseGraph,
   CellEditorHandler,
@@ -251,7 +251,7 @@ import {
   SelectionCellsHandler,
   SelectionHandler,
   ShapeRegistry,
-} from '@tensordiagram/core';
+} from '@tensormorph/tensordiagramcore';
 
 // Call this once at application startup
 function registerStyleElements() {

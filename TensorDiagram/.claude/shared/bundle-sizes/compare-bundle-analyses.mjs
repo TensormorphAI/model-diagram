@@ -2,17 +2,7 @@
 /*
 Copyright (c) Tensormorph. All rights reserved.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+See LICENSE in the project root for license information.
 */
 
 // Compares two 'dist/bundle-analysis.json' files of the same example, written by a build with ANALYZE=json, and prints
@@ -27,7 +17,7 @@ limitations under the License.
 //   the minified chunk, 'parsedSize', attributed through the source map. A file's 'parsedSize' is the sum of its
 //   modules', so the few bytes mapped to no module, such as the glue between modules, are counted nowhere: up to a few
 //   hundred bytes per chunk. Their 'importedBy' field lists, despite its name, the modules they import, so the
-//   importers are found by inverting it. An import of '@tensordiagram/core' points at its entry point, which is not a module
+//   importers are found by inverting it. An import of '@tensormorph/tensordiagramcore' points at its entry point, which is not a module
 //   of the bundle, so a module the example imports from it has no importer: the chain ends at the example's module.
 
 import { readFileSync } from 'node:fs';
@@ -103,7 +93,7 @@ const readVite = (json) => {
     for (const importedName of importedNames) {
       modules.get(importedName)?.importers.add(name);
     }
-    if (importedNames.includes('@tensordiagram/core')) {
+    if (importedNames.includes('@tensormorph/tensordiagramcore')) {
       entryPointImporters.push(name);
     }
   }
@@ -140,7 +130,7 @@ const kB = (bytes) => (bytes / 1000).toFixed(2);
 const signedKB = (bytes) => `${bytes > 0 ? '+' : ''}${kB(bytes)}`;
 
 // The shortest chain of imports from a module of the example down to the given module, each importing the next. A chain
-// starting at a module of @tensordiagram/core that nothing in the bundle imports says so, rather than looking complete. Such
+// starting at a module of @tensormorph/tensordiagramcore that nothing in the bundle imports says so, rather than looking complete. Such
 // a chain is only the fallback: another path may still reach a module of the example, so the search goes on.
 const importChain = (name) => {
   const previous = new Map([[name, null]]);
@@ -162,7 +152,7 @@ const importChain = (name) => {
     if (importers.size === 0) {
       const origin =
         head.entryPointImporters.length > 0
-          ? `${head.entryPointImporters.join(', ')} (through the @tensordiagram/core entry point)`
+          ? `${head.entryPointImporters.join(', ')} (through the @tensormorph/tensordiagramcore entry point)`
           : '(no importer in the bundle)';
       importerFreeChain ??= [origin, ...chainTo(current)];
       continue;

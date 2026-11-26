@@ -29,9 +29,9 @@ once: it explains the two formats.
   the minified file. Use them to rank the modules, and the output file table for the real change.
 - **Vite** gives the bytes of each module in the minified chunk, attributed through the source map. The size of an
   output file in the table is the sum of its modules, so the bytes mapped to no module, a few hundred per chunk, are
-  counted nowhere: compare with the file on disk when that gap matters. An import of `@tensordiagram/core` points at its
+  counted nowhere: compare with the file on disk when that gap matters. An import of `@tensormorph/tensordiagramcore` points at its
   entry point, which is not in the bundle, so a chain starting with
-  `src/main.ts (through the @tensordiagram/core entry point)` means the example imports something from `@tensordiagram/core` that
+  `src/main.ts (through the @tensormorph/tensordiagramcore entry point)` means the example imports something from `@tensormorph/tensordiagramcore` that
   leads there: read the imports of the example to name it.
 
 ## Procedure
@@ -94,7 +94,7 @@ Follow the reading rules of `.claude/shared/bundle-sizes/README.md`: sizes in kB
 the largest changes first, in kB; a toolchain change is part of the difference, never hidden.
 
 - Attribute a change to a module only when the comparison shows it, and to an import only when the chain shows it.
-- A resized module of `@tensordiagram/core` has one of two causes. The comparison names it by its compiled file,
+- A resized module of `@tensormorph/tensordiagramcore` has one of two causes. The comparison names it by its compiled file,
   `core/lib/esm/util/styleUtils.js`, while its source is `packages/core/src/util/styleUtils.ts`: replace the
   `core/lib/esm/` prefix with `packages/core/src/` and `.js` with `.ts`. Check that this file exists, a `git diff` on a
   missing path prints nothing and looks like an unchanged source. Then check which cause applies with

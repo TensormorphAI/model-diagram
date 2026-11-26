@@ -1,17 +1,7 @@
 /*
 Copyright (c) Tensormorph. All rights reserved.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+See LICENSE in the project root for license information.
 */
 
 const { writeFileSync } = require('node:fs');
@@ -71,7 +61,7 @@ function withBundleAnalysisAndSizeBudget(
  * Writes the modules of the bundle next to it, each with its size before minification and the modules importing it.
  *
  * It reads the module graph of the compilation rather than the webpack stats: the stats give the importers of the
- * top level modules only, while most of the modules of @tensordiagram/core, published as ES modules, are concatenated by
+ * top level modules only, while most of the modules of @tensormorph/tensordiagramcore, published as ES modules, are concatenated by
  * webpack into a single module, and the stats list them without their importers.
  */
 function writeModuleStats(compiler) {

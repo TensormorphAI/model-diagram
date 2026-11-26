@@ -1,6 +1,6 @@
 ---
 name: storybook-check
-description: "Check that every Storybook story of packages/html renders without error, both in dev mode (storybook dev) and in prod mode (static storybook build), by loading each story in headless Chrome. Use to validate a Storybook or Vite upgrade, such as a Dependabot pull request bumping the storybook group, a change to packages/html/.storybook, or a change to @tensordiagram/core that may break the stories."
+description: "Check that every Storybook story of packages/html renders without error, both in dev mode (storybook dev) and in prod mode (static storybook build), by loading each story in headless Chrome. Use to validate a Storybook or Vite upgrade, such as a Dependabot pull request bumping the storybook group, a change to packages/html/.storybook, or a change to @tensormorph/tensordiagramcore that may break the stories."
 argument-hint: "[dev|prod|all] [--skip-build]"
 ---
 

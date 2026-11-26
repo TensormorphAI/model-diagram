@@ -87,7 +87,7 @@ Each of these was found in a migrated story. Check for all of them.
 | A bare `new KeyHandler(graph)` | Not useless: it is the only caller of `graph.escape()`, which cancels a move, connection or resize. Keep it with a comment, `// NOSONAR` (rule S1848), and `createGraphContainer(args, { captureKeystrokes: true })` so that it receives the keys in Storybook | OrgChart (#532), #1326 |
 | A container with no size when the story runs | The story element is not attached yet. Defer what needs the size | OrgChart (#532) |
 
-A missing export or a type too narrow in `@tensordiagram/core`, found while typing the story, is fixed in the core in its own
+A missing export or a type too narrow in `@tensormorph/tensordiagramcore`, found while typing the story, is fixed in the core in its own
 commit, as DragSource (#860), Thread (#877) and Stylesheet (#878) did.
 
 ## 3. Describe the story

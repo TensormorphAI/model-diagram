@@ -14,7 +14,7 @@ on:
       - '!packages/website/**/*'
       - 'scripts/build-all-examples.bash'
       - 'package.json'
-      - 'package-lock.json'
+      - 'bun.lock'
       - 'tsconfig.json'
   pull_request:
     branches:
@@ -29,7 +29,7 @@ on:
       - '!packages/website/**/*'
       - 'scripts/build-all-examples.bash'
       - 'package.json'
-      - 'package-lock.json'
+      - 'bun.lock'
       - 'tsconfig.json'
 
 jobs:
@@ -49,24 +49,24 @@ jobs:
       - name: Build Setup
         uses: ./.github/actions/build-setup
 
-      - name: Build @tensordiagram/core
-        run: npm run build -w packages/core
+      - name: Build @tensormorph/tensordiagramcore
+        run: bun run --cwd packages/core build
 
-      - name: Check TS compilation of the tests of @tensordiagram/core
-        run: npm run test-check -w packages/core
-      - name: Test @tensordiagram/core
-        run: npm test -w packages/core -- --coverage
+      - name: Check TS compilation of the tests of @tensormorph/tensordiagramcore
+        run: bun run --cwd packages/core test-check
+      - name: Test @tensormorph/tensordiagramcore
+        run: bun run --cwd packages/core test --coverage
       - name: Upload test results as artifact
         uses: actions/upload-artifact@v7
         with:
           name: test-coverage-${{runner.os}}-${{github.sha}}
           path: packages/core/coverage/lcov-report
       - name: Test TypeScript support
-        run: npm test -w packages/ts-support
+        run: bun run --cwd packages/ts-support test
 
       # Already built in generate-website.yml, but here we want to ensure it can be built on all OSes
       - name: Build Storybook mini-site
-        run: npm run build -w packages/html
+        run: bun run --cwd packages/html build
 
       - name: Upload storybook mini-site as artifact
         uses: actions/upload-artifact@v7
@@ -75,15 +75,15 @@ jobs:
           path: |
             packages/html/dist/
 
-      - name: Ensure no circular dependencies in the @tensordiagram/core produced JS files
-        run: npm run check:circular-dependencies -w packages/core
+      - name: Ensure no circular dependencies in the @tensormorph/tensordiagramcore produced JS files
+        run: bun run --cwd packages/core check:circular-dependencies
 
       - name: Ensure no lint errors
-        run: npm run lint
+        run: bun run lint
 
       # See https://github.com/arethetypeswrong/arethetypeswrong.github.io/tree/main/packages/cli
       - name: Check npm package
-        run: npm run check:npm-package -w packages/core
+        run: bun run --cwd packages/core check:npm-package
 
 
   build_examples:

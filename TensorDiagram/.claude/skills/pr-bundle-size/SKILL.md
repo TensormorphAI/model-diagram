@@ -1,6 +1,6 @@
 ---
 name: pr-bundle-size
-description: "Build the bundle size comparison table of a TensorDiagram pull request from the CI logs, or of a local branch by building the examples locally, when the branch has no pull request yet or has commits not pushed to it. Use when the user asks for the bundle size impact of a pull request or of a branch, for instance a bundler upgrade or a change in @tensordiagram/core."
+description: "Build the bundle size comparison table of a TensorDiagram pull request from the CI logs, or of a local branch by building the examples locally, when the branch has no pull request yet or has commits not pushed to it. Use when the user asks for the bundle size impact of a pull request or of a branch, for instance a bundler upgrade or a change in @tensormorph/tensordiagramcore."
 disable-model-invocation: true
 argument-hint: "[<pr-number>]"
 ---

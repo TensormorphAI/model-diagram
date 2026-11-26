@@ -17,7 +17,7 @@ These elements require the application to provide CSS rules for correct display.
 
 `TensorDiagram` provides a default CSS file that can be used in the application like in the following:
 ```js
-import '@tensordiagram/core/css/common.css';
+import '@tensormorph/tensordiagramcore/css/common.css';
 ```
 
 :::note
@@ -38,7 +38,7 @@ div.mxRubberband {
 ```
 Then, import it in the application: 
 ```js
-import '@tensordiagram/core/css/common.css';
+import '@tensormorph/tensordiagramcore/css/common.css';
 import './custom.css'
 ```
 
@@ -62,7 +62,7 @@ You can also check the [JavaScript Webpack example](https://github.com/TensorDia
 
 ## Images
 
-The `@tensordiagram/core` npm package includes images that are required by some features. \
+The `@tensormorph/tensordiagramcore` npm package includes images that are required by some features. \
 For example, the _Folding_ feature requires (if not configured elsewhere) images named _collapsed.gif_ and _expanded.gif_.
 
 When using these features, the images must be available to the application.

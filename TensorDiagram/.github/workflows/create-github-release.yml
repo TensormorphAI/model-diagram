@@ -167,7 +167,7 @@ jobs:
 
             **TODO: Validate the milestone URL and update it if needed**
 
-            - **npm package**: [@tensordiagram/core ${{ env.VERSION }}](https://www.npmjs.com/package/@tensordiagram/core/v/${{ env.VERSION }})
+            - **npm package**: [@tensormorph/tensordiagramcore ${{ env.VERSION }}](https://www.npmjs.com/package/@tensormorph/tensordiagramcore/v/${{ env.VERSION }})
             - **Fixed issues**: [milestone ${{ env.VERSION }}](https://github.com/TensorDiagram/TensorDiagram/milestone/${{ env.MILESTONE_NUMBER }}?closed=1)
             - **Documentation**: [tensordiagram_${{ env.VERSION }}_website.zip](https://github.com/TensorDiagram/TensorDiagram/releases/download/v${{ env.VERSION }}/tensordiagram_${{ env.VERSION }}_website.zip)
             - **Examples**: [tensordiagram_${{ env.VERSION }}_examples.zip](https://github.com/TensorDiagram/TensorDiagram/releases/download/v${{ env.VERSION }}/tensordiagram_${{ env.VERSION }}_examples.zip)

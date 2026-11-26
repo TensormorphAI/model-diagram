@@ -1,5 +1,5 @@
 name: 'Build Setup'
-description: 'Setup node and install dependencies'
+description: 'Setup node and bun, then install dependencies'
 
 inputs:
   registry-url:
@@ -9,12 +9,16 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    # node still runs the tools (tsc, jest, vite, webpack), bun installs the dependencies and runs the scripts
     - name: Setup node
       uses: actions/setup-node@v6
       with:
         node-version-file: '.nvmrc'
         registry-url: ${{ inputs.registry-url }}
-    - name: Install dependencies
-      uses: bahmutov/npm-install@v1
+    - name: Setup bun
+      uses: oven-sh/setup-bun@v2
       with:
-        install-command: npm ci --prefer-offline --audit false --ignore-scripts --no-fund
+        bun-version-file: 'package.json'
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile --ignore-scripts

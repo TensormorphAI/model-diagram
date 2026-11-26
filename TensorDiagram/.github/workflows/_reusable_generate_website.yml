@@ -19,17 +19,17 @@ jobs:
       - name: Build Setup
         uses: ./.github/actions/build-setup
 
-      - name: Build @tensordiagram/core API docs
-        run: npm run docs:api -w packages/core
+      - name: Build @tensormorph/tensordiagramcore API docs
+        run: bun run --cwd packages/core docs:api
 
       - name: Build Storybook demo
-        run: npm run build -w packages/core -w packages/html
+        run: bun run --cwd packages/core build && bun run --cwd packages/html build
 
       - name: Copy generated resources to the website
-        run: npm run extra:copy-gen-resources -w packages/website
+        run: bun run --cwd packages/website extra:copy-gen-resources
 
       - name: Build website
-        run: npm run build -w packages/website
+        run: bun run --cwd packages/website build
 
       - name: Upload website artifact for GitHub Pages
         if: ${{ inputs['artifact-name'] == 'gh-pages' }}
@@ -64,4 +64,4 @@ jobs:
           path: artifact-output/
 
       - name: Check types in website
-        run: npm run typecheck -w packages/website
+        run: bun run --cwd packages/website typecheck

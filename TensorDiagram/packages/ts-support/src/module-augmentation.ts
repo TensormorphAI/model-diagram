@@ -4,9 +4,9 @@
 // "TS2300: Duplicate identifier". It also requires TypeScript 3.9 or higher. Older versions override the declaration
 // instead of merging with it when the augmented type reaches the entry point through an `export *` re-export, which
 // silently leaves the augmented type with the added property only.
-import { CellStyle, Stylesheet } from '@tensordiagram/core';
+import { CellStyle, Stylesheet } from '@tensormorph/tensordiagramcore';
 
-declare module '@tensordiagram/core' {
+declare module '@tensormorph/tensordiagramcore' {
   // Augment CellStateStyle rather than CellStyle: CellStyle extends CellStateStyle, so the added property is available
   // on both, and on everything else built on CellStateStyle (CellState.style, the Stylesheet default and named styles).
   interface CellStateStyle {

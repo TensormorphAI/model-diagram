@@ -1,21 +1,15 @@
 /*
 Copyright 2022-present The TensorDiagram project Contributors
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+See LICENSE in the project root for license information.
 */
 
-import type { AbstractCanvas2D } from '@tensordiagram/core';
-import { EllipseShape, RectangleShape, ShapeRegistry } from '@tensordiagram/core';
+import type { AbstractCanvas2D } from '@tensormorph/tensordiagramcore';
+import {
+  EllipseShape,
+  RectangleShape,
+  ShapeRegistry,
+} from '@tensormorph/tensordiagramcore';
 
 // The renderer builds a registered shape with no argument, so these defaults cannot come from a constructor. They are
 // also derived from the style, so `resetStyles()` wipes them on every style change. Each one is therefore declared

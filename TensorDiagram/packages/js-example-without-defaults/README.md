@@ -22,7 +22,7 @@ cd ../../packages/js-example-without-defaults/
 npm run dev
 ```
 
-For more build information see: [@tensordiagram/core](../../README.md#development).
+For more build information see: [@tensormorph/tensordiagramcore](../../README.md#development).
 
 
 ## Run
