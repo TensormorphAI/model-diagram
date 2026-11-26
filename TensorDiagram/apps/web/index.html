@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive showcase of the TensorDiagram diagramming library features" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>TensorDiagram showcase</title>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <header class="brand">
+          <strong>TensorDiagram</strong>
+          <span id="version" class="version"></span>
+          <p>Feature showcase</p>
+        </header>
+        <nav id="nav" aria-label="Demos"></nav>
+      </aside>
+      <main class="main">
+        <header class="demo-header">
+          <h1 id="demo-title"></h1>
+          <p id="demo-description"></p>
+          <ul id="demo-hints" class="hints"></ul>
+        </header>
+        <div id="demo-toolbar" class="toolbar" role="toolbar" aria-label="Demo actions"></div>
+        <div class="workspace">
+          <section id="stage" class="stage" aria-label="Diagram"></section>
+          <section id="side" class="side" aria-label="Demo panel"></section>
+        </div>
+      </main>
+      <aside class="log-panel" aria-label="Event log">
+        <header>
+          <h2>Event log</h2>
+          <button id="clear-log" type="button">Clear</button>
+        </header>
+        <ol id="log" class="log" aria-live="polite"></ol>
+      </aside>
+    </div>
+  </body>
+</html>

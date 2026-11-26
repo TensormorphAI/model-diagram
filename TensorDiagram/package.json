@@ -12,7 +12,8 @@
     "url": "https://github.com/TensorDiagram/TensorDiagram/issues"
   },
   "workspaces": [
-    "./packages/*"
+    "./packages/*",
+    "./apps/*"
   ],
   "scripts": {
     "dev": "node ./scripts/dev",

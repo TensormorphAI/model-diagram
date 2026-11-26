@@ -17,7 +17,7 @@ The original `mxGraph` tutorial was used to create this page which still contain
 This tutorial is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). \
 It is adapted from the original [mxGraph tutorial](https://github.com/jgraph/mxgraph/blob/v4.2.2/docs/tutorial.html).
 
-> Copyright 2021-present The TensorDiagram project Contributors \
+> Copyright (c) Tensormorph. All rights reserved. \
 Copyright (c) JGraph Ltd 2006-2017
 
 :::

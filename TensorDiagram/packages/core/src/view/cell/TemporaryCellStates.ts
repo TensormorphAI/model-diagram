@@ -1,7 +1,5 @@
 /*
-Copyright 2021-present The TensorDiagram project Contributors
-Copyright (c) 2006-2017, JGraph Ltd
-Copyright (c) 2006-2017, Gaudenz Alder
+Copyright (c) Tensormorph. All rights reserved.
 
 See LICENSE in the project root for license information.
 */

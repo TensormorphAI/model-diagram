@@ -1,0 +1,269 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --border: #dde1e6;
+  --text: #1f2328;
+  --muted: #5d6670;
+  --accent: #2563eb;
+  --accent-soft: #e8efff;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr) 280px;
+  height: 100vh;
+}
+
+.sidebar,
+.log-panel {
+  background: var(--panel);
+  overflow-y: auto;
+}
+
+.sidebar {
+  border-right: 1px solid var(--border);
+  padding: 16px 12px;
+}
+
+.brand strong {
+  font-size: 16px;
+}
+
+.brand p {
+  margin: 4px 0 12px;
+  color: var(--muted);
+}
+
+.version {
+  margin-left: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+nav h2 {
+  margin: 16px 0 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  padding: 5px 8px;
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: var(--bg);
+}
+
+nav a[aria-current] {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 16px 20px;
+  gap: 10px;
+}
+
+.demo-header h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.demo-header p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 80ch;
+}
+
+.hints {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.toolbar:empty {
+  display: none;
+}
+
+button {
+  font: inherit;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+button:focus-visible,
+a:focus-visible,
+.graph-container:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  min-height: 0;
+}
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.graph-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: default;
+  /* matches the default gridSize of 10 at scale 1 */
+  background-image:
+    linear-gradient(to right, #eef0f3 1px, transparent 1px),
+    linear-gradient(to bottom, #eef0f3 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 300px;
+  min-height: 0;
+  overflow: auto;
+}
+
+.side:empty {
+  display: none;
+}
+
+.side textarea {
+  flex: 1;
+  min-height: 200px;
+  width: 100%;
+  font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  resize: none;
+}
+
+.side .outline {
+  height: 200px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.side .palette {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.side .palette > * {
+  padding: 10px 6px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: grab;
+  user-select: none;
+}
+
+.log-panel {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+}
+
+.log-panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.log-panel h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.log {
+  flex: 1;
+  margin: 0;
+  padding: 8px 12px;
+  list-style: none;
+  overflow-y: auto;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--muted);
+}
+
+.mount-error {
+  margin: 16px;
+  white-space: pre-wrap;
+  color: #b42318;
+}
+
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .log-panel {
+    display: none;
+  }
+}

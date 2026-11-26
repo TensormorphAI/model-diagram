@@ -1,5 +1,5 @@
 /*
-Copyright 2024-present The TensorDiagram project Contributors
+Copyright (c) Tensormorph. All rights reserved.
 
 See LICENSE in the project root for license information.
 */

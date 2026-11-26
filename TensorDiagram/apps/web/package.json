@@ -1,0 +1,24 @@
+{
+  "name": "@tensordiagram/web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Showcase of the TensorDiagram features, one demo per feature area, also used as an end-to-end test bed",
+  "scripts": {
+    "assets": "node scripts/copy-core-assets.mjs",
+    "dev": "bun run assets && vite",
+    "build": "bun run assets && tsc && vite build --base ./",
+    "build:analyze": "cross-env ANALYZE=true bun run build",
+    "preview": "vite preview",
+    "test:e2e": "node e2e/smoke.mjs"
+  },
+  "dependencies": {
+    "@tensormorph/tensordiagramcore": "workspace:*"
+  },
+  "devDependencies": {
+    "cross-env": "~10.1.0",
+    "playwright-core": "1.65.1",
+    "vite": "~8.4.0",
+    "vite-bundle-analyzer": "~1.3.9"
+  }
+}

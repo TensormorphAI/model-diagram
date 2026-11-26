@@ -1,5 +1,5 @@
 /*
-Copyright 2021-present The TensorDiagram project Contributors
+Copyright (c) Tensormorph. All rights reserved.
 Copyright (c) 2006-2013, JGraph Ltd
 
 See LICENSE in the project root for license information.

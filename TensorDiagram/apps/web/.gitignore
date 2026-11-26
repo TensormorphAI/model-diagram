@@ -1,0 +1,5 @@
+node_modules
+dist
+# copied from @tensormorph/tensordiagramcore by scripts/copy-core-assets.mjs
+public/images
+public/i18n
