@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:c2pa="http://c2pa.org/manifest" width="1105" height="1201" viewBox="156 0 1105 1201" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="blockGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7354F" />
+      <stop offset="0.55" stop-color="#FB8E78" />
+      <stop offset="1" stop-color="#FDCB8C" />
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111" />
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#111;stroke-width:2}
+      .gbox{fill:#E3E3E3;stroke:#111;stroke-width:2}
+      .lbl{font-size:17px;fill:#111;text-anchor:middle;dominant-baseline:central}
+      .ln{stroke:#111;stroke-width:2.5;fill:none}
+      .dot{stroke:#222;stroke-width:3;stroke-dasharray:3 3;fill:none}
+      .note{font-size:22px;font-weight:700;fill:#111}
+      .r{fill:#EE2A45}
+    </style>
+  </defs>
+
+  <rect width="1105" height="1201" fill="#fff" x="156" y="0" />
+
+  
+  <text x="470" y="58" font-size="62" font-weight="700" fill="#EE2A45" text-anchor="middle" style="fill:#111">MiniMax-M3 (428B)</text>
+
+  
+  <rect x="215" y="162" width="500" height="922" rx="42" fill="#E5E5E5" stroke="#111" stroke-width="2" style="fill:#f2f2f2;stroke:#111" />
+
+  
+  <line x1="468" y1="190" x2="468" y2="124" class="ln" marker-end="url(#arr)" />
+  <rect x="381" y="190" width="176" height="38" rx="10" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="469" y="209" class="lbl" style="fill:#111">Linear output layer</text>
+  <line x1="468" y1="255" x2="468" y2="230" class="ln" marker-end="url(#arr)" />
+  <rect x="389" y="255" width="161" height="38" rx="10" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="469" y="274" class="lbl" style="fill:#111">Final RMSNorm</text>
+
+  
+  <rect x="294" y="316" width="355" height="556" rx="36" fill="url(#blockGrad)" stroke="#111" stroke-width="2" style="fill:#e6e6e6;stroke:#111" />
+
+  <line x1="468" y1="348" x2="468" y2="295" class="ln" marker-end="url(#arr)" />
+  <circle cx="468" cy="363" r="15" fill="#fff" stroke="#111" stroke-width="2" />
+  <path d="M460,363 H476 M468,355 V371" stroke="#111" stroke-width="2.5" />
+
+  <line x1="468" y1="422" x2="468" y2="380" class="ln" marker-end="url(#arr)" />
+  <rect x="388" y="422" width="160" height="36" rx="10" class="gbox" style="fill:#c5e7f6;stroke:#111" />
+  <text x="468" y="440" class="lbl" style="fill:#111">MoE</text>
+
+  <line x1="468" y1="502" x2="468" y2="460" class="ln" marker-end="url(#arr)" />
+  <rect x="388" y="502" width="160" height="36" rx="10" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="468" y="520" class="lbl" style="fill:#111">RMSNorm 2</text>
+
+  <line x1="468" y1="599" x2="468" y2="540" class="ln" marker-end="url(#arr)" />
+  <polyline points="468,586 578,586 578,363 485,363" class="ln" marker-end="url(#arr)" />
+  <circle cx="468" cy="614" r="15" fill="#fff" stroke="#111" stroke-width="2" />
+  <path d="M460,614 H476 M468,606 V622" stroke="#111" stroke-width="2.5" />
+
+  <line x1="468" y1="662" x2="468" y2="631" class="ln" marker-end="url(#arr)" />
+  <rect x="368" y="662" width="198" height="72" rx="10" fill="#555" stroke="#111" stroke-width="2" style="fill:#fde1b9;stroke:#111" />
+  <text x="467" y="688" class="lbl" fill="#fff" style="fill:#111">GQA / MiniMax Sparse</text>
+  <text x="467" y="710" class="lbl" style="fill:#111">Attention</text>
+
+  <line x1="468" y1="773" x2="468" y2="736" class="ln" marker-end="url(#arr)" />
+  <rect x="388" y="773" width="160" height="36" rx="10" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="468" y="791" class="lbl" style="fill:#111">RMSNorm 1</text>
+
+  <polyline points="468,855 578,855 578,614 485,614" class="ln" marker-end="url(#arr)" />
+  <line x1="468" y1="955" x2="468" y2="811" class="ln" marker-end="url(#arr)" />
+
+  
+  <rect x="198" y="642" width="134" height="40" rx="10" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="265" y="662" class="lbl" style="fill:#111">QK-Norm</text>
+  <line x1="333" y1="662" x2="364" y2="672" class="ln" marker-end="url(#arr)" />
+  <rect x="194" y="695" width="134" height="40" rx="10" class="box" style="fill:#fadbde;stroke:#111" />
+  <text x="261" y="715" class="lbl" style="fill:#111">Partial RoPE</text>
+  <line x1="329" y1="714" x2="364" y2="714" class="ln" marker-end="url(#arr)" />
+
+  <text x="228" y="891" font-size="24" font-weight="600" class="r">60 ×</text>
+  <path d="M312,826 C292,830 300,850 288,856 C300,862 292,884 320,890" fill="none" stroke="#111" stroke-width="3" />
+
+
+  
+  <rect x="346" y="955" width="242" height="38" rx="10" class="box" style="fill:#fadbde;stroke:#111" />
+  <text x="467" y="974" class="lbl" style="fill:#111">Token embedding layer</text>
+  <line x1="468" y1="1101" x2="468" y2="995" class="ln" marker-end="url(#arr)" />
+  <rect x="388" y="1101" width="160" height="38" rx="10" class="box" style="fill:#fadbde;stroke:#111" />
+  <text x="468" y="1120" class="lbl" style="fill:#111">Tokenized text</text>
+  <line x1="468" y1="1177" x2="468" y2="1143" class="ln" marker-end="url(#arr)" />
+  <text x="860" y="155" font-size="23" font-weight="700" fill="#111">Feed forward (SwiGLU) module</text>
+  <rect x="862" y="167" width="362" height="274" rx="26" fill="#E5E5E5" stroke="#222" stroke-width="2.5" stroke-dasharray="6 4" style="fill:#f2f2f2;stroke:#111" />
+  <rect x="887" y="193" width="150" height="44" rx="12" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="962" y="215" class="lbl" style="fill:#111">Linear layer</text>
+  <rect x="888" y="285" width="150" height="44" rx="12" class="box" style="fill:#c5e7f6;stroke:#111" />
+  <text x="963" y="307" class="lbl" style="fill:#111">SiLU activation</text>
+  <rect x="1049" y="285" width="150" height="44" rx="12" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="1124" y="307" class="lbl" style="fill:#111">Linear layer</text>
+  <rect x="888" y="371" width="150" height="44" rx="12" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="963" y="393" class="lbl" style="fill:#111">Linear layer</text>
+  <line x1="965" y1="371" x2="965" y2="331" class="ln" marker-end="url(#arr)" />
+  <line x1="965" y1="285" x2="965" y2="239" class="ln" marker-end="url(#arr)" />
+  <line x1="965" y1="262" x2="1034" y2="262" class="ln" />
+  <polyline points="1058,262 1123,262 1123,285" class="ln" />
+  <circle cx="1046" cy="262" r="12" fill="#fff" stroke="#111" stroke-width="2" />
+  <path d="M1040,256 L1052,268 M1052,256 L1040,268" stroke="#111" stroke-width="2.2" />
+
+  <rect x="795" y="562" width="442" height="428" rx="42" fill="none" stroke="#EE2A45" stroke-width="3" stroke-dasharray="3 4" style="stroke:#111" />
+  <text x="1080" y="620" font-size="27" font-weight="700" fill="#111">MoE layer</text>
+
+  <line x1="1007" y1="633" x2="1007" y2="587" class="ln" marker-end="url(#arr)" />
+  <circle cx="1007" cy="650" r="17" fill="#fff" stroke="#111" stroke-width="2" />
+  <path d="M998,650 H1016 M1007,641 V659" stroke="#111" stroke-width="2.5" />
+
+  <line x1="895" y1="733" x2="992" y2="666" class="ln" marker-end="url(#arr)" />
+  <line x1="1007" y1="735" x2="1007" y2="670" class="ln" marker-end="url(#arr)" />
+  <line x1="1120" y1="730" x2="1022" y2="666" class="ln" marker-end="url(#arr)" />
+
+  <rect x="810" y="738" width="160" height="36" rx="10" class="gbox" style="fill:#c5e7f6;stroke:#111" />
+  <text x="876" y="756" class="lbl" style="fill:#111">Feed forward</text>
+  <rect x="938" y="770" width="34" height="34" rx="5" fill="#666" />
+  <text x="955" y="787" class="lbl" style="fill:#fff">1</text>
+
+  <rect x="1043" y="733" width="158" height="36" rx="10" class="gbox" style="fill:#c5e7f6;stroke:#111" />
+  <text x="1122" y="751" class="lbl" style="fill:#111">Feed forward</text>
+  <rect x="1160" y="764" width="50" height="34" rx="6" fill="#EE2A45" />
+  <text x="1185" y="781" class="lbl" style="fill:#fff">128</text>
+
+  <text x="1008" y="772" font-size="30" font-weight="900" text-anchor="middle" fill="#111">· · ·</text>
+
+  <line x1="1010" y1="872" x2="905" y2="792" class="ln" marker-end="url(#arr)" />
+  <line x1="1010" y1="872" x2="1010" y2="792" class="ln" marker-end="url(#arr)" />
+  <line x1="1010" y1="872" x2="1118" y2="787" class="ln" marker-end="url(#arr)" />
+  <rect x="960" y="876" width="94" height="50" rx="10" fill="#fff" stroke="#EE2A45" stroke-width="2.5" style="fill:#cbe8d4;stroke:#111" />
+  <text x="1007" y="901" class="lbl" style="font-size:20px;fill:#111">Router</text>
+  <line x1="1010" y1="968" x2="1010" y2="930" class="ln" marker-end="url(#arr)" />
+
+  
+  <g font-size="22" fill="#111">
+    </g>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYToyNGQyNDcyMy0yMmE4LTRlZDItYjk1Zi04ZTM2N2I5MjQ1NTMAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaF6YIww7wr4tVRuZ4rV0XDAAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo2NmJiYzdhOC1iMjY5LTRmNjktYWM4OC1hZTY1OGExM2FkZjlscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo86XnMKjOwSBuboCUooZkewAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggA2fVqHbSaJhQFu4swO81P0zyYLI41Z1Q962SnLSFQvmkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaD2M6gTR27ZFjHQcUzCtj9cAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYINJxFCnq3BrIVaX1Px5ATZh4c0x8wTgt+vXry08BblFjZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GSkPZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjI0ZDI0NzIzLTIyYTgtNGVkMi1iOTVmLThlMzY3YjkyNDU1My9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjExMjA4ZjQyLTlkZWItNGU5NS04MzNhLTAyMThkZjkxNTgwN3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCADZ9WodtJomFAW7izA7zU/TPJgsjjVnVD3rZKctIVC+aJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggNTAn670qKWQgCGZmx7byvQ5Y0q8piPIH7VnjUuPTmJKiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg66WdDuyw7PMl3hP9lIAaq5EdSykuefgkfO61vFMXjIh0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQDsbyq1ygOu44RHBUJGLaKpv7AxbedWpYEWgTGSQOdsP29ZjlkbbFm8/VIG/FdHLfFks9T74kZVmg22LTyuMq4I=</c2pa:manifest></metadata></svg>

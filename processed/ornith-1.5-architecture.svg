@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:c2pa="http://c2pa.org/manifest" viewBox="110 0 1190 1169" width="1190" height="1169" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222" />
+    </marker>
+    <linearGradient id="cyan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6ff7e6" />
+      <stop offset="1" stop-color="#14a6f2" />
+    </linearGradient>
+    <style>
+      .box{fill:#fff;stroke:#444;stroke-width:1.4}
+      .gbox{fill:#d9d9d9;stroke:#555;stroke-width:1.4}
+      .ybox{fill:#fdf5c4;stroke:#555;stroke-width:1.4}
+      .obox{fill:#f8cd66;stroke:#a07a20;stroke-width:1.4}
+      .rbox{fill:#f07e7e;stroke:#9c3c3c;stroke-width:1.4}
+      .ln{stroke:#222;stroke-width:1.6;fill:none}
+      .dot{stroke:#222;stroke-width:3.5;fill:none;stroke-dasharray:3 4}
+      .panel{fill:none;stroke:#222;stroke-width:3;stroke-dasharray:3 5}
+      .t{font-size:15px;fill:#111;text-anchor:middle;dominant-baseline:central}
+      .ts{font-size:13px;fill:#111;text-anchor:middle;dominant-baseline:central}
+      .lbl{font-size:22px;font-weight:700;fill:#111}
+      .blue{fill:#1a7bc4}
+      .mono{font-family:Menlo, Consolas, 'Courier New', monospace;fill:#111}
+      .gl{font-size:20px;fill:#111;text-anchor:middle;dominant-baseline:central}
+    </style>
+  </defs>
+
+  <rect width="1190" height="1169" fill="#fff" x="110" y="0" />
+
+  
+  <text x="460" y="52" font-size="58" font-weight="700" class="blue" text-anchor="middle" style="fill:#111">Ornith 1.5 (35B-A3B)</text>
+
+  
+  <rect x="183" y="147" width="485" height="908" rx="30" fill="#dcdcdc" stroke="#555" stroke-width="1.5" style="fill:#f2f2f2;stroke:#111" />
+  <rect x="262" y="297" width="343" height="545" rx="35" fill="url(#cyan)" stroke="#3a8fb8" stroke-width="1" style="fill:#e6e6e6;stroke:#111" />
+
+  
+  <line class="ln" x1="429" y1="1145" x2="429" y2="1112" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="1073" x2="429" y2="967" />
+  <line class="ln" x1="429" y1="927" x2="429" y2="780" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="742" x2="429" y2="703" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="633" x2="429" y2="603" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="573" x2="429" y2="515" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="477" x2="429" y2="438" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="400" x2="429" y2="358" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="328" x2="429" y2="275" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="237" x2="429" y2="212" marker-end="url(#arr)" />
+  <line class="ln" x1="429" y1="173" x2="429" y2="108" marker-end="url(#arr)" />
+
+  
+  <polyline class="ln" points="429,822 537,822 537,587 445,587" marker-end="url(#arr)" />
+  <polyline class="ln" points="429,558 537,558 537,342 445,342" marker-end="url(#arr)" />
+
+  
+  <g>
+    <circle cx="429" cy="342" r="14" fill="#fff" stroke="#222" stroke-width="1.6" />
+    <path class="ln" d="M421,342 H437 M429,334 V350" />
+    <circle cx="429" cy="588" r="14" fill="#fff" stroke="#222" stroke-width="1.6" />
+    <path class="ln" d="M421,588 H437 M429,580 V596" />
+  </g>
+
+  
+  <rect class="box" x="348" y="173" width="164" height="37" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="t" x="430" y="191.5" style="fill:#111">Linear output layer</text>
+  <rect class="box" x="353" y="237" width="154" height="36" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <text class="t" x="430" y="255" style="fill:#111">Final RMSNorm</text>
+  <rect class="gbox" x="352" y="400" width="155" height="36" rx="8" style="fill:#c5e7f6;stroke:#111" />
+  <text class="t" x="429.5" y="418" style="fill:#111">MoE</text>
+  <rect class="box" x="352" y="477" width="155" height="36" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <text class="t" x="429.5" y="495" style="fill:#111">RMSNorm 2</text>
+  <rect x="323" y="633" width="192" height="68" rx="9" fill="#555" stroke="#333" stroke-width="1.4" style="fill:#fde1b9;stroke:#111" />
+  <text class="t" x="419" y="658" fill="#fff" style="fill:#111">Gated DeltaNet or</text>
+  <text class="t" x="419" y="677" style="fill:#111">Gated attention</text>
+  <rect class="box" x="352" y="742" width="154" height="36" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <text class="t" x="429" y="760" style="fill:#111">RMSNorm 1</text>
+  <rect class="box" x="312" y="927" width="236" height="38" rx="8" style="fill:#fadbde;stroke:#111" />
+  <text class="t" x="430" y="946" style="fill:#111">Token embedding layer</text>
+  <rect class="box" x="351" y="1073" width="155" height="37" rx="8" style="fill:#fadbde;stroke:#111" />
+  <text class="t" x="428.5" y="1091.5" style="fill:#111">Tokenized text</text>
+  <rect class="box" x="134" y="633" width="153" height="65" rx="8" style="fill:#fadbde;stroke:#111" />
+  <text class="t" x="210" y="648" style="fill:#111">Partial RoPE</text>
+  <text class="t" x="210" y="666" style="fill:#111">(only in attention</text>
+  <text class="t" x="210" y="684" style="fill:#111">layers)</text>
+  <line class="ln" x1="290" y1="666" x2="319" y2="666" marker-end="url(#arr)" />
+
+  
+  <text x="196" y="859" font-size="22" font-weight="700" class="blue">40 ×</text>
+  <text x="190" y="900" font-size="20" fill="#111">Layers</text>
+  <path d="M262,800 C246,802 256,826 250,830 C256,834 246,858 262,860" fill="none" stroke="#111" stroke-width="3" transform="translate(12,0)" />
+
+  <text x="1006" y="86" font-size="20" font-weight="700" fill="#111" text-anchor="middle">Gated attention (“full attention”)</text>
+  <rect class="panel" x="797" y="103" width="480" height="355" rx="34" style="stroke:#111" />
+
+  <rect class="gbox" x="977" y="121" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1011" y="139" style="fill:#111">Linear</text>
+  <line class="ln" x1="1011" y1="188" x2="1011" y2="159" marker-end="url(#arr)" />
+  <circle cx="1011" cy="201" r="13" fill="#fff" stroke="#222" stroke-width="1.6" />
+  <path class="ln" d="M1002,192 L1020,210 M1020,192 L1002,210" />
+  <line class="ln" x1="1011" y1="224" x2="1011" y2="216" />
+  <polyline class="ln" points="1181,378 1181,269" />
+  <polyline class="ln" points="1181,243 1181,201 1026,201" marker-end="url(#arr)" />
+
+  <rect class="ybox" x="889" y="224" width="243" height="36" rx="8" style="fill:#fde1b9;stroke:#111" />
+  <text class="ts" x="1010.5" y="242" style="fill:#111">Scaled dot-product attention</text>
+
+  <circle cx="1181" cy="256" r="13" fill="#fff" stroke="#222" stroke-width="1.6" />
+  <text x="1181" y="262" font-size="20" font-style="italic" font-family="Times New Roman, serif" text-anchor="middle">σ</text>
+  <text x="1202" y="250" font-size="14" fill="#111">Sigmoid</text>
+  <text x="1212" y="268" font-size="14" fill="#111">Gate</text>
+
+  <line class="ln" x1="927" y1="326" x2="927" y2="262" marker-end="url(#arr)" />
+  <line class="ln" x1="1009" y1="326" x2="1009" y2="262" marker-end="url(#arr)" />
+  <line class="ln" x1="1093" y1="381" x2="1093" y2="262" marker-end="url(#arr)" />
+  <text class="gl" x="907" y="298">Q</text>
+  <text class="gl" x="995" y="298">K</text>
+  <text class="gl" x="1078" y="298">V</text>
+
+  <text x="812" y="349" font-size="15" fill="#111">QK-Norm</text>
+  <rect class="box" x="890" y="326" width="74" height="34" rx="7" style="fill:#f1f4c2;stroke:#111" />
+  <text x="927" y="343" font-size="12" text-anchor="middle" dominant-baseline="central" style="fill:#111">RMSNorm</text>
+  <rect class="box" x="972" y="326" width="74" height="34" rx="7" style="fill:#f1f4c2;stroke:#111" />
+  <text x="1009" y="343" font-size="12" text-anchor="middle" dominant-baseline="central" style="fill:#111">RMSNorm</text>
+  <line class="ln" x1="924" y1="381" x2="924" y2="362" />
+  <line class="ln" x1="1009" y1="381" x2="1009" y2="362" />
+
+  <rect class="gbox" x="890" y="381" width="68" height="34" rx="7" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="924" y="398" style="fill:#111">Linear</text>
+  <rect class="gbox" x="976" y="381" width="68" height="34" rx="7" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1010" y="398" style="fill:#111">Linear</text>
+  <rect class="gbox" x="1059" y="381" width="68" height="34" rx="7" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1093" y="398" style="fill:#111">Linear</text>
+  <rect class="gbox" x="1147" y="378" width="68" height="34" rx="7" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1181" y="395" style="fill:#111">Linear</text>
+
+  
+  <text x="1008" y="523" font-size="20" font-weight="700" fill="#111" text-anchor="middle">Gated DeltaNet (“linear attention”)</text>
+  <rect class="panel" x="792" y="540" width="493" height="483" rx="34" style="stroke:#111" />
+
+  <rect class="gbox" x="976" y="554" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1010" y="572" style="fill:#111">Linear</text>
+  <line class="ln" x1="1011" y1="620" x2="1011" y2="592" marker-end="url(#arr)" />
+  <circle cx="1011" cy="633" r="13" fill="#fff" stroke="#222" stroke-width="1.6" />
+  <path class="ln" d="M1002,624 L1020,642 M1020,624 L1002,642" />
+  <line class="ln" x1="1011" y1="655" x2="1011" y2="648" />
+  <rect class="box" x="972" y="655" width="76" height="34" rx="7" style="fill:#f1f4c2;stroke:#111" />
+  <text x="1010" y="672" font-size="12" text-anchor="middle" dominant-baseline="central" style="fill:#111">RMSNorm</text>
+  <line class="ln" x1="1011" y1="699" x2="1011" y2="691" marker-end="url(#arr)" />
+
+  <rect class="ybox" x="890" y="699" width="243" height="36" rx="8" style="fill:#fde1b9;stroke:#111" />
+  <text class="ts" x="1011.5" y="717" style="fill:#111">Gated Delta Rule</text>
+
+  
+  <line class="ln" x1="1181" y1="953" x2="1181" y2="792" />
+  <polyline class="ln" points="1181,766 1181,633 1026,633" marker-end="url(#arr)" />
+  <circle cx="1181" cy="779" r="13" fill="#fff" stroke="#222" stroke-width="1.6" />
+  <text x="1181" y="785" font-size="20" font-style="italic" font-family="Times New Roman, serif" text-anchor="middle">σ</text>
+  <text x="1209" y="775" font-size="14" fill="#111">SiLU</text>
+  <text x="1209" y="793" font-size="14" fill="#111">Gate</text>
+
+  
+  <line class="ln" x1="927" y1="798" x2="927" y2="737" marker-end="url(#arr)" />
+  <line class="ln" x1="938" y1="808" x2="938" y2="737" marker-end="url(#arr)" />
+  <text class="gl" x="913" y="772">Q</text>
+  <text class="gl" x="950" y="772">K</text>
+  <rect class="obox" x="892" y="798" width="70" height="36" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <rect class="obox" x="902" y="808" width="70" height="36" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <text class="ts" x="937" y="826" style="fill:#111">L2 Norm</text>
+  <line class="ln" x1="926" y1="859" x2="926" y2="834" />
+  <line class="ln" x1="940" y1="863" x2="940" y2="844" />
+  <circle cx="926" cy="872" r="13" fill="#fff" stroke="#222" stroke-width="1.6" />
+  <circle cx="940" cy="876" r="13" fill="#fff" stroke="#222" stroke-width="1.6" />
+  <text x="940" y="882" font-size="20" font-style="italic" font-family="Times New Roman, serif" text-anchor="middle">σ</text>
+  <line class="ln" x1="926" y1="893" x2="926" y2="885" />
+  <line class="ln" x1="940" y1="903" x2="940" y2="889" />
+  <line class="ln" x1="923" y1="955" x2="923" y2="929" />
+  <line class="ln" x1="931" y1="967" x2="931" y2="939" />
+  <rect class="rbox" x="889" y="893" width="70" height="36" rx="8" style="fill:#c5e7f6;stroke:#111" />
+  <rect class="rbox" x="898" y="903" width="70" height="36" rx="8" style="fill:#c5e7f6;stroke:#111" />
+  <text class="ts" x="933" y="921" style="fill:#111">Conv</text>
+  <rect class="gbox" x="889" y="955" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <rect class="gbox" x="897" y="967" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="931" y="985" style="fill:#111">Linear</text>
+
+  
+  <line class="ln" x1="1011" y1="853" x2="1011" y2="737" marker-end="url(#arr)" />
+  <text class="gl" x="1021" y="823">V</text>
+  <circle cx="1011" cy="866" r="13" fill="#fff" stroke="#222" stroke-width="1.6" />
+  <text x="1011" y="872" font-size="20" font-style="italic" font-family="Times New Roman, serif" text-anchor="middle">σ</text>
+  <line class="ln" x1="1011" y1="893" x2="1011" y2="879" />
+  <rect class="rbox" x="977" y="893" width="68" height="36" rx="8" style="fill:#c5e7f6;stroke:#111" />
+  <text class="ts" x="1011" y="911" style="fill:#111">Conv</text>
+  <line class="ln" x1="1011" y1="955" x2="1011" y2="929" />
+  <rect class="gbox" x="977" y="955" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1011" y="973" style="fill:#111">Linear</text>
+
+  
+  <line class="ln" x1="1097" y1="955" x2="1097" y2="737" marker-end="url(#arr)" />
+  <line class="ln" x1="1108" y1="970" x2="1108" y2="737" marker-end="url(#arr)" />
+  <text x="1080" y="830" font-size="24" font-style="italic" font-family="Times New Roman, serif" text-anchor="middle">α</text>
+  <text x="1124" y="830" font-size="24" font-style="italic" font-family="Times New Roman, serif" text-anchor="middle">β</text>
+  <rect class="gbox" x="1062" y="955" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <rect class="gbox" x="1069" y="970" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1103" y="988" style="fill:#111">Linear</text>
+
+  <rect class="gbox" x="1147" y="953" width="68" height="36" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="ts" x="1181" y="971" style="fill:#111">Linear</text>
+
+  
+  <g class="mono" font-size="17">
+    </g>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo3MTE4ZWQyNC0yODI4LTQwYzMtODJmYi1mMDExNTlmNGJlMzEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaCbAZsN8ap4mJ+135CZllKQAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpjMTYxNTVlZS1mYjE1LTQ2NjYtYjZlOC1lNTZhZGEzNDczNjdscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo7IhdKxLSGPom2CYK9kw12QAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg8pEste+CUDGB8vfh6sgZrHXozAnxpH6KIkSjgCAILiykZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaIvRvZezwH+MvMh+ini/fcwAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIE7KDNwtSfml6K/bVwaCKiS1DcKnlsqbQO8hlywADvNTZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GTeSZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjcxMThlZDI0LTI4MjgtNDBjMy04MmZiLWYwMTE1OWY0YmUzMS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmY4YzU1Yzk1LTFlMDktNDQ3Ny05YTFlLTFiODY1MjY0Nzk5NXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDykSy174JQMYHy9+HqyBmsdejMCfGkfooiRKOAIAguLKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggatuv6VEPP96y5mjePzNK83dSUnqk8NzGMHBWD5VfIoqiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg4/JOD98IkuwLXNf1u5E77sGdDWwet6FWJ6hglx9kBUh0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQOolO7yCJrSOvcB3zCnvszotBvL8C9BKz29k8Pf0ncJ4xv/Jn4pht+P7FomYfyIxt4eWFZLrh1eNrL8c1VO1J98=</c2pa:manifest></metadata></svg>

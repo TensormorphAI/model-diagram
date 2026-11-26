@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:c2pa="http://c2pa.org/manifest" viewBox="16 5 1368 895" width="1368" height="895" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b4a63" />
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2f6fdb" />
+    </marker>
+    <style>
+      .panel { fill:#ffffff; stroke:#cfd6e4; stroke-width:1.5; }
+      .box { fill:#f1f4f9; stroke:#8a97ad; stroke-width:1.3; }
+      .hl { fill:#e3edff; stroke:#2f6fdb; stroke-width:1.8; }
+      .dark { fill:#24344d; stroke:#24344d; }
+      .amber { fill:#fff4d6; stroke:#d99a12; stroke-width:1.5; }
+      .teal { fill:#dff3ef; stroke:#2a9a85; stroke-width:1.5; }
+      .violet { fill:#ece7ff; stroke:#6b55c9; stroke-width:1.5; }
+      .ln { stroke:#3b4a63; stroke-width:1.6; fill:none; }
+      .lnB { stroke:#2f6fdb; stroke-width:1.6; fill:none; }
+      .t { font-size:13px; fill:#1d2738; text-anchor:middle; }
+      .ts { font-size:11px; fill:#55627a; text-anchor:middle; }
+      .tw { font-size:13px; fill:#ffffff; text-anchor:middle; }
+      .h1 { font-size:26px; font-weight:700; fill:#1d2738; }
+      .h2 { font-size:16px; font-weight:700; fill:#1d2738; }
+      .note { font-size:12px; fill:#55627a; }
+      .noteB { font-size:12px; fill:#2f6fdb; }
+      .k { font-size:13px; fill:#55627a; }
+      .v { font-size:13px; fill:#1d2738; font-weight:600; }
+    </style>
+  </defs>
+
+  <rect width="1368" height="895" fill="#f7f8fb" x="16" y="5" />
+
+  
+  <text x="40" y="50" class="h1" style="fill:#111">Kimi K3 — architecture overview</text>
+  <g>
+    <rect x="40" y="95" width="160" height="54" rx="10" class="box" style="fill:#fadbde;stroke:#111" />
+    <text x="120" y="127" class="t" style="fill:#111">Input text</text>
+    <rect x="230" y="95" width="160" height="54" rx="10" class="box" style="fill:#fadbde;stroke:#111" />
+    <text x="310" y="127" class="t" style="fill:#111">Tokenizer</text>
+    <rect x="420" y="95" width="160" height="54" rx="10" class="box" style="fill:#fadbde;stroke:#111" />
+    <text x="500" y="127" class="t" style="fill:#111">Token embedding</text>
+    <rect x="610" y="95" width="160" height="54" rx="10" class="hl" style="fill:#cbe8d4;stroke:#111" />
+    <text x="690" y="119" class="t" font-weight="600" style="fill:#111">93 decoder layers</text>
+    <text x="690" y="137" class="ts" style="fill:#111">8 AttnRes blocks</text>
+    <rect x="800" y="95" width="160" height="54" rx="10" class="teal" style="fill:#cbe8d4;stroke:#111" />
+    <text x="880" y="119" class="t" style="fill:#111">Final AttnRes</text>
+    <text x="880" y="137" class="ts" style="fill:#111">mix of depth sources</text>
+    <rect x="990" y="95" width="160" height="54" rx="10" class="box" style="fill:#f1f4c2;stroke:#111" />
+    <text x="1070" y="127" class="t" style="fill:#111">Final RMSNorm</text>
+    <rect x="1180" y="95" width="160" height="54" rx="10" class="box" style="fill:#dadcf1;stroke:#111" />
+    <text x="1260" y="127" class="t" style="fill:#111">Output projection</text>
+    <line x1="200" y1="122" x2="228" y2="122" class="ln" marker-end="url(#arr)" />
+    <line x1="390" y1="122" x2="418" y2="122" class="ln" marker-end="url(#arr)" />
+    <line x1="580" y1="122" x2="608" y2="122" class="ln" marker-end="url(#arr)" />
+    <line x1="770" y1="122" x2="798" y2="122" class="ln" marker-end="url(#arr)" />
+    <line x1="960" y1="122" x2="988" y2="122" class="ln" marker-end="url(#arr)" />
+    <line x1="1150" y1="122" x2="1178" y2="122" class="ln" marker-end="url(#arr)" />
+    </g>
+
+  
+  <rect x="40" y="225" width="900" height="335" rx="14" class="panel" style="fill:#f2f2f2;stroke:#111" />
+  <text x="60" y="255" class="h2">One decoder layer (repeated 93×)</text>
+
+  
+  <path d="M85 380 V300 H475 V365" class="ln" marker-end="url(#arr)" />
+  <text x="280" y="292" class="note" text-anchor="middle">running group sum</text>
+  <path d="M503 380 V312 H890 V365" class="ln" marker-end="url(#arr)" />
+  <text x="700" y="304" class="note" text-anchor="middle">updated group sum</text>
+
+  
+  <text x="55" y="384" class="t">h</text>
+  <line x1="65" y1="380" x2="90" y2="380" class="ln" marker-end="url(#arr)" />
+  <circle cx="110" cy="380" r="18" fill="#e3edff" stroke="#2f6fdb" stroke-width="1.8" />
+  <text x="110" y="385" class="t" fill="#2f6fdb" font-style="italic" font-size="16">α</text>
+  <line x1="128" y1="380" x2="138" y2="380" class="ln" marker-end="url(#arr)" />
+  <rect x="140" y="360" width="110" height="40" rx="8" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="195" y="385" class="t" style="fill:#111">RMSNorm</text>
+  <line x1="250" y1="380" x2="273" y2="380" class="ln" marker-end="url(#arr)" />
+  <rect x="275" y="350" width="170" height="60" rx="10" class="dark" style="fill:#fde1b9;stroke:#111" />
+  <text x="360" y="376" class="tw" font-weight="600" style="fill:#111">KDA or gated MLA</text>
+  <text x="360" y="395" class="tw" font-size="11" style="fill:#111">3 : 1 interleave</text>
+  <line x1="445" y1="380" x2="460" y2="380" class="ln" marker-end="url(#arr)" />
+  <circle cx="475" cy="380" r="13" fill="#fff" stroke="#3b4a63" stroke-width="1.6" />
+  <path d="M468 380 H482 M475 373 V387" class="ln" />
+  <line x1="488" y1="380" x2="505" y2="380" class="ln" marker-end="url(#arr)" />
+  <circle cx="525" cy="380" r="18" fill="#e3edff" stroke="#2f6fdb" stroke-width="1.8" />
+  <text x="525" y="385" class="t" fill="#2f6fdb" font-style="italic" font-size="16">α</text>
+  <line x1="543" y1="380" x2="553" y2="380" class="ln" marker-end="url(#arr)" />
+  <rect x="555" y="360" width="110" height="40" rx="8" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="610" y="385" class="t" style="fill:#111">RMSNorm</text>
+  <line x1="665" y1="380" x2="688" y2="380" class="ln" marker-end="url(#arr)" />
+  <rect x="690" y="350" width="170" height="60" rx="10" class="amber" style="fill:#fde1b9;stroke:#111" />
+  <text x="775" y="384" class="t" font-weight="600" style="fill:#111">FFN / LatentMoE</text>
+  <line x1="860" y1="380" x2="875" y2="380" class="ln" marker-end="url(#arr)" />
+  <circle cx="890" cy="380" r="13" fill="#fff" stroke="#3b4a63" stroke-width="1.6" />
+  <path d="M883 380 H897 M890 373 V387" class="ln" />
+  <line x1="903" y1="380" x2="932" y2="380" class="ln" marker-end="url(#arr)" />
+
+  <text x="360" y="430" class="note" text-anchor="middle">NoPE (no positional encoding)</text>
+  <text x="775" y="430" class="note" text-anchor="middle">layer 1 dense · layers 2–93 LatentMoE</text>
+
+  
+  <rect x="80" y="470" width="480" height="40" rx="8" class="teal" style="fill:#cbe8d4;stroke:#111" />
+  <text x="320" y="495" class="t" style="fill:#111">Depth sources: token embedding + earlier AttnRes block summaries</text>
+  <line x1="110" y1="470" x2="110" y2="400" class="lnB" marker-end="url(#arrB)" />
+  <line x1="525" y1="470" x2="525" y2="400" class="lnB" marker-end="url(#arrB)" />
+  <text x="122" y="448" class="noteB">learned w → softmax weights α</text>
+
+  <g>
+    </g>
+  
+  <g>
+    </g>
+
+  
+  <rect x="40" y="595" width="640" height="285" rx="14" class="panel" style="fill:#f2f2f2;stroke:#111" />
+  <text x="60" y="625" class="h2">Kimi Delta Attention (KDA)</text>
+  <text x="58" y="734" class="t">x</text>
+  <line x1="66" y1="730" x2="78" y2="730" class="ln" marker-end="url(#arr)" />
+  <rect x="80" y="705" width="90" height="50" rx="8" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="125" y="726" class="t" style="fill:#111">Linear</text>
+  <text x="125" y="743" class="ts" style="fill:#111">Q K V α β</text>
+  <line x1="170" y1="730" x2="193" y2="730" class="ln" marker-end="url(#arr)" />
+  <rect x="195" y="705" width="110" height="50" rx="8" fill="#ffe3de" stroke="#d9644f" stroke-width="1.5" style="fill:#c5e7f6;stroke:#111" />
+  <text x="250" y="726" class="t" style="fill:#111">Short conv</text>
+  <text x="250" y="743" class="ts" style="fill:#111">L2 (Q,K) · SiLU (V)</text>
+  <line x1="305" y1="730" x2="328" y2="730" class="ln" marker-end="url(#arr)" />
+  <rect x="330" y="700" width="120" height="60" rx="10" class="amber" style="fill:#cbe8d4;stroke:#111" />
+  <text x="390" y="724" class="t" font-weight="600" style="fill:#111">Gated delta rule</text>
+  <text x="390" y="742" class="ts" style="fill:#111">decay α · write β (σ)</text>
+  <line x1="450" y1="730" x2="473" y2="730" class="ln" marker-end="url(#arr)" />
+  <rect x="475" y="710" width="80" height="40" rx="8" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="515" y="735" class="t" style="fill:#111">RMSNorm</text>
+  <line x1="555" y1="730" x2="566" y2="730" class="ln" marker-end="url(#arr)" />
+  <circle cx="580" cy="730" r="12" fill="#fff" stroke="#3b4a63" stroke-width="1.6" />
+  <path d="M572 722 L588 738 M588 722 L572 738" class="ln" />
+  <line x1="592" y1="730" x2="603" y2="730" class="ln" marker-end="url(#arr)" />
+  <rect x="605" y="710" width="60" height="40" rx="8" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="635" y="735" class="t" style="fill:#111">Linear</text>
+  <path d="M70 730 V815 H580 V744" class="ln" marker-end="url(#arr)" />
+  <text x="330" y="837" class="note" text-anchor="middle">output gate: σ(Linear(x))</text>
+  <rect x="720" y="595" width="640" height="285" rx="14" class="panel" style="fill:#f2f2f2;stroke:#111" />
+  <text x="740" y="625" class="h2">Gated multi-head latent attention (MLA)</text>
+  <text x="733" y="724" class="t">x</text>
+  <path d="M745 720 V675 H758" class="ln" marker-end="url(#arr)" />
+  <path d="M745 720 V765 H758" class="ln" marker-end="url(#arr)" />
+  
+  <rect x="760" y="655" width="70" height="40" rx="8" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="795" y="680" class="t" style="fill:#111">Linear</text>
+  <line x1="830" y1="675" x2="848" y2="675" class="ln" marker-end="url(#arr)" />
+  <rect x="850" y="655" width="80" height="40" rx="8" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="890" y="680" class="t" style="fill:#111">RMSNorm</text>
+  <line x1="930" y1="675" x2="1063" y2="675" class="ln" marker-end="url(#arr)" />
+  <text x="1000" y="667" class="ts">Q</text>
+  
+  <rect x="760" y="745" width="70" height="40" rx="8" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="795" y="770" class="t" style="fill:#111">Linear</text>
+  <line x1="830" y1="765" x2="848" y2="765" class="ln" marker-end="url(#arr)" />
+  <rect x="850" y="745" width="80" height="40" rx="8" class="teal" style="fill:#fde1b9;stroke:#111" />
+  <text x="890" y="770" class="t" style="fill:#111">Latent</text>
+  <line x1="930" y1="765" x2="948" y2="765" class="ln" marker-end="url(#arr)" />
+  <rect x="950" y="740" width="90" height="50" rx="8" class="box" style="fill:#f1f4c2;stroke:#111" />
+  <text x="995" y="761" class="t" style="fill:#111">K, V up-proj</text>
+  <text x="995" y="778" class="ts" style="fill:#111">RMSNorm on K</text>
+  <line x1="1040" y1="765" x2="1063" y2="765" class="ln" marker-end="url(#arr)" />
+  
+  <rect x="1065" y="655" width="120" height="130" rx="10" class="violet" style="fill:#fde1b9;stroke:#111" />
+  <text x="1125" y="712" class="t" font-weight="600" style="fill:#111">Multi-head</text>
+  <text x="1125" y="730" class="t" font-weight="600" style="fill:#111">latent attn</text>
+  <line x1="1185" y1="720" x2="1196" y2="720" class="ln" marker-end="url(#arr)" />
+  <circle cx="1210" cy="720" r="12" fill="#fff" stroke="#3b4a63" stroke-width="1.6" />
+  <path d="M1202 712 L1218 728 M1218 712 L1202 728" class="ln" />
+  <line x1="1222" y1="720" x2="1233" y2="720" class="ln" marker-end="url(#arr)" />
+  <rect x="1235" y="700" width="70" height="40" rx="8" class="box" style="fill:#dadcf1;stroke:#111" />
+  <text x="1270" y="725" class="t" style="fill:#111">Linear</text>
+  <line x1="1305" y1="720" x2="1338" y2="720" class="ln" marker-end="url(#arr)" />
+  <path d="M745 765 V830 H1210 V734" class="ln" marker-end="url(#arr)" />
+  <text x="980" y="850" class="note" text-anchor="middle">output gate: σ(Linear(x))</text>
+  <metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo4MTE5YzBlMi01Zjk4LTQ3MDUtYWE5Yy01OWVkZTQ0ZWRmNDgAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaKLpknTYcpxKYIhW2Yq1rzYAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDozODgyODdkZS0yN2I1LTRkNDUtYjA2MS05OWZlNjI0NjdkY2VscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoauTbjtPynWiEwauoN1FhVgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggkXF4rsmpJkRRQx6KmugE9YNWQNlGZyZvas/a72Npp7CkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaBb1G7Y3FVTPyxQjRjSohgkAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYILl/FIG+s4IqS2z1Ioe78Niu/gSvS56geQygxm2OBTaGZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GTKtZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjgxMTljMGUyLTVmOTgtNDcwNS1hYTljLTU5ZWRlNDRlZGY0OC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmUwMTEyN2QwLTA4OWYtNGE5NS1iMjIyLTljZjkyMDE1M2E2YXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCRcXiuyakmRFFDHoqa6AT1g1ZA2UZnJm9qz9rvY2mnsKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggrGBQjB1z4yBz+fiti8umpIbT4F9mmowiyp4yOTuYbQ2iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggf+tG50LCZqIJ1IFqWsORWqbD4DYLwAJ4cpKSRXKH4cp0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQHWEbdNZc223qFft0t+dV7dd6HzcXVoQTuFNmb9t8Yz0l3YHw5SZp9ZshbTxKuNK3WcJPcseYV3c7qH8juOz8d4=</c2pa:manifest></metadata></svg>

@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:c2pa="http://c2pa.org/manifest" viewBox="66 0 1221 1130" width="1221" height="1130" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111" />
+    </marker>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a98d4" />
+      <stop offset="1" stop-color="#7db2e2" />
+    </linearGradient>
+    <style>
+      .box{fill:#fff;stroke:#222;stroke-width:1.5}
+      .gbox{fill:#ddd;stroke:#222;stroke-width:1.5}
+      .t{font-size:14px;fill:#111;text-anchor:middle;dominant-baseline:middle}
+      .tb{font-size:14px;fill:#1a8cff;font-weight:bold;text-anchor:middle;dominant-baseline:middle}
+      .ln{stroke:#111;stroke-width:1.6;fill:none}
+      .ar{stroke:#111;stroke-width:1.6;fill:none;marker-end:url(#arr)}
+      .dot{stroke:#111;stroke-width:2.5;stroke-dasharray:2 4;fill:none;stroke-linecap:round}
+      .dbox{stroke:#111;stroke-width:3;stroke-dasharray:3 5;stroke-linecap:round}
+      .lbl{font-size:18px;font-weight:bold;fill:#111}
+      .blue{fill:#1a8cff}
+      .body{font-size:18px;fill:#111}
+    </style>
+  </defs>
+
+  <rect width="1221" height="1130" fill="#fff" x="66" y="0" />
+
+  
+  <text x="90" y="50" font-size="56" font-weight="bold" fill="#1a8cff" style="fill:#111">DeepSeek-V4-Flash (284B)</text>
+
+  
+  <rect x="248" y="113" width="405" height="777" rx="40" fill="#e3e3e3" stroke="#222" stroke-width="2" style="fill:#f2f2f2;stroke:#111" />
+  <rect x="314" y="258" width="286" height="577" rx="40" fill="url(#blueGrad)" stroke="#222" stroke-width="1.5" style="fill:#e6e6e6;stroke:#111" />
+
+  
+  <polyline class="ln" points="453,812 553,812 553,745" />
+  <polyline class="ln" points="553,715 553,521" />
+  <circle cx="553" cy="521" r="3.5" fill="#111" />
+  <line class="ar" x1="553" y1="521" x2="465" y2="521" />
+  <polyline class="ln" points="453,500 553,500 553,426" />
+  <polyline class="ln" points="553,396 553,297" />
+  <circle cx="553" cy="297" r="3.5" fill="#111" />
+  <line class="ar" x1="553" y1="297" x2="465" y2="297" />
+
+  
+  <line class="ar" x1="453" y1="972" x2="453" y2="935" />
+  <line class="ar" x1="453" y1="904" x2="453" y2="880" />
+  <line class="ar" x1="453" y1="849" x2="453" y2="794" />
+  <line class="ar" x1="453" y1="763" x2="453" y2="750" />
+  <line class="ar" x1="453" y1="727" x2="453" y2="706" />
+  <line class="ar" x1="453" y1="597" x2="453" y2="576" />
+  <line class="ar" x1="453" y1="551" x2="453" y2="531" />
+  <line class="ar" x1="453" y1="508" x2="453" y2="490" />
+  <line class="ar" x1="453" y1="459" x2="453" y2="438" />
+  <line class="ar" x1="453" y1="413" x2="453" y2="389" />
+  <line class="ar" x1="453" y1="360" x2="453" y2="337" />
+  <line class="ar" x1="453" y1="312" x2="453" y2="307" />
+  <line class="ar" x1="453" y1="284" x2="453" y2="247" />
+  <line class="ar" x1="453" y1="216" x2="453" y2="200" />
+  <line class="ar" x1="453" y1="169" x2="453" y2="154" />
+  <line class="ar" x1="453" y1="123" x2="453" y2="100" />
+
+  
+  <rect class="box" x="385" y="123" width="136" height="30" rx="8" style="fill:#dadcf1;stroke:#111" />
+  <text class="t" x="453" y="138" style="fill:#111">Linear output layer</text>
+  <rect class="box" x="390" y="169" width="128" height="30" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <text class="t" x="454" y="184" style="fill:#111">Final RMSNorm</text>
+  <rect class="box" x="388" y="216" width="130" height="30" rx="8" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="453" y="231" style="fill:#111">mHC head (4 to 1)</text>
+
+  <circle cx="453" cy="295" r="11" fill="#fff" stroke="#111" stroke-width="1.5" />
+  <path d="M446,295 H460 M453,288 V302" stroke="#111" stroke-width="1.5" />
+
+  <rect class="box" x="398" y="312" width="110" height="24" rx="8" style="fill:#cbe8d4;stroke:#111" />
+  <text class="tb" x="453" y="324" style="fill:#111">mHC post</text>
+  <rect class="gbox" x="388" y="360" width="130" height="28" rx="8" style="fill:#c5e7f6;stroke:#111" />
+  <text class="t" x="453" y="374" style="fill:#111">MoE</text>
+  <rect class="box" x="518" y="396" width="72" height="30" rx="8" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="554" y="411" style="fill:#111">mHC res</text>
+  <rect class="box" x="398" y="413" width="108" height="24" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <text class="tb" x="452" y="425" style="fill:#111">RMSNorm 2</text>
+  <rect class="box" x="388" y="459" width="130" height="30" rx="8" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="453" y="474" style="fill:#111">mHC pre</text>
+
+  <circle cx="453" cy="519" r="11" fill="#fff" stroke="#111" stroke-width="1.5" />
+  <path d="M446,519 H460 M453,512 V526" stroke="#111" stroke-width="1.5" />
+
+  <rect class="box" x="397" y="551" width="108" height="24" rx="8" style="fill:#cbe8d4;stroke:#111" />
+  <text class="tb" x="451" y="563" style="fill:#111">mHC post</text>
+
+  <rect x="362" y="597" width="168" height="108" rx="10" fill="#555" stroke="#222" stroke-width="1.5" style="fill:#fde1b9;stroke:#111" />
+  <text font-size="14" fill="#fff" text-anchor="middle" style="fill:#111">
+    <tspan x="446" y="621">Compressed Sparse</tspan>
+    <tspan x="446" y="638">Attention (<tspan fill="#4aa8ff" style="fill:#111">CSA</tspan>)</tspan>
+    <tspan x="446" y="655">interleaved with</tspan>
+    <tspan x="446" y="672">Heavily Compressed</tspan>
+    <tspan x="446" y="689">Attention (<tspan fill="#4aa8ff" style="fill:#111">HCA</tspan>)</tspan>
+  </text>
+
+  <rect class="box" x="224" y="638" width="110" height="30" rx="8" style="fill:#fadbde;stroke:#111" />
+  <text class="t" x="279" y="653" style="fill:#111">Partial RoPE</text>
+  <line class="ar" x1="334" y1="653" x2="360" y2="653" />
+
+  <rect class="box" x="518" y="715" width="72" height="30" rx="8" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="554" y="730" style="fill:#111">mHC res</text>
+  <rect class="box" x="400" y="727" width="106" height="22" rx="8" style="fill:#f1f4c2;stroke:#111" />
+  <text class="tb" x="453" y="738" style="fill:#111">RMSNorm 1</text>
+  <rect class="box" x="388" y="763" width="130" height="30" rx="8" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="453" y="778" style="fill:#111">mHC pre</text>
+
+  <rect class="box" x="358" y="849" width="196" height="30" rx="8" style="fill:#fadbde;stroke:#111" />
+  <text class="t" x="456" y="864" style="fill:#111">Token embedding layer</text>
+  <rect class="box" x="389" y="904" width="128" height="30" rx="8" style="fill:#fadbde;stroke:#111" />
+  <text class="t" x="453" y="919" style="fill:#111">Tokenized text</text>
+  <text x="262" y="853" font-size="20" fill="#1a8cff">43 ×</text>
+  <path d="M328,850 Q314,848 314,836 L314,828 Q314,822 306,820 Q314,818 314,812 L314,806 Q314,794 300,800" stroke="#111" stroke-width="2.5" fill="none" />
+
+  
+  <text class="lbl" x="772" y="128">Feed forward (SwiGLU) module</text>
+  <rect class="dbox" x="773" y="138" width="292" height="223" rx="14" fill="#e3e3e3" style="fill:#f2f2f2;stroke:#111" />
+  <line class="ar" x1="855" y1="304" x2="855" y2="269" />
+  <line class="ar" x1="855" y1="232" x2="855" y2="196" />
+  <polyline class="ln" points="981,232 981,215 932,215" />
+  <line class="ln" x1="914" y1="215" x2="855" y2="215" />
+  <circle cx="923" cy="215" r="9" fill="#fff" stroke="#111" stroke-width="1.5" />
+  <path d="M918,210 L928,220 M928,210 L918,220" stroke="#111" stroke-width="1.5" />
+  <rect class="box" x="793" y="159" width="122" height="36" rx="10" style="fill:#dadcf1;stroke:#111" />
+  <text class="t" x="854" y="177" style="fill:#111">Linear layer</text>
+  <rect class="box" x="793" y="232" width="122" height="36" rx="10" style="fill:#c5e7f6;stroke:#111" />
+  <text class="t" x="854" y="250" style="fill:#111">SiLU activation</text>
+  <rect class="box" x="924" y="232" width="122" height="36" rx="10" style="fill:#dadcf1;stroke:#111" />
+  <text class="t" x="985" y="250" style="fill:#111">Linear layer</text>
+  <rect class="box" x="793" y="304" width="122" height="36" rx="10" style="fill:#dadcf1;stroke:#111" />
+  <text class="t" x="854" y="322" style="fill:#111">Linear layer</text>
+
+  <rect class="dbox" x="718" y="459" width="357" height="354" rx="30" fill="#fff" style="fill:#f2f2f2;stroke:#111" />
+  <text x="947" y="507" font-size="20" font-weight="bold" fill="#111">MoE layer</text>
+  <line class="ar" x1="890" y1="518" x2="890" y2="480" />
+  <circle cx="890" cy="530" r="13" fill="#fff" stroke="#111" stroke-width="1.8" />
+  <path d="M882,530 H898 M890,522 V538" stroke="#111" stroke-width="1.8" />
+  <line class="ar" x1="800" y1="598" x2="878" y2="539" />
+  <line class="ar" x1="890" y1="598" x2="890" y2="545" />
+  <line class="ar" x1="980" y1="596" x2="902" y2="539" />
+
+  <rect class="gbox" x="730" y="602" width="132" height="28" rx="6" style="fill:#c5e7f6;stroke:#111" />
+  <text class="t" x="795" y="616" style="fill:#111">Feed forward</text>
+  <rect x="835" y="627" width="26" height="26" rx="3" fill="#111" />
+  <text x="848" y="641" font-size="15" font-weight="bold" fill="#fff" text-anchor="middle" dominant-baseline="middle">1</text>
+  <text x="890" y="634" font-size="22" font-weight="bold" text-anchor="middle">• • •</text>
+  <rect class="gbox" x="917" y="598" width="130" height="28" rx="6" style="fill:#c5e7f6;stroke:#111" />
+  <text class="t" x="982" y="612" style="fill:#111">Feed forward</text>
+  <rect x="1009" y="621" width="40" height="28" rx="4" fill="#1a8cff" />
+  <text x="1029" y="636" font-size="15" font-weight="bold" fill="#fff" text-anchor="middle" dominant-baseline="middle">256</text>
+
+  <line class="ar" x1="890" y1="714" x2="806" y2="646" />
+  <line class="ar" x1="890" y1="714" x2="890" y2="645" />
+  <line class="ar" x1="890" y1="714" x2="980" y2="646" />
+  <rect x="853" y="714" width="76" height="38" rx="8" fill="#fff" stroke="#1a8cff" stroke-width="2" style="fill:#cbe8d4;stroke:#111" />
+  <text x="891" y="734" font-size="16" fill="#111" text-anchor="middle" dominant-baseline="middle" style="fill:#111">Router</text>
+  <line class="ar" x1="890" y1="790" x2="890" y2="755" />
+
+  
+  <rect class="dbox" x="718" y="826" width="545" height="290" rx="30" fill="#fff" style="fill:#f2f2f2;stroke:#111" />
+  <text x="780" y="864" font-size="18" font-weight="bold" fill="#111"><tspan class="blue">mHC</tspan> (manifold-constrained hyper-connections)</text>
+
+  
+  <path class="ln" d="M761,927 H741 V882 H1170 V913" />
+  <path class="ln" d="M761,945 H747 V888 H1164 V913" />
+  <path class="ln" d="M761,964 H753 V894 H1158 V913" />
+  <path class="ln" d="M761,983 H759 V900 H1152 V913" />
+  <line class="ln" x1="761" y1="927" x2="805" y2="927" />
+  <line class="ln" x1="761" y1="945" x2="805" y2="945" />
+  <line class="ln" x1="761" y1="964" x2="805" y2="964" />
+  <line class="ln" x1="761" y1="983" x2="805" y2="983" />
+  <circle cx="761" cy="927" r="4" fill="#111" />
+  <circle cx="761" cy="945" r="4" fill="#111" />
+  <circle cx="761" cy="964" r="4" fill="#111" />
+  <circle cx="761" cy="983" r="4" fill="#111" />
+
+  <rect class="box" x="920" y="877" width="108" height="28" rx="6" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="974" y="891" style="fill:#111">mHC res</text>
+
+  <rect class="box" x="805" y="913" width="90" height="82" rx="6" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="850" y="946" style="fill:#111">mHC pre</text>
+  <text class="t" x="850" y="964" style="fill:#111">(4 to 1)</text>
+  <line class="ar" x1="895" y1="954" x2="935" y2="954" />
+  <rect class="gbox" x="937" y="913" width="128" height="82" rx="6" style="fill:#fde1b9;stroke:#111" />
+  <text class="t" x="1001" y="946" style="fill:#111">Sublayer</text>
+  <text class="t" x="1001" y="964" style="fill:#111">(attention or MoE)</text>
+  <line class="ar" x1="1065" y1="954" x2="1104" y2="954" />
+  <rect class="box" x="1106" y="913" width="92" height="82" rx="6" style="fill:#cbe8d4;stroke:#111" />
+  <text class="t" x="1152" y="947" style="fill:#111">mHC post</text>
+  <text class="t" x="1152" y="965" style="fill:#111">+ residual</text>
+
+  <line class="ln" x1="1198" y1="931" x2="1240" y2="931" />
+  <line class="ln" x1="1198" y1="948" x2="1240" y2="948" />
+  <line class="ln" x1="1198" y1="967" x2="1240" y2="967" />
+  <line class="ln" x1="1198" y1="986" x2="1240" y2="986" />
+  <circle cx="1240" cy="931" r="4" fill="#111" />
+  <circle cx="1240" cy="948" r="4" fill="#111" />
+  <circle cx="1240" cy="967" r="4" fill="#111" />
+  <circle cx="1240" cy="986" r="4" fill="#111" />
+
+  <metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo5YjU0MmU2ZC01Y2QzLTQxNTktOWI5ZC04ODRiODdlOTA2YTQAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaDNdL13CsvC/6pJMp3KyrVYAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpiMWQ5ZWZhZS0xNjgxLTRkNWMtYmQxZC1lODQxMTlmMjhmMzdscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoRL7s0hXgDBtjdXW1/6Yx5gAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg1lFbMe4oSJTV9VoTmlaUkhOV/xaU+KDmGzgLHW+T6XakZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaGLR2TUqJFaz61O9e+eg694AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIBmk15mIrX9dslAt/nUOE+Rt1l+UqpyeOqB0N+WqQpd8ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GTdoZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjliNTQyZTZkLTVjZDMtNDE1OS05YjlkLTg4NGI4N2U5MDZhNC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjRlZDYwMGFmLWM2ZTktNDlmYy04M2RhLTBiODQ1MGJkOTY3NHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDWUVsx7ihIlNX1WhOaVpSSE5X/FpT4oOYbOAsdb5PpdqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg4YSq8IK0IrorNAmy8TNIg8y8sQHDZ4p7XCe4bz3fO2SiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggozNTslNp1Vn4aXs28/lCYyjBCd+zpSiL2Rw2KapgjEp0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQEn6BTNmeBbmN1eGr8+wQKCoiDCyGPUeIj57z9POhuzdiTc1g59e/QoBzOfSUakUflpgR2aVLXzl8gypBgSAoFs=</c2pa:manifest></metadata></svg>
