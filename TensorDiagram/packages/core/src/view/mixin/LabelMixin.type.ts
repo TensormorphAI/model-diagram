@@ -6,7 +6,7 @@ See LICENSE in the project root for license information.
 
 import type Cell from '../cell/Cell.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies if labels should be visible. This is used in {@link getLabel}.

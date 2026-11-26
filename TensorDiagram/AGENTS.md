@@ -21,22 +21,22 @@ This document provides essential knowledge for AI coding agents to be productive
 
 ### 2. Developer Workflows
 - **Node.js**: Always use version in `.nvmrc` (`nvm use`)
-- **Install**: `npm install` (uses npm workspaces)
-- **Build Core**: `npm run build -w packages/core` (ESM + CJS)
-- **Watch Core**: `npm run dev -w packages/core`
-- **Run Storybook**: `npm run dev -w packages/html`
-- **Test**: `npm test -w packages/core` (coverage: add `-- --coverage`)
-- **Lint**: `npm run lint` (auto-fix: `npm run lint:fix`)
+- **Install**: `bun install` (bun workspaces, hoisted linker)
+- **Build Core**: `bun run --cwd packages/core build` (ESM + CJS)
+- **Watch Core**: `bun run --cwd packages/core dev`
+- **Run Storybook**: `bun run --cwd packages/html dev`
+- **Test**: `bun run --cwd packages/core test` (coverage: add `--coverage`)
+- **Lint**: `bun run lint` (auto-fix: `bun run lint:fix`)
 - **CI Validation**: Run all before PR:
-  - `npm run build -w packages/core`
-  - `npm run test-check -w packages/core`
-  - `npm test -w packages/core -- --coverage`
-  - `npm test -w packages/ts-support`
+  - `bun run --cwd packages/core build`
+  - `bun run --cwd packages/core test-check`
+  - `bun run --cwd packages/core test --coverage`
+  - `bun run --cwd packages/ts-support test`
   - `./scripts/build-all-examples.bash`
-  - `npm run build -w packages/html`
-  - `npm run check:circular-dependencies -w packages/core`
-  - `npm run lint`
-  - `npm run check:npm-package -w packages/core`
+  - `bun run --cwd packages/html build`
+  - `bun run --cwd packages/core check:circular-dependencies`
+  - `bun run lint`
+  - `bun run --cwd packages/core check:npm-package`
 
 ### 3. Project-Specific Conventions
 - **TypeScript**: Strict types, no implicit any. Use object references, not strings, for API calls.

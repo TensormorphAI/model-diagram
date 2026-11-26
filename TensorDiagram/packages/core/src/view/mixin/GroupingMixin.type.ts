@@ -7,7 +7,7 @@ See LICENSE in the project root for license information.
 import type Cell from '../cell/Cell.js';
 import type Rectangle from '../geometry/Rectangle.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Adds the cells into the given group.

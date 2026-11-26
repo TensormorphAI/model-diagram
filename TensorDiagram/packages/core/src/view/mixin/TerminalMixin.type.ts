@@ -6,7 +6,7 @@ See LICENSE in the project root for license information.
 
 import type Cell from '../cell/Cell.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Returns true if the given terminal point is movable. This is independent

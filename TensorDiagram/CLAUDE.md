@@ -4,17 +4,17 @@ TensorDiagram is a TypeScript library for displaying and interacting with vector
 
 ## Build & Development
 
-**Node.js:** ALWAYS use the version in `.nvmrc`. Run `nvm use` if using nvm.
+**Node.js:** ALWAYS use the version in `.nvmrc`. Run `nvm use` if using nvm. **Package manager:** bun (version in `packageManager` of `package.json`); node still runs the tools.
 
 ```bash
-npm install                              # Install (npm workspaces)
-npm run dev -w packages/core             # Watch core
-npm run dev -w packages/html             # Watch Storybook (run in parallel with core)
-npm run build -w packages/core           # Build core (ESM + CJS)
-npm test -w packages/core                # Run tests
-npm test -w packages/core -- --coverage  # Tests with coverage
-npm run lint                             # Lint all
-npm run lint:fix                         # Lint with auto-fix
+bun install                              # Install (bun workspaces, hoisted linker)
+bun run --cwd packages/core dev             # Watch core
+bun run --cwd packages/html dev             # Watch Storybook (run in parallel with core)
+bun run --cwd packages/core build           # Build core (ESM + CJS)
+bun run --cwd packages/core test                # Run tests
+bun run --cwd packages/core test --coverage  # Tests with coverage
+bun run lint                             # Lint all
+bun run lint:fix                         # Lint with auto-fix
 ```
 
 ## CI Validation
@@ -22,15 +22,15 @@ npm run lint:fix                         # Lint with auto-fix
 Run before submitting PRs (mirrors `.github/workflows/build.yml`):
 
 ```bash
-npm run build -w packages/core
-npm run test-check -w packages/core
-npm test -w packages/core -- --coverage
-npm test -w packages/ts-support
+bun run --cwd packages/core build
+bun run --cwd packages/core test-check
+bun run --cwd packages/core test --coverage
+bun run --cwd packages/ts-support test
 ./scripts/build-all-examples.bash
-npm run build -w packages/html
-npm run check:circular-dependencies -w packages/core
-npm run lint
-npm run check:npm-package -w packages/core
+bun run --cwd packages/html build
+bun run --cwd packages/core check:circular-dependencies
+bun run lint
+bun run --cwd packages/core check:npm-package
 ```
 
 CI runs on ubuntu-24.04, macos-15, windows-2022.

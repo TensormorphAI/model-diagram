@@ -12,7 +12,7 @@ on:
       - 'packages/website/**/*'
       - '!packages/website/README.md'
       - 'package.json'
-      - 'package-lock.json'
+      - 'bun.lock'
       - 'tsconfig.json'
   # Allows you to deploy manually to GH Pages from the Actions tab (only if run from the main branch)
   workflow_dispatch:
@@ -30,7 +30,7 @@ on:
       - 'packages/website/**/*'
       - '!packages/website/README.md'
       - 'package.json'
-      - 'package-lock.json'
+      - 'bun.lock'
       - 'tsconfig.json'
 
 

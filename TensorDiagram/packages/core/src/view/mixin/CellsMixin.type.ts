@@ -16,7 +16,7 @@ import type {
 import type Geometry from '../geometry/Geometry.js';
 import type CellState from '../cell/CellState.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies the return value for {@link isCellsResizable}.

@@ -8,7 +8,7 @@ import type Cell from '../cell/Cell.js';
 import type InternalMouseEvent from '../event/InternalMouseEvent.js';
 import type EventObject from '../event/EventObject.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * @default true

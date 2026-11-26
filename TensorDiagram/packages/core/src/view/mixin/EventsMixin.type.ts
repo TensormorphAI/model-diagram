@@ -11,7 +11,7 @@ import type CellState from '../cell/CellState.js';
 import type EventSource from '../event/EventSource.js';
 import type Point from '../geometry/Point.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     mouseListeners: MouseListenerSet[];
     lastTouchEvent: MouseEvent | null;

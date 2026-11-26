@@ -10,7 +10,7 @@ import type InternalMouseEvent from '../event/InternalMouseEvent.js';
 import type ConnectionConstraint from '../other/ConnectionConstraint.js';
 import type Cell from '../cell/Cell.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies if a child should be constrained inside the parent bounds after a move or resize of the child.

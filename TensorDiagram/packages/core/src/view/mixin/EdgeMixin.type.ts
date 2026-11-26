@@ -7,7 +7,7 @@ See LICENSE in the project root for license information.
 import type { CellStyle, EdgeParameters, EdgeParametersValue } from '../../types.js';
 import type Cell from '../cell/Cell.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies if edge control points should be reset after the resize of a connected cell.

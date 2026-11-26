@@ -6,7 +6,7 @@ See LICENSE in the project root for license information.
 
 import type Rectangle from '../geometry/Rectangle.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies the factor used for {@link zoomIn} and {@link zoomOut}.

@@ -9,7 +9,7 @@ import type CellState from '../cell/CellState.js';
 import type ImageBox from '../image/ImageBox.js';
 import type Geometry from '../geometry/Geometry.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies the resource key for the tooltip on the collapse/expand icon.

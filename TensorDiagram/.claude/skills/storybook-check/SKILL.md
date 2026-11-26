@@ -19,11 +19,11 @@ Run the script from the repository root, passing the arguments unchanged (none m
   result: run `dev` and `prod` as separate calls then.
 - Without `--skip-build`, it builds `packages/core` and, for the prod mode, `packages/html`. Pass `--skip-build` only
   when these builds are already fresh for the current checkout.
-- `npm ci` must have been run for the current checkout, also after checking out a branch that changes
-  `package-lock.json`, otherwise the check validates the previous versions. The script also needs `curl`, and network
+- `bun install --frozen-lockfile` must have been run for the current checkout, also after checking out a branch that
+  changes `bun.lock`, otherwise the check validates the previous versions. The script also needs `curl`, and network
   access on its first run to install `playwright-core`. It applies `.nvmrc` through nvm when nvm is installed.
 - Ports 8901 (dev) and 8902 (prod) must be free: the mode fails if something already listens there, such as a running
-  `npm run dev -w packages/html`, possibly from another worktree. Never stop a server you did not start: choose other
+  `bun run --cwd packages/html dev`, possibly from another worktree. Never stop a server you did not start: choose other
   ports with `STORYBOOK_CHECK_DEV_PORT` and `STORYBOOK_CHECK_PROD_PORT`.
 - The browser is the local Google Chrome, or `STORYBOOK_CHECK_BROWSER_PATH` when set, any Chromium based executable.
   Without either, an already downloaded Playwright Chromium is used, otherwise the script names the command installing
@@ -46,7 +46,7 @@ run at all: unknown argument, no Node or wrong Node version, `playwright-core` i
 ## Reading the result
 
 A problem is caused by the change under test only if `main` does not have it. When the run fails, run it again on
-`main` (with a dependency upgrade, `npm ci` there too) and report only the difference; list the problems present on
+`main` (with a dependency upgrade, `bun install --frozen-lockfile` there too) and report only the difference; list the problems present on
 both as pre-existing. Vite's chunk size warning in the Storybook build log is expected.
 
 The script stops its servers on exit. Never stop them with `pkill -f "storybook dev"`: the pattern matches the shell

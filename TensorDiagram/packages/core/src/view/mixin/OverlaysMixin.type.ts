@@ -8,7 +8,7 @@ import type Cell from '../cell/Cell.js';
 import type CellOverlay from '../cell/CellOverlay.js';
 import type Image from '../image/ImageBox.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Adds an {@link CellOverlay} for the specified cell.

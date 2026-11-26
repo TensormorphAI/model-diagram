@@ -8,7 +8,7 @@ import type Cell from '../cell/Cell.js';
 import type { CellStyle, VertexParameters } from '../../types.js';
 import type Geometry from '../geometry/Geometry.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies the return value for vertices in {@link isLabelMovable}.

@@ -19,8 +19,9 @@ for argument in "$@"; do
   esac
 done
 
-repo_root=$(git rev-parse --show-toplevel)
 skill_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# From the script location rather than git, which finds the enclosing repository when this one is nested in another
+repo_root=$(cd "$skill_dir/../../../.." && pwd)
 # A per-user default: a predictable directory under /tmp could be prepared by another user with their own modules
 work_dir=${STORYBOOK_CHECK_DIR:-${XDG_CACHE_HOME:-$HOME/.cache}/tensordiagram-storybook-check}
 playwright_version=1.65.1

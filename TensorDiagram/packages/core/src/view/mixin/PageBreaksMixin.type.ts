@@ -6,7 +6,7 @@ See LICENSE in the project root for license information.
 
 import type Shape from '../shape/Shape.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /** @default null */
     horizontalPageBreaks: Shape[] | null;

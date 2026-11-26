@@ -7,7 +7,7 @@ See LICENSE in the project root for license information.
 import type Point from '../geometry/Point.js';
 import type Rectangle from '../geometry/Rectangle.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * @default 0

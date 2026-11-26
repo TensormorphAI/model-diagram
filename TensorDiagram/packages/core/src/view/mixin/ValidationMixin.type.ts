@@ -7,7 +7,7 @@ See LICENSE in the project root for license information.
 import type Cell from '../cell/Cell.js';
 import type CellState from '../cell/CellState.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Displays the given validation error in a dialog.

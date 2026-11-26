@@ -8,7 +8,7 @@ import type Cell from '../cell/Cell.js';
 import type Rectangle from '../geometry/Rectangle.js';
 import type { CellStateStyle, DirectionValue } from '../../types.js';
 
-declare module '../AbstractGraph' {
+declare module '../AbstractGraph.js' {
   interface AbstractGraph {
     /**
      * Specifies if swimlanes should be selectable via the content if the mouse is released.
