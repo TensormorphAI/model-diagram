@@ -1,91 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1706 1300" width="1706" height="1300" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1706 1910" width="1706" height="1910" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif">
 <title>DeepSeek-V4.1-Flash architecture</title>
-<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="lk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><filter id="sh" x="-10%" y="-20%" width="130%" height="160%"><feDropShadow dx="1.5" dy="2.2" stdDeviation="1.6" flood-color="#000" flood-opacity="0.22"/></filter><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0.00" stop-color="#d4ecfa"/><stop offset="1.00" stop-color="#6db7e6"/></linearGradient><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ececec"/><stop offset="1" stop-color="#d6d6d6"/></linearGradient><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset="1" stop-color="#e4e4e4"/></linearGradient><linearGradient id="chipDense" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe2fa"/><stop offset="1" stop-color="#9aa2e8"/></linearGradient><linearGradient id="chipMoE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4ecfa"/><stop offset="1" stop-color="#6db7e6"/></linearGradient><linearGradient id="chipHybrid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe8cc"/><stop offset="1" stop-color="#f3a95e"/></linearGradient><linearGradient id="chipRecurrent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6f0de"/><stop offset="1" stop-color="#77c690"/></linearGradient></defs>
-<rect width="1706" height="1300" fill="#fff"/>
-<rect x="240" y="246.0" width="432" height="835.0" rx="34" fill="url(#fg)" stroke="#2a2a2a" stroke-width="1.8"/>
-<rect x="326" y="665.0" width="310" height="359.0" rx="28" fill="url(#bg)" stroke="#2a2a2a" stroke-width="1.8"/>
-<path d="M324,940.0 C317,940.0 321,969.0 313,975.0 C321,981.0 317,1010.0 324,1010.0" fill="none" stroke="#111" stroke-width="2"/>
-<rect x="326" y="403.0" width="310" height="252.0" rx="28" fill="url(#bg)" stroke="#2a2a2a" stroke-width="1.8"/>
-<path d="M324,571.0 C317,571.0 321,600.0 313,606.0 C321,612.0 317,641.0 324,641.0" fill="none" stroke="#111" stroke-width="2"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="lk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><filter id="sh" x="-10%" y="-20%" width="130%" height="160%"><feDropShadow dx="1.5" dy="2.2" stdDeviation="1.6" flood-color="#000" flood-opacity="0.22"/></filter><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#d4ecfa"/><stop offset="1" stop-color="#6db7e6"/></linearGradient><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ececec"/><stop offset="1" stop-color="#d6d6d6"/></linearGradient><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset="1" stop-color="#e4e4e4"/></linearGradient><linearGradient id="chipDense" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe2fa"/><stop offset="1" stop-color="#9aa2e8"/></linearGradient><linearGradient id="chipMoE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4ecfa"/><stop offset="1" stop-color="#6db7e6"/></linearGradient><linearGradient id="chipHybrid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe8cc"/><stop offset="1" stop-color="#f3a95e"/></linearGradient><linearGradient id="chipRecurrent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6f0de"/><stop offset="1" stop-color="#77c690"/></linearGradient></defs>
+<rect width="1706" height="1910" fill="#fff"/>
+<rect x="240" y="551.0" width="432" height="835.0" rx="34" fill="url(#fg)" stroke="#2a2a2a" stroke-width="1.8"/>
+<rect x="326" y="970.0" width="310" height="359.0" rx="28" fill="url(#bg)" stroke="#2a2a2a" stroke-width="1.8"/>
+<path d="M324,1245.0 C317,1245.0 321,1274.0 313,1280.0 C321,1286.0 317,1315.0 324,1315.0" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="326" y="708.0" width="310" height="252.0" rx="28" fill="url(#bg)" stroke="#2a2a2a" stroke-width="1.8"/>
+<path d="M324,876.0 C317,876.0 321,905.0 313,911.0 C321,917.0 317,946.0 324,946.0" fill="none" stroke="#111" stroke-width="2"/>
 <rect x="790.0" y="155.0" width="300.0" height="368.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-<rect x="1366.0" y="155.0" width="300.0" height="296.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-<rect x="790.0" y="572.0" width="492.0" height="242.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-<rect x="1366.0" y="572.0" width="300.0" height="270.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-<rect x="790.0" y="910.0" width="376.0" height="322.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-<rect x="1366.0" y="910.0" width="300.0" height="216.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-<rect x="385.0" y="1091.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="1109.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Tokenizer</text>
-<rect x="385.0" y="1036.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="1054.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Token embedding layer</text>
-<text x="342.0" y="687.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" font-weight="bold" fill="#111">Causal encoder</text>
-<text x="306.0" y="982.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="19" text-anchor="end" font-weight="bold" fill="#1677c2">20 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">×</tspan></text>
-<rect x="385.0" y="955.0" width="206.0" height="43.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="973.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Engram</text>
-<text x="488.0" y="988.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">blocks 2 and 15 only</text>
-<circle cx="488.0" cy="926.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
-<path d="M481.6,926.0 H494.4 M488.0,919.6 V932.4" stroke="#111" stroke-width="1.8"/>
-<rect x="385.0" y="848.0" width="206.0" height="43.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="866.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + attention</text>
-<text x="488.0" y="881.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">SWA, or CSA2(2, Full / Reuse)</text>
-<circle cx="488.0" cy="819.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
-<path d="M481.6,819.0 H494.4 M488.0,812.6 V825.4" stroke="#111" stroke-width="1.8"/>
-<rect x="385.0" y="741.0" width="206.0" height="43.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="759.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + MoE</text>
-<text x="488.0" y="774.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">1 shared + 6 of 384 routed</text>
-<circle cx="488.0" cy="712.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
-<path d="M481.6,712.0 H494.4 M488.0,705.6 V718.4" stroke="#111" stroke-width="1.8"/>
-<text x="342.0" y="425.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" font-weight="bold" fill="#111">Decoder</text>
-<text x="306.0" y="613.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="19" text-anchor="end" font-weight="bold" fill="#1677c2">20 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">×</tspan></text>
-<rect x="385.0" y="586.0" width="206.0" height="43.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="604.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + attention</text>
-<text x="488.0" y="619.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">CSA2(1, Full / Reindex / Reuse)</text>
-<circle cx="488.0" cy="557.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
-<path d="M481.6,557.0 H494.4 M488.0,550.6 V563.4" stroke="#111" stroke-width="1.8"/>
-<rect x="385.0" y="479.0" width="206.0" height="43.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="497.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + MoE</text>
-<text x="488.0" y="512.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">1 shared + 6 of 384 routed</text>
-<circle cx="488.0" cy="450.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
-<path d="M481.6,450.0 H494.4 M488.0,443.6 V456.4" stroke="#111" stroke-width="1.8"/>
-<rect x="385.0" y="358.0" width="206.0" height="29.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="376.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Final pre-mix (4 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">→</tspan> 1)</text>
-<rect x="385.0" y="309.0" width="206.0" height="29.0" rx="7" fill="#f1f4c2" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="327.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Final RMSNorm</text>
-<rect x="385.0" y="260.0" width="206.0" height="29.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="488.0" y="278.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Linear output layer</text>
-<text x="488.0" y="1154.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="14" text-anchor="middle" fill="#111">Sample input text</text>
-<polyline points="488.0,1137.0 488.0,1120.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,1091.0 488.0,1065.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,1036.0 488.0,998.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<circle cx="488.0" cy="1012.0" r="3.2" fill="#111"/>
-<polyline points="488.0,1012.0 350.0,1012.0 350.0,926.0 477.0,926.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,955.0 488.0,937.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,915.0 488.0,891.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<circle cx="488.0" cy="906.0" r="3.2" fill="#111"/>
-<polyline points="488.0,906.0 350.0,906.0 350.0,819.0 477.0,819.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,848.0 488.0,830.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,808.0 488.0,784.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<circle cx="488.0" cy="799.0" r="3.2" fill="#111"/>
-<polyline points="488.0,799.0 350.0,799.0 350.0,712.0 477.0,712.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,741.0 488.0,723.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,701.0 488.0,629.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<circle cx="488.0" cy="643.0" r="3.2" fill="#111"/>
-<polyline points="488.0,643.0 350.0,643.0 350.0,557.0 477.0,557.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,586.0 488.0,568.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,546.0 488.0,522.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<circle cx="488.0" cy="537.0" r="3.2" fill="#111"/>
-<polyline points="488.0,537.0 350.0,537.0 350.0,450.0 477.0,450.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,479.0 488.0,461.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,439.0 488.0,387.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,358.0 488.0,338.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,309.0 488.0,289.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="488.0,260.0 488.0,218.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<text x="488.0" y="210.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="13" text-anchor="middle" fill="#555">Next-token logits</text>
-<text x="30.0" y="1043.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">Embedding</text>
-<text x="30.0" y="1062.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">dimension of <tspan fill="#1677c2" font-weight="bold">5,120</tspan></text>
-<polyline points="191.9,1050.5 381.0,1050.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/>
-<text x="30.0" y="267.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">Vocabulary size</text>
-<text x="30.0" y="286.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">of <tspan fill="#1677c2" font-weight="bold">129k</tspan></text>
-<polyline points="166.2,274.5 381.0,274.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/>
+<rect x="790.0" y="572.0" width="300.0" height="296.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="790.0" y="917.0" width="492.0" height="242.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="1366.0" y="917.0" width="300.0" height="270.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="790.0" y="1255.0" width="376.0" height="322.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="790.0" y="1626.0" width="300.0" height="216.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="385.0" y="1396.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="1414.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Tokenizer</text>
+<rect x="385.0" y="1341.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="1359.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Token embedding layer</text>
+<text x="342.0" y="992.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" font-weight="bold" fill="#111">Causal encoder</text>
+<text x="306.0" y="1287.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="19" text-anchor="end" font-weight="bold" fill="#1677c2">20 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">×</tspan></text>
+<rect x="385.0" y="1260.0" width="206.0" height="43.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="1278.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Engram</text>
+<text x="488.0" y="1293.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">blocks 2 and 15 only</text>
+<circle cx="488.0" cy="1231.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M481.6,1231.0 H494.4 M488.0,1224.6 V1237.4" stroke="#111" stroke-width="1.8"/>
+<rect x="385.0" y="1153.0" width="206.0" height="43.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="1171.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + attention</text>
+<text x="488.0" y="1186.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">SWA, or CSA2(2, Full / Reuse)</text>
+<circle cx="488.0" cy="1124.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M481.6,1124.0 H494.4 M488.0,1117.6 V1130.4" stroke="#111" stroke-width="1.8"/>
+<rect x="385.0" y="1046.0" width="206.0" height="43.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="1064.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + MoE</text>
+<text x="488.0" y="1079.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">1 shared + 6 of 384 routed</text>
+<circle cx="488.0" cy="1017.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M481.6,1017.0 H494.4 M488.0,1010.6 V1023.4" stroke="#111" stroke-width="1.8"/>
+<text x="342.0" y="730.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" font-weight="bold" fill="#111">Decoder</text>
+<text x="306.0" y="918.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="19" text-anchor="end" font-weight="bold" fill="#1677c2">20 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">×</tspan></text>
+<rect x="385.0" y="891.0" width="206.0" height="43.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="909.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + attention</text>
+<text x="488.0" y="924.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">CSA2(1, Full / Reindex / Reuse)</text>
+<circle cx="488.0" cy="862.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M481.6,862.0 H494.4 M488.0,855.6 V868.4" stroke="#111" stroke-width="1.8"/>
+<rect x="385.0" y="784.0" width="206.0" height="43.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="802.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">RMSNorm + MoE</text>
+<text x="488.0" y="817.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">1 shared + 6 of 384 routed</text>
+<circle cx="488.0" cy="755.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M481.6,755.0 H494.4 M488.0,748.6 V761.4" stroke="#111" stroke-width="1.8"/>
+<rect x="385.0" y="663.0" width="206.0" height="29.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="681.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Final pre-mix (4 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">→</tspan> 1)</text>
+<rect x="385.0" y="614.0" width="206.0" height="29.0" rx="7" fill="#f1f4c2" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="632.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Final RMSNorm</text>
+<rect x="385.0" y="565.0" width="206.0" height="29.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="583.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Linear output layer</text>
+<text x="488.0" y="1459.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="14" text-anchor="middle" fill="#111">Sample input text</text>
+<polyline points="488.0,1442.0 488.0,1425.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1396.0 488.0,1370.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1341.0 488.0,1303.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<circle cx="488.0" cy="1317.0" r="3.2" fill="#111"/>
+<polyline points="488.0,1317.0 350.0,1317.0 350.0,1231.0 477.0,1231.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1260.0 488.0,1242.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1220.0 488.0,1196.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<circle cx="488.0" cy="1211.0" r="3.2" fill="#111"/>
+<polyline points="488.0,1211.0 350.0,1211.0 350.0,1124.0 477.0,1124.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1153.0 488.0,1135.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1113.0 488.0,1089.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<circle cx="488.0" cy="1104.0" r="3.2" fill="#111"/>
+<polyline points="488.0,1104.0 350.0,1104.0 350.0,1017.0 477.0,1017.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1046.0 488.0,1028.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,1006.0 488.0,934.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<circle cx="488.0" cy="948.0" r="3.2" fill="#111"/>
+<polyline points="488.0,948.0 350.0,948.0 350.0,862.0 477.0,862.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,891.0 488.0,873.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,851.0 488.0,827.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<circle cx="488.0" cy="842.0" r="3.2" fill="#111"/>
+<polyline points="488.0,842.0 350.0,842.0 350.0,755.0 477.0,755.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,784.0 488.0,766.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,744.0 488.0,692.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,663.0 488.0,643.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,614.0 488.0,594.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,565.0 488.0,523.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="488.0" y="515.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="13" text-anchor="middle" fill="#555">Next-token logits</text>
+<text x="30.0" y="1348.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">Embedding</text>
+<text x="30.0" y="1367.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">dimension of <tspan fill="#1677c2" font-weight="bold">5,120</tspan></text>
+<polyline points="191.9,1355.5 381.0,1355.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/>
+<text x="30.0" y="572.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">Vocabulary size</text>
+<text x="30.0" y="591.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">of <tspan fill="#1677c2" font-weight="bold">129k</tspan></text>
+<polyline points="166.2,579.5 381.0,579.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/>
 <text x="794.0" y="145.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Single-Pass mHC</text>
 <text x="804.0" y="175.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#1677c2" font-weight="bold">4</tspan> parallel residual streams <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> single-pass mHC</text>
 <text x="804.0" y="189.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">surrounds every attention and MoE sublayer;</text>
@@ -118,126 +118,126 @@
 <polyline points="882.0,510.0 882.0,481.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
 <polyline points="998.0,510.0 998.0,481.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
 <polyline points="940.0,249.0 940.0,229.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<text x="1370.0" y="145.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Hierarchical sparse indexer</text>
-<text x="1380.0" y="175.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">The first decoder Full layer builds a</text>
-<text x="1380.0" y="189.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">candidate pool for later Reindex layers</text>
-<rect x="1431.0" y="221.0" width="170.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="238.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">CSA2(1, Reuse)</text>
-<text x="1516.0" y="251.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">shares KV and sparse indices</text>
-<rect x="1431.0" y="276.0" width="170.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="293.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">CSA2(1, Reindex)</text>
-<text x="1516.0" y="306.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">recomputes sparse indices</text>
-<polyline points="1516.0,276.0 1516.0,261.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1431.0" y="331.0" width="170.0" height="28.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="348.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Candidate pool</text>
-<polyline points="1516.0,331.0 1516.0,316.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1431.0" y="374.0" width="170.0" height="53.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="391.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">CSA2(1, Full)</text>
-<text x="1516.0" y="405.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">builds global KV and sparse</text>
-<text x="1516.0" y="417.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">indices</text>
-<polyline points="1516.0,374.0 1516.0,359.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1516.0,451.0 1516.0,427.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1516.0,221.0 1516.0,201.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<text x="794.0" y="562.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">MoE layer</text>
-<text x="804.0" y="592.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#1677c2" font-weight="bold">1</tspan> shared + <tspan fill="#1677c2" font-weight="bold">6</tspan> routed experts per token</text>
-<rect x="811.0" y="624.0" width="450.0" height="28.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1036.0" y="641.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Weighted sum of expert outputs</text>
-<rect x="811.0" y="672.0" width="102.0" height="40.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="862.0" y="689.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Shared expert</text>
-<text x="862.0" y="702.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">always active</text>
-<rect x="927.0" y="672.0" width="102.0" height="40.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="978.0" y="695.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Expert 1</text>
-<text x="1094.0" y="697.0" font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#111"><tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan></text>
-<rect x="1159.0" y="672.0" width="102.0" height="40.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1210.0" y="695.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Expert 384</text>
-<polyline points="862.0,672.0 862.0,652.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="978.0,672.0 978.0,652.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1210.0,672.0 1210.0,652.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="927.0" y="732.0" width="334.0" height="40.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1094.0" y="749.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Router</text>
-<text x="1094.0" y="762.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">top-6 of 384</text>
-<polyline points="978.0,732.0 978.0,712.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1210.0,732.0 1210.0,712.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1094.0,814.0 1094.0,772.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="862.0,783.0 1094.0,783.0" fill="none" stroke="#111" stroke-width="1.8"/>
-<circle cx="1094.0" cy="783.0" r="3.2" fill="#111"/>
-<polyline points="862.0,783.0 862.0,712.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1036.0,624.0 1036.0,604.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<text x="1370.0" y="562.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Feed forward (SwiGLU)</text>
-<text x="1380.0" y="592.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">Intermediate hidden layer dimension <tspan fill="#1677c2" font-weight="bold">2,304</tspan></text>
-<rect x="1431.0" y="624.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="641.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (down)</text>
-<circle cx="1516.0" cy="680.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
-<path d="M1511.2,675.2 L1520.8,684.8 M1520.8,675.2 L1511.2,684.8" stroke="#111" stroke-width="1.8"/>
-<polyline points="1516.0,669.0 1516.0,652.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1407.0" y="772.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1458.0" y="789.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (gate)</text>
-<rect x="1407.0" y="715.0" width="102.0" height="42.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1458.0" y="731.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">SiLU</text>
-<text x="1458.0" y="746.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">activation</text>
-<polyline points="1458.0,772.0 1458.0,757.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1523.0" y="772.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1574.0" y="789.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (up)</text>
-<polyline points="1458.0,715.0 1458.0,680.0 1505.0,680.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1574.0,772.0 1574.0,680.0 1527.0,680.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1516.0,842.0 1516.0,829.0" fill="none" stroke="#111" stroke-width="1.8"/>
-<polyline points="1458.0,829.0 1574.0,829.0" fill="none" stroke="#111" stroke-width="1.8"/>
-<circle cx="1516.0" cy="829.0" r="3.2" fill="#111"/>
-<polyline points="1458.0,829.0 1458.0,800.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1574.0,829.0 1574.0,800.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1516.0,624.0 1516.0,604.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<text x="794.0" y="881.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Compressed Sparse Attention 2 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> CSA2(ratio,</text>
-<text x="794.0" y="900.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">mode)</text>
-<text x="804.0" y="930.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">mode=Full builds global KV and sparse indices <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> Reindex</text>
-<text x="804.0" y="944.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">recomputes sparse indices <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> Reuse shares KV and sparse</text>
-<text x="804.0" y="958.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">indices <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> CSA2 includes SWA</text>
-<rect x="893.0" y="990.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="978.0" y="1007.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (output)</text>
-<rect x="811.0" y="1033.0" width="334.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="978.0" y="1050.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Sparse attention over compressed KV</text>
-<text x="978.0" y="1063.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">Partial RoPE <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> YaRN, 64k pretraining</text>
-<polyline points="978.0,1033.0 978.0,1018.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="811.0" y="1148.0" width="102.0" height="42.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="862.0" y="1172.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear Q</text>
-<rect x="811.0" y="1093.0" width="102.0" height="40.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="862.0" y="1116.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Partial RoPE</text>
-<polyline points="862.0,1148.0 862.0,1133.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="927.0" y="1148.0" width="102.0" height="42.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="978.0" y="1172.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear KV</text>
-<rect x="927.0" y="1093.0" width="102.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="978.0" y="1110.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Compress KV</text>
-<text x="978.0" y="1123.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">token blocks</text>
-<polyline points="978.0,1148.0 978.0,1133.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1043.0" y="1148.0" width="102.0" height="42.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1094.0" y="1164.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Lightning</text>
-<text x="1094.0" y="1179.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">indexer</text>
-<rect x="1043.0" y="1093.0" width="102.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1094.0" y="1116.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Top-k blocks</text>
-<polyline points="1094.0,1148.0 1094.0,1133.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="862.0,1093.0 862.0,1073.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="978.0,1093.0 978.0,1073.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1094.0,1093.0 1094.0,1073.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="978.0,1232.0 978.0,1219.0" fill="none" stroke="#111" stroke-width="1.8"/>
-<polyline points="862.0,1219.0 1094.0,1219.0" fill="none" stroke="#111" stroke-width="1.8"/>
-<circle cx="978.0" cy="1219.0" r="3.2" fill="#111"/>
-<polyline points="862.0,1219.0 862.0,1190.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="978.0,1219.0 978.0,1190.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1094.0,1219.0 1094.0,1190.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="978.0,990.0 978.0,970.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<text x="1370.0" y="900.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Engram (token n-gram lookup)</text>
-<text x="1380.0" y="930.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#1677c2" font-weight="bold">196B</tspan> parameters, used in encoded blocks <tspan fill="#1677c2" font-weight="bold">2</tspan> and</text>
-<text x="1380.0" y="944.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#1677c2" font-weight="bold">15</tspan></text>
-<rect x="1431.0" y="976.0" width="170.0" height="28.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="993.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Add to hidden state</text>
-<rect x="1431.0" y="1019.0" width="170.0" height="40.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="1036.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Engram table lookup</text>
-<text x="1516.0" y="1049.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">196B parameters</text>
-<polyline points="1516.0,1019.0 1516.0,1004.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1431.0" y="1074.0" width="170.0" height="28.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1516.0" y="1091.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Token n-gram</text>
-<polyline points="1516.0,1074.0 1516.0,1059.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1516.0,1126.0 1516.0,1102.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1516.0,976.0 1516.0,956.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="794.0" y="562.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Hierarchical sparse indexer</text>
+<text x="804.0" y="592.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">The first decoder Full layer builds a</text>
+<text x="804.0" y="606.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">candidate pool for later Reindex layers</text>
+<rect x="855.0" y="638.0" width="170.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="655.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">CSA2(1, Reuse)</text>
+<text x="940.0" y="668.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">shares KV and sparse indices</text>
+<rect x="855.0" y="693.0" width="170.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="710.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">CSA2(1, Reindex)</text>
+<text x="940.0" y="723.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">recomputes sparse indices</text>
+<polyline points="940.0,693.0 940.0,678.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="855.0" y="748.0" width="170.0" height="28.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="765.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Candidate pool</text>
+<polyline points="940.0,748.0 940.0,733.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="855.0" y="791.0" width="170.0" height="53.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="808.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">CSA2(1, Full)</text>
+<text x="940.0" y="822.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">builds global KV and sparse</text>
+<text x="940.0" y="834.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">indices</text>
+<polyline points="940.0,791.0 940.0,776.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="940.0,868.0 940.0,844.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="940.0,638.0 940.0,618.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="794.0" y="907.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">MoE layer</text>
+<text x="804.0" y="937.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#1677c2" font-weight="bold">1</tspan> shared + <tspan fill="#1677c2" font-weight="bold">6</tspan> routed experts per token</text>
+<rect x="811.0" y="969.0" width="450.0" height="28.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1036.0" y="986.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Weighted sum of expert outputs</text>
+<rect x="811.0" y="1017.0" width="102.0" height="40.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="862.0" y="1034.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Shared expert</text>
+<text x="862.0" y="1047.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">always active</text>
+<rect x="927.0" y="1017.0" width="102.0" height="40.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="1040.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Expert 1</text>
+<text x="1094.0" y="1042.0" font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#111"><tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan></text>
+<rect x="1159.0" y="1017.0" width="102.0" height="40.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1210.0" y="1040.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Expert 384</text>
+<polyline points="862.0,1017.0 862.0,997.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,1017.0 978.0,997.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1210.0,1017.0 1210.0,997.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="927.0" y="1077.0" width="334.0" height="40.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1094.0" y="1094.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Router</text>
+<text x="1094.0" y="1107.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">top-6 of 384</text>
+<polyline points="978.0,1077.0 978.0,1057.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1210.0,1077.0 1210.0,1057.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1094.0,1159.0 1094.0,1117.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="862.0,1128.0 1094.0,1128.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<circle cx="1094.0" cy="1128.0" r="3.2" fill="#111"/>
+<polyline points="862.0,1128.0 862.0,1057.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1036.0,969.0 1036.0,949.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="1370.0" y="907.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Feed forward (SwiGLU)</text>
+<text x="1380.0" y="937.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">Intermediate hidden layer dimension <tspan fill="#1677c2" font-weight="bold">2,304</tspan></text>
+<rect x="1431.0" y="969.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1516.0" y="986.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (down)</text>
+<circle cx="1516.0" cy="1025.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M1511.2,1020.2 L1520.8,1029.8 M1520.8,1020.2 L1511.2,1029.8" stroke="#111" stroke-width="1.8"/>
+<polyline points="1516.0,1014.0 1516.0,997.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1407.0" y="1117.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1458.0" y="1134.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (gate)</text>
+<rect x="1407.0" y="1060.0" width="102.0" height="42.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1458.0" y="1076.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">SiLU</text>
+<text x="1458.0" y="1091.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">activation</text>
+<polyline points="1458.0,1117.0 1458.0,1102.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1523.0" y="1117.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1574.0" y="1134.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (up)</text>
+<polyline points="1458.0,1060.0 1458.0,1025.0 1505.0,1025.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1574.0,1117.0 1574.0,1025.0 1527.0,1025.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1516.0,1187.0 1516.0,1174.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<polyline points="1458.0,1174.0 1574.0,1174.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<circle cx="1516.0" cy="1174.0" r="3.2" fill="#111"/>
+<polyline points="1458.0,1174.0 1458.0,1145.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1574.0,1174.0 1574.0,1145.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1516.0,969.0 1516.0,949.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="794.0" y="1226.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Compressed Sparse Attention 2 <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> CSA2(ratio,</text>
+<text x="794.0" y="1245.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">mode)</text>
+<text x="804.0" y="1275.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">mode=Full builds global KV and sparse indices <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> Reindex</text>
+<text x="804.0" y="1289.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">recomputes sparse indices <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> Reuse shares KV and sparse</text>
+<text x="804.0" y="1303.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">indices <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> CSA2 includes SWA</text>
+<rect x="893.0" y="1335.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="1352.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (output)</text>
+<rect x="811.0" y="1378.0" width="334.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="1395.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Sparse attention over compressed KV</text>
+<text x="978.0" y="1408.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">Partial RoPE <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> YaRN, 64k pretraining</text>
+<polyline points="978.0,1378.0 978.0,1363.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="811.0" y="1493.0" width="102.0" height="42.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="862.0" y="1517.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear Q</text>
+<rect x="811.0" y="1438.0" width="102.0" height="40.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="862.0" y="1461.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Partial RoPE</text>
+<polyline points="862.0,1493.0 862.0,1478.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="927.0" y="1493.0" width="102.0" height="42.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="1517.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear KV</text>
+<rect x="927.0" y="1438.0" width="102.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="1455.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Compress KV</text>
+<text x="978.0" y="1468.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">token blocks</text>
+<polyline points="978.0,1493.0 978.0,1478.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1043.0" y="1493.0" width="102.0" height="42.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1094.0" y="1509.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Lightning</text>
+<text x="1094.0" y="1524.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">indexer</text>
+<rect x="1043.0" y="1438.0" width="102.0" height="40.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1094.0" y="1461.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Top-k blocks</text>
+<polyline points="1094.0,1493.0 1094.0,1478.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="862.0,1438.0 862.0,1418.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,1438.0 978.0,1418.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1094.0,1438.0 1094.0,1418.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,1577.0 978.0,1564.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<polyline points="862.0,1564.0 1094.0,1564.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<circle cx="978.0" cy="1564.0" r="3.2" fill="#111"/>
+<polyline points="862.0,1564.0 862.0,1535.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,1564.0 978.0,1535.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1094.0,1564.0 1094.0,1535.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,1335.0 978.0,1315.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="794.0" y="1616.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Engram (token n-gram lookup)</text>
+<text x="804.0" y="1646.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#1677c2" font-weight="bold">196B</tspan> parameters, used in encoded blocks <tspan fill="#1677c2" font-weight="bold">2</tspan> and</text>
+<text x="804.0" y="1660.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#1677c2" font-weight="bold">15</tspan></text>
+<rect x="855.0" y="1692.0" width="170.0" height="28.0" rx="7" fill="#cbe8d4" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="1709.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Add to hidden state</text>
+<rect x="855.0" y="1735.0" width="170.0" height="40.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="1752.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Engram table lookup</text>
+<text x="940.0" y="1765.9" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#555">196B parameters</text>
+<polyline points="940.0,1735.0 940.0,1720.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="855.0" y="1790.0" width="170.0" height="28.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="1807.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Token n-gram</text>
+<polyline points="940.0,1790.0 940.0,1775.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="940.0,1842.0 940.0,1818.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="940.0,1692.0 940.0,1672.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
 <text x="30.0" y="58.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="40" text-anchor="start" font-weight="bold" fill="#1677c2">DeepSeek-V4.1-Flash (552B + 196B Engram)</text>
 <rect x="30.0" y="78" width="46.2" height="26" rx="13" fill="url(#chipMoE)" stroke="#111" stroke-width="1.3"/>
 <text x="53.1" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">MoE</text>
@@ -247,30 +247,30 @@
 <text x="507.2" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#111">20 encoder + 20 decoder layers</text>
 <rect x="630.5" y="78" width="92.9" height="26" rx="13" fill="#fff" stroke="#9a9a9a" stroke-width="1.3"/>
 <text x="677.0" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#111">1M context</text>
-<rect x="30" y="1266" width="20" height="14" rx="3.5" fill="#fadbde" stroke="#111" stroke-width="1.1"/>
-<text x="57.0" y="1277.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Embedding</text>
-<rect x="138.625" y="1266" width="20" height="14" rx="3.5" fill="#f1f4c2" stroke="#111" stroke-width="1.1"/>
-<text x="165.6" y="1277.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Normalization</text>
-<rect x="273.75" y="1266" width="20" height="14" rx="3.5" fill="#fde1b9" stroke="#111" stroke-width="1.1"/>
-<text x="300.8" y="1277.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Attention</text>
-<rect x="382.375" y="1266" width="20" height="14" rx="3.5" fill="#c5e7f6" stroke="#111" stroke-width="1.1"/>
-<text x="409.4" y="1277.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Feed forward / MoE</text>
-<rect x="550.625" y="1266" width="20" height="14" rx="3.5" fill="#dadcf1" stroke="#111" stroke-width="1.1"/>
-<text x="577.6" y="1277.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Linear</text>
-<rect x="639.375" y="1266" width="20" height="14" rx="3.5" fill="#cbe8d4" stroke="#111" stroke-width="1.1"/>
-<text x="666.4" y="1277.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Gating / routing / mixing</text>
-<line x1="854.0" y1="1273" x2="892.0" y2="1273" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
-<text x="902.0" y="1277.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">zoom-in link</text>
-<circle cx="591.0" cy="372.5" r="3.2" fill="#2b2b2b"/>
-<polyline points="591.0,372.5 790.0,372.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
-<circle cx="591.0" cy="607.5" r="3.2" fill="#2b2b2b"/>
-<polyline points="591.0,607.5 686.0,607.5 686.0,534.0 1298.0,534.0 1298.0,435.0 1366.0,435.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
-<circle cx="591.0" cy="762.5" r="3.2" fill="#2b2b2b"/>
-<polyline points="591.0,762.5 790.0,762.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
-<circle cx="591.0" cy="869.5" r="3.2" fill="#2b2b2b"/>
-<polyline points="591.0,869.5 686.0,869.5 686.0,926.0 790.0,926.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
-<circle cx="591.0" cy="976.5" r="3.2" fill="#2b2b2b"/>
-<polyline points="591.0,976.5 686.0,976.5 686.0,1243.0 1298.0,1243.0 1298.0,1110.0 1366.0,1110.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
-<circle cx="1261.0" cy="692.0" r="3.2" fill="#2b2b2b"/>
-<polyline points="1261.0,692.0 1366.0,692.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<rect x="30" y="1876" width="20" height="14" rx="3.5" fill="#fadbde" stroke="#111" stroke-width="1.1"/>
+<text x="57.0" y="1887.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Embedding</text>
+<rect x="138.625" y="1876" width="20" height="14" rx="3.5" fill="#f1f4c2" stroke="#111" stroke-width="1.1"/>
+<text x="165.6" y="1887.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Normalization</text>
+<rect x="273.75" y="1876" width="20" height="14" rx="3.5" fill="#fde1b9" stroke="#111" stroke-width="1.1"/>
+<text x="300.8" y="1887.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Attention</text>
+<rect x="382.375" y="1876" width="20" height="14" rx="3.5" fill="#c5e7f6" stroke="#111" stroke-width="1.1"/>
+<text x="409.4" y="1887.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Feed forward / MoE</text>
+<rect x="550.625" y="1876" width="20" height="14" rx="3.5" fill="#dadcf1" stroke="#111" stroke-width="1.1"/>
+<text x="577.6" y="1887.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Linear</text>
+<rect x="639.375" y="1876" width="20" height="14" rx="3.5" fill="#cbe8d4" stroke="#111" stroke-width="1.1"/>
+<text x="666.4" y="1887.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Gating / routing / mixing</text>
+<line x1="854.0" y1="1883" x2="892.0" y2="1883" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<text x="902.0" y="1887.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">zoom-in link</text>
+<circle cx="591.0" cy="677.5" r="3.2" fill="#2b2b2b"/>
+<polyline points="591.0,677.5 686.0,677.5 686.0,507.0 790.0,507.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<circle cx="591.0" cy="912.5" r="3.2" fill="#2b2b2b"/>
+<polyline points="591.0,912.5 686.0,912.5 686.0,852.0 790.0,852.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<circle cx="591.0" cy="1067.5" r="3.2" fill="#2b2b2b"/>
+<polyline points="591.0,1067.5 790.0,1067.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<circle cx="591.0" cy="1174.5" r="3.2" fill="#2b2b2b"/>
+<polyline points="591.0,1174.5 686.0,1174.5 686.0,1271.0 790.0,1271.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<circle cx="591.0" cy="1281.5" r="3.2" fill="#2b2b2b"/>
+<polyline points="591.0,1281.5 686.0,1281.5 686.0,1642.0 790.0,1642.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<circle cx="1261.0" cy="1037.0" r="3.2" fill="#2b2b2b"/>
+<polyline points="1261.0,1037.0 1366.0,1037.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
 </svg>

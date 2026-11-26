@@ -527,15 +527,14 @@ def render(m, root):
     ROW_GAP = 22
 
     def layout(mode_column):
-        """Rows of [col1, col2]; a child panel always sits right of its parent."""
+        """Rows of [col1, col2]: tower-linked panels stack in col1 (short links, no far-right column);
+        col2 only holds a child panel, right of its parent."""
         rows = []
         for pid in linked:
             kids = child_of.get(pid, [])
             if kids:
                 rows.append([pid, kids[0]])
                 rows += [[None, k] for k in kids[1:]]
-            elif not mode_column and rows and rows[-1][1] is None:
-                rows[-1][1] = pid
             else:
                 rows.append([pid, None])
         grid_h = sum(max(size[p][1] + TITLE(p) for p in r if p) + ROW_GAP for r in rows) - ROW_GAP if rows else 0
@@ -737,8 +736,8 @@ def render(m, root):
     H = bottom + 34
 
     issues = problems(sc)
-    stops = [ARCH[archs[0]]["light"], ARCH[archs[0]]["dark"]] + [ARCH[a]["dark"] for a in archs[1:]]
-    bg = "".join(f'<stop offset="{i/(len(stops)-1):.2f}" stop-color="{c}"/>' for i, c in enumerate(stops))
+    hue = ARCH[archs[0]]     # single hue: primary architecture only, light -> dark
+    bg = f'<stop offset="0" stop-color="{hue["light"]}"/><stop offset="1" stop-color="{hue["dark"]}"/>'
     chip_defs = "".join(f'<linearGradient id="chip{a}" x1="0" y1="0" x2="1" y2="1">'
                         f'<stop offset="0" stop-color="{v["light"]}"/><stop offset="1" stop-color="{v["dark"]}"/>'
                         f'</linearGradient>' for a, v in ARCH.items())

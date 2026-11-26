@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1590 826" width="1590" height="826" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1206 826" width="1206" height="826" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif">
 <title>Llama 3 architecture</title>
-<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="lk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><filter id="sh" x="-10%" y="-20%" width="130%" height="160%"><feDropShadow dx="1.5" dy="2.2" stdDeviation="1.6" flood-color="#000" flood-opacity="0.22"/></filter><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0.00" stop-color="#dfe2fa"/><stop offset="1.00" stop-color="#9aa2e8"/></linearGradient><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ececec"/><stop offset="1" stop-color="#d6d6d6"/></linearGradient><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset="1" stop-color="#e4e4e4"/></linearGradient><linearGradient id="chipDense" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe2fa"/><stop offset="1" stop-color="#9aa2e8"/></linearGradient><linearGradient id="chipMoE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4ecfa"/><stop offset="1" stop-color="#6db7e6"/></linearGradient><linearGradient id="chipHybrid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe8cc"/><stop offset="1" stop-color="#f3a95e"/></linearGradient><linearGradient id="chipRecurrent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6f0de"/><stop offset="1" stop-color="#77c690"/></linearGradient></defs>
-<rect width="1590" height="826" fill="#fff"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="lk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><filter id="sh" x="-10%" y="-20%" width="130%" height="160%"><feDropShadow dx="1.5" dy="2.2" stdDeviation="1.6" flood-color="#000" flood-opacity="0.22"/></filter><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#dfe2fa"/><stop offset="1" stop-color="#9aa2e8"/></linearGradient><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ececec"/><stop offset="1" stop-color="#d6d6d6"/></linearGradient><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset="1" stop-color="#e4e4e4"/></linearGradient><linearGradient id="chipDense" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe2fa"/><stop offset="1" stop-color="#9aa2e8"/></linearGradient><linearGradient id="chipMoE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4ecfa"/><stop offset="1" stop-color="#6db7e6"/></linearGradient><linearGradient id="chipHybrid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe8cc"/><stop offset="1" stop-color="#f3a95e"/></linearGradient><linearGradient id="chipRecurrent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6f0de"/><stop offset="1" stop-color="#77c690"/></linearGradient></defs>
+<rect width="1206" height="826" fill="#fff"/>
 <rect x="240" y="170.0" width="432" height="505.0" rx="34" fill="url(#fg)" stroke="#2a2a2a" stroke-width="1.8"/>
 <rect x="326" y="278.0" width="310" height="340.0" rx="28" fill="url(#bg)" stroke="#2a2a2a" stroke-width="1.8"/>
 <path d="M324,534.0 C317,534.0 321,563.0 313,569.0 C321,575.0 317,604.0 324,604.0" fill="none" stroke="#111" stroke-width="2"/>
 <rect x="790.0" y="155.0" width="300.0" height="270.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-<rect x="1174.0" y="155.0" width="376.0" height="256.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="790.0" y="474.0" width="376.0" height="256.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
 <rect x="385.0" y="685.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
 <text x="488.0" y="703.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Tokenizer</text>
 <rect x="385.0" y="630.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
@@ -77,35 +77,35 @@
 <polyline points="882.0,412.0 882.0,383.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
 <polyline points="998.0,412.0 998.0,383.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
 <polyline points="940.0,207.0 940.0,187.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<text x="1178.0" y="145.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Masked grouped-query attention</text>
-<text x="1188.0" y="175.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#4652c8" font-weight="bold">32</tspan> heads <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> causal mask <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> RoPE on Q and K</text>
-<rect x="1277.0" y="207.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1362.0" y="224.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (output)</text>
-<rect x="1195.0" y="250.0" width="334.0" height="28.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1362.0" y="267.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Scaled dot-product attention</text>
-<polyline points="1362.0,250.0 1362.0,235.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1195.0" y="341.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1246.0" y="358.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear Q</text>
-<rect x="1195.0" y="298.0" width="102.0" height="28.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1246.0" y="315.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">RoPE</text>
-<polyline points="1246.0,341.0 1246.0,326.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1311.0" y="341.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1362.0" y="358.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear K</text>
-<rect x="1311.0" y="298.0" width="102.0" height="28.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1362.0" y="315.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">RoPE</text>
-<polyline points="1362.0,341.0 1362.0,326.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<rect x="1427.0" y="341.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
-<text x="1478.0" y="358.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear V</text>
-<polyline points="1246.0,298.0 1246.0,278.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1362.0,298.0 1362.0,278.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1478.0,341.0 1478.0,278.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1362.0,411.0 1362.0,398.0" fill="none" stroke="#111" stroke-width="1.8"/>
-<polyline points="1246.0,398.0 1478.0,398.0" fill="none" stroke="#111" stroke-width="1.8"/>
-<circle cx="1362.0" cy="398.0" r="3.2" fill="#111"/>
-<polyline points="1246.0,398.0 1246.0,369.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1362.0,398.0 1362.0,369.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1478.0,398.0 1478.0,369.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
-<polyline points="1362.0,207.0 1362.0,187.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="794.0" y="464.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">Masked grouped-query attention</text>
+<text x="804.0" y="494.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555"><tspan fill="#4652c8" font-weight="bold">32</tspan> heads <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> causal mask <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">·</tspan> RoPE on Q and K</text>
+<rect x="893.0" y="526.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="543.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear (output)</text>
+<rect x="811.0" y="569.0" width="334.0" height="28.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="586.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Scaled dot-product attention</text>
+<polyline points="978.0,569.0 978.0,554.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="811.0" y="660.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="862.0" y="677.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear Q</text>
+<rect x="811.0" y="617.0" width="102.0" height="28.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="862.0" y="634.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">RoPE</text>
+<polyline points="862.0,660.0 862.0,645.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="927.0" y="660.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="677.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear K</text>
+<rect x="927.0" y="617.0" width="102.0" height="28.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="978.0" y="634.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">RoPE</text>
+<polyline points="978.0,660.0 978.0,645.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1043.0" y="660.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1094.0" y="677.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">Linear V</text>
+<polyline points="862.0,617.0 862.0,597.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,617.0 978.0,597.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1094.0,660.0 1094.0,597.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,730.0 978.0,717.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<polyline points="862.0,717.0 1094.0,717.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<circle cx="978.0" cy="717.0" r="3.2" fill="#111"/>
+<polyline points="862.0,717.0 862.0,688.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,717.0 978.0,688.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1094.0,717.0 1094.0,688.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="978.0,526.0 978.0,506.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
 <text x="30.0" y="58.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="40" text-anchor="start" font-weight="bold" fill="#4652c8">Llama 3 (8B)</text>
 <rect x="30.0" y="78" width="61.0" height="26" rx="13" fill="url(#chipDense)" stroke="#111" stroke-width="1.3"/>
 <text x="60.5" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Dense</text>
@@ -130,5 +130,5 @@
 <circle cx="591.0" cy="353.5" r="3.2" fill="#2b2b2b"/>
 <polyline points="591.0,353.5 790.0,353.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
 <circle cx="591.0" cy="515.5" r="3.2" fill="#2b2b2b"/>
-<polyline points="591.0,515.5 686.0,515.5 686.0,436.0 1106.0,436.0 1106.0,395.0 1174.0,395.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<polyline points="591.0,515.5 790.0,515.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
 </svg>

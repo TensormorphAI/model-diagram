@@ -26,7 +26,7 @@ The command exits non-zero if any diagram fails the layout check (see [§7](#7-a
 | --- | --- | --- | --- |
 | v0 | Post-process the original SVGs: regex-drop "note" text and dotted leaders, recolor boxes by label keywords (`process_svg.py`, since deleted) | Worked on simple files. Failed on the busy ones: leftover notes, explainer strips, overlapping arrows (gpt-oss-120b), and no link between components and insets | Each original is hand-drawn differently, so heuristics never converge. **Generate from data instead of patching drawings.** |
 | v1 | Data-driven template: one spec per model, a fixed panel library, and a geometric checker as the gate | Same anatomy for every model, zero overlaps, every inset linked | Fixed topology, where residuals and links never share a side, makes the no-overlap rule hold by design |
-| v2 | Style pass to match the originals, with a compact poster layout | Matches the look of the originals: gray frame, shadowed boxes, dotted insets, bold callouts, brace + `N ×`. Architecture gradient on the main block; Segoe UI + KaTeX; two-column inset grid | Style is separate from the template: all of it lives in constants at the top of `render.py` |
+| v2 | Style pass to match the originals, with a compact poster layout | Matches the look of the originals: gray frame, shadowed boxes, dotted insets, bold callouts, brace + `N ×`. Single-hue architecture gradient on the main block; Segoe UI + KaTeX; one inset column (children to the right) | Style is separate from the template: all of it lives in constants at the top of `render.py` |
 
 Keep these decisions unless there is a strong reason to change them:
 1. **Data, not drawings.** A model is a spec in `models.py`; the SVG is always regenerated.
@@ -102,7 +102,7 @@ Current gaps: Kimi K3.1 has no `d_model`/`vocab`; Kimi LatentMoE and the Ornith 
 | Internal structure of a module | Zoom panel |
 | Explanations, prose, resource-savings lists, explainer strips | **Not drawn.** Leave them out |
 
-**Architecture chip rule** (a model may carry several chips; the order sets the gradient and accent):
+**Architecture chip rule** (a model may carry several chips; the first sets the gradient and accent):
 - **MoE**: has routed experts.
 - **Hybrid**: mixes linear or recurrent-state attention (KDA, Gated DeltaNet) with softmax attention.
   A local:global sliding-window mix alone (Muse Glimmer, Inkling 2 Small) does **not** count.
@@ -143,9 +143,8 @@ All values are constants at the top of `render.py`. Change them there, never per
 | Hybrid | `#ffe8cc` → `#f3a95e` | `#d4690f` |
 | Recurrent | `#d6f0de` → `#77c690` | `#1f8a52` |
 
-The main-block gradient stops are first-arch light → first-arch dark → the dark color of each further
-arch, so MoE + Hybrid runs blue to orange and MoE + Recurrent runs blue to green. The direction is
-top-left to bottom-right (`x2=0.35`). Architecture chips use the same light → dark gradient.
+The main-block gradient is a single hue: first-arch light → first-arch dark. Further archs only add
+chips; they never mix into the gradient. The direction is top-left to bottom-right (`x2=0.35`). Architecture chips use the same light → dark gradient.
 
 Neutrals: ink `#111`, muted text `#555`, links/leaders `#2b2b2b`. The model frame is a `#ececec` → `#d6d6d6`
 gradient; panels are `#f4f4f4` → `#e4e4e4`.
@@ -218,8 +217,8 @@ top leaves room for its title lines. The brace spans the lower part of the block
 2. A **child panel** (linked from inside another panel) always sits **right of its parent, top-aligned**,
    so the link is one straight line.
 3. **Column mode** is the default: one column of insets, each placed near its source. If that column would
-   end more than 40 px below the stack, switch to **grid mode**: two columns, rows filled in Z-order, and
-   the stack centered vertically against the grid.
+   end more than 40 px below the stack, switch to **grid mode**: panels still stack in one column, starting
+   at the top, with the stack centered vertically against them. Column 2 holds only child panels.
 4. Row gap 22. Each panel reserves `19 × title lines + 8` px above itself for its title. Titles wrap at
    `max(panel width, 400)`.
 
@@ -346,7 +345,5 @@ Write a function in the library section of `models.py` that returns the generic 
   revisit them when real internals are available.
 - `transformer_architecture.svg` (encoder–decoder) is the color reference and is copied through
   unchanged. The template is decoder-only; encoder-decoder models would need a second stack.
-- Some grid-mode links to column 2 are long when the target sits in a low row (V4.1-Flash Engram).
-  Possible fix: prefer putting low-source panels in column 1.
-- Gradients that mix architectures (blue → orange) pass through a muted middle tone. Acceptable, but a
-  future palette could pick hues that blend more cleanly.
+- Models with many tower-linked panels get tall, because those panels all stack in column 1
+  (V4.1-Flash: 1910 px). If that matters, allow a second column only past some panel count.
