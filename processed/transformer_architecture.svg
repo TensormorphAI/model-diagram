@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:c2pa="http://c2pa.org/manifest" viewBox="0 0 1520 2240" width="1520" height="2240">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 2240" width="1520" height="2240" xmlns:c2pa="http://c2pa.org/manifest">
   <title>Transformer model architecture</title>
+  <desc>Redrawn from Figure 1 of Vaswani et al., "Attention Is All You Need" (2017).</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 30 24" refX="8" refY="12" markerWidth="30" markerHeight="24" markerUnits="userSpaceOnUse" orient="auto">
-      <path d="M0,0 L30,12 L0,24 L8,12 Z" fill="#000" />
+      <path d="M0,0 L30,12 L0,24 L8,12 Z" fill="#000"/>
     </marker>
     <style>
       .line { fill: none; stroke: #000; stroke-width: 7; stroke-linejoin: round; }
@@ -21,101 +22,101 @@
     </style>
   </defs>
 
-  <rect width="1520" height="2240" fill="#fff" x="0" y="0" />
+  <rect width="1520" height="2240" fill="#fff"/>
 
-  
-  <rect class="block" x="175" y="840" width="535" height="780" rx="55" style="fill:#f2f2f2;stroke:#111" />
-  <rect class="block" x="808" y="473" width="527" height="1145" rx="55" style="fill:#f2f2f2;stroke:#111" />
+  <!-- Stack backgrounds -->
+  <rect class="block" x="175" y="840" width="535" height="780" rx="55"/>
+  <rect class="block" x="808" y="473" width="527" height="1145" rx="55"/>
 
-  
-  <line class="line arr" x1="489" y1="2070" x2="489" y2="1988" />
-  <line class="line arr" x1="489" y1="1815" x2="489" y2="1774" />
-  <line class="line" x1="406" y1="1725" x2="461" y2="1725" />
-  <line class="line arr" x1="489" y1="1698" x2="489" y2="1500" />
-  <path class="line arr" d="M489,1535 H393 A35,35 0 0 1 358,1500" />
-  <path class="line arr" d="M489,1535 H585 A35,35 0 0 0 620,1500" />
-  <path class="line arr" d="M489,1583 H248 A35,35 0 0 1 213,1548 V1315 A35,35 0 0 1 248,1280 H288" />
-  <line class="line" x1="489" y1="1333" x2="489" y2="1313" />
-  <line class="line arr" x1="489" y1="1245" x2="489" y2="1132" />
-  <path class="line arr" d="M489,1178 H248 A35,35 0 0 1 213,1143 V947 A35,35 0 0 1 248,912 H288" />
-  <line class="line" x1="489" y1="965" x2="489" y2="943" />
-  
-  <path class="line arr" d="M489,878 V830 A35,35 0 0 1 524,795 H723 A35,35 0 0 1 758,830 V1080 A35,35 0 0 0 793,1115 H860 A35,35 0 0 0 895,1080" />
-  <path class="line arr" d="M850,1115 H993 A35,35 0 0 0 1028,1080" />
+  <!-- ================= ENCODER CONNECTIONS ================= -->
+  <line class="line arr" x1="489" y1="2070" x2="489" y2="1988"/>
+  <line class="line arr" x1="489" y1="1815" x2="489" y2="1774"/>
+  <line class="line" x1="406" y1="1725" x2="461" y2="1725"/>
+  <line class="line arr" x1="489" y1="1698" x2="489" y2="1500"/>
+  <path class="line arr" d="M489,1535 H393 A35,35 0 0 1 358,1500"/>
+  <path class="line arr" d="M489,1535 H585 A35,35 0 0 0 620,1500"/>
+  <path class="line arr" d="M489,1583 H248 A35,35 0 0 1 213,1548 V1315 A35,35 0 0 1 248,1280 H288"/>
+  <line class="line" x1="489" y1="1333" x2="489" y2="1313"/>
+  <line class="line arr" x1="489" y1="1245" x2="489" y2="1132"/>
+  <path class="line arr" d="M489,1178 H248 A35,35 0 0 1 213,1143 V947 A35,35 0 0 1 248,912 H288"/>
+  <line class="line" x1="489" y1="965" x2="489" y2="943"/>
+  <!-- encoder output to decoder cross-attention (K, V) -->
+  <path class="line arr" d="M489,878 V830 A35,35 0 0 1 524,795 H723 A35,35 0 0 1 758,830 V1080 A35,35 0 0 0 793,1115 H860 A35,35 0 0 0 895,1080"/>
+  <path class="line arr" d="M850,1115 H993 A35,35 0 0 0 1028,1080"/>
 
-  
-  <line class="line arr" x1="1029" y1="2070" x2="1029" y2="1988" />
-  <line class="line arr" x1="1029" y1="1815" x2="1029" y2="1782" />
-  <line class="line" x1="1112" y1="1733" x2="1056" y2="1733" />
-  <line class="line arr" x1="1029" y1="1706" x2="1029" y2="1502" />
-  <path class="line arr" d="M1029,1535 H935 A35,35 0 0 1 900,1500" />
-  <path class="line arr" d="M1029,1535 H1123 A35,35 0 0 0 1158,1500" />
-  <path class="line arr" d="M1029,1583 H1258 A35,35 0 0 0 1293,1548 V1260 A35,35 0 0 0 1258,1225 H1232" />
-  <line class="line" x1="1029" y1="1275" x2="1029" y2="1252" />
-  
-  <path class="line arr" d="M1029,1187 V1150 A35,35 0 0 1 1064,1115 H1125 A35,35 0 0 0 1160,1080" />
-  <path class="line arr" d="M1029,1155 H1258 A35,35 0 0 0 1293,1120 V888 A35,35 0 0 0 1258,853 H1232" />
-  <line class="line" x1="1029" y1="908" x2="1029" y2="885" />
-  <line class="line arr" x1="1029" y1="820" x2="1029" y2="764" />
-  <path class="line arr" d="M1029,797 H1258 A35,35 0 0 0 1293,762 V575 A35,35 0 0 0 1258,540 H1232" />
-  <line class="line" x1="1029" y1="597" x2="1029" y2="573" />
-  <line class="line arr" x1="1029" y1="508" x2="1029" y2="440" />
-  <line class="line arr" x1="1029" y1="350" x2="1029" y2="300" />
-  <line class="line arr" x1="1029" y1="210" x2="1029" y2="162" />
+  <!-- ================= DECODER CONNECTIONS ================= -->
+  <line class="line arr" x1="1029" y1="2070" x2="1029" y2="1988"/>
+  <line class="line arr" x1="1029" y1="1815" x2="1029" y2="1782"/>
+  <line class="line" x1="1112" y1="1733" x2="1056" y2="1733"/>
+  <line class="line arr" x1="1029" y1="1706" x2="1029" y2="1502"/>
+  <path class="line arr" d="M1029,1535 H935 A35,35 0 0 1 900,1500"/>
+  <path class="line arr" d="M1029,1535 H1123 A35,35 0 0 0 1158,1500"/>
+  <path class="line arr" d="M1029,1583 H1258 A35,35 0 0 0 1293,1548 V1260 A35,35 0 0 0 1258,1225 H1232"/>
+  <line class="line" x1="1029" y1="1275" x2="1029" y2="1252"/>
+  <!-- query path into cross-attention -->
+  <path class="line arr" d="M1029,1187 V1150 A35,35 0 0 1 1064,1115 H1125 A35,35 0 0 0 1160,1080"/>
+  <path class="line arr" d="M1029,1155 H1258 A35,35 0 0 0 1293,1120 V888 A35,35 0 0 0 1258,853 H1232"/>
+  <line class="line" x1="1029" y1="908" x2="1029" y2="885"/>
+  <line class="line arr" x1="1029" y1="820" x2="1029" y2="764"/>
+  <path class="line arr" d="M1029,797 H1258 A35,35 0 0 0 1293,762 V575 A35,35 0 0 0 1258,540 H1232"/>
+  <line class="line" x1="1029" y1="597" x2="1029" y2="573"/>
+  <line class="line arr" x1="1029" y1="508" x2="1029" y2="440"/>
+  <line class="line arr" x1="1029" y1="350" x2="1029" y2="300"/>
+  <line class="line arr" x1="1029" y1="210" x2="1029" y2="162"/>
 
-  
-  <rect class="box norm" x="310" y="878" width="358" height="65" rx="12" style="fill:#f1f4c2;stroke:#111" />
-  <text class="t" x="489" y="929" style="fill:#111">Add &amp; Norm</text>
-  <rect class="box ff" x="310" y="965" width="358" height="145" rx="12" style="fill:#c5e7f6;stroke:#111" />
-  <text class="t" x="489" y="1020" style="fill:#111">Feed</text>
-  <text class="t" x="489" y="1083" style="fill:#111">Forward</text>
-  <rect class="box norm" x="310" y="1246" width="358" height="67" rx="12" style="fill:#f1f4c2;stroke:#111" />
-  <text class="t" x="489" y="1298" style="fill:#111">Add &amp; Norm</text>
-  <rect class="box attn" x="310" y="1333" width="358" height="145" rx="12" style="fill:#fde1b9;stroke:#111" />
-  <text class="t" x="489" y="1388" style="fill:#111">Multi-Head</text>
-  <text class="t" x="489" y="1451" style="fill:#111">Attention</text>
-  <rect class="box emb" x="310" y="1815" width="358" height="147" rx="12" style="fill:#fadbde;stroke:#111" />
-  <text class="t" x="489" y="1872" style="fill:#111">Input</text>
-  <text class="t" x="489" y="1937" style="fill:#111">Embedding</text>
+  <!-- ================= ENCODER BOXES ================= -->
+  <rect class="box norm" x="310" y="878" width="358" height="65" rx="12"/>
+  <text class="t" x="489" y="929">Add &amp; Norm</text>
+  <rect class="box ff" x="310" y="965" width="358" height="145" rx="12"/>
+  <text class="t" x="489" y="1020">Feed</text>
+  <text class="t" x="489" y="1083">Forward</text>
+  <rect class="box norm" x="310" y="1246" width="358" height="67" rx="12"/>
+  <text class="t" x="489" y="1298">Add &amp; Norm</text>
+  <rect class="box attn" x="310" y="1333" width="358" height="145" rx="12"/>
+  <text class="t" x="489" y="1388">Multi-Head</text>
+  <text class="t" x="489" y="1451">Attention</text>
+  <rect class="box emb" x="310" y="1815" width="358" height="147" rx="12"/>
+  <text class="t" x="489" y="1872">Input</text>
+  <text class="t" x="489" y="1937">Embedding</text>
 
-  
-  <rect class="box norm" x="848" y="508" width="362" height="65" rx="12" style="fill:#f1f4c2;stroke:#111" />
-  <text class="t" x="1029" y="559" style="fill:#111">Add &amp; Norm</text>
-  <rect class="box ff" x="848" y="597" width="362" height="145" rx="12" style="fill:#c5e7f6;stroke:#111" />
-  <text class="t" x="1029" y="652" style="fill:#111">Feed</text>
-  <text class="t" x="1029" y="715" style="fill:#111">Forward</text>
-  <rect class="box norm" x="848" y="820" width="362" height="65" rx="12" style="fill:#f1f4c2;stroke:#111" />
-  <text class="t" x="1029" y="871" style="fill:#111">Add &amp; Norm</text>
-  <rect class="box attn" x="848" y="908" width="362" height="145" rx="12" style="fill:#fde1b9;stroke:#111" />
-  <text class="t" x="1029" y="963" style="fill:#111">Multi-Head</text>
-  <text class="t" x="1029" y="1026" style="fill:#111">Attention</text>
-  <rect class="box norm" x="848" y="1187" width="362" height="65" rx="12" style="fill:#f1f4c2;stroke:#111" />
-  <text class="t" x="1029" y="1238" style="fill:#111">Add &amp; Norm</text>
-  <rect class="box attn" x="848" y="1275" width="362" height="205" rx="12" style="fill:#fde1b9;stroke:#111" />
-  <text class="t" x="1029" y="1330" style="fill:#111">Masked</text>
-  <text class="t" x="1029" y="1393" style="fill:#111">Multi-Head</text>
-  <text class="t" x="1029" y="1456" style="fill:#111">Attention</text>
-  <rect class="box emb" x="848" y="1815" width="362" height="147" rx="12" style="fill:#fadbde;stroke:#111" />
-  <text class="t" x="1029" y="1872" style="fill:#111">Output</text>
-  <text class="t" x="1029" y="1937" style="fill:#111">Embedding</text>
-  <rect class="box lin" x="848" y="350" width="362" height="68" rx="12" style="fill:#dadcf1;stroke:#111" />
-  <text class="t" x="1029" y="402" style="fill:#111">Linear</text>
-  <rect class="box soft" x="848" y="210" width="362" height="68" rx="12" style="fill:#cbe8d4;stroke:#111" />
-  <text class="t" x="1029" y="262" style="fill:#111">Softmax</text>
+  <!-- ================= DECODER BOXES ================= -->
+  <rect class="box norm" x="848" y="508" width="362" height="65" rx="12"/>
+  <text class="t" x="1029" y="559">Add &amp; Norm</text>
+  <rect class="box ff" x="848" y="597" width="362" height="145" rx="12"/>
+  <text class="t" x="1029" y="652">Feed</text>
+  <text class="t" x="1029" y="715">Forward</text>
+  <rect class="box norm" x="848" y="820" width="362" height="65" rx="12"/>
+  <text class="t" x="1029" y="871">Add &amp; Norm</text>
+  <rect class="box attn" x="848" y="908" width="362" height="145" rx="12"/>
+  <text class="t" x="1029" y="963">Multi-Head</text>
+  <text class="t" x="1029" y="1026">Attention</text>
+  <rect class="box norm" x="848" y="1187" width="362" height="65" rx="12"/>
+  <text class="t" x="1029" y="1238">Add &amp; Norm</text>
+  <rect class="box attn" x="848" y="1275" width="362" height="205" rx="12"/>
+  <text class="t" x="1029" y="1330">Masked</text>
+  <text class="t" x="1029" y="1393">Multi-Head</text>
+  <text class="t" x="1029" y="1456">Attention</text>
+  <rect class="box emb" x="848" y="1815" width="362" height="147" rx="12"/>
+  <text class="t" x="1029" y="1872">Output</text>
+  <text class="t" x="1029" y="1937">Embedding</text>
+  <rect class="box lin" x="848" y="350" width="362" height="68" rx="12"/>
+  <text class="t" x="1029" y="402">Linear</text>
+  <rect class="box soft" x="848" y="210" width="362" height="68" rx="12"/>
+  <text class="t" x="1029" y="262">Softmax</text>
 
-  
-  <circle cx="348" cy="1725" r="58" fill="#fff" stroke="#000" stroke-width="5" />
-  <path d="M290,1725 A29,29 0 0 1 348,1725 A29,29 0 0 0 406,1725" fill="none" stroke="#000" stroke-width="5" />
-  <circle cx="489" cy="1725" r="27" fill="#fff" stroke="#000" stroke-width="5" />
-  <path d="M469,1725 H509 M489,1705 V1745" stroke="#000" stroke-width="5" />
+  <!-- ================= POSITIONAL ENCODING ================= -->
+  <circle cx="348" cy="1725" r="58" fill="#fff" stroke="#000" stroke-width="5"/>
+  <path d="M290,1725 A29,29 0 0 1 348,1725 A29,29 0 0 0 406,1725" fill="none" stroke="#000" stroke-width="5"/>
+  <circle cx="489" cy="1725" r="27" fill="#fff" stroke="#000" stroke-width="5"/>
+  <path d="M469,1725 H509 M489,1705 V1745" stroke="#000" stroke-width="5"/>
 
-  <circle cx="1170" cy="1733" r="58" fill="#fff" stroke="#000" stroke-width="5" />
-  <path d="M1112,1733 A29,29 0 0 1 1170,1733 A29,29 0 0 0 1228,1733" fill="none" stroke="#000" stroke-width="5" />
-  <circle cx="1029" cy="1733" r="27" fill="#fff" stroke="#000" stroke-width="5" />
-  <path d="M1009,1733 H1049 M1029,1713 V1753" stroke="#000" stroke-width="5" />
+  <circle cx="1170" cy="1733" r="58" fill="#fff" stroke="#000" stroke-width="5"/>
+  <path d="M1112,1733 A29,29 0 0 1 1170,1733 A29,29 0 0 0 1228,1733" fill="none" stroke="#000" stroke-width="5"/>
+  <circle cx="1029" cy="1733" r="27" fill="#fff" stroke="#000" stroke-width="5"/>
+  <path d="M1009,1733 H1049 M1029,1713 V1753" stroke="#000" stroke-width="5"/>
 
-  
-  <text class="lbl" x="1029" y="55" style="fill:#111">Output</text>
+  <!-- ================= LABELS ================= -->
+  <text class="lbl" x="1029" y="55">Output</text>
   <text class="lbl" x="1029" y="128">Probabilities</text>
   <text class="lbl" x="489" y="2145">Inputs</text>
   <text class="lbl" x="1029" y="2145">Outputs</text>
