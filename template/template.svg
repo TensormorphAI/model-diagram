@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1590 832" width="1590" height="832" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif">
+<title>&lt;Model name&gt; architecture</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="lk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b2b2b"/></marker><filter id="sh" x="-10%" y="-20%" width="130%" height="160%"><feDropShadow dx="1.5" dy="2.2" stdDeviation="1.6" flood-color="#000" flood-opacity="0.22"/></filter><linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0.00" stop-color="#dfe2fa"/><stop offset="0.25" stop-color="#9aa2e8"/><stop offset="0.50" stop-color="#6db7e6"/><stop offset="0.75" stop-color="#f3a95e"/><stop offset="1.00" stop-color="#77c690"/></linearGradient><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ececec"/><stop offset="1" stop-color="#d6d6d6"/></linearGradient><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset="1" stop-color="#e4e4e4"/></linearGradient><linearGradient id="chipDense" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfe2fa"/><stop offset="1" stop-color="#9aa2e8"/></linearGradient><linearGradient id="chipMoE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4ecfa"/><stop offset="1" stop-color="#6db7e6"/></linearGradient><linearGradient id="chipHybrid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe8cc"/><stop offset="1" stop-color="#f3a95e"/></linearGradient><linearGradient id="chipRecurrent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6f0de"/><stop offset="1" stop-color="#77c690"/></linearGradient></defs>
+<rect width="1590" height="832" fill="#fff"/>
+<rect x="240" y="170.0" width="432" height="511.0" rx="34" fill="url(#fg)" stroke="#2a2a2a" stroke-width="1.8"/>
+<rect x="326" y="278.0" width="310" height="346.0" rx="28" fill="url(#bg)" stroke="#2a2a2a" stroke-width="1.8"/>
+<path d="M324,540.0 C317,540.0 321,569.0 313,575.0 C321,581.0 317,610.0 324,610.0" fill="none" stroke="#111" stroke-width="2"/>
+<rect x="790.0" y="155.0" width="300.0" height="190.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="1174.0" y="155.0" width="376.0" height="213.0" rx="18" fill="url(#pg)" stroke="#111" stroke-width="2.2" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+<rect x="385.0" y="691.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="709.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Tokenizer</text>
+<rect x="385.0" y="636.0" width="206.0" height="29.0" rx="7" fill="#fadbde" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="654.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Token embedding layer</text>
+<text x="342.0" y="300.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" font-weight="bold" fill="#111">Main block</text>
+<text x="306.0" y="582.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="19" text-anchor="end" font-weight="bold" fill="#4652c8">N <tspan font-family="KaTeX_Main, 'Latin Modern Math', 'Cambria Math', 'Times New Roman', serif">×</tspan></text>
+<rect x="385.0" y="569.0" width="206.0" height="29.0" rx="7" fill="#f1f4c2" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="587.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">&lt;Norm 1&gt;</text>
+<rect x="385.0" y="508.0" width="206.0" height="43.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="526.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">&lt;Attention variant&gt;</text>
+<text x="488.0" y="541.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">&lt;positional encoding&gt;</text>
+<circle cx="488.0" cy="479.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M481.6,479.0 H494.4 M488.0,472.6 V485.4" stroke="#111" stroke-width="1.8"/>
+<rect x="385.0" y="415.0" width="206.0" height="29.0" rx="7" fill="#f1f4c2" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="433.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">&lt;Norm 2&gt;</text>
+<rect x="385.0" y="354.0" width="206.0" height="43.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="372.6" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">&lt;FFN or MoE&gt;</text>
+<text x="488.0" y="387.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#555">&lt;experts&gt;</text>
+<circle cx="488.0" cy="325.0" r="11" fill="#fff" stroke="#111" stroke-width="1.8" filter="url(#sh)"/>
+<path d="M481.6,325.0 H494.4 M488.0,318.6 V331.4" stroke="#111" stroke-width="1.8"/>
+<rect x="385.0" y="233.0" width="206.0" height="29.0" rx="7" fill="#f1f4c2" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="251.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">&lt;Final norm&gt;</text>
+<rect x="385.0" y="184.0" width="206.0" height="29.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="488.0" y="202.1" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13.5" text-anchor="middle" fill="#111">Linear output layer</text>
+<text x="488.0" y="754.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="14" text-anchor="middle" fill="#111">&lt;input text&gt;</text>
+<polyline points="488.0,737.0 488.0,720.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,691.0 488.0,665.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,636.0 488.0,598.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<circle cx="488.0" cy="612.0" r="3.2" fill="#111"/>
+<polyline points="488.0,612.0 350.0,612.0 350.0,479.0 477.0,479.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,569.0 488.0,551.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,508.0 488.0,490.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,468.0 488.0,444.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<circle cx="488.0" cy="459.0" r="3.2" fill="#111"/>
+<polyline points="488.0,459.0 350.0,459.0 350.0,325.0 477.0,325.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,415.0 488.0,397.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,354.0 488.0,336.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,314.0 488.0,262.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,233.0 488.0,213.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="488.0,184.0 488.0,142.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="488.0" y="134.0" font-family="Consolas, Menlo, 'Courier New', monospace" font-size="13" text-anchor="middle" fill="#555">Next-token logits</text>
+<text x="30.0" y="643.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">Embedding</text>
+<text x="30.0" y="662.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">dimension of &lt;d&gt;</text>
+<polyline points="174.8,650.5 381.0,650.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/>
+<text x="30.0" y="191.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">Vocabulary size</text>
+<text x="30.0" y="210.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#111">of &lt;vocab&gt;</text>
+<polyline points="166.2,198.5 381.0,198.5" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/>
+<text x="794.0" y="145.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">&lt;Zoom: FFN / MoE internals&gt;</text>
+<text x="804.0" y="175.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">&lt;facts: hidden dim, experts, top-k&gt;</text>
+<rect x="855.0" y="207.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="224.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;step 3&gt;</text>
+<rect x="855.0" y="250.0" width="170.0" height="28.0" rx="7" fill="#c5e7f6" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="267.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;step 2&gt;</text>
+<polyline points="940.0,250.0 940.0,235.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="855.0" y="293.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="940.0" y="310.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;step 1&gt;</text>
+<polyline points="940.0,293.0 940.0,278.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="940.0,345.0 940.0,321.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="940.0,207.0 940.0,187.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="1178.0" y="145.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="14.5" text-anchor="start" font-weight="bold" fill="#111">&lt;Zoom: attention internals&gt;</text>
+<text x="1188.0" y="175.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#555">&lt;facts: heads, window, ...&gt;</text>
+<rect x="1277.0" y="207.0" width="170.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1362.0" y="224.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;output&gt;</text>
+<rect x="1195.0" y="250.0" width="334.0" height="28.0" rx="7" fill="#fde1b9" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1362.0" y="267.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;core op&gt;</text>
+<polyline points="1362.0,250.0 1362.0,235.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1195.0" y="298.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1246.0" y="315.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;Q path&gt;</text>
+<rect x="1311.0" y="298.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1362.0" y="315.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;K path&gt;</text>
+<rect x="1427.0" y="298.0" width="102.0" height="28.0" rx="7" fill="#dadcf1" stroke="#111" stroke-width="1.5" filter="url(#sh)"/>
+<text x="1478.0" y="315.2" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111">&lt;V path&gt;</text>
+<polyline points="1246.0,298.0 1246.0,278.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1362.0,298.0 1362.0,278.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1478.0,298.0 1478.0,278.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1362.0,368.0 1362.0,355.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<polyline points="1246.0,355.0 1478.0,355.0" fill="none" stroke="#111" stroke-width="1.8"/>
+<circle cx="1362.0" cy="355.0" r="3.2" fill="#111"/>
+<polyline points="1246.0,355.0 1246.0,326.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1362.0,355.0 1362.0,326.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1478.0,355.0 1478.0,326.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="1362.0,207.0 1362.0,187.0" fill="none" stroke="#111" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="30.0" y="58.0" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="40" text-anchor="start" font-weight="bold" fill="#4652c8">&lt;Model name&gt; (&lt;total&gt;)</text>
+<rect x="30.0" y="78" width="61.0" height="26" rx="13" fill="url(#chipDense)" stroke="#111" stroke-width="1.3"/>
+<text x="60.5" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Dense</text>
+<rect x="99.0" y="78" width="46.2" height="26" rx="13" fill="url(#chipMoE)" stroke="#111" stroke-width="1.3"/>
+<text x="122.2" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">MoE</text>
+<rect x="153.3" y="78" width="68.5" height="26" rx="13" fill="url(#chipHybrid)" stroke="#111" stroke-width="1.3"/>
+<text x="187.5" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Hybrid</text>
+<rect x="229.7" y="78" width="90.7" height="26" rx="13" fill="url(#chipRecurrent)" stroke="#111" stroke-width="1.3"/>
+<text x="275.1" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#111">Recurrent</text>
+<rect x="328.4" y="78" width="196.2" height="26" rx="13" fill="#fff" stroke="#9a9a9a" stroke-width="1.3"/>
+<text x="426.6" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#111">&lt;active&gt; active per token</text>
+<rect x="532.7" y="78" width="92.9" height="26" rx="13" fill="#fff" stroke="#9a9a9a" stroke-width="1.3"/>
+<text x="579.1" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#111">&lt;N&gt; layers</text>
+<rect x="633.6" y="78" width="141.1" height="26" rx="13" fill="#fff" stroke="#9a9a9a" stroke-width="1.3"/>
+<text x="704.1" y="95.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#111">&lt;context&gt; context</text>
+<rect x="30" y="798" width="20" height="14" rx="3.5" fill="#fadbde" stroke="#111" stroke-width="1.1"/>
+<text x="57.0" y="809.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Embedding</text>
+<rect x="138.625" y="798" width="20" height="14" rx="3.5" fill="#f1f4c2" stroke="#111" stroke-width="1.1"/>
+<text x="165.6" y="809.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Normalization</text>
+<rect x="273.75" y="798" width="20" height="14" rx="3.5" fill="#fde1b9" stroke="#111" stroke-width="1.1"/>
+<text x="300.8" y="809.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Attention</text>
+<rect x="382.375" y="798" width="20" height="14" rx="3.5" fill="#c5e7f6" stroke="#111" stroke-width="1.1"/>
+<text x="409.4" y="809.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Feed forward / MoE</text>
+<rect x="550.625" y="798" width="20" height="14" rx="3.5" fill="#dadcf1" stroke="#111" stroke-width="1.1"/>
+<text x="577.6" y="809.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Linear</text>
+<rect x="639.375" y="798" width="20" height="14" rx="3.5" fill="#cbe8d4" stroke="#111" stroke-width="1.1"/>
+<text x="666.4" y="809.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">Gating / routing / mixing</text>
+<line x1="854.0" y1="805" x2="892.0" y2="805" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<text x="902.0" y="809.5" font-family="'Segoe UI', 'Segoe UI Variable', Helvetica, Arial, sans-serif" font-size="12.5" text-anchor="start" fill="#111">zoom-in link</text>
+<circle cx="591.0" cy="375.5" r="3.2" fill="#2b2b2b"/>
+<polyline points="591.0,375.5 686.0,375.5 686.0,329.0 790.0,329.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+<circle cx="591.0" cy="529.5" r="3.2" fill="#2b2b2b"/>
+<polyline points="591.0,529.5 686.0,529.5 686.0,379.0 1106.0,379.0 1106.0,352.0 1174.0,352.0" fill="none" stroke="#2b2b2b" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round" marker-end="url(#lk)"/>
+</svg>
