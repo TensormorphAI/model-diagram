@@ -12,7 +12,7 @@
 Beyond basic diagram editing (resize, move, rotate), `TensorDiagram` provides automatic layout algorithms, graph theory operations, and deep API-level control.
 It's designed for developers building custom diagramming tools (flowchart editors, data lineage visualizers, network maps, process designers) where off-the-shelf solutions lack the flexibility or programmability you need.
 
-`TensorDiagram` continues the legacy of [mxGraph](https://github.com/jgraph/mxgraph) (archived in 2020) as its actively maintained successor.
+`TensorDiagram` continues the legacy of [mxGraph](https://github.com/tensormorph/tensormorph-diagram) (archived in 2020) as its actively maintained successor.
 It preserves mxGraph's comprehensive features and XML compatibility while modernizing with native TypeScript, modular architecture, and smaller bundle sizes.
 Active development ensures continuous bug fixes and new capabilities.
 <!-- END OF 'copied into packages/core/README.md and packages/website/docs/intro.md' -->

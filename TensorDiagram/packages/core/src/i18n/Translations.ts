@@ -1,7 +1,5 @@
 /*
 Copyright (c) Tensormorph. All rights reserved.
-Copyright (c) 2006-2016, JGraph Ltd
-Copyright (c) 2006-2016, Gaudenz Alder
 
 See LICENSE in the project root for license information.
 */
@@ -14,7 +12,7 @@ import { TranslationsConfig } from './config.js';
 import { isNullish } from '../internal/utils.js';
 import { I18nProvider } from '../types.js';
 
-// mxGraph source code: https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/util/mxResources.js
+// mxGraph source code: https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/util/mxResources.js
 
 /**
  * Implements internationalization. You can provide any number of

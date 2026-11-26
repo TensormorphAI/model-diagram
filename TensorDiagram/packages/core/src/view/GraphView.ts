@@ -1,8 +1,18 @@
 /*
-Copyright (c) Tensormorph. All rights reserved.
+Copyright 2021-present The TensorDiagram project Contributors
 Copyright (c) 2006-2015, Gaudenz Alder
 
-See LICENSE in the project root for license information.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
 
 import Point from './geometry/Point.js';
@@ -521,9 +531,43 @@ export class GraphView extends EventSource {
           for (let i = 0; i < edgeCount; i += 1) {
             this.invalidate(cell.getEdgeAt(i), recurse, includeEdges);
           }
+
+          // An edge connected to a port is not stored on the port but on its terminal, with the id of the port in the
+          // sourcePort or targetPort style, see cellConnected. Moving the port alone must reroute these edges as well.
+          if (this.graph.isPortsEnabled() && this.graph.isPort(cell)) {
+            this.invalidateEdgesOfPort(cell, recurse);
+          }
         }
 
         cell.invalidating = false;
+      }
+    }
+  }
+
+  /**
+   * Invalidates the edges connected to the given port, which are stored on the terminal of the port and reference it
+   * by id in their `sourcePort` or `targetPort` style.
+   *
+   * @param port the {@link Cell} for which {@link AbstractGraph.isPort} returns `true`.
+   * @param recurse whether the descendants of the edges are invalidated too.
+   * @since 0.26.0
+   */
+  protected invalidateEdgesOfPort(port: Cell, recurse: boolean): void {
+    const id = port.getId();
+
+    for (const source of [true, false]) {
+      const terminal = this.graph.getTerminalForPort(port, source);
+      if (!terminal || terminal === port) continue;
+
+      const edgeCount = terminal.getEdgeCount();
+      for (let i = 0; i < edgeCount; i += 1) {
+        const edge: Cell = terminal.getEdgeAt(i);
+        const style = edge.getStyle();
+        const portId = source ? style.sourcePort : style.targetPort;
+
+        if (portId === id && edge.getTerminal(source) === terminal) {
+          this.invalidate(edge, recurse, false);
+        }
       }
     }
   }

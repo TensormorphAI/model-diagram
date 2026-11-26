@@ -1,5 +1,9 @@
 import '@tensormorph/tensordiagramcore/css/common.css';
-import { constants, InternalEvent, type AbstractGraph } from '@tensormorph/tensordiagramcore';
+import {
+  constants,
+  InternalEvent,
+  type AbstractGraph,
+} from '@tensormorph/tensordiagramcore';
 import './style.css';
 import { demos } from './demos/index.js';
 import { loadTranslations, resetGlobalState } from './reset.js';
@@ -47,7 +51,8 @@ byId('clear-log').addEventListener('click', () => logList.replaceChildren());
 
 // Navigation, grouped in the order of the demos
 const groups = new Map<string, Demo[]>();
-for (const demo of demos) groups.set(demo.group, [...(groups.get(demo.group) ?? []), demo]);
+for (const demo of demos)
+  groups.set(demo.group, [...(groups.get(demo.group) ?? []), demo]);
 for (const [group, groupDemos] of groups) {
   const heading = document.createElement('h2');
   heading.textContent = group;
@@ -74,7 +79,7 @@ const disposeAll = (): void => {
       else if ('destroy' in resource) resource.destroy();
       else resource.onDestroy();
     } catch (error) {
-      console.error('Failed to release a resource of the previous demo', error);
+      reportError(error); // keep releasing the others
     }
   }
   disposables = [];
@@ -126,7 +131,7 @@ const mount = (demo: Demo): void => {
           onClick();
         } catch (error) {
           log(`Error in "${label}": ${String(error)}`);
-          console.error(error);
+          reportError(error);
         }
       });
       toolbar.append(button);
@@ -155,7 +160,7 @@ const mount = (demo: Demo): void => {
     message.className = 'mount-error';
     message.textContent = `This demo failed to load:\n${error instanceof Error ? (error.stack ?? error.message) : String(error)}`;
     stage.replaceChildren(message);
-    console.error(error);
+    reportError(error);
   }
 };
 

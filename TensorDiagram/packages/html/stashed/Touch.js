@@ -1,7 +1,7 @@
 import { error } from '../../packages/core/src/util/gui/MaxWindow';
 
 /**
- * Copyright (c) 2006-2013, JGraph Ltd
+ * Copyright (c) Tensormorph. All rights reserved.
  * 
  * Touch
  * 

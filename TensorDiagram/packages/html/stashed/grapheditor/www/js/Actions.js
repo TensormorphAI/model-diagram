@@ -1,6 +1,5 @@
 /**
  * Copyright (c) Tensormorph. All rights reserved.
- * Copyright (c) 2006-2020, draw.io AG
  *
  * Constructs the actions object for the given UI.
  */

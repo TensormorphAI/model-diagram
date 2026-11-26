@@ -58,7 +58,8 @@ type PartialType = PartialGraph & PartialGrouping;
 export const GroupingMixin: PartialType = {
   groupCells(group, border = 0, cells) {
     if (!cells) cells = sortCells(this.getSelectionCells(), true);
-    if (!cells) cells = this.getCellsForGroup(cells);
+    // Only the cells sharing the parent of the first one can be grouped together
+    cells = this.getCellsForGroup(cells);
 
     if (group == null) {
       group = this.createGroupCell(cells);

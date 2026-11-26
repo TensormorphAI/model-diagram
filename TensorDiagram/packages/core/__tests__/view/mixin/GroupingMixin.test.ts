@@ -33,15 +33,40 @@ describe('groupCells', () => {
   ])('children keep their geometry when they are at %s', (_title, x, y) => {
     const graph = createGraphWithoutPlugins();
     const [child1, child2] = insertChildren(graph, x, y);
-    // Same group as the one created by groupCells when no group is passed, but the type of the
-    // parameter does not allow null, contrary to what its documentation states.
     const cells = [child1, child2];
 
-    const group = graph.groupCells(graph.createGroupCell(cells), 0, cells);
+    const group = graph.groupCells(null, 0, cells);
 
     expect(group.getChildCount()).toBe(2);
     expectGeometryBounds(child1, { x: 0, y: 0, ...childSize });
     expectGeometryBounds(child2, { x: 100, y: 100, ...childSize });
+  });
+});
+
+describe('groupCells only groups the cells sharing the parent of the first one', () => {
+  test.each([
+    ['given cells', true],
+    ['selected cells', false],
+  ])('%s', (_title, passCells) => {
+    const graph = createGraphWithoutPlugins();
+    const [child1, child2] = insertChildren(graph, 0, 0);
+    const container = graph.insertVertex({
+      value: 'container',
+      position: [400, 0],
+      size: [200, 200],
+    });
+    const inContainer = graph.insertVertex({
+      parent: container,
+      value: 'C',
+      size: [20, 20],
+    });
+    const cells = [child1, child2, inContainer];
+    graph.setSelectionCells(cells);
+
+    const group = graph.groupCells(null, 0, passCells ? cells : null);
+
+    expect(group.children).toEqual([child1, child2]);
+    expect(inContainer.getParent()).toBe(container);
   });
 });
 

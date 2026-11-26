@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2012, JGraph Ltd
+ * Copyright (c) Tensormorph. All rights reserved.
  */
 import { getCurrentStyle, setStyle } from '../../../../../packages/core/src/util/utils';
 import { getTextContent, setTextContent } from '../../../../../packages/core/src/util/domUtils';

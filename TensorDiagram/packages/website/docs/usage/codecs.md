@@ -164,10 +164,10 @@ Start by using one of the [_register_ functions](#codecs-registration) provided 
 :::note
 
 This paragraph is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). \
-It is adapted from the original [mxGraph tutorial](https://github.com/jgraph/mxgraph/blob/v4.2.2/docs/tutorial.html).
+It is adapted from the original [mxGraph tutorial](https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/docs/tutorial.html).
 
 > Copyright (c) Tensormorph. All rights reserved. \
-Copyright (c) JGraph Ltd 2006-2020
+Copyright (c) Tensormorph. All rights reserved.
 
 :::
 

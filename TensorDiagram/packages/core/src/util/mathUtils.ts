@@ -216,7 +216,7 @@ export const getPortConstraints = (
 
   // The implementation here is derived from the mxGraph implementation
   // In mxGraph, the configuration of several directions was done by concatenating them in a string without separator like in "portConstraint=northsouth"
-  // See https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/examples/orthogonal.html#L101-L102
+  // See https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/examples/orthogonal.html#L101-L102
   // Other examples exist in draw.io: https://github.com/jgraph/drawio/blob/acd938b1/src/main/webapp/js/diagramly/Dialogs.js#L2302-L2305
   // The implementation here still supports the string concatenation of several directions to allow import of mxGraph XML models without additional transformations.
 

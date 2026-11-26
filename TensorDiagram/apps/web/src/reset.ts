@@ -65,5 +65,7 @@ export const resetGlobalState = (): void => {
   resetStencilShapeConfig();
 
   // Popup menus, tooltips and windows are appended to the body and outlive the graph, see TensorDiagram issue #400
-  document.querySelectorAll('.mxPopupMenu,.mxTooltip,.mxWindow').forEach((e) => e.remove());
+  document
+    .querySelectorAll('.mxPopupMenu,.mxTooltip,.mxWindow')
+    .forEach((e) => e.remove());
 };

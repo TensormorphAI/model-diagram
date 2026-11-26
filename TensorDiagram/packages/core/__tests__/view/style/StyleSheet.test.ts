@@ -162,7 +162,7 @@ describe('getCellStyle', () => {
 
   // This was the mxGraph behaviour
   // Setting a null/undefined value with mxUtils.setStyle remove the key from the cell style (in the string form). As it was not present in the style, it felt back to values from the default or base style.
-  // See https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/util/mxUtils.js#L3465-L3478
+  // See https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/util/mxUtils.js#L3465-L3478
   test('Setting undefined properties fallback to property value of the default style', () => {
     const stylesheet = new Stylesheet();
     const cellStyle = stylesheet.getCellStyle(
@@ -205,7 +205,7 @@ describe('getCellStyle', () => {
     });
   });
 
-  // This was the mxGraph behaviour, see https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxStylesheet.js#L236-L239
+  // This was the mxGraph behaviour, see https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/view/mxStylesheet.js#L236-L239
   test('Setting properties with "none" value remove the property value', () => {
     const stylesheet = new Stylesheet();
     stylesheet.putCellStyle('style-1', {

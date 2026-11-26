@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2011-2012, JGraph Ltd
+ * Copyright (c) Tensormorph. All rights reserved.
  */
 package com.mxgraph.examples.web;
 

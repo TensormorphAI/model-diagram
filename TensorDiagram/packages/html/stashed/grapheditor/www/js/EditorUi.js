@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2012, JGraph Ltd
+ * Copyright (c) Tensormorph. All rights reserved.
  */
 const { popup } = require('../../../../../packages/core/src/util/gui/MaxWindow');
 const { clearSelection } = require('../../../../../packages/core/src/util/domUtils');

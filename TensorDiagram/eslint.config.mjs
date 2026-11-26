@@ -113,6 +113,14 @@ export default tsEslint.config(
     },
   },
 
+  // End-to-end tests run in Node, but the callbacks they pass to page.evaluate run in the browser
+  {
+    files: ['apps/*/e2e/**/*.mjs'],
+    languageOptions: {
+      globals: { ...globals.node, ...globals.browser },
+    },
+  },
+
   // CommonJS files, as declared by their extension or by the "type" of their package
   {
     files: [

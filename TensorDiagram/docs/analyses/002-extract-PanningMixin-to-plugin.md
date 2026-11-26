@@ -198,7 +198,7 @@ always returns `true`, so the `allowAutoPanning` branch of `AbstractGraph.scroll
 (`AbstractGraph.ts:720-727`) can never call `PanningManager.panTo`. `isActive` has no other caller.
 
 In `mxGraph`, `initialScale` has no default and is reset to `null` on `gestureend`, so the same test was correct
-([`mxPanningHandler.js:76-78,215-217`](https://github.com/jgraph/mxgraph/blob/ff141aab158417bd866e2dfebd06c61d40773cd2/javascript/src/js/handler/mxPanningHandler.js#L215-L217)).
+([`mxPanningHandler.js:76-78,215-217`](https://github.com/tensormorph/tensormorph-diagram/blob/ff141aab158417bd866e2dfebd06c61d40773cd2/javascript/src/js/handler/mxPanningHandler.js#L215-L217)).
 The `0` and the `!== 0` checks came with `648e324cc06254c90694347dc216ac008aa63697` (2021-08-09), first released in
 `v0.1.0`, which left `isActive` on `!== null`. Found by reading, not reproduced at runtime. Reported as
 [issue #1297](https://github.com/TensorDiagram/TensorDiagram/issues/1297).

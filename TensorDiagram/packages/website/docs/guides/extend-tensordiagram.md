@@ -374,7 +374,7 @@ EdgeHandler.prototype.snapToTerminals = true;
 
 In `mxGraph` the same line worked, because `mxEdgeHandler.prototype.snapToTerminals = false` really was a property of
 the prototype
-([mxEdgeHandler.js](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/handler/mxEdgeHandler.js#L205)).
+([mxEdgeHandler.js](https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/handler/mxEdgeHandler.js#L205)).
 Porting that idiom is the one migration step that fails quietly rather than loudly.
 
 To change such a value, use the [global configuration](../usage/global-configuration.md) object when one covers it, otherwise

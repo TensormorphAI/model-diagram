@@ -558,3 +558,30 @@ describe('cellsAdded', () => {
     });
   });
 });
+
+describe('importCells', () => {
+  // Cloned cells have no parent, and an edge always has a relative geometry: such cells used to be dropped by moveCells,
+  // so pasting from the Clipboard lost every edge
+  test('imports the edges along with their terminals', () => {
+    const graph = createGraphWithoutPlugins();
+    const source = graph.insertVertex({
+      value: 'source',
+      position: [0, 0],
+      size: [40, 40],
+    });
+    const target = graph.insertVertex({
+      value: 'target',
+      position: [100, 0],
+      size: [40, 40],
+    });
+    const edge = graph.insertEdge({ source, target });
+
+    const imported = graph.importCells(graph.cloneCells([source, target, edge]), 10, 10);
+
+    expect(imported).toHaveLength(3);
+    const importedEdge = imported.find((cell) => cell.isEdge());
+    expect(importedEdge?.getTerminal(true)).toBe(imported[0]);
+    expect(importedEdge?.getTerminal(false)).toBe(imported[1]);
+    expect(graph.getDefaultParent().getChildCount()).toBe(6);
+  });
+});

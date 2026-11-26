@@ -16,7 +16,7 @@ import {
   unregisterAllEdgeStyles,
   unregisterAllPerimeters,
 } from '../../src';
-import { createBaseGraph } from '../utils';
+import { createBaseGraph, createGraph, createContainer } from '../utils';
 
 describe('getEdgeStyle ', () => {
   describe('isLoopStyleEnabled returns true', () => {
@@ -168,5 +168,42 @@ describe('getBounds', () => {
     ];
 
     expect(graph.view.getBounds(cells)).toEqual(new Rectangle(10, 20, 120, 220));
+  });
+});
+
+// An edge connected to a port is stored on the parent of the port, which it references by id in its sourcePort style.
+// Moving the port alone must reroute the edge, although the port itself has no edge.
+describe('invalidate a port', () => {
+  test('reroutes the edges connected to the port', () => {
+    const graph = createGraph(createContainer({ clientWidth: 400, clientHeight: 400 }));
+    graph.isPort = (cell) => cell?.getGeometry()?.relative ?? false;
+    const parent = graph.insertVertex({
+      value: 'parent',
+      position: [0, 0],
+      size: [100, 100],
+    });
+    const port = graph.insertVertex({
+      parent,
+      value: 'port',
+      position: [1, 0],
+      size: [10, 10],
+      relative: true,
+    });
+    const target = graph.insertVertex({
+      value: 'target',
+      position: [300, 0],
+      size: [50, 50],
+    });
+    const edge = graph.insertEdge({ source: port, target });
+    expect(edge.getTerminal(true)).toBe(parent);
+    expect(edge.getStyle().sourcePort).toBe(port.getId());
+    const startPoint = () => graph.getView().getState(edge)?.absolutePoints[0]?.clone();
+    const before = startPoint();
+
+    const geometry = port.getGeometry()!.clone();
+    geometry.y = 1;
+    graph.getDataModel().setGeometry(port, geometry);
+
+    expect(startPoint()).not.toEqual(before);
   });
 });

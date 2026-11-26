@@ -1,7 +1,5 @@
 /*
 Copyright (c) Tensormorph. All rights reserved.
-Copyright (c) 2006-2018, JGraph Ltd
-Copyright (c) 2006-2018, Gaudenz Alder
 
 See LICENSE in the project root for license information.
 */

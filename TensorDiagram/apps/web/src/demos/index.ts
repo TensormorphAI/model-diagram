@@ -1,5 +1,8 @@
 import type { Demo } from '../types.js';
 import { basics } from './basics.js';
+import { groupA } from './group-a.js';
+import { groupB } from './group-b.js';
+import { groupC } from './group-c.js';
 
 /** In navigation order. The first one is the landing demo. */
-export const demos: Demo[] = [basics];
+export const demos: Demo[] = [basics, ...groupA, ...groupB, ...groupC];

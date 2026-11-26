@@ -157,3 +157,25 @@ describe('resetEdges', () => {
     expect(edgeBetweenCells.getGeometry()!.points).toEqual([new Point(10, 10)]);
   });
 });
+
+// During the first rendering, the state of an edge exists before it is validated, and its visible terminals are not
+// known yet: isCellFoldable implementations calling getOutgoingEdges missed the folding icon because of that
+describe('getEdges of an edge whose state is not validated yet', () => {
+  test.each([
+    ['getOutgoingEdges', 'source'],
+    ['getIncomingEdges', 'target'],
+  ] as const)('%s of the %s', (method, terminalName) => {
+    const graph = createGraphWithoutContainer();
+    graph.batchUpdate(() => {
+      const source = graph.insertVertex({ value: 'source' });
+      const target = graph.insertVertex({ value: 'target' });
+      const edge = graph.insertEdge({ source, target });
+      const state = graph.getView().getState(edge, true);
+      expect(state?.getVisibleTerminal(true)).toBeNull();
+
+      expect(graph[method](terminalName === 'source' ? source : target, null)).toEqual([
+        edge,
+      ]);
+    });
+  });
+});

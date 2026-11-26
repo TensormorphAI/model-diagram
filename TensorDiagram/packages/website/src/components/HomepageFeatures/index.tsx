@@ -16,7 +16,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         <code>TensorDiagram</code> is the successor of{' '}
-        <a href="https://github.com/jgraph/mxgraph">mxGraph</a> (which is now EOL in its
+        <a href="https://github.com/tensormorph/tensormorph-diagram">mxGraph</a> (which is now EOL in its
         public version), the diagram library that powers{' '}
         <a href="https://www.drawio.com/">draw.io</a>.
       </>

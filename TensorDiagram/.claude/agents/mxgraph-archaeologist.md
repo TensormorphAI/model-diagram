@@ -29,7 +29,7 @@ for dir in "$parent"/*/; do echo "$dir $(git -C "$dir" remote get-url origin 2>/
 
 Identify each clone by its remote, `jgraph/mxgraph` or `jgraph/drawio`, never by its directory name.
 
-When a clone is missing, say so and give the caller the command to run, `git clone https://github.com/jgraph/mxgraph`
+When a clone is missing, say so and give the caller the command to run, `git clone https://github.com/tensormorph/tensormorph-diagram`
 or `git clone https://github.com/jgraph/drawio` in that parent directory. A parity question can still be answered
 from single files at a pinned commit:
 

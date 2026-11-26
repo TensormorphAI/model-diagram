@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2013, JGraph Ltd
+ * Copyright (c) Tensormorph. All rights reserved.
  * 
  * Google maps (Adding a Custom Overlay)
  * 

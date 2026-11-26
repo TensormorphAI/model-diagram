@@ -30,7 +30,11 @@ export const basics: Demo = {
     if (selectionHandler) selectionHandler.guidesEnabled = true;
 
     graph.batchUpdate(() => {
-      const hello = graph.insertVertex({ value: 'Hello,', position: [40, 60], size: [100, 50] });
+      const hello = graph.insertVertex({
+        value: 'Hello,',
+        position: [40, 60],
+        size: [100, 50],
+      });
       const world = graph.insertVertex({
         value: 'World!',
         position: [280, 180],
@@ -60,22 +64,28 @@ export const basics: Demo = {
     keyHandler.bindKey(8, () => graph.removeCells()); // Backspace, the Delete key of macOS laptops
     keyHandler.bindControlKey(65, () => graph.selectAll()); // Ctrl+A
 
-    ctx.button('Add vertex', () => {
-      const count = graph.getDefaultParent().getChildCount();
-      graph.setSelectionCell(
-        graph.insertVertex({
-          value: `Vertex ${count + 1}`,
-          position: [20 + (count % 8) * 30, 20 + (count % 8) * 20],
-          size: [100, 40],
-        })
-      );
-    }, 'add-vertex');
+    ctx.button(
+      'Add vertex',
+      () => {
+        const count = graph.getDefaultParent().getChildCount();
+        graph.setSelectionCell(
+          graph.insertVertex({
+            value: `Vertex ${count + 1}`,
+            position: [20 + (count % 8) * 30, 20 + (count % 8) * 20],
+            size: [100, 40],
+          })
+        );
+      },
+      'add-vertex'
+    );
     ctx.button('Select all', () => graph.selectAll(), 'select-all');
     ctx.button('Delete selection', () => graph.removeCells(), 'delete');
 
-    graph.getSelectionModel().addListener(InternalEvent.CHANGE, () =>
-      ctx.log(`Selection: ${graph.getSelectionCount()} cell(s)`)
-    );
+    graph
+      .getSelectionModel()
+      .addListener(InternalEvent.CHANGE, () =>
+        ctx.log(`Selection: ${graph.getSelectionCount()} cell(s)`)
+      );
     graph.addListener(InternalEvent.CELLS_MOVED, () => ctx.log('Cells moved'));
     graph.addListener(InternalEvent.CELLS_RESIZED, () => ctx.log('Cells resized'));
     graph.addListener(InternalEvent.LABEL_CHANGED, () => ctx.log('Label changed'));

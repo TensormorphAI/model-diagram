@@ -321,12 +321,13 @@ export const EdgeMixin: PartialType = {
     return edges.filter((edge) => {
       const state = this.getView().getState(edge);
 
-      const source = state
-        ? state.getVisibleTerminal(true)
-        : this.getView().getVisibleTerminal(edge, true);
-      const target = state
-        ? state.getVisibleTerminal(false)
-        : this.getView().getVisibleTerminal(edge, false);
+      // The visible terminals of a state are only known once it has been validated: before that, during the first
+      // rendering for example, they are computed from the model
+      const source =
+        state?.getVisibleTerminal(true) ?? this.getView().getVisibleTerminal(edge, true);
+      const target =
+        state?.getVisibleTerminal(false) ??
+        this.getView().getVisibleTerminal(edge, false);
 
       return (
         (includeLoops && source === target) ||

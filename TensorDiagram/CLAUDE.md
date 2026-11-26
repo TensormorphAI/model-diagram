@@ -28,6 +28,8 @@ bun run --cwd packages/core test --coverage
 bun run --cwd packages/ts-support test
 ./scripts/build-all-examples.bash
 bun run --cwd packages/html build
+bun run --cwd apps/web build
+bun run --cwd apps/web test:e2e           # needs Google Chrome
 bun run --cwd packages/core check:circular-dependencies
 bun run lint
 bun run --cwd packages/core check:npm-package
@@ -36,6 +38,10 @@ bun run --cwd packages/core check:npm-package
 CI runs on ubuntu-24.04, macos-15, windows-2022.
 
 ## Architecture
+
+The showcase app `apps/web` (Vite) imports the built core like any application and is its end-to-end test bed, see
+`apps/web/README.md`.
+
 
 Three-tier Graph class hierarchy:
 - **AbstractGraph**: base abstract class with mixins, no default built-ins

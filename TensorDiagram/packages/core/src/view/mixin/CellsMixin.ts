@@ -1262,12 +1262,13 @@ export const CellsMixin: PartialType = {
           const geo = cell.getGeometry();
           const parent = cell.getParent();
 
+          // A cell without parent is kept: typically a cloned edge to import, whose geometry is always relative
           if (
             !geo ||
             !geo.relative ||
-            (parent && !parent.isEdge()) ||
-            (parent &&
-              !isSelected(parent.getTerminal(true)) &&
+            !parent ||
+            !parent.isEdge() ||
+            (!isSelected(parent.getTerminal(true)) &&
               !isSelected(parent.getTerminal(false)))
           ) {
             checked.push(cell);

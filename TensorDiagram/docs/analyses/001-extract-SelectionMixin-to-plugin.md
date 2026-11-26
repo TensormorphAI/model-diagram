@@ -94,7 +94,7 @@ They are leftovers of a refactoring, not an `mxGraph` heritage:
 
 - In `mxGraph` the three properties only exist on the selection model, for instance
   `mxGraphSelectionModel.prototype.singleSelection`
-  ([v4.2.2+, `mxGraphSelectionModel.js:87`](https://github.com/jgraph/mxgraph/blob/ff141aab158417bd866e2dfebd06c61d40773cd2/javascript/src/js/view/mxGraphSelectionModel.js#L87)).
+  ([v4.2.2+, `mxGraphSelectionModel.js:87`](https://github.com/tensormorph/tensormorph-diagram/blob/ff141aab158417bd866e2dfebd06c61d40773cd2/javascript/src/js/view/mxGraphSelectionModel.js#L87)).
   `mxGraph` itself never had them. The two resources were used by `mxSelectionChange` to set `window.status`, which
   `TensorDiagram` dropped, so they are not read by `GraphSelectionModel` either.
 - `bdc50a9f485c9ea2ff26e15c944052608ec6ac87` (2021-09-07) merged the selection model into `GraphSelectionMixin`, so the

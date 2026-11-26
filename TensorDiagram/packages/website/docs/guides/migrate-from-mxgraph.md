@@ -236,7 +236,7 @@ This list is not intended to be exhaustive
 The following methods of `mxUtils` have been removed without replacements in `TensorDiagram`. Use your own implementation or 3rd party libraries instead:
 - `mxUtils.button`
 - `mxUtils.error`
-- `mxUtils.prompt`: use `window.prompt` instead. The mxGraph method was just a wrapper around `window.prompt` to manage `nullish` values. See the [mxUtils.prompt](https://github.com/jgraph/mxgraph/blob/ff141aab158417bd866e2dfebd06c61d40773cd2/javascript/src/js/util/mxUtils.js#L4304) for more details. 
+- `mxUtils.prompt`: use `window.prompt` instead. The mxGraph method was just a wrapper around `window.prompt` to manage `nullish` values. See the [mxUtils.prompt](https://github.com/tensormorph/tensormorph-diagram/blob/ff141aab158417bd866e2dfebd06c61d40773cd2/javascript/src/js/util/mxUtils.js#L4304) for more details. 
 - methods used to compute style values (with fallback to default values) have been removed in 0.16.0. Use the [nullish coalescing operator (??)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 and the [Optional chaining (?.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) instead:
   - `mxUtils.getColor`
@@ -676,7 +676,7 @@ style.startSize = 8;
 
 > A style is an array of key, value pairs to be used with the cells.
 
-[mxGraph line 50](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L50-L62)
+[mxGraph line 50](https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L50-L62)
 
 > For a named style, the style name must be the first element
 of the cell style:
@@ -689,7 +689,7 @@ by a semicolon as follows:
 [stylename;|key=value;]
 (end)
 
-[mxGraph line 167](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L167-L171)
+[mxGraph line 167](https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L167-L171)
 
 > Styles are a collection of key, value pairs and a stylesheet is a collection
 of named styles. The names are referenced by the cellstyle, which is stored
@@ -741,7 +741,7 @@ graph.insertVertex({
 
 **Special migration case**
 In `mxGraph`, to not merge properties of the default style, the style string must start with a `;` (semicolon) as in `;style1;style2;prop1=value1;.....`.
-This is documented in the [mxStylesheet documentation](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxStylesheet.js#L33-L38).
+This is documented in the [mxStylesheet documentation](https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/view/mxStylesheet.js#L33-L38).
 > To override the default style for a cell, add a leading semicolon to the style definition, e.g. ;shadow=1
 
 From version 0.11.0 of `TensorDiagram`, you can replicate this behavior by setting `ignoreDefaultStyle` to `true` in the `CellStyle` object.

@@ -715,7 +715,7 @@ const Template = ({ label, ...args }: Record<string, string>) => {
   const selectionCellsHandler = graph.getPlugin<SelectionCellsHandler>(
     'SelectionCellsHandler'
   )!; // we know that this plugin is always available
-  // The mxGraph example was overriding the prototype of EdgeHandler, so it did not do this trick (https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/examples/wires.html)
+  // The mxGraph example was overriding the prototype of EdgeHandler, so it did not do this trick (https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/examples/wires.html)
   selectionCellsHandler.setEdgeHandlerFactory('wire', (state) => {
     return new WireEdgeHandler(state);
   });

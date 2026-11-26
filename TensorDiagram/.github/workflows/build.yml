@@ -8,10 +8,14 @@ on:
       - '.github/actions/build-setup/**/*'
       - '.github/workflows/build.yml'
       - '.eslint*'
+      - 'eslint.config.mjs'
       - '.nvmrc'
       - 'packages/**/*'
       - '!packages/**/*.md'
       - '!packages/website/**/*'
+      - 'apps/**/*'
+      - '!apps/**/*.md'
+      - 'scripts/vite/**/*'
       - 'scripts/build-all-examples.bash'
       - 'package.json'
       - 'bun.lock'
@@ -23,10 +27,14 @@ on:
       - '.github/actions/build-setup/**/*'
       - '.github/workflows/build.yml'
       - '.eslint*'
+      - 'eslint.config.mjs'
       - '.nvmrc'
       - 'packages/**/*'
       - '!packages/**/*.md'
       - '!packages/website/**/*'
+      - 'apps/**/*'
+      - '!apps/**/*.md'
+      - 'scripts/vite/**/*'
       - 'scripts/build-all-examples.bash'
       - 'package.json'
       - 'bun.lock'
@@ -74,6 +82,13 @@ jobs:
           name: storybook-${{runner.os}}-${{github.sha}}
           path: |
             packages/html/dist/
+
+      - name: Build the showcase app
+        run: bun run --cwd apps/web build
+
+      # Loads every demo in the Google Chrome of the runner image, against the production build
+      - name: Test the showcase app end-to-end
+        run: bun run --cwd apps/web test:e2e
 
       - name: Ensure no circular dependencies in the @tensormorph/tensordiagramcore produced JS files
         run: bun run --cwd packages/core check:circular-dependencies

@@ -20,7 +20,7 @@
 
 `TensorDiagram` inherits the design of `mxGraph`, whose `mxGraph` class is a
 [God Object](https://en.wikipedia.org/wiki/God_object): in v4.2.2, `mxGraph.js` is
-[13229 lines](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L13229) holding cell
+[13229 lines](https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L13229) holding cell
 editing, selection, validation, folding, panning, zooming, overlays, swimlanes and more.
 
 Splitting that class was a prerequisite for the modernisation goals of `TensorDiagram`: making the codebase navigable,

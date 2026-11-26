@@ -60,7 +60,7 @@ const Template = ({ label, ...args }) => {
       if (isForeground) {
         if (hasChildren) {
           // Painting outside of vertex bounds is used here
-          path.moveTo(w / 2, h + this.segment);
+          path.moveTo(w / 2, h + TreeNodeShape.segment);
           path.lineTo(w / 2, h);
           path.end();
         }

@@ -11,7 +11,7 @@ The examples in this page use `TypeScript`; adapt them if you write `JavaScript`
 
 ## Introduction
 
-`TensorDiagram` is a fork of [mxGraph](https://github.com/jgraph/mxgraph), which did not support tree-shaking efficiently.
+`TensorDiagram` is a fork of [mxGraph](https://github.com/tensormorph/tensormorph-diagram), which did not support tree-shaking efficiently.
 Regardless of which parts of `mxGraph` were used, its contribution to the application size was around 820 KB (minified).
 Since its inception, one of `TensorDiagram`'s goals has been to provide better tree-shaking support.
 

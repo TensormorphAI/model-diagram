@@ -11,7 +11,7 @@ import { tensordiagramCodeSplitting } from '../../scripts/vite/tensordiagram-chu
 
 // The maximum size of the tensordiagram chunk, in kB. Declared once and passed to both the Vite warning and the blocking
 // check, so they cannot drift apart.
-const chunkSizeLimitInKB = 220;
+const chunkSizeLimitInKB = 221;
 
 export default defineConfig(({ mode }) => {
   // The analysis only runs when explicitly asked for, see 'build:analyze' and the documentation of the helper

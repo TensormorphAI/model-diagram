@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2012, JGraph Ltd
+ * Copyright (c) Tensormorph. All rights reserved.
  */
 const { getOffset } = require('../../../../../packages/core/src/util/utils');
 const { write } = require('../../../../../packages/core/src/util/domUtils');

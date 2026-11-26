@@ -190,7 +190,7 @@ class Multiplicity {
    *
    * This implementation uses {@link checkType} on the terminal's value.
    */
-  checkTerminal(graph: AbstractGraph, _edge: Cell, terminal: Cell): boolean {
+  checkTerminal(graph: AbstractGraph, terminal: Cell, _edge: Cell): boolean {
     const value = terminal?.getValue() ?? null;
 
     return this.checkType(graph, value, this.type, this.attr, this.value);

@@ -65,7 +65,7 @@ graph.batchUpdate(() => {
 
 ## From mxGraph to TensorDiagram
 
-TensorDiagram inherits its design from [mxGraph](https://github.com/jgraph/mxgraph), the library it succeeds. In mxGraph, the `mxGraph` class was a monolithic "God Object" of over 13,000 lines that bundled every feature (handlers, shapes, styles, and more) and loaded them unconditionally.
+TensorDiagram inherits its design from [mxGraph](https://github.com/tensormorph/tensormorph-diagram), the library it succeeds. In mxGraph, the `mxGraph` class was a monolithic "God Object" of over 13,000 lines that bundled every feature (handlers, shapes, styles, and more) and loaded them unconditionally.
 
 When TensorDiagram forked from mxGraph 4.2.2 in 2020, the `mxGraph` class was renamed to `Graph` (along with the `mx` prefix removal from all classes: `mxCell` became `Cell`, `mxGraphModel` became `GraphDataModel`, etc.). Over subsequent releases, the codebase was progressively modularized while preserving API compatibility:
 

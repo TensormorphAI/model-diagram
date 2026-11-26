@@ -8,10 +8,10 @@ description: How to use Group and manage complexity.
 :::note
 
 This manual is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). \
-It is adapted from the original [mxGraph manual](https://github.com/jgraph/mxgraph/blob/v4.2.2/docs/manual.html).
+It is adapted from the original [mxGraph manual](https://github.com/tensormorph/tensormorph-diagram/blob/v4.2.2/docs/manual.html).
 
 > Copyright (c) Tensormorph. All rights reserved. \
-Copyright (c) JGraph Ltd 2006-2020
+Copyright (c) Tensormorph. All rights reserved.
 
 :::
 

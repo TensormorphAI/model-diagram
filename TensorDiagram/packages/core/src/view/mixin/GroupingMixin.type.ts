@@ -20,7 +20,7 @@ declare module '../AbstractGraph.js' {
      * @param cells Optional array of {@link Cell} to be grouped. If `null` is specified then the selection cells are used.
      * @returns the new group. A group is only created if there is at least one entry in the given array of cells.
      */
-    groupCells: (group: Cell, border: number, cells?: Cell[] | null) => Cell;
+    groupCells: (group: Cell | null, border: number, cells?: Cell[] | null) => Cell;
 
     /**
      * Returns the cells with the same parent as the first cell in the given array.

@@ -34,6 +34,8 @@ This document provides essential knowledge for AI coding agents to be productive
   - `bun run --cwd packages/ts-support test`
   - `./scripts/build-all-examples.bash`
   - `bun run --cwd packages/html build`
+  - `bun run --cwd apps/web build`
+  - `bun run --cwd apps/web test:e2e` (needs Google Chrome)
   - `bun run --cwd packages/core check:circular-dependencies`
   - `bun run lint`
   - `bun run --cwd packages/core check:npm-package`
