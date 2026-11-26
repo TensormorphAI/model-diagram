@@ -1,0 +1,67 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "isolatedModules": true,
+    "outDir": "./lib/esm",
+    // Since TypeScript 6.0, rootDir defaults to the folder of this file, which would emit to lib/esm/src
+    "rootDir": "./src",
+    "strict": true,
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": true,
+  },
+  "include": ["src/**/*.ts"],
+  "typedocOptions": {
+    "out": "build/api",
+    "readme": "none",
+    "excludeInternal": true,
+    "excludeExternals": true,
+    "excludePrivate": true,
+    "categoryOrder": [
+      "Animation",
+      "Change",
+      "Configuration",
+      "EdgeStyle",
+      "Editor",
+      "Event",
+      "Geometry",
+      "Graph",
+      "GUI",
+      "I18n",
+      "Layout",
+      "Logging",
+      "Navigation",
+      "Perimeter",
+      "Plugin",
+      "Serialization",
+      "Serialization with Codecs",
+      "Shape",
+      "Edge Shapes",
+      "Vertex Shapes",
+      "Style",
+      "Utils",
+      "*"
+    ],
+    "categorizeByGroup": false,
+    "navigation": {
+      "includeCategories": true, // not enough categories to warrant this
+    },
+    // add some languages for syntax highlighting to the typedoc defaults
+    "highlightLanguages": [
+      "bash",
+      "console",
+      "csharp", // added
+      "css",
+      "html",
+      "java", // added
+      "javascript",
+      "json",
+      "jsonc",
+      "json5",
+      "typescript",
+      "xml", // added
+    ],
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "lib": ["dom", "es2020"],
+    "target": "es2020",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+  },
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": ["packages/*/src"]
+}

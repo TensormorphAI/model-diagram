@@ -1,0 +1,22 @@
+{
+  "name": "@tensordiagram/html",
+  "license": "Apache-2.0",
+  "private": true,
+  "description": "Storybook stories",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 8901",
+    "clear-cache": "rimraf node_modules/.cache",
+    "build": "tsc && storybook build --output-dir dist",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "~10.6.7",
+    "@storybook/addon-links": "~10.6.7",
+    "@storybook/html-vite": "~10.6.7",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "storybook": "~10.6.2",
+    "vite": "~8.3.4"
+  }
+}

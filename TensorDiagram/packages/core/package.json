@@ -1,0 +1,78 @@
+{
+  "name": "@tensordiagram/core",
+  "license": "Apache-2.0",
+  "private": false,
+  "version": "0.25.2",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "description": "TensorDiagram is a fully client side JavaScript diagramming library that uses SVG and HTML for rendering.",
+  "keywords": [
+    "browser",
+    "canvas",
+    "diagram",
+    "graph",
+    "svg"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/cjs/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    },
+    "./css/*": "./css/*",
+    "./images/*": "./images/*",
+    "./i18n/*": "./i18n/*",
+    "./package.json": "./package.json",
+    "./xsd/*": "./xsd/*"
+  },
+  "files": [
+    "css",
+    "lib",
+    "images",
+    "i18n",
+    "xsd"
+  ],
+  "homepage": "https://github.com/TensorDiagram/TensorDiagram",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TensorDiagram/TensorDiagram.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TensorDiagram/TensorDiagram/issues"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "dev": "tsc --watch",
+    "build": "run-s build:*",
+    "build:esm": "tsc --version && tsc",
+    "build:cjs": "tsc --version && tsc --outDir lib/cjs --module commonjs && node scripts/generate-cjs-package-json.mjs",
+    "check:circular-dependencies": "madge --circular --extensions js lib",
+    "check:npm-package": "attw --pack",
+    "docs:api": "typedoc src/index.ts",
+    "prepack": "run-s clean build",
+    "test": "jest --runInBand",
+    "test-check": "tsc --noEmit --project tsconfig.test.json"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "~0.18.5",
+    "@swc/core": "~1.16.18",
+    "@swc/jest": "~0.2.39",
+    "@types/jest": "~30.0.0",
+    "jest": "~30.5.2",
+    "jest-environment-jsdom": "~30.5.2",
+    "npm-run-all": "~4.1.5",
+    "madge": "~8.0.0",
+    "rimraf": "~6.1.3",
+    "typedoc": "~0.28.20"
+  }
+}

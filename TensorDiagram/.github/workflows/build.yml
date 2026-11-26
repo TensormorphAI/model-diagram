@@ -1,0 +1,101 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/actions/build-setup/**/*'
+      - '.github/workflows/build.yml'
+      - '.eslint*'
+      - '.nvmrc'
+      - 'packages/**/*'
+      - '!packages/**/*.md'
+      - '!packages/website/**/*'
+      - 'scripts/build-all-examples.bash'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/actions/build-setup/**/*'
+      - '.github/workflows/build.yml'
+      - '.eslint*'
+      - '.nvmrc'
+      - 'packages/**/*'
+      - '!packages/**/*.md'
+      - '!packages/website/**/*'
+      - 'scripts/build-all-examples.bash'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.runner }}
+    permissions:
+      contents: read
+    strategy:
+      # we want to run the full build on all runners: don't cancel running jobs even if one fails
+      fail-fast: false
+      matrix:
+        runner: [ 'ubuntu-24.04', 'macos-15', 'windows-2022']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Build Setup
+        uses: ./.github/actions/build-setup
+
+      - name: Build @tensordiagram/core
+        run: npm run build -w packages/core
+
+      - name: Check TS compilation of the tests of @tensordiagram/core
+        run: npm run test-check -w packages/core
+      - name: Test @tensordiagram/core
+        run: npm test -w packages/core -- --coverage
+      - name: Upload test results as artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-coverage-${{runner.os}}-${{github.sha}}
+          path: packages/core/coverage/lcov-report
+      - name: Test TypeScript support
+        run: npm test -w packages/ts-support
+
+      # Already built in generate-website.yml, but here we want to ensure it can be built on all OSes
+      - name: Build Storybook mini-site
+        run: npm run build -w packages/html
+
+      - name: Upload storybook mini-site as artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: storybook-${{runner.os}}-${{github.sha}}
+          path: |
+            packages/html/dist/
+
+      - name: Ensure no circular dependencies in the @tensordiagram/core produced JS files
+        run: npm run check:circular-dependencies -w packages/core
+
+      - name: Ensure no lint errors
+        run: npm run lint
+
+      # See https://github.com/arethetypeswrong/arethetypeswrong.github.io/tree/main/packages/cli
+      - name: Check npm package
+        run: npm run check:npm-package -w packages/core
+
+
+  build_examples:
+    needs: build
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_reusable_build_examples.yml
+    strategy:
+      # we want to run the full build on all runners: don't cancel running jobs even if one fails
+      fail-fast: false
+      matrix:
+        runner: ['ubuntu-24.04', 'macos-15', 'windows-2022']
+    with:
+     artifact-name: examples-${{ matrix.runner }}-${{ github.sha }}
+     runner: ${{ matrix.runner }}

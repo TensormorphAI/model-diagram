@@ -1,0 +1,769 @@
+---
+sidebar_position: 40
+description: How-to easily migrate from mxGraph to TensorDiagram
+---
+
+# Migrate from mxGraph
+
+This documentation provides instructions for migrating from `mxGraph` to `TensorDiagram`.
+It includes information about application setup changes, code changes, styles, event handling and other relevant information.
+
+:::danger[Important Notice]
+
+As of version `0.18.0`, this migration guide isn't updated with the latest `TensorDiagram` API changes, particularly breaking ones.
+
+When migrating from `mxGraph` to a `TensorDiagram` version newer than 0.18.0:
+1. Use this guide as your foundation
+2. Review the [CHANGELOG](https://github.com/TensorDiagram/TensorDiagram/blob/main/CHANGELOG.md) to identify breaking changes since 0.18.0
+3. Consider incremental migration if possible (first to 0.18.0, then to latest)
+
+Need assistance? The TensorDiagram community is here to help! Post your questions in the [GitHub discussions](https://github.com/TensorDiagram/TensorDiagram/discussions/categories/q-a) where maintainers and experienced users can provide guidance for your specific migration challenges.
+
+:::
+
+
+Here's a breakdown of the proposed changes:
+
+1. [Application setup](#application-setup)
+2. [General guidelines](#general-guidelines)
+3. [Specific code changes](#specific-code-changes)
+
+The `TensorDiagram` APIs are not fully compatible with the `mxGraph` APIs, but the `TensorDiagram` APIs are close to the former `mxGraph` APIs.
+The concepts are the same, so experienced `mxGraph` users should be able to switch from `mxGraph` to `TensorDiagram` without problems.
+
+The main changes are the removal of support for Internet Explorer (including VML support) and Legacy Edge.
+
+The initial description of the changes has been described in [Pull Request #70](https://github.com/TensorDiagram/TensorDiagram/pull/70).
+
+:::info
+This guide migrates to `Graph`, which registers every built-in plugin and style element on its own, so it is the
+closest equivalent to `mxGraph` and the easiest target. For a production application, prefer
+[`BaseGraph`](../usage/graph.md#basegraph) instead: it registers nothing by default, so the bundle carries only what the
+application declares, which is what makes [tree-shaking](../usage/tree-shaking.md) effective. Once this migration is
+done, [Reduce the Bundle Size of an Application](./reduce-bundle-size.md) takes you there step by step.
+:::
+
+## Before you start
+
+- **An `mxGraph` application that builds and runs**, since every section below changes it in place and you check it as
+  you go.
+- **Node.js and npm**, the first step replacing the dependency.
+- **An inventory of the `mx` prefixed names your code uses**, classes, constants and style keys, which the sections
+  below rename family by family.
+- **The TensorDiagram version you are migrating to**, the notice above listing what changed after 0.18.0.
+
+This guide assumes you know `mxGraph` itself: it states what changed, not how a diagram works. It migrates to `Graph`,
+see [Graph vs BaseGraph](../usage/graph.md#graph-vs-basegraph).
+
+## Application setup
+
+To migrate your application setup from `mxGraph` to `TensorDiagram`, follow these steps:
+
+### Replace the `mxgraph` dependency with `tensordiagram@core`
+
+- Remove the `mxgraph` dependency from your project:
+```shell
+npm uninstall mxgraph
+```
+
+- Install the `tensordiagram@core` dependency:  
+```shell
+npm install tensordiagram@core
+```
+
+:::info
+
+The `tensordiagram@core` package contains the core functionality of `TensorDiagram`.
+
+:::
+
+### Initialize `TensorDiagram`
+
+In your application setup code, replace the `mxGraph` initialization code that uses the `factory` function with direct access to `TensorDiagram` objects.
+
+For example, if you had code like this in `mxGraph`:
+
+```typescript
+import factory from 'mxgraph';
+
+const mxgraph = factory({});
+const graph = mxgraph.mxGraph(container);
+
+const point = new mxgraph.mxPoint(10, 50);
+// ... more initialization code
+```
+
+Replace it with the corresponding code in `TensorDiagram`:
+
+```typescript
+import { Graph } from 'tensordiagram';
+
+const graph = new Graph(container);
+
+const point = new Point(10, 50);
+// ... more initialization code
+```
+
+### TypeScript Setup
+
+#### Remove the `typed-mxgraph` dependency
+
+If you used the `@typed-mxgraph/typed-mxgraph` dependency in your project, remove it from your `package.json` file:
+
+```shell
+npm uninstall @typed-mxgraph/typed-mxgraph
+```
+
+#### Remove `typeroots` settings
+
+Remove any `typeroots` settings related to `typed-mxgraph` from your `tsconfig.json` file.
+
+For example, if you have a configuration like this:
+
+```json
+"typeroots": ["./node_modules/@types", "./node_modules/@typed-mxgraph/typed-mxgraph", ...]
+```
+
+Remove `"./node_modules/@typed-mxgraph/typed-mxgraph"`.
+
+If you only configured `typeroots` to add the `typed-mxgraph` types, remove the line to restore the [TypeScript defaults](https://www.typescriptlang.org/tsconfig/#typeRoots).
+
+
+## General Guidelines
+
+Here are some general guidelines to keep in mind when migrating from `mxGraph` to `TensorDiagram`:
+
+- The names of `mxGraph` objects were all prefixed with `mx`. This prefix has been dropped in `TensorDiagram`.
+- Most names remain the same, but some utility functions whose implementation is natively available in modern versions of ECMAScript have been removed.
+- `Graph` is the direct equivalent of the former `mxGraph` class: it registers all built-in style elements and loads the default plugins, which makes it the natural landing point for a migration. Once the application runs, consider moving to `BaseGraph` and registering only the features you use: unlike `mxGraph`, `TensorDiagram` lets the bundler drop everything else. The [Graph](../usage/graph.md#graph-vs-basegraph) page compares the two classes, the [Tree-Shaking](../usage/tree-shaking.md) page explains the concept, and the [Reduce the Bundle Size of an Application](./reduce-bundle-size.md) guide describes the migration step by step.
+
+:::warning[Prototype patching does not carry over]
+`mxGraph` examples and documentation very often changed a default by assigning to a prototype, as in
+`mxEdgeHandler.prototype.snapToTerminals = true`. Ported as is, that line silently does nothing whenever the member is
+a **property**: `TensorDiagram` is written with ES class fields, which the constructor assigns on each instance, so every
+instance shadows whatever the prototype carries, and nothing is reported. It still works on a **method**, which does
+live on the prototype, but it is not the recommended practice either, since it changes every graph of the page at once.
+
+Use instead a [global configuration](../usage/global-configuration.md) object when one covers the value, a patch on the
+instance you own, or a subclass installed through the matching factory.
+[Patching a prototype](./extend-tensordiagram.md#patching-a-prototype) compares the three and shows what each one replaces.
+:::
+
+## Specific code changes
+
+This section outlines specific code changes required when migrating from `mxGraph` to `TensorDiagram`.
+Please update your code accordingly.
+
+:::note
+
+A wide range of information is available in [Pull Request #70](https://github.com/TensorDiagram/TensorDiagram/pull/70) to explain the reasons for some of the major changes.
+
+:::
+
+### Overlay
+The `strokewidth` property has been renamed to `strokeWidth` in `TensorDiagram`. 
+
+### Shape
+
+The shape names in `TensorDiagram` have been updated to have a consistent postfix. Please update the shape names in your code as follows:
+
+- `mxConnector` should be updated to `ConnectorShape`.
+- `mxEllipse` should be updated to `EllipseShape`.
+- `mxImageShape` should be updated to `ImageShape`.
+- `mxRectangleShape` should be updated to `RectangleShape`.
+- `mxMarker` should be updated to `MarkerShape`.
+- `mxRhombus` should be updated to `RhombusShape`.
+- `mxStencil` should be updated to `StencilShape`.
+- `mxText` should be updated to `TextShape`.
+
+Additionally, some shape properties have been renamed:
+
+- The `strokewidth` property should now be replaced by `strokeWidth`.
+
+#### `mxStencil` to `StencilShape`
+
+In TensorDiagram@0.11.0, the `allowEval` and `defaultLocalized` properties have been removed. Configure these properties using `StencilShapeConfig`.
+
+
+### `mxUtils` split
+Functions and properties in `mxUtils` have been moved to their own namespaces in `TensorDiagram`.
+
+Here are a few examples of the methods and properties that have been moved.
+
+#### `domUtils`
+- `extractTextWithWhitespace()`: Update your code to use `domUtils.extractTextWithWhitespace()` instead of `mxUtils.extractTextWithWhitespace()`.
+
+#### `guiUtils` (as of version 0.17.0)
+
+- `closeResource`: Update your code to use `guiUtils.closeResource` instead of `mxUtils.closeResource`.
+- `errorImage`: Update your code to use `guiUtils.errorImage` instead of `mxUtils.errorImage`.
+- `errorResource`: Update your code to use `guiUtils.errorResource` instead of `mxUtils.errorResource`.
+
+#### `mathUtils`
+- `getBoundingBox()`: Update your code to use `mathUtils.getBoundingBox()` instead of `mxUtils.getBoundingBox()`.
+- `getPortConstraints()`: Update your code to use `mathUtils.getPortConstraints()` instead of `mxUtils.getPortConstraints()`.
+- `getRotatedPoint()`: Update your code to use `mathUtils.getRotatedPoint()` instead of `mxUtils.getRotatedPoint()`.
+
+#### `printUtils`
+- `printScreen()`: Update your code to use `printUtils.printScreen()` instead of `mxUtils.printScreen()`.
+- `show()`: Update your code to use `printUtils.show()` instead of `mxUtils.show()`.
+
+#### `requestUtils`
+- `get()`: Update your code to use `requestUtils.get()` instead of `mxUtils.get()`.
+- `getAll()`: Update your code to use `requestUtils.getAll()` instead of `mxUtils.getAll()`.
+- `load()`: Update your code to use `requestUtils.load()` instead of `mxUtils.load()`.
+- `post()`: Update your code to use `requestUtils.post()` instead of `mxUtils.post()`.
+- `submit()`: Update your code to use `requestUtils.submit()` instead of `mxUtils.submit()`.
+
+#### `stringUtils`
+- `trim()`: Update your code to use `stringUtils.trim()` instead of `mxUtils.trim()`.
+
+#### `styleUtils`
+- `convertPoint()`: Update your code to use `styleUtils.convertPoint()` instead of `mxUtils.convertPoint()`.
+
+#### `xmlUtils`
+- `getXml()`: Update your code to use `xmlUtils.getXml()` instead of `mxUtils.getXml()`.
+- `createXmlDocument()`: Update your code to use `xmlUtils.createXmlDocument()` instead of `mxUtils.createXmlDocument()`.
+
+### Removed methods from `mxUtils`
+
+:::note
+
+This list is not intended to be exhaustive
+
+:::
+
+The following methods of `mxUtils` have been removed without replacements in `TensorDiagram`. Use your own implementation or 3rd party libraries instead:
+- `mxUtils.button`
+- `mxUtils.error`
+- `mxUtils.prompt`: use `window.prompt` instead. The mxGraph method was just a wrapper around `window.prompt` to manage `nullish` values. See the [mxUtils.prompt](https://github.com/jgraph/mxgraph/blob/ff141aab158417bd866e2dfebd06c61d40773cd2/javascript/src/js/util/mxUtils.js#L4304) for more details. 
+- methods used to compute style values (with fallback to default values) have been removed in 0.16.0. Use the [nullish coalescing operator (??)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+and the [Optional chaining (?.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) instead:
+  - `mxUtils.getColor`
+  - `mxUtils.getNumber`
+  - `mxUtils.getValue`
+
+
+### `mxAbstractCanvas2D`
+
+The `mxAbstractCanvas2D` class has been renamed to `AbstractCanvas2D` in `TensorDiagram`, and there is a parameter type change in one of its methods.
+
+#### `arcTo()`
+
+The `arcTo()` method in `AbstractCanvas2D` has updated parameter types. The `largeArcFlag` and `sweepFlag` parameters, which were previously of type `number`, are now of type `boolean`.  
+Here is the updated signature:
+
+**Before**
+```typescript
+arcTo:(rx: number, ry: number, angle: number, largeArcFlag: number, sweepFlag: number, x: number, y: number) => void
+```
+
+**Now**
+Some `number` parameters that took the `0` or `1` values have been transformed into `boolean` parameters.
+```typescript
+arcTo:(rx: number, ry: number, angle: number, largeArcFlag: boolean, sweepFlag: boolean, x: number, y: number) => void
+```
+
+### `mxSvgCanvas2D`
+
+The `mxSvgCanvas2D` class has been renamed to `SvgCanvas2D` in `TensorDiagram`.
+
+#### Constructor
+
+The constructor parameter has been updated. Instead of accepting an `Element`, it now expects a `SvgElement` and a `boolean` value.
+
+**Before**
+```typescript
+// Old constructor
+const canvas = new mxgraph.mxSvgCanvas2D(element);
+```
+
+**Now**
+```typescript
+// Updated constructor
+const canvas = new SvgCanvas2D(svgElement, oneBoolean);
+```
+
+#### `format()`
+
+The `value` parameter, which was previously of type `string`, is now of type `number`.
+
+**Before**
+```typescript
+format:(value: string) => number
+```
+
+**Now**
+```typescript
+format:(value: number) => number
+```
+
+
+### `mxGraph`
+
+The `mxGraph` class has been renamed to [`Graph`](../usage/graph.md) in `TensorDiagram`.
+There have also been some changes related to properties and methods.
+
+Some properties have been removed in favor of the usage of [Plugins](../usage/plugins.md). Plugins are registered at the `Graph` initialization by passing
+an array of plugins to the constructor.
+
+| property removed        | method removed                | new plugin              |
+|-------------------------|-------------------------------|-------------------------|
+| `cellEditor`            | `createCellEditor`            | `CellEditorHandler`     |
+| `connectionHandler`     | `createConnectionHandler`     | `ConnectionHandler`     |
+| `graphHandler`          | `createGraphHandler`          | `SelectionHandler`      |
+| `panningHandler`        | `createPanningHandler`        | `PanningHandler`        |
+| `popupMenuHandler`      | `createPopupMenuHandler`      | `PopupMenuHandler`      |
+| `selectionCellsHandler` | `createSelectionCellsHandler` | `SelectionCellsHandler` |
+| `tooltipHandler`        | `createTooltipHandler`        | `TooltipHandler`        |
+
+#### Example of migration with the `panningHandler` property
+
+The `panningHandler` property has been removed and replaced by a plugin. Instead of accessing `panningHandler` directly, you can use the `getPlugin()` method to get the `PanningHandler` plugin instance. Here's an example:
+
+**Before**
+```typescript
+// Old way to access panningHandler
+const panningHandler = graph.panningHandler;
+```
+
+**Now**
+```typescript
+// Updated way using getPlugin() in TypeScript
+const panningHandler = this.graph.getPlugin<PanningHandler>('PanningHandler');
+```
+
+#### `getModel()`
+
+Instead of calling `getModel()` that returned an instance of `mxGraphModel`, call `getDataModel` which returns an instance of `GraphDataModel`.
+Here's an example:
+
+**Before**
+```typescript
+// Old way of accessing the model
+const model = graph.getModel();
+```
+
+**Now**
+```typescript
+// Updated way to access the model
+const model = graph.getDataModel();
+```
+
+#### `insertVertex()` and `insertEdge()`
+
+The `insertVertex()` and `insertEdge()` methods in `TensorDiagram` now also accept one object as parameter instead of multiple parameters. Instead of passing individual parameters, you can pass an object containing all the required properties.
+
+The former methods having several parameters still exist but the new signature should be used instead because it is more readable and maintainable, and the former is going to be deprecated (see [Issue #856](https://github.com/TensorDiagram/TensorDiagram/issues/856)).
+
+Here's an example:
+
+**Before**
+```typescript
+// Old way of using insertVertex()
+graph.insertVertex(parent, id, value, x, y, width, height, style);
+
+// Old way of using insertEdge()
+graph.insertEdge(parent, id, value, source, target, style);
+```
+
+**Now**
+```typescript
+// New way to use an object parameter for insertVertex()
+graph.insertVertex({ parent, id, value, x, y, width, height, style });
+
+// New way to use an object parameter for insertEdge()
+graph.insertEdge({ parent, id, value, source, target, style });
+```
+
+#### Folding properties
+
+The following folding properties have been removed:
+  - `collapsedImage`
+  - `collapseToPreferredSize`
+  - `expandedImage`
+  - `foldingEnabled`
+
+They are now set in the `Graph.options` object with the same property name.
+
+For example, to set the `foldingEnabled` property, instead of doing `Graph.foldingEnabled`, you should set instead `Graph.options.foldingEnabled`.
+
+#### Other properties
+
+- the `tolerance` property has been renamed (and the get/set method as well). It is now named `snapTolerance`.
+
+### `mxResources`
+
+The `mxResources` class has been renamed to `Translations` in `TensorDiagram`.
+
+
+### `mxClient`
+
+The `mxClient` class has been renamed to `Client`.
+
+Removed properties
+- `defaultBundles`
+- `mxForceIncludes`: it was used to force loading the JavaScript files in development mode in mxGraph. We are not
+managing development mode in that way anymore.
+- `mxLoadResources`: not used anymore
+- `mxLoadStylesheets`: not used anymore
+- `mxResourceExtension`: it was only used in `Translations`, so only keep the property in `Translations`
+- languages properties are replaced by getters in `TranslationsConfig` (0.16.0)
+
+Removed methods
+- `isBrowserSupported` (0.16.0): no longer necessary
+- `loadResources`: used `Translations.loadResources`
+- `setForceIncludes`: the `mxForceIncludes` property has been removed
+- `setLoadResources`: the `mxLoadResources` property has been removed
+- `setLoadStylesheets`: the `mxLoadStylesheets` property has been removed
+- `setResourceExtension`: the `mxResourceExtension` property has been removed
+
+Moved properties
+- `VERSION` moved to `constants.VERSION` (0.16.0)
+
+Moved methods
+- languages setters moved to `TranslationsConfig` (0.16.0)
+- `link` method moved and renamed `domUtils.addLinkToHead`
+
+
+### `mxConstants`
+
+The `mxConstants` value object has been replaced by the `constants` namespace.
+
+The properties prefixed by `STYLE_` like `mxConstants.STYLE_FILLCOLOR` have been removed because they are no longer used. See the [Styling Properties](#properties) paragraph for a replacement.
+
+The other properties are still available.
+
+:::warning
+
+In `mxGraph`, the constants were used everywhere in the code and changing them would have a global effect.
+
+In `TensorDiagram`, it is no longer possible to update the value of the properties in the `constants` namespace.
+There are global configuration objects that allow to set the default values previously defined in `mxConstants` and these configurations are used everywhere in the code.
+
+But it is possible to configure their values globally. See the [Global Configuration](../usage/global-configuration.md#general) documentation for more details.
+
+:::
+
+
+### `mxEdgeStyle`
+
+The `mxEdgeStyle` value object has been replaced by the `EdgeStyle` class in `TensorDiagram`.
+
+As of version `0.16.0`, `EdgeStyle` only includes the properties referencing connectors. The other properties and methods are no longer available. \
+The connectors can be configured using dedicated global configuration objects. For more details, see the [Global Configuration](../usage/global-configuration.md) documentation.
+
+
+### Cell manipulation
+
+Some methods previously available in `mxGraph` and `mxGraphModel` have been removed. These methods allowed for customizing the behavior of `mxGraphModel` and `mxCell`. However, now only the methods specific to `Cell` remain.  
+
+:::note
+
+You can find more information about these changes in the GitHub [Pull Request #24](https://github.com/TensorDiagram/TensorDiagram/pull/24).
+
+:::
+
+
+#### `mxCell`
+
+The `mxCell` class has been renamed to `Cell` for simplicity.
+
+The `style` property of `Cell` has undergone a type change from `string` to `CellStyle`. See the paragraph about "Migration of specific style properties applied to dedicated cells"
+for more details about how to migrate the style property.
+
+
+#### `mxGraph`
+
+Some methods were removed:
+- `mxGraph.isCellVisible(cell)` see [discussion #179](https://github.com/TensorDiagram/TensorDiagram/discussions/179#discussioncomment-5389942) for rationale
+
+
+#### `mxGraphModel`
+
+Several methods from the `mxGraphModel` class have been moved to the `Cell` class. These methods no longer need the `cell` parameter:
+
+- `filterDescendants()`
+- `getChildAt(cell, index)`, use `Cell.getChildAt(index)` instead
+- `getChildCells(parent, vertices, edges)`, use `Cell.getChildCells(vertices, edges)` instead
+- `getChildCount()`
+- `getChildEdges()`
+- `getChildren()`
+- `getChildVertices()`
+- `getConnections()`
+- `getDescendants()`
+- `getDirectedEdgeCount(cell, outgoing, ignoredEdge)`, use `Cell.getDirectedEdgeCount(outgoing, ignoredEdge)` instead
+- `getEdgeAt(cell, index)`, use `Cell.getEdgeAt(index)` instead
+- `getEdgeCount()`
+- `getEdges(cell, incoming, outgoing, includeLoops)`, use `Cell.getEdges(incoming, outgoing, includeLoops)` instead
+- `getGeometry()`
+- `getIncomingEdges()`
+- `getOrigin()`
+- `getOutgoingEdges()`
+- `getParent(cell)`, use `Cell.getParent()` instead
+- `getStyle()`, which returns a `CellStyle` object instead of a string, see the [`mxCell`](#mxcell) section
+- `getTerminal(edge, isSource)`, use `Cell.getTerminal(source)` instead
+- `getValue()`
+- `isAncestor(parent, child)`, use `Cell.isAncestor(child)` instead
+- `isCollapsed()`
+- `isConnectable()`
+- `isEdge()`
+- `isVertex()`
+
+Some methods in `mxGraphModel` that were general manipulation of cells and independent of the model have been moved to the `cellArrayUtils` namespace and are now available as individual functions.
+- `cloneCell()` (from version 0.11.0)
+- `cloneCells()`
+- `getOpposite()`
+- `getParents()`
+- `getTopmostCells()`
+
+Others were removed:
+- `cellCloned(cell)`, the hook called to clone a cell: `cloneCells()` of `cellArrayUtils` calls `Cell.clone()` directly, so override that method instead
+- `cloneCellImpl()`
+- `isVisible(cell)` see [discussion #179](https://github.com/TensorDiagram/TensorDiagram/discussions/179#discussioncomment-5389942) for rationale
+- `restoreClone()` (from version 0.11.0)
+
+### Cell handlers
+
+The following Cell handler classes have been renamed in `TensorDiagram`:
+- `mxEdgeHandler` to `EdgeHandler`
+- `mxEdgeSegmentHandler` to `EdgeSegmentHandler`
+- `mxElbowEdgeHandler` to `ElbowEdgeHandler`
+- `mxVertexHandler` to `VertexHandler`
+
+In `mxGraph`, the handlers were configured by updating their properties on the prototype.
+In `TensorDiagram`, the handlers are configured with a global configuration object. For more details, see the [Global Configuration](../usage/global-configuration.md#general) documentation.
+
+For example, the `mxVertexHandler` class had a `rotationEnabled` property. 
+This property has been removed in `TensorDiagram`. Use the `VertexHandlerConfig.rotationEnabled` property instead (since `0.12.0`).
+
+### Misc
+
+- Codec renaming and output: see [Pull Request #70](https://github.com/TensorDiagram/TensorDiagram/pull/70)
+- `mxCellEditor` to `CellEditorHandler`
+- `mxDictionary`&lt;T&gt; to `Dictionary`&lt;K, V&gt;
+- `mxRubberband` to `RubberBandHandler`
+
+### Event handling
+
+The event handling mechanism in `TensorDiagram` has been updated. Use the following guidelines to update your event handling code:
+
+- `mxEvent` has been replaced by `eventUtils` and `InternalEvent` for most event-related operations.
+- `mxMouseEvent` has been replaced by `InternalMouseEvent`.
+
+#### `eventUtils`
+- Use the `eventUtils.isMultiTouchEvent()` method, to detect touch events, instead of `mxEvent.isMultiTouchEvent()`.
+- Use the `eventUtils.isLeftMouseButton()` method, to detect mouse events, instead of `mxEvent.isLeftMouseButton()`.
+
+#### `InternalEvent`
+- Use the `InternalEvent.PAN_START` property instead of `mxEvent.PAN_START`.
+- Use the `InternalEvent.PAN_END` property instead of `mxEvent.PAN_END`.
+- Use the `InternalEvent.addMouseWheelListener()` method instead of `mxEvent.addMouseWheelListener()`.
+- Use the `InternalEvent.consume()` method instead of `mxEvent.consume()`.
+
+
+### Styling
+
+`mxGraph`
+- Default styles defined with `mxStyleSheet`.
+- Style of a Cell: a string containing all properties and values, using a specific syntax and delimiter.
+- Style of a State Cell: a `StyleMap` instance (See [StyleMap](https://github.com/typed-mxgraph/typed-mxgraph/blob/187dd4f0dc7644c0cfbc998dae5fc90879597d81/lib/view/mxStylesheet.d.ts#L2-L4) as a `typed-mxgraph` type).
+
+`TensorDiagram`
+- Default styles defined via `StyleSheet`.
+- Style of a Cell: a dedicated `CellStyle` object that reuses the same properties as the string form used by mxGraph (see below for changes).
+- Style of a State Cell: a `CellStateStyle` instance.
+
+#### Properties
+
+In `mxGraph`, the properties are defined as string. The property keys are defined in `mxConstants` and are prefixed by `STYLE_` like `mxConstants.STYLE_FILLCOLOR`.
+
+In `TensorDiagram`, they are object properties. The usage of `mxConstants.STYLE_*` strings is replaced by the object properties (see [Pull Request #31](https://github.com/TensorDiagram/TensorDiagram/pull/31)).
+
+Property names and values are generally the same as in `mxGraph`. The ones that change are listed below.
+
+Property renaming
+- `autosize` to `autoSize` (from tensordiagram@0.2.0)
+
+Property type changed from `number` (0 or 1) to `boolean` (if not specified, from tensordiagram@0.1.0):
+- `anchorPointDirection`
+- `absoluteArcSize` (as of tensordiagram@0.2.0)
+- `autosize`
+- `backgroundOutline` (as of tensordiagram@0.2.0)
+- `bendable`
+- `cloneable`
+- `curved`
+- `dashed`
+- `deletable`
+- `editable`
+- `endFill`
+- `entryPerimeter`
+- `exitPerimeter`
+- `fixDash`
+- `flipH`
+- `flipV`
+- `foldable`
+- `glass`
+- `horizontal`
+- `imageAspect`
+- `movable`
+- `noEdgeStyle`
+- `noLabel`
+- `orthogonal`
+- `orthogonalLoop`
+- `pointerEvents`
+- `portConstraintRotation`
+- `resizable`
+- `resizeHeight`
+- `resizeWidth`
+- `rotatable`
+- `rounded`
+- `shadow`
+- `startFill`
+- `swimlaneLine`
+
+"Port constraint" property are no longer defined as a string, pass an array to specify multiple constraints (since 0.17.0):
+- `portConstraint`
+- `sourcePortConstraint`
+- `targetPortConstraint` 
+
+
+### Migration of default styles defined with StyleSheet
+
+#### `mxGraph` stylesheet
+
+What is a `StyleSheet`?
+> The appearance of the cells in a graph is defined by the stylesheet, which is an instance of mxStylesheet. The stylesheet maps from style names to styles.
+
+See also
+- https://jgraph.github.io/mxgraph/docs/tutorial.html#3.2
+- https://jgraph.github.io/mxgraph/docs/manual.html#3.1.3.1
+
+
+#### `TensorDiagram` stylesheet
+
+The migration consists of converting [`StyleMap`](https://github.com/typed-mxgraph/typed-mxgraph/blob/187dd4f0dc7644c0cfbc998dae5fc90879597d81/lib/view/mxStylesheet.d.ts#L2-L4) objects to `CellStyle` objects.
+
+If you have been using string or named properties, you can keep that syntax.
+You just need to rename the property or update its value as described in the [Styling Properties](#properties) paragraph.
+
+:::warning
+
+Be aware of the properties that have been renamed or whose value types have changed, as described in the [Styling Properties](#properties) paragraph.
+
+:::
+
+```ts
+style['propertyName1'] = value1
+style.propertyName2 = value2
+```
+
+If you used `mxConstants`, remove it and use named properties instead.
+```ts
+// mxGraphStyle is a StyleMap
+mxGraphStyle[mxConstants.STYLE_STARTSIZE] = 8
+
+// TensorDiagram style is a CellStyle
+style['startSize'] = 8;
+// or
+style.startSize = 8;
+```
+
+
+### Migration of specific style properties applied to dedicated cells
+
+#### `mxGraph` style
+
+> A style is an array of key, value pairs to be used with the cells.
+
+[mxGraph line 50](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L50-L62)
+
+> For a named style, the style name must be the first element
+of the cell style:
+(code)
+stylename;image=http://www.example.com/image.gif
+(end)
+A cell style can have any number of key=value pairs added, divided
+by a semicolon as follows:
+(code)
+[stylename;|key=value;]
+(end)
+
+[mxGraph line 167](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxGraph.js#L167-L171)
+
+> Styles are a collection of key, value pairs and a stylesheet is a collection
+of named styles. The names are referenced by the cellstyle, which is stored
+in 'mxCell.style' with the following format: [stylename;|key=value;]. The
+string is resolved to a collection of key, value pairs, where the keys are
+overridden with the values in the string.
+
+See also
+- https://jgraph.github.io/mxgraph/docs/tutorial.html#3.3
+- https://jgraph.github.io/mxgraph/docs/manual.html#3.1.3.1
+
+
+#### `TensorDiagram` style
+
+In TensorDiagram, the style is no longer defined as a string but as a `CellStyle` object.
+
+Most of the time, the name of `CellStyle` properties is the same as the style keys in the mxGraph style.
+
+For more details about styles in TensorDiagram, see the [Styles section](../manual/cells.md#styles) in the Cells documentation.
+
+:::warning
+
+Be aware of the properties that have been renamed or whose value types have changed, as described in the [Styling Properties](#properties) paragraph.
+
+:::
+
+**Migration example**
+
+If you want to write code to migrate mxGraph to TensorDiagram style, you can have a look at `packages/core/src/serialization/codecs/mxGraph/utils.ts`.
+
+```js
+// Before
+graph.insertVertex(..., 'style1;style2;shape=cylinder;strokeWidth=2;fillColor:#ffffff');
+```
+
+
+```js
+// Now using the insertVertex method taking a single parameter
+graph.insertVertex({
+  ...
+  style: {
+    baseStyleNames: ['style1', 'style2']
+    shape: 'cylinder',
+    strokeWidth: 2,
+    fillColor: '#ffffff'
+  }
+});
+```
+
+**Special migration case**
+In `mxGraph`, to not merge properties of the default style, the style string must start with a `;` (semicolon) as in `;style1;style2;prop1=value1;.....`.
+This is documented in the [mxStylesheet documentation](https://github.com/jgraph/mxgraph/blob/v4.2.2/javascript/src/js/view/mxStylesheet.js#L33-L38).
+> To override the default style for a cell, add a leading semicolon to the style definition, e.g. ;shadow=1
+
+From version 0.11.0 of `TensorDiagram`, you can replicate this behavior by setting `ignoreDefaultStyle` to `true` in the `CellStyle` object.
+
+
+### Codecs
+
+:::warning
+
+From [version 0.6.0](https://github.com/TensorDiagram/TensorDiagram/releases/tag/v0.6.0) of `TensorDiagram`, codecs supplied by TensorDiagram are no longer registered by default, they **MUST** be registered before performing an `encode` or `decode`
+
+For example:
+- You can use the `registerCoreCodecs` function (or other related functions) to register codecs.
+- To serialize the `TensorDiagram` model, you can use the `ModelXmlSerializer` class, which registers codecs under the hood.
+
+:::
+
+For more details, see the [Codecs](../usage/codecs.md) documentation. 
+This documentation covers topics such as codec registration, serialization processes, and configuration options.
+
+## Conclusion
+
+By following these guidelines and updating your codebase accordingly, you should be able to migrate your application from `mxGraph` to `TensorDiagram`.
+Remember to test your application thoroughly after the migration to ensure that its functionality is preserved.
+If you encounter any problems during the migration process, please refer to the `TensorDiagram` documentation or ask the `TensorDiagram` [community for help](https://github.com/TensorDiagram/TensorDiagram/discussions/categories/q-a).

@@ -1,0 +1,11 @@
+{
+  "name": "@tensordiagram/ts-support",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/check-types.ts"
+  },
+  "devDependencies": {
+    "typescript": "3.9.10"
+  }
+}

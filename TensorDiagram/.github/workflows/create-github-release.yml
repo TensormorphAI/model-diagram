@@ -1,0 +1,178 @@
+name: Create GitHub release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  compute_environment_variables:
+    runs-on: ubuntu-24.04
+    permissions: {}
+    outputs:
+      version: ${{ steps.set_version.outputs.version }}
+    steps:
+      - name: Set version
+        id: set_version
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+  build_examples:
+    needs: compute_environment_variables
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_reusable_build_examples.yml
+    with:
+      artifact-name: 'tensordiagram_${{ needs.compute_environment_variables.outputs.version }}_examples.zip'
+
+  generate_website:
+    needs: compute_environment_variables
+    permissions:
+      contents: read
+    uses: ./.github/workflows/_reusable_generate_website.yml
+    with:
+      artifact-name: 'tensordiagram_${{ needs.compute_environment_variables.outputs.version }}_website.zip'
+
+
+  create_release:
+    runs-on: ubuntu-24.04
+    needs: [compute_environment_variables, build_examples, generate_website]
+    permissions:
+      contents: write # create the GH release
+    steps:
+      - name: Set env
+        run: |
+          echo "VERSION=${{ needs.compute_environment_variables.outputs.version }}" >> $GITHUB_ENV
+          echo "RELEASE_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Get milestone number
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Fetching milestone for version ${{ env.VERSION }}..."
+          MILESTONE_NUMBER=$(gh api graphql -f query='
+          query($version: String!) {
+           repository(owner: "${{ github.repository_owner }}", name: "${{ github.event.repository.name }}") {
+             milestones(first: 1, query: $version) {
+               nodes { number }
+             }
+           }
+          }' -f version="${{ env.VERSION }}" --jq '.data.repository.milestones.nodes[0].number')
+          echo "Found milestone: ${MILESTONE_NUMBER}"
+          echo "MILESTONE_NUMBER=${MILESTONE_NUMBER:-x}" >> $GITHUB_ENV
+
+      - name: Download examples artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: tensordiagram_${{ env.VERSION }}_examples.zip
+          path: artifacts/examples
+
+      - name: Download website artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: tensordiagram_${{ env.VERSION }}_website.zip
+          path: artifacts/website
+
+      - name: Create zip files for release
+        run: |
+          cd artifacts/examples
+          zip -r ../../tensordiagram_${{ env.VERSION }}_examples.zip .
+          cd ../website
+          zip -r ../../tensordiagram_${{ env.VERSION }}_website.zip .
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: |
+            tensordiagram_${{ env.VERSION }}_examples.zip
+            tensordiagram_${{ env.VERSION }}_website.zip
+          body: |
+            _Version ${{ env.VERSION }} released on ${{ env.RELEASE_DATE }}._
+            
+            **Adapt this one liner summary**
+            ⚡ **This new version improves ...** ⚡
+
+            _If appropriate, briefly explain the contents of the new version._
+
+            ## Breaking changes
+
+            **TODO: keep if relevant and follow the guidelines below**
+
+              - explain why it is introduced
+              - explain the impact (use case, usage, impact a lot of user or only few, ....)
+              - add references to issue or pull request to help users to understand the breaking change
+
+            ### Removal of deprecated API
+
+            **TODO: keep if relevant and follow the guidelines below**
+
+              - list API
+              - add reference to the version and release notes where it was announced as "deprecated"
+
+            ## Deprecated APIs
+
+            **TODO: keep if relevant and follow the guidelines below**
+
+              - list the APIs
+              - explain why they are deprecated
+              - provide the new API to use instead. If none exist, mention it
+              - explain in which version it will be removed. We usually keep 3 minor versions prior removal.
+              - ensure that an issue exists to track the removal (one by version is OK) and it is attached to a milestone related to the version
+
+            ## Highlights
+            _Note_: use [release 0.5.0](https://github.com/TensorDiagram/TensorDiagram/releases/tag/v0.5.0) and [release 0.6.0](https://github.com/TensorDiagram/TensorDiagram/releases/tag/v0.6.0) as examples
+
+            **Add screenshots, animations or videos to make your description more user-friendly!**
+
+            ### Change 1
+
+            some explanations....
+
+            For more details, see #<PR_NUMBER>.
+
+            ### Other changes.... adapt and create more paragraphs
+
+            ### Bundle size
+
+            **TODO: explain the size changes in both repositories (causes, related PRs, effect of bundler upgrades), then add the mandatory note block described in the `prepare-release` skill. If the sizes grew, change the title of the paragraph**
+
+            #### Examples in the `TensorDiagram` repository
+
+            | Example                      | 0.xx.0   | 0.xx.0   |
+            | ---------------------------- | -------- | -------- |
+            | js-example                   |  kB |  kB |
+            | js-example-selected-features |  kB |  kB |
+            | js-example-without-defaults  |  kB |  kB |
+            | ts-example                   |  kB |  kB |
+            | ts-example-selected-features |  kB |  kB |
+            | ts-example-without-defaults  |  kB |  kB |
+
+            #### Projects in the `tensordiagram-integration-examples` repository
+
+            | Example    | 0.xx.0   | 0.xx.0   |
+            | ---------- | -------- | -------- |
+            | farm-ts    |  kB |  kB |
+            | lit-ts     |  kB |  kB |
+            | parcel-ts  |  kB |  kB |
+            | rollup-ts  |  kB |  kB |
+            | rsbuild-ts |  kB |  kB |
+            | vitejs-ts  |  kB |  kB |
+
+            ### Documentation
+
+            **TODO: list the significant documentation additions and changes, or remove this paragraph**
+
+            ## Resources
+
+            **TODO: Validate the milestone URL and update it if needed**
+
+            - **npm package**: [@tensordiagram/core ${{ env.VERSION }}](https://www.npmjs.com/package/@tensordiagram/core/v/${{ env.VERSION }})
+            - **Fixed issues**: [milestone ${{ env.VERSION }}](https://github.com/TensorDiagram/TensorDiagram/milestone/${{ env.MILESTONE_NUMBER }}?closed=1)
+            - **Documentation**: [tensordiagram_${{ env.VERSION }}_website.zip](https://github.com/TensorDiagram/TensorDiagram/releases/download/v${{ env.VERSION }}/tensordiagram_${{ env.VERSION }}_website.zip)
+            - **Examples**: [tensordiagram_${{ env.VERSION }}_examples.zip](https://github.com/TensorDiagram/TensorDiagram/releases/download/v${{ env.VERSION }}/tensordiagram_${{ env.VERSION }}_examples.zip)
+            - **Changelog** (a summary of each version, with its breaking changes and behavior changes): [changelog](https://github.com/TensorDiagram/TensorDiagram/tree/v${{ env.VERSION }}/CHANGELOG.md)
+
+          draft: true
+          generateReleaseNotes: true
+          name: ${{ env.VERSION }}

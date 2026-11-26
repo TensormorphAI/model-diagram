@@ -1,0 +1,169 @@
+/*
+Copyright (c) Tensormorph. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+import { describe, expect, test } from '@jest/globals';
+import { createGraphWithoutContainer } from '../../utils';
+import { Cell, type CellStyle, Geometry, Point } from '../../../src';
+
+describe('insertEdge', () => {
+  test('Legacy method (with several parameters)', () => {
+    const graph = createGraphWithoutContainer();
+    const source = new Cell();
+    const target = new Cell();
+
+    const style: CellStyle = { rounded: true, shape: 'line' };
+    // Use the legacy method here as it is the method under test
+    const cell = graph.insertEdge(null, 'edge_1', 'a value', source, target, style);
+    expect(cell.getId()).toBe('edge_1');
+    expect(cell.vertex).toBeFalsy();
+    expect(cell.edge).toBeTruthy();
+    expect(cell.value).toBe('a value');
+    expect(cell.source).toBe(source);
+    expect(cell.target).toBe(target);
+    expect(cell.style).toStrictEqual(style);
+
+    const geometry = new Geometry();
+    geometry.relative = true;
+    expect(cell.geometry).toStrictEqual(geometry);
+
+    // parent created with cell as child
+    expect(cell.parent).not.toBeNull();
+    expect(cell.parent?.id).toBe('1'); // default parent
+    const children = cell.parent?.children;
+    expect(children).toContain(cell);
+    expect(children).toHaveLength(1);
+
+    // ensure that the cell is in the model
+    const cellFromModel = graph.getDataModel().getCell('edge_1');
+    expect(cellFromModel).toBe(cell);
+  });
+
+  test('with single parameter', () => {
+    const graph = createGraphWithoutContainer();
+    const source = new Cell();
+    const target = new Cell();
+
+    const style: CellStyle = { startArrow: 'oval', strokeColor: 'red' };
+    const cell = graph.insertEdge({
+      source,
+      style,
+      target,
+      value: 'a value',
+    });
+    expect(cell.getId()).toBe('2'); // generated
+    expect(cell.vertex).toBeFalsy();
+    expect(cell.edge).toBeTruthy();
+    expect(cell.value).toBe('a value');
+    expect(cell.source).toBe(source);
+    expect(cell.target).toBe(target);
+    expect(cell.style).toStrictEqual(style);
+
+    const geometry = new Geometry();
+    geometry.relative = true;
+    expect(cell.geometry).toStrictEqual(geometry);
+
+    // parent created with cell as child
+    expect(cell.parent).not.toBeNull();
+    expect(cell.parent?.id).toBe('1'); // default parent
+    const children = cell.parent?.children;
+    expect(children).toContain(cell);
+    expect(children).toHaveLength(1);
+
+    // ensure that the cell is in the model
+    const cellFromModel = graph.getDataModel().getCell('2');
+    expect(cellFromModel).toBe(cell);
+  });
+
+  test('with single parameter and non default parent', () => {
+    const graph = createGraphWithoutContainer();
+
+    const parentCell = graph.insertVertex({
+      value: 'non default',
+      position: [10, 10],
+      size: [400, 400],
+    });
+    expect(parentCell.getId()).toBe('2'); // generated
+    expect(parentCell.value).toBe('non default');
+
+    const childCell = graph.insertEdge({
+      parent: parentCell,
+    });
+    expect(childCell.getId()).toBe('3'); // generated
+
+    expect(childCell.parent).toBe(parentCell);
+    const children = parentCell.children;
+    expect(children).toContain(childCell);
+    expect(children).toHaveLength(1);
+  });
+});
+
+describe('getAllEdges', () => {
+  test('return the edges of every given cell', () => {
+    const graph = createGraphWithoutContainer();
+    const cells = [
+      graph.insertVertex({ value: 'A' }),
+      graph.insertVertex({ value: 'B' }),
+    ];
+    const other = graph.insertVertex({ value: 'other' });
+    const edges = cells.map((cell) => graph.insertEdge({ source: cell, target: other }));
+
+    expect(graph.getAllEdges(cells)).toEqual(edges);
+  });
+});
+
+describe('getEdgesBetween', () => {
+  test('return every edge connecting the two cells', () => {
+    const graph = createGraphWithoutContainer();
+    const source = graph.insertVertex({ value: 'source' });
+    const target = graph.insertVertex({ value: 'target' });
+    const firstEdgeBetween = graph.insertEdge({ source, target });
+    graph.insertEdge({ source, target: graph.insertVertex({ value: 'other' }) });
+    const lastEdgeBetween = graph.insertEdge({ source, target });
+
+    expect(graph.getEdgesBetween(source, target)).toEqual([
+      firstEdgeBetween,
+      lastEdgeBetween,
+    ]);
+  });
+});
+
+describe('resetEdges', () => {
+  test('reset the points of the edges leaving the given cells, and only those', () => {
+    const graph = createGraphWithoutContainer();
+    const cells = [
+      graph.insertVertex({ value: 'A' }),
+      graph.insertVertex({ value: 'B' }),
+    ];
+    const outside = graph.insertVertex({ value: 'outside' });
+    const insertEdgeWithPoints = (source: Cell, target: Cell): Cell => {
+      const edge = graph.insertEdge({ source, target });
+      edge.getGeometry()!.points = [new Point(10, 10)];
+      return edge;
+    };
+    const firstLeavingEdge = insertEdgeWithPoints(cells[0], outside);
+    const edgeBetweenCells = insertEdgeWithPoints(cells[0], cells[1]);
+    const leavingEdges = [
+      firstLeavingEdge,
+      insertEdgeWithPoints(cells[0], outside),
+      insertEdgeWithPoints(cells[1], outside),
+    ];
+
+    graph.resetEdges(cells);
+
+    expect(leavingEdges.map((edge) => edge.getGeometry()!.points)).toEqual([[], [], []]);
+    expect(edgeBetweenCells.getGeometry()!.points).toEqual([new Point(10, 10)]);
+  });
+});

@@ -1,0 +1,80 @@
+<style>
+  {`
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 700;
+      background: #E7FDD8;
+      color: #66BF3C;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+  `}
+</style>
+
+
+# Welcome to the TensorDiagram Demo ✨
+
+The demo, built with [Storybook](https://storybook.js.org/), showcases the features of `TensorDiagram` through interactive examples. Stories are organized by functionality, making it easy to explore different capabilities of the library.
+
+## 🔍 What You'll Find Here
+
+- **Feature Demonstrations**: Each story focuses on specific capabilities, from basic graph rendering to advanced interactions
+- **Combination Examples**: See how multiple features work together to create powerful graph applications
+- **Extension Patterns**: Learn how to extend `TensorDiagram` for custom requirements
+- **Interactive Controls**: Many stories include [Storybook controls](https://storybook.js.org/docs/7/essentials/controls) that let you experiment with parameters in real-time
+
+## ✏️ Editing Labels
+
+In the stories where labels can be edited, the in-place editing is the standard `TensorDiagram` behavior:
+- start editing by double-clicking a cell
+- validate the change with `F2`, or by clicking outside the cell
+- cancel the change with `Escape`
+
+## 🚀 Continuous Improvement
+
+We regularly add new examples that:
+- Demonstrate recently added features
+- Cover additional use cases
+- Provide clearer documentation within the stories themselves
+- Link to detailed documentation for more complex topics
+
+## 💻 Technical Details
+
+- Stories are being progressively migrated from _JavaScript_ to _TypeScript_
+- The examples evolved from the original `mxGraph` codebase:
+  - [mxGraph live examples](https://jgraph.github.io/mxgraph/javascript/index.html)
+  - [mxGraph examples source](https://github.com/jgraph/mxgraph/tree/v4.2.2/javascript/examples/)
+- The source code of the stories is accessible in multiple ways:
+  - Within the demo via the "Code" tab in the Addon Panel ([Storysource Addon](https://www.npmjs.com/package/@storybook/addon-storysource))
+  - Source of all stories in [packages/html/stories](https://github.com/TensorDiagram/TensorDiagram/tree/main/packages/html/stories/)
+  - Global TensorDiagram configuration in [packages/html/.storybook/preview.ts](https://github.com/TensorDiagram/TensorDiagram/tree/main/packages/html/.storybook/preview.ts)
+    - That configuration is applied before each story, for instance to set the base path of the images with `Client.setImageBasePath('./images')`. The stories don't repeat it, so when reusing their code, set it in your application and make the images available there.
+- Some stories may still be under active development
+
+## 🤝 Support
+
+For more details about how to use TensorDiagram features, see the [documentation](https://tensordiagram.github.io/TensorDiagram/docs/intro).
+
+If you encounter any issues, create a sub-issue under the [issue tracking all demo improvements](https://github.com/TensorDiagram/TensorDiagram/issues/505) issue.
+
+If you have any questions or suggestions, create a new discussion on the [GitHub repository](https://github.com/TensorDiagram/TensorDiagram/discussions/categories/q-a).
+
+<div className="tip-wrapper">
+  <span className="tip">Tip</span> To edit this page, update the <code>packages/html/stories/Introduction.mdx</code> file in the <i>TensorDiagram</i> repository.
+</div>

@@ -1,0 +1,451 @@
+/*
+Copyright (c) Tensormorph. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+import { afterEach, beforeEach, describe, expect, jest, test } from '@jest/globals';
+import {
+  type Cell,
+  type EdgeHandler,
+  Graph,
+  InternalEvent,
+  InternalMouseEvent,
+  Point,
+  resetVertexHandlerConfig,
+  type SelectionCellsHandler,
+  VertexHandler,
+  VertexHandlerConfig,
+} from '../../../src';
+import { createCellHandleStub, createContainer, createGraph } from '../../utils';
+
+const createMouseEvent = (type: string, x: number, y: number): InternalMouseEvent => {
+  // Alt disables the grid, so that the angle is not snapped to the rotation raster
+  const event = new MouseEvent(type, { clientX: x, clientY: y, button: 0, altKey: true });
+  const mouseEvent = new InternalMouseEvent(event);
+  mouseEvent.graphX = x;
+  mouseEvent.graphY = y;
+  return mouseEvent;
+};
+
+const createGraphAtScale = (scale: number): Graph => {
+  const container = createContainer({ offsetWidth: 1200, offsetHeight: 900 });
+  document.body.appendChild(container);
+
+  const graph = createGraph(container);
+  graph.view.setScale(scale);
+  return graph;
+};
+
+beforeEach(() => {
+  // Every test drags the rotation handle, which VertexHandlerConfig hides by default
+  VertexHandlerConfig.rotationEnabled = true;
+});
+
+afterEach(() => {
+  // VertexHandlerConfig is global and outlives the test that changed it
+  resetVertexHandlerConfig();
+});
+
+/**
+ * Paints the rotation handle on the top left corner instead of above the centre, the case the `start` method of
+ * {@link VertexHandler} explicitly supports through {@link VertexHandler.getRotationHandlePosition}.
+ */
+class CornerHandleVertexHandler extends VertexHandler {
+  override getRotationHandlePosition(): Point {
+    return new Point(this.bounds.x, this.bounds.y + this.rotationHandleVSpacing);
+  }
+}
+
+/**
+ * Drags the rotation handle from where it is currently painted to `targetAngle`, keeping the pointer on the circle
+ * the handle sits on, as a real gesture does.
+ */
+const rotateWithHandleTo = (graph: Graph, cell: Cell, targetAngle: number): void => {
+  const selectionCellsHandler = graph.getPlugin<SelectionCellsHandler>(
+    'SelectionCellsHandler'
+  )!;
+  const handler = selectionCellsHandler.getHandler(cell) as VertexHandler;
+  const state = graph.view.getState(cell)!;
+  const centerX = state.getCenterX();
+  const centerY = state.getCenterY();
+  const handleBounds = handler.rotationShape!.bounds!;
+  const startAngle = graph.getCurrentCellStyle(cell).rotation ?? 0;
+  const radius = Math.hypot(
+    handleBounds.getCenterX() - centerX,
+    handleBounds.getCenterY() - centerY
+  );
+
+  handler.mouseDown(
+    graph,
+    createMouseEvent('mousedown', handleBounds.getCenterX(), handleBounds.getCenterY())
+  );
+
+  const pointAt = (angleInDegrees: number): Point => {
+    const angle = (angleInDegrees * Math.PI) / 180;
+    return new Point(
+      centerX + radius * Math.sin(angle),
+      centerY - radius * Math.cos(angle)
+    );
+  };
+
+  // Sweep the angle instead of jumping to it: every mouseMove recomputes the angle from scratch, so only the last one
+  // decides the committed value, but a real drag does cross the intermediate angles
+  const stepCount = 8;
+  for (let step = 1; step <= stepCount; step++) {
+    const point = pointAt(startAngle + ((targetAngle - startAngle) * step) / stepCount);
+    handler.mouseMove(graph, createMouseEvent('mousemove', point.x, point.y));
+  }
+
+  const release = pointAt(targetAngle);
+  handler.mouseUp(graph, createMouseEvent('mouseup', release.x, release.y));
+};
+
+describe('rotation with the rotation handle', () => {
+  // The scales are the ones reached by zoomIn/zoomOut in the Stencils story, whose "X1" vertex is used here. At some
+  // of them, rounding the selection bounds moves the painted rotation handle half a pixel left of the vertex centre,
+  // which used to make `startAngle` jump from 0 to about 180 degrees and flip every rotation.
+  test.each([
+    ['no zoom', 1],
+    ['zoom in once', 1.2],
+    ['zoom in twice', 1.44],
+    ['zoom in 3 times', 1.73],
+    ['zoom out once', 0.83],
+    ['zoom out twice', 0.69],
+    ['zoom out 3 times', 0.57],
+  ])('applies the dragged angle after %s', (_description, scale) => {
+    const graph = createGraphAtScale(scale);
+    const vertex = graph.insertVertex({
+      value: 'X1',
+      position: [160, 110],
+      size: [80, 80],
+    });
+    graph.setSelectionCell(vertex);
+
+    rotateWithHandleTo(graph, vertex, 90);
+
+    expect(graph.getCurrentCellStyle(vertex).rotation).toBe(90);
+  });
+
+  test('applies the dragged angle on consecutive rotations of an initially rotated vertex', () => {
+    const graph = createGraphAtScale(1);
+    const vertex = graph.insertVertex({
+      value: 'X1',
+      position: [160, 110],
+      size: [80, 80],
+      style: { rotation: 40 },
+    });
+    graph.setSelectionCell(vertex);
+
+    rotateWithHandleTo(graph, vertex, 90);
+    expect(graph.getCurrentCellStyle(vertex).rotation).toBe(90);
+
+    rotateWithHandleTo(graph, vertex, 120);
+    expect(graph.getCurrentCellStyle(vertex).rotation).toBe(120);
+  });
+
+  test('leaves the angle unchanged when the rotation handle is only clicked', () => {
+    const graph = createGraphAtScale(1);
+    const vertex = graph.insertVertex({
+      value: 'X1',
+      position: [160, 110],
+      size: [80, 80],
+      style: { rotation: 40 },
+    });
+    graph.setSelectionCell(vertex);
+
+    const selectionCellsHandler = graph.getPlugin<SelectionCellsHandler>(
+      'SelectionCellsHandler'
+    )!;
+    const handler = selectionCellsHandler.getHandler(vertex) as VertexHandler;
+    const handleBounds = handler.rotationShape!.bounds!;
+    const mouseDownEvent = createMouseEvent(
+      'mousedown',
+      handleBounds.getCenterX(),
+      handleBounds.getCenterY()
+    );
+
+    handler.mouseDown(graph, mouseDownEvent);
+    expect(handler.index).toBe(InternalEvent.ROTATION_HANDLE);
+    handler.mouseUp(
+      graph,
+      createMouseEvent('mouseup', mouseDownEvent.graphX, mouseDownEvent.graphY)
+    );
+
+    expect(graph.getCurrentCellStyle(vertex).rotation).toBe(40);
+  });
+
+  test('applies the dragged angle when a subclass paints the handle in a corner', () => {
+    const graph = createGraphAtScale(1);
+    const selectionCellsHandler = graph.getPlugin<SelectionCellsHandler>(
+      'SelectionCellsHandler'
+    )!;
+    selectionCellsHandler.setVertexHandlerFactory(
+      (state) => new CornerHandleVertexHandler(state)
+    );
+
+    const vertex = graph.insertVertex({
+      value: 'X1',
+      position: [160, 110],
+      size: [80, 80],
+    });
+    graph.setSelectionCell(vertex);
+
+    const handler = selectionCellsHandler.getHandler(vertex) as VertexHandler;
+    const state = graph.view.getState(vertex)!;
+    const centerX = state.getCenterX();
+    const centerY = state.getCenterY();
+    // Grab the handle where the handler positions it, rather than at the centre of the painted shape, whose
+    // coordinates are floored by moveSizerTo and would add a fraction of a degree to the expected angle
+    const { x: grabX, y: grabY } = handler.getRotationHandlePosition();
+    // Bearing of the handle, measured clockwise from straight up, and its distance to the centre
+    const handleBearing = Math.atan2(grabX - centerX, -(grabY - centerY));
+    const radius = Math.hypot(grabX - centerX, grabY - centerY);
+
+    handler.mouseDown(graph, createMouseEvent('mousedown', grabX, grabY));
+    // Drag the handle to where it belongs once the vertex is rotated by 90 degrees
+    const releaseBearing = handleBearing + Math.PI / 2;
+    const release = createMouseEvent(
+      'mousemove',
+      centerX + radius * Math.sin(releaseBearing),
+      centerY - radius * Math.cos(releaseBearing)
+    );
+    handler.mouseMove(graph, release);
+    handler.mouseUp(graph, createMouseEvent('mouseup', release.graphX, release.graphY));
+
+    expect(graph.getCurrentCellStyle(vertex).rotation).toBe(90);
+  });
+});
+
+describe('loops over the handles', () => {
+  const getHandler = (graph: Graph, cell: Cell): VertexHandler =>
+    graph
+      .getPlugin<SelectionCellsHandler>('SelectionCellsHandler')!
+      .getHandler(cell) as VertexHandler;
+
+  const selectVertex = (): { graph: Graph; handler: VertexHandler } => {
+    const graph = createGraphAtScale(1);
+    const cell = graph.insertVertex({ position: [100, 100], size: [80, 60] });
+    graph.setSelectionCell(cell);
+    return { graph, handler: getHandler(graph, cell) };
+  };
+
+  const sizerDisplays = (handler: VertexHandler): string[] =>
+    handler.sizers.map((sizer) => sizer.node.style.display);
+
+  test('setHandlesVisible hides every sizer and every custom handle', () => {
+    const { handler } = selectVertex();
+    const customHandles = [createCellHandleStub(), createCellHandleStub()];
+    handler.customHandles = customHandles;
+
+    handler.setHandlesVisible(false);
+
+    expect(sizerDisplays(handler)).toEqual(handler.sizers.map(() => 'none'));
+    for (const customHandle of customHandles) {
+      expect(customHandle.setVisible).toHaveBeenCalledWith(false);
+    }
+  });
+
+  test('reset shows every sizer again and resets every custom handle', () => {
+    const { handler } = selectVertex();
+    handler.livePreviewActive = true;
+    for (const sizer of handler.sizers) {
+      sizer.node.style.display = 'none';
+    }
+    const inactiveCustomHandle = createCellHandleStub(false);
+    const activeCustomHandle = createCellHandleStub(true);
+    handler.customHandles = [inactiveCustomHandle, activeCustomHandle];
+
+    handler.reset();
+
+    expect(sizerDisplays(handler)).toEqual(handler.sizers.map(() => ''));
+    expect(inactiveCustomHandle.setVisible).toHaveBeenCalledWith(true);
+    expect(activeCustomHandle.reset).toHaveBeenCalledTimes(1);
+    expect(activeCustomHandle.active).toBe(false);
+  });
+
+  test('redrawHandles redraws every custom handle and every edge handler', () => {
+    const { handler } = selectVertex();
+    const customHandles = [createCellHandleStub(), createCellHandleStub()];
+    handler.customHandles = customHandles;
+    const edgeHandlers = [{ redraw: jest.fn() }, { redraw: jest.fn() }];
+    handler.edgeHandlers = edgeHandlers as unknown as EdgeHandler[];
+
+    handler.redrawHandles();
+
+    for (const handle of [...customHandles, ...edgeHandlers]) {
+      expect(handle.redraw).toHaveBeenCalled();
+    }
+  });
+
+  test('onDestroy destroys every sizer and every custom handle', () => {
+    const { handler } = selectVertex();
+    const sizerDestroys = handler.sizers.map((sizer) => jest.spyOn(sizer, 'destroy'));
+    const customHandles = [createCellHandleStub(), createCellHandleStub()];
+    handler.customHandles = customHandles;
+
+    handler.onDestroy();
+
+    for (const destroy of [
+      ...sizerDestroys,
+      ...customHandles.map((handle) => handle.destroy),
+    ]) {
+      expect(destroy).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  test('start with a live preview collects the handler of every connected edge', () => {
+    const graph = createGraphAtScale(1);
+    const cell = graph.insertVertex({ position: [100, 100], size: [80, 60] });
+    const edges = [
+      graph.insertEdge({
+        source: cell,
+        target: graph.insertVertex({ position: [400, 100] }),
+      }),
+      graph.insertEdge({
+        source: cell,
+        target: graph.insertVertex({ position: [400, 300] }),
+      }),
+    ];
+    graph.setSelectionCells([cell, ...edges]);
+    const handler = getHandler(graph, cell);
+    handler.livePreview = true;
+
+    handler.start(100, 100, 0);
+
+    // Compare the ids, a failure diffing the handlers themselves would never end on their circular references
+    expect(
+      handler.edgeHandlers.map((edgeHandler) => edgeHandler.state.cell.getId())
+    ).toEqual(edges.map((edge) => edge.getId()));
+  });
+});
+
+describe('rotateCell', () => {
+  const rotateCell = (graph: Graph, cell: Cell, angle: number): void => {
+    const handler = new VertexHandler(graph.view.getState(cell)!);
+    graph.batchUpdate(() => {
+      handler.rotateCell(cell, angle);
+    });
+  };
+
+  test('rotates a vertex without children', () => {
+    const graph = createGraphAtScale(1);
+    const vertex = graph.insertVertex({
+      value: 'vertex',
+      position: [100, 100],
+      size: [200, 200],
+      style: { rotation: 30 },
+    });
+
+    rotateCell(graph, vertex, 60);
+
+    expect(graph.getCurrentCellStyle(vertex).rotation).toBe(90);
+  });
+
+  test('rotates the children of a vertex and moves them around its centre', () => {
+    const graph = createGraphAtScale(1);
+    const group = graph.insertVertex({
+      value: 'group',
+      position: [100, 100],
+      size: [200, 200],
+    });
+    const child = graph.insertVertex({
+      parent: group,
+      value: 'child',
+      position: [20, 60],
+      size: [60, 40],
+      style: { rotation: 10 },
+    });
+
+    rotateCell(graph, group, 90);
+
+    expect(graph.getCurrentCellStyle(group).rotation).toBe(90);
+    expect(graph.getCurrentCellStyle(child).rotation).toBe(100);
+    // The centre of the child, (50, 80), is rotated by 90 degrees around the centre of the group, which is (100, 100)
+    // in the coordinates of its children, giving (120, 50). The geometry is then repositioned around that centre.
+    const childGeometry = child.getGeometry()!;
+    expect(childGeometry.x).toBe(90);
+    expect(childGeometry.y).toBe(30);
+  });
+
+  test('rotates the descendants recursively', () => {
+    const graph = createGraphAtScale(1);
+    const group = graph.insertVertex({
+      value: 'group',
+      position: [100, 100],
+      size: [200, 200],
+    });
+    const child = graph.insertVertex({
+      parent: group,
+      value: 'child',
+      position: [20, 60],
+      size: [60, 40],
+    });
+    const grandChild = graph.insertVertex({
+      parent: child,
+      value: 'grandChild',
+      position: [5, 5],
+      size: [20, 20],
+    });
+
+    rotateCell(graph, group, 45);
+
+    expect(graph.getCurrentCellStyle(child).rotation).toBe(45);
+    expect(graph.getCurrentCellStyle(grandChild).rotation).toBe(45);
+  });
+
+  test('rotates a relative child without moving its geometry', () => {
+    const graph = createGraphAtScale(1);
+    const group = graph.insertVertex({
+      value: 'group',
+      position: [100, 100],
+      size: [200, 200],
+    });
+    const child = graph.insertVertex({
+      parent: group,
+      value: 'relative child',
+      position: [0.5, 0.5],
+      size: [20, 20],
+      relative: true,
+    });
+
+    rotateCell(graph, group, 90);
+
+    expect(graph.getCurrentCellStyle(child).rotation).toBe(90);
+    const childGeometry = child.getGeometry()!;
+    expect(childGeometry.x).toBe(0.5);
+    expect(childGeometry.y).toBe(0.5);
+  });
+
+  test('does nothing when the angle is 0', () => {
+    const graph = createGraphAtScale(1);
+    const group = graph.insertVertex({
+      value: 'group',
+      position: [100, 100],
+      size: [200, 200],
+      style: { rotation: 30 },
+    });
+    const child = graph.insertVertex({
+      parent: group,
+      value: 'child',
+      position: [20, 60],
+      size: [60, 40],
+    });
+
+    rotateCell(graph, group, 0);
+
+    expect(graph.getCurrentCellStyle(group).rotation).toBe(30);
+    expect(graph.getCurrentCellStyle(child).rotation).toBeUndefined();
+    expect(child.getGeometry()!.x).toBe(20);
+  });
+});
