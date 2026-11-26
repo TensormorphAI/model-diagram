@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1060" width="1500" height="1060" font-family="Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+    <style>
+      .box{fill:#ededed;stroke:#444;stroke-width:1.2}
+      .wbox{fill:#fff;stroke:#444;stroke-width:1.2}
+      .t{font-size:13px;fill:#111;text-anchor:middle;dominant-baseline:middle}
+      .s{font-size:11px;fill:#111;text-anchor:middle;dominant-baseline:middle}
+      .ln{fill:none;stroke:#222;stroke-width:1.4}
+      .ar{fill:none;stroke:#222;stroke-width:1.4;marker-end:url(#ah)}
+      .dot{fill:none;stroke:#222;stroke-width:2.2;stroke-dasharray:2 3}
+      .grp{fill:none;stroke:#222;stroke-width:2.4;stroke-dasharray:3 3}
+      .b{font-weight:bold}
+      .blue{fill:#1a8cff}
+      .red{fill:#e00000;font-weight:bold}
+      .ann{font-size:15px;fill:#111}
+    </style>
+  </defs>
+
+  <rect width="1500" height="1060" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="773" y="40" text-anchor="middle" font-size="44" font-weight="bold" fill="#1a8cff">DeepSeek-V4.1-Flash (552B)</text>
+  <text x="773" y="78" class="t">Text backbone shown. Vision encoder and DSpark speculative decoding modules omitted.</text>
+
+  <!-- Main container -->
+  <rect x="234" y="123" width="706" height="842" rx="8" fill="#d9d9d9" stroke="#555" stroke-width="1.5"/>
+
+  <!-- ================= Causal encoder ================= -->
+  <rect x="250" y="271" width="292" height="543" rx="6" fill="#6ba3d6" stroke="#3d6d9c" stroke-width="1.5"/>
+  <text x="462" y="294" class="t b" font-size="15">Causal encoder</text>
+  <text x="462" y="316" class="t">20 layers</text>
+
+  <rect x="262" y="330" width="244" height="310" rx="4" class="grp"/>
+  <text x="522" y="560" class="t">×3</text>
+  <rect x="275" y="345" width="196" height="122" rx="4" class="grp"/>
+  <text x="488" y="405" class="t">×5</text>
+
+  <rect x="283" y="358" width="181" height="28" rx="5" class="box"/><text x="373" y="372" class="t">MoE</text>
+  <rect x="283" y="424" width="181" height="29" rx="5" class="box"/><text x="373" y="439" class="t">CSA2(2, Reuse)</text>
+  <rect x="283" y="502" width="181" height="28" rx="5" class="box"/><text x="373" y="516" class="t">MoE</text>
+  <rect x="283" y="554" width="181" height="64" rx="5" class="box"/>
+  <text x="373" y="570" class="t">Compressed Sparse</text>
+  <text x="373" y="586" class="t">Attention 2</text>
+  <text x="373" y="602" class="t red">CSA2(2, Full)</text>
+
+  <rect x="262" y="664" width="244" height="139" rx="4" class="grp"/>
+  <text x="522" y="734" class="t">×2</text>
+  <rect x="283" y="688" width="181" height="28" rx="5" class="box"/><text x="373" y="702" class="t">MoE</text>
+  <rect x="283" y="736" width="181" height="48" rx="5" class="box"/>
+  <text x="373" y="752" class="t">Sliding window attention</text>
+  <text x="373" y="768" class="t red">(SWA)</text>
+
+  <!-- encoder vertical flow -->
+  <line x1="373" y1="857" x2="373" y2="786" class="ar"/>
+  <line x1="373" y1="736" x2="373" y2="718" class="ar"/>
+  <line x1="373" y1="688" x2="373" y2="620" class="ar"/>
+  <line x1="373" y1="554" x2="373" y2="532" class="ar"/>
+  <line x1="373" y1="502" x2="373" y2="455" class="ar"/>
+  <line x1="373" y1="424" x2="373" y2="388" class="ar"/>
+  <line x1="373" y1="358" x2="373" y2="260" class="ar"/>
+
+  <rect x="271" y="230" width="205" height="28" rx="5" class="wbox"/><text x="373" y="244" class="t">Final encoder hidden states</text>
+  <rect x="283" y="857" width="181" height="29" rx="5" class="wbox"/><text x="373" y="872" class="t">Token embedding layer</text>
+  <rect x="307" y="914" width="134" height="28" rx="5" class="wbox"/><text x="374" y="928" class="t">Tokenized text</text>
+  <line x1="373" y1="914" x2="373" y2="888" class="ar"/>
+  <line x1="373" y1="985" x2="373" y2="944" class="ar"/>
+  <text x="373" y="1003" text-anchor="middle" font-family="Courier New, monospace" font-size="14">Sample input text</text>
+
+  <!-- Engram -->
+  <rect x="22" y="626" width="132" height="30" rx="6" class="wbox" stroke-width="1.6"/>
+  <text x="88" y="642" class="t b" font-size="15">Engram</text>
+  <path d="M154,641 H216 M216,603 V768 M216,603 H283 M216,768 H283" class="ln"/>
+  <text x="30" y="683" class="ann b">196B parameters</text>
+  <text x="30" y="702" class="ann b">in encoded blocks</text>
+  <text x="30" y="721" class="ann b">2 and 15</text>
+  <text x="30" y="740" class="ann b">(token n-gram lookup)</text>
+
+  <!-- Partial RoPE / YaRN -->
+  <rect x="147" y="815" width="98" height="28" rx="5" class="wbox"/><text x="196" y="829" class="t">Partial RoPE</text>
+  <line x1="245" y1="818" x2="282" y2="784" class="ar"/>
+  <line x1="232" y1="815" x2="282" y2="745" class="ar"/>
+  <line x1="168" y1="846" x2="146" y2="867" class="dot"/>
+  <text x="65" y="885" class="ann b">YaRN context</text>
+  <text x="65" y="904" class="ann b"><tspan class="blue">1M</tspan> tokens</text>
+  <text x="65" y="923" class="ann b"><tspan class="blue">64k</tspan> pretraining</text>
+
+  <!-- CSA2 annotation -->
+  <text x="8" y="212" class="ann"><tspan class="blue b">CSA2</tspan><tspan class="blue">(ratio, mode)</tspan></text>
+  <text x="8" y="232" class="ann">• <tspan class="b">mode=Full</tspan> mode builds</text>
+  <text x="21" y="251" class="ann">global KV and sparse</text>
+  <text x="21" y="269" class="ann">indices</text>
+  <text x="8" y="291" class="ann">• <tspan class="b">mode=Reindex</tspan></text>
+  <text x="21" y="310" class="ann">recomputes sparse</text>
+  <text x="21" y="328" class="ann">indices</text>
+  <text x="8" y="352" class="ann">• <tspan class="b">mode=Reuse</tspan> shares KV</text>
+  <text x="21" y="370" class="ann">and sparse indices</text>
+  <text x="18" y="401" class="ann">(Note 1: The first decoder</text>
+  <text x="18" y="419" class="ann">Full layer builds a</text>
+  <text x="18" y="437" class="ann">candidate pool for later</text>
+  <text x="18" y="455" class="ann">Reindex layers using a</text>
+  <text x="18" y="473" class="ann">hierarchical indexer)</text>
+  <text x="18" y="503" class="ann">(Note 2: CSA2 includes</text>
+  <text x="18" y="521" class="ann">SWA)</text>
+  <line x1="208" y1="385" x2="282" y2="435" class="dot"/>
+
+  <!-- ================= Encoder → Decoder links ================= -->
+  <path d="M476,244 H590 V517" class="ln"/>
+  <path d="M590,598 V781 H657" class="ar"/>
+  <path d="M560,244 V838 H749 V798" class="ar"/>
+  <rect x="568" y="517" width="45" height="81" rx="5" class="wbox"/>
+  <text x="590" y="545" class="s">CED</text>
+  <text x="590" y="558" class="s">Global</text>
+  <text x="590" y="571" class="s">KV</text>
+
+  <!-- ================= Decoder ================= -->
+  <rect x="625" y="271" width="293" height="543" rx="6" fill="#6ba3d6" stroke="#3d6d9c" stroke-width="1.5"/>
+  <text x="838" y="294" class="t b" font-size="15">Decoder</text>
+  <text x="838" y="316" class="t">20 layers</text>
+
+  <rect x="638" y="328" width="244" height="242" rx="4" class="grp"/>
+  <text x="899" y="518" class="t">×4</text>
+  <rect x="650" y="345" width="196" height="98" rx="4" class="grp"/>
+  <text x="864" y="393" class="t">×3</text>
+  <rect x="659" y="358" width="181" height="28" rx="5" class="box"/><text x="749" y="372" class="t">MoE</text>
+  <rect x="659" y="402" width="181" height="28" rx="5" class="box"/><text x="749" y="416" class="t">CSA2(1, Reuse)</text>
+  <rect x="659" y="477" width="181" height="28" rx="5" class="box"/><text x="749" y="491" class="t">MoE</text>
+  <rect x="659" y="520" width="181" height="29" rx="5" class="box"/><text x="749" y="535" class="t">CSA2(1, Reindex)</text>
+
+  <rect x="638" y="593" width="244" height="97" rx="4" class="grp"/>
+  <text x="899" y="641" class="t">×3</text>
+  <rect x="659" y="607" width="181" height="28" rx="5" class="box"/><text x="749" y="621" class="t">MoE</text>
+  <rect x="659" y="651" width="181" height="28" rx="5" class="box"/><text x="749" y="665" class="t">CSA2(1, Reuse)</text>
+  <rect x="659" y="706" width="181" height="28" rx="5" class="box"/><text x="749" y="720" class="t">MoE</text>
+  <rect x="659" y="767" width="181" height="29" rx="5" class="box"/><text x="749" y="782" class="t">CSA2(1, Full)</text>
+
+  <line x1="749" y1="767" x2="749" y2="736" class="ar"/>
+  <line x1="749" y1="706" x2="749" y2="681" class="ar"/>
+  <line x1="749" y1="651" x2="749" y2="637" class="ar"/>
+  <line x1="749" y1="607" x2="749" y2="551" class="ar"/>
+  <line x1="749" y1="520" x2="749" y2="507" class="ar"/>
+  <line x1="749" y1="477" x2="749" y2="432" class="ar"/>
+  <line x1="749" y1="402" x2="749" y2="388" class="ar"/>
+  <line x1="749" y1="358" x2="749" y2="260" class="ar"/>
+
+  <!-- Decoder head -->
+  <rect x="664" y="230" width="172" height="28" rx="5" class="wbox"/><text x="750" y="244" class="t">Final pre-mix (4 to 1)</text>
+  <rect x="688" y="184" width="123" height="28" rx="5" class="wbox"/><text x="749" y="198" class="t">Final RMSNorm</text>
+  <rect x="688" y="139" width="123" height="28" rx="5" class="wbox"/><text x="749" y="153" class="t">Linear output layer</text>
+  <line x1="749" y1="230" x2="749" y2="214" class="ar"/>
+  <line x1="749" y1="184" x2="749" y2="169" class="ar"/>
+  <line x1="749" y1="139" x2="749" y2="110" class="ar"/>
+  <text x="473" y="182" class="ann b">Vocabulary size</text>
+  <text x="473" y="200" class="ann b">of <tspan class="blue">129k</tspan></text>
+  <line x1="598" y1="178" x2="686" y2="156" class="dot"/>
+
+  <!-- Hierarchical sparse indexer -->
+  <text x="751" y="884" class="t">Hierarchical sparse indexer</text>
+  <rect x="659" y="890" width="181" height="29" rx="5" class="wbox"/><text x="749" y="905" class="t">Candidate pool</text>
+  <path d="M840,781 H878 V898 H842" class="ar"/>
+  <path d="M840,912 H926 V535 H842" class="ar"/>
+
+  <text x="488" y="946" class="ann b">Embedding dimension of <tspan class="blue">5,120</tspan></text>
+  <line x1="462" y1="890" x2="482" y2="928" class="dot"/>
+
+  <!-- mHC callout line -->
+  <path d="M751,752 H900 V1035 H958" class="dot"/>
+  <text x="962" y="1030" class="ann" font-size="14">Single-Pass mHC surrounds every attention (SWA or CSA2)</text>
+  <text x="962" y="1048" class="ann" font-size="14">sublayer and every MoE sublayer</text>
+
+  <!-- ================= Feed forward (SwiGLU) ================= -->
+  <text x="1096" y="135" class="t b" font-size="16">Feed forward (SwiGLU) module</text>
+  <rect x="978" y="151" width="236" height="181" rx="4" fill="#e3e3e3" class="grp" style="fill:#e3e3e3"/>
+  <rect x="998" y="170" width="98" height="28" rx="5" class="wbox"/><text x="1047" y="184" class="s">Linear layer</text>
+  <rect x="998" y="232" width="98" height="29" rx="5" class="wbox"/><text x="1047" y="247" class="s">SiLU activation</text>
+  <rect x="1104" y="232" width="98" height="29" rx="5" class="wbox"/><text x="1153" y="247" class="s">Linear layer</text>
+  <rect x="998" y="288" width="98" height="29" rx="5" class="wbox"/><text x="1047" y="303" class="s">Linear layer</text>
+  <line x1="1047" y1="288" x2="1047" y2="263" class="ar"/>
+  <line x1="1047" y1="232" x2="1047" y2="200" class="ar"/>
+  <path d="M1047,215 H1093 M1153,232 V215 H1107" class="ln"/>
+  <circle cx="1100" cy="215" r="7" fill="#fff" stroke="#222" stroke-width="1.3"/>
+  <path d="M1096,211 L1104,219 M1104,211 L1096,219" class="ln" stroke-width="1.2"/>
+  <path d="M1018,318 L978,385 V570" class="dot"/>
+  <text x="1096" y="360" class="t b" font-size="15">Intermediate hidden</text>
+  <text x="1096" y="380" class="t b" font-size="15">layer dimension of</text>
+  <text x="1096" y="400" class="t b blue" font-size="15">2,304</text>
+
+  <!-- ================= MoE layer ================= -->
+  <text x="1096" y="441" class="t b" font-size="16">MoE layer</text>
+  <rect x="952" y="453" width="288" height="289" rx="4" class="grp"/>
+  <line x1="840" y1="491" x2="952" y2="491" class="dot"/>
+
+  <circle cx="1096" cy="506" r="10" fill="#fff" stroke="#222" stroke-width="1.4"/>
+  <path d="M1096,499 V513 M1089,506 H1103" class="ln"/>
+  <line x1="1096" y1="496" x2="1096" y2="470" class="ar"/>
+  <line x1="1020" y1="572" x2="1087" y2="513" class="ar"/>
+  <line x1="1170" y1="572" x2="1105" y2="513" class="ar"/>
+  <line x1="1096" y1="565" x2="1096" y2="518" class="ar"/>
+
+  <rect x="968" y="572" width="104" height="27" rx="5" class="box"/><text x="1020" y="586" class="s">Feed forward</text>
+  <rect x="1048" y="596" width="22" height="20" rx="2" fill="#111"/><text x="1059" y="606" class="s b" fill="#fff" style="fill:#fff">1</text>
+  <rect x="1120" y="572" width="104" height="27" rx="5" class="box"/><text x="1172" y="586" class="s">Feed forward</text>
+  <rect x="1190" y="596" width="32" height="20" rx="2" fill="#1a8cff"/><text x="1206" y="606" class="s b" style="fill:#fff">384</text>
+  <text x="1096" y="590" class="t b" font-size="16">· · ·</text>
+
+  <rect x="1066" y="668" width="60" height="28" rx="6" fill="#fff" stroke="#1a8cff" stroke-width="1.6"/>
+  <text x="1096" y="682" class="t">Router</text>
+  <line x1="1080" y1="668" x2="1026" y2="602" class="ar"/>
+  <line x1="1112" y1="668" x2="1166" y2="602" class="ar"/>
+  <line x1="1096" y1="668" x2="1096" y2="632" class="ar"/>
+  <line x1="1096" y1="722" x2="1096" y2="698" class="ar"/>
+
+  <!-- Parameters and compute -->
+  <text x="1250" y="540" class="ann b blue">Parameters and compute</text>
+  <text x="1250" y="558" class="ann b"><tspan class="blue">552B</tspan> backbone + <tspan class="blue">196B</tspan> Engram</text>
+  <text x="1250" y="576" class="ann b"><tspan class="blue">1</tspan> shared + <tspan class="blue">6</tspan> routed experts</text>
+  <text x="1250" y="594" class="ann b"><tspan class="blue">8B</tspan> active for prefill</text>
+  <text x="1250" y="612" class="ann b"><tspan class="blue">16B</tspan> active for decoding</text>
+
+  <!-- ================= Single-Pass mHC ================= -->
+  <rect x="953" y="766" width="438" height="234" rx="4" class="grp"/>
+  <text x="1172" y="798" class="t b blue" font-size="16">Single-Pass mHC</text>
+
+  <!-- residual bypass streams -->
+  <path d="M971,852 V815 H1298 V841" class="ln"/>
+  <path d="M975,866 V819 H1294 V841" class="ln"/>
+  <path d="M979,880 V823 H1290 V841" class="ln"/>
+  <path d="M983,894 V827 H1286 V841" class="ln"/>
+  <rect x="1118" y="814" width="81" height="20" rx="4" class="wbox"/><text x="1158" y="824" class="s">mHC res</text>
+
+  <line x1="971" y1="852" x2="1020" y2="852" class="ar"/>
+  <line x1="975" y1="866" x2="1020" y2="866" class="ar"/>
+  <line x1="979" y1="880" x2="1020" y2="880" class="ar"/>
+  <line x1="983" y1="894" x2="1020" y2="894" class="ar"/>
+  <g fill="#111"><circle cx="987" cy="852" r="3"/><circle cx="987" cy="866" r="3"/><circle cx="987" cy="880" r="3"/><circle cx="987" cy="894" r="3"/></g>
+
+  <rect x="1022" y="841" width="74" height="67" rx="5" class="wbox"/>
+  <text x="1059" y="862" class="s">Previous</text>
+  <text x="1059" y="876" class="s">pre-mix</text>
+  <text x="1059" y="890" class="s">(4 to 1)</text>
+  <line x1="1096" y1="875" x2="1126" y2="875" class="ar"/>
+  <rect x="1128" y="841" width="104" height="67" rx="5" fill="#cfcfcf" stroke="#444" stroke-width="1.2"/>
+  <text x="1180" y="862" class="s">RMSNorm +</text>
+  <text x="1180" y="875" class="s">sublayer</text>
+  <text x="1180" y="888" class="s">(attention or MoE)</text>
+  <line x1="1232" y1="875" x2="1264" y2="875" class="ar"/>
+  <rect x="1266" y="841" width="74" height="67" rx="5" class="wbox"/>
+  <text x="1303" y="869" class="s">mHG post</text>
+  <text x="1303" y="884" class="s">+ residual</text>
+
+  <path d="M1340,855 H1374 M1340,869 H1374 M1340,883 H1374 M1340,897 H1374" class="ln"/>
+  <g fill="#111"><circle cx="1374" cy="855" r="3.2"/><circle cx="1374" cy="869" r="3.2"/><circle cx="1374" cy="883" r="3.2"/><circle cx="1374" cy="897" r="3.2"/></g>
+
+  <text x="1172" y="936" class="t b" font-size="15">with <tspan class="blue">4</tspan> parallel residual streams</text>
+  <text x="1172" y="972" class="t">Each sublayer computes pre-mix weights for the next sublayer</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTowZTkxY2ZiMS05MzU4LTQzNGQtYWJmOS1mZjY0MDQzMWVhNmIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaMhmHwIsDD8+yfmsNmNiQGkAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDphYzZiNTkyNC0wMjZjLTQ4OWYtOWM5MS1hNTU3YzkwNTAzZTlscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoheq1cEPNtXcaYhpsrzBP6QAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggoGHWXdP3vcQGhVhoNQjLzqJA5UeX2eD5Zu5tumtpIeakZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaNNtkcVrcEbTXXBhMRqjeMkAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIBkVS934s3z5ahD9ITJXJkZ/Guk/oNdgEnEHv4wcWkpIZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GT7zZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjBlOTFjZmIxLTkzNTgtNDM0ZC1hYmY5LWZmNjQwNDMxZWE2Yi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjU2NTBlMmU5LWU2YmYtNGNkYS04YTg3LWVkYTVjZjdmODgzN3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCgYdZd0/e9xAaFWGg1CMvOokDlR5fZ4Plm7m26a2kh5qJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggxJIBJcna0dbGZImCNP/g2RlGhCuTXHcj6kOh7KiQCNOiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggj/g/b1fELcQQSFnmUtaN1VQpiooy/JqhZPa4dbj9Q1N0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQIYPYKYXPJZZanijrArJLlUz81yzOwhQO81Fv1hLK0ZPh8/HhpDpvYstOwLEYD7nmzkLc2wjsCYoaCgD/TggOqo=</c2pa:manifest></metadata></svg>

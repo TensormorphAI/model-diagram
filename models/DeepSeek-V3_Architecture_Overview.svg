@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270 1245" width="1270" height="1245" font-family="Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+    <style>
+      .box { fill: #fff; stroke: #000; stroke-width: 2; filter: url(#shadow); }
+      .gbox { fill: #d6d6d6; stroke: #000; stroke-width: 2; filter: url(#shadow); }
+      .lbl { font-size: 17px; text-anchor: middle; dominant-baseline: middle; fill: #000; }
+      .line { stroke: #000; stroke-width: 2.5; fill: none; }
+      .arr { stroke: #000; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .dot { stroke: #000; stroke-width: 3; stroke-dasharray: 3 5; fill: none; }
+      .note { font-size: 22px; font-weight: bold; fill: #000; }
+      .red { fill: #f2301e; }
+      .body { font-size: 22px; fill: #000; }
+    </style>
+  </defs>
+
+  <rect width="1270" height="1245" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="492" y="57" text-anchor="middle" font-size="60" font-weight="bold" class="red">DeepSeek-V3 (671B)</text>
+
+  <!-- Outer model box -->
+  <rect x="207" y="163" width="500" height="935" rx="40" fill="#d3d3d3" stroke="#000" stroke-width="2"/>
+  <!-- Transformer block -->
+  <rect x="288" y="318" width="353" height="560" rx="35" fill="#ff9a92" stroke="#000" stroke-width="2"/>
+
+  <!-- Main data path -->
+  <line class="arr" x1="460" y1="1188" x2="460" y2="1155"/>
+  <line class="arr" x1="460" y1="1115" x2="460" y2="1003"/>
+  <line class="arr" x1="460" y1="965" x2="460" y2="814"/>
+  <line class="arr" x1="460" y1="776" x2="460" y2="736"/>
+  <line class="arr" x1="460" y1="664" x2="460" y2="635"/>
+  <line class="arr" x1="460" y1="603" x2="460" y2="543"/>
+  <line class="arr" x1="460" y1="505" x2="460" y2="462"/>
+  <line class="arr" x1="460" y1="424" x2="460" y2="382"/>
+  <line class="arr" x1="460" y1="350" x2="460" y2="296"/>
+  <line class="arr" x1="460" y1="258" x2="460" y2="231"/>
+  <line class="arr" x1="460" y1="193" x2="460" y2="125"/>
+
+  <!-- Residual connections -->
+  <polyline class="arr" points="460,858 571,858 571,618 477,618"/>
+  <polyline class="arr" points="460,588 571,588 571,365 477,365"/>
+
+  <!-- Add nodes -->
+  <circle cx="460" cy="365" r="15" fill="#fff" stroke="#000" stroke-width="2"/>
+  <path d="M451,365 H469 M460,356 V374" stroke="#000" stroke-width="2"/>
+  <circle cx="460" cy="618" r="15" fill="#fff" stroke="#000" stroke-width="2"/>
+  <path d="M451,618 H469 M460,609 V627" stroke="#000" stroke-width="2"/>
+
+  <!-- Blocks -->
+  <rect class="box" x="377" y="193" width="170" height="36" rx="9"/>
+  <text class="lbl" x="462" y="211">Linear output layer</text>
+
+  <rect class="box" x="383" y="258" width="160" height="36" rx="9"/>
+  <text class="lbl" x="463" y="276">Final RMSNorm</text>
+
+  <rect class="gbox" x="382" y="424" width="158" height="36" rx="9"/>
+  <text class="lbl" x="461" y="442">MoE</text>
+
+  <rect class="box" x="382" y="505" width="158" height="36" rx="9"/>
+  <text class="lbl" x="461" y="523">RMSNorm 2</text>
+
+  <rect x="350" y="664" width="198" height="70" rx="12" fill="#555" stroke="#000" stroke-width="2" filter="url(#shadow)"/>
+  <text class="lbl" x="449" y="690" fill="#fff" style="fill:#fff">Multi-head <tspan fill="#ff6b5e" font-weight="bold">latent</tspan></text>
+  <text class="lbl" x="449" y="711" style="fill:#fff">attention</text>
+
+  <rect class="box" x="381" y="776" width="158" height="36" rx="9"/>
+  <text class="lbl" x="460" y="794">RMSNorm 1</text>
+
+  <rect class="box" x="341" y="965" width="242" height="36" rx="9"/>
+  <text class="lbl" x="462" y="983">Token embedding layer</text>
+
+  <rect class="box" x="381" y="1115" width="158" height="36" rx="9"/>
+  <text class="lbl" x="460" y="1133">Tokenized text</text>
+
+  <text x="460" y="1222" text-anchor="middle" font-family="Courier New, monospace" font-size="21">Sample input text</text>
+
+  <!-- Partial RoPE -->
+  <rect class="box" x="179" y="681" width="133" height="38" rx="9"/>
+  <text class="lbl" x="245" y="700">Partial RoPE</text>
+  <line class="arr" x1="312" y1="700" x2="348" y2="700"/>
+
+  <!-- Repeat marker -->
+  <text x="292" y="880" font-size="62" font-family="Georgia, serif">{</text>
+  <text x="220" y="895" font-size="23" font-weight="bold" class="red">61 ×</text>
+
+  <!-- Vocabulary annotation -->
+  <text class="note" x="582" y="118">Vocabulary size of <tspan class="red">129k</tspan></text>
+  <line class="dot" x1="605" y1="138" x2="545" y2="190"/>
+
+  <!-- SwiGLU module -->
+  <text class="note" x="855" y="156">Feed forward (SwiGLU) module</text>
+  <rect x="857" y="168" width="362" height="276" rx="25" fill="#d3d3d3" stroke="#000" stroke-width="3" stroke-dasharray="3 5"/>
+  <line class="arr" x1="960" y1="373" x2="960" y2="333"/>
+  <line class="arr" x1="960" y1="285" x2="960" y2="241"/>
+  <line class="line" x1="960" y1="264" x2="1029" y2="264"/>
+  <polyline class="line" points="1053,264 1117,264 1117,285"/>
+  <circle cx="1041" cy="264" r="12" fill="#fff" stroke="#000" stroke-width="2"/>
+  <path d="M1035,258 L1047,270 M1047,258 L1035,270" stroke="#000" stroke-width="2"/>
+
+  <rect class="box" x="881" y="193" width="152" height="46" rx="10"/>
+  <text class="lbl" x="957" y="216">Linear layer</text>
+  <rect class="box" x="882" y="285" width="150" height="46" rx="10"/>
+  <text class="lbl" x="957" y="308">SiLU activation</text>
+  <rect class="box" x="1043" y="285" width="152" height="46" rx="10"/>
+  <text class="lbl" x="1119" y="308">Linear layer</text>
+  <rect class="box" x="882" y="373" width="150" height="46" rx="10"/>
+  <text class="lbl" x="957" y="396">Linear layer</text>
+
+  <line class="dot" x1="1015" y1="428" x2="1045" y2="460"/>
+  <text class="note" x="970" y="482">Intermediate hidden</text>
+  <text class="note" x="970" y="510">layer dimension of</text>
+  <text class="note red" x="970" y="537">2,048</text>
+
+  <!-- Connectors to MoE detail -->
+  <line x1="540" y1="447" x2="790" y2="600" stroke="#f2301e" stroke-width="3" stroke-dasharray="3 5"/>
+  <line class="dot" x1="890" y1="448" x2="830" y2="742"/>
+
+  <!-- MoE layer -->
+  <rect x="790" y="565" width="440" height="438" rx="40" fill="none" stroke="#f2301e" stroke-width="3" stroke-dasharray="3 6"/>
+  <text x="1075" y="624" font-size="25" font-weight="bold">MoE layer</text>
+
+  <line class="arr" x1="1002" y1="636" x2="1002" y2="590"/>
+  <line class="arr" x1="888" y1="738" x2="988" y2="676"/>
+  <line class="arr" x1="1002" y1="722" x2="1002" y2="672"/>
+  <line class="arr" x1="1115" y1="734" x2="1016" y2="676"/>
+  <circle cx="1002" cy="653" r="17" fill="#fff" stroke="#000" stroke-width="2.5"/>
+  <path d="M992,653 H1012 M1002,643 V663" stroke="#000" stroke-width="2.5"/>
+
+  <rect class="gbox" x="805" y="742" width="158" height="36" rx="9"/>
+  <text class="lbl" x="884" y="761">Feed forward</text>
+  <rect x="932" y="772" width="34" height="34" rx="5" fill="#111"/>
+  <text x="949" y="790" text-anchor="middle" dominant-baseline="middle" font-size="19" font-weight="bold" fill="#fff">1</text>
+
+  <text x="1003" y="778" text-anchor="middle" font-size="32" font-weight="bold">· · ·</text>
+
+  <rect class="gbox" x="1038" y="736" width="158" height="36" rx="9"/>
+  <text class="lbl" x="1117" y="755">Feed forward</text>
+  <rect x="1153" y="766" width="50" height="34" rx="5" fill="#f2301e"/>
+  <text x="1178" y="784" text-anchor="middle" dominant-baseline="middle" font-size="19" font-weight="bold" fill="#fff">256</text>
+
+  <line class="arr" x1="1003" y1="878" x2="899" y2="796"/>
+  <line class="arr" x1="1003" y1="878" x2="1003" y2="796"/>
+  <line class="arr" x1="1003" y1="878" x2="1112" y2="796"/>
+  <line class="arr" x1="1003" y1="970" x2="1003" y2="932"/>
+
+  <rect x="957" y="880" width="91" height="48" rx="10" fill="#fff" stroke="#f2301e" stroke-width="2.5" filter="url(#shadow)"/>
+  <text class="lbl red" x="1002" y="905" font-size="21" style="font-size:21px">Router</text>
+
+  <!-- Resource savings -->
+  <text x="893" y="1038" font-size="22" font-weight="bold" class="red">Resource savings:</text>
+  <circle cx="900" cy="1066" r="3.5"/>
+  <text class="body" x="921" y="1073">Model size is <tspan class="red" font-weight="bold">671B</tspan></text>
+  <circle cx="900" cy="1101" r="3.5"/>
+  <text class="body" x="921" y="1108">but only <tspan class="red" font-weight="bold">1 (shared) + 8 experts</tspan></text>
+  <text class="body" x="921" y="1133">active per token</text>
+  <circle cx="900" cy="1161" r="3.5"/>
+  <text class="body" x="921" y="1168">only <tspan class="red" font-weight="bold">37B</tspan> parameters are active</text>
+  <text class="body" x="921" y="1193">per inference step</text>
+
+  <!-- Heads -->
+  <line class="dot" x1="553" y1="738" x2="760" y2="1088"/>
+  <text class="note" x="728" y="1113"><tspan class="red">128</tspan> heads</text>
+
+  <!-- Embedding dimension -->
+  <line class="dot" x1="585" y1="1003" x2="692" y2="1165"/>
+  <text class="note" x="625" y="1197">Embedding</text>
+  <text class="note" x="625" y="1225">dimension of <tspan class="red">7,168</tspan></text>
+
+  <!-- YaRN -->
+  <line class="dot" x1="165" y1="730" x2="130" y2="822"/>
+  <text class="note" x="13" y="852">YaRN context</text>
+  <text class="note" x="13" y="880"><tspan class="red">128k</tspan> tokens</text>
+  <text class="note" x="13" y="908"><tspan class="red">4k</tspan> RoPE base</text>
+
+  <!-- Dense blocks -->
+  <line class="dot" x1="235" y1="910" x2="112" y2="1075"/>
+  <text class="note" x="8" y="1119">First <tspan class="red">3</tspan> blocks use</text>
+  <text class="note" x="8" y="1146">dense FFN with</text>
+  <text class="note" x="8" y="1173">hidden size <tspan class="red">18,432</tspan></text>
+  <text class="note" x="8" y="1201">instead of MoE</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTphODBkNTMyNC0yMTk4LTQ1MzktYTcwNS05MWVkMmYxOTdmYTMAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaFkyDP69Tm5bcmvT0j31sskAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDozYWM1NTQzNi1jNmVjLTQ5ZmUtOTM5Zi1kMWI2MjRlZmEyYTVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNosVytomKNdSvgYjJJuif8RQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggyh1nZGf3E2vLs66mTX7Sk3PzitFbiqFwkLWBlt1ogoykZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaMfy5sbR1QtfgqpFrgD5V6QAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIBUVuOXSvamXsLs53WYt7objnBInpxDuBtBgNDzvHUq9ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GScRZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmE4MGQ1MzI0LTIxOTgtNDUzOS1hNzA1LTkxZWQyZjE5N2ZhMy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmQyNjBlMDZkLTgyMjctNGUxMy1iZjc3LWVkY2Q2NTM3MGE2OXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDKHWdkZ/cTa8uzrqZNftKTc/OK0VuKoXCQtYGW3WiCjKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggyEGcjYmfjlk7kOxHADrB4+5DMKjiFa6lgITZkc/gnDyiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggqPigb/7eLerglr6xY1blj+pMu2rkYvv+eyN48kSfcuh0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQLJsbC4zQptQOKIJJPaFXn379DXaXLgIov7v2pXTnGh07Py51XUygBZjHM5McqQPB9x9R1pj/mI6kJVI0MIidMM=</c2pa:manifest></metadata></svg>

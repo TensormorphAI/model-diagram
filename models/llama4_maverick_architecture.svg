@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1240" width="1280" height="1240" font-family="Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000"/>
+    </marker>
+  </defs>
+  <style>
+    .box { fill: #fff; stroke: #000; stroke-width: 2; }
+    .gbox { fill: #d0d0d0; stroke: #000; stroke-width: 2; }
+    .ln { stroke: #000; stroke-width: 2; fill: none; }
+    .arr { stroke: #000; stroke-width: 2; fill: none; marker-end: url(#ah); }
+    .dot { stroke: #000; stroke-width: 3; stroke-dasharray: 2 5; stroke-linecap: round; fill: none; }
+    .lbl { font-size: 17px; text-anchor: middle; dominant-baseline: central; }
+    .note { font-size: 23px; font-weight: bold; }
+    .blue { fill: #1a9cf0; }
+  </style>
+
+  <rect width="1280" height="1240" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="100" y="58" font-size="64" font-weight="bold" class="blue">Llama 4 Maverick (400B)</text>
+
+  <!-- Main panels -->
+  <rect x="222" y="163" width="498" height="928" rx="40" fill="#d9d9d9" stroke="#000" stroke-width="2"/>
+  <rect x="300" y="318" width="354" height="555" rx="40" fill="#8ecdf1" stroke="#000" stroke-width="2"/>
+
+  <!-- Main flow arrows -->
+  <line class="arr" x1="474" y1="1180" x2="474" y2="1152"/>
+  <line class="arr" x1="474" y1="1108" x2="474" y2="999"/>
+  <line class="arr" x1="474" y1="959" x2="474" y2="811"/>
+  <line class="arr" x1="474" y1="773" x2="474" y2="734"/>
+  <line class="arr" x1="474" y1="662" x2="474" y2="631"/>
+  <line class="arr" x1="474" y1="601" x2="474" y2="541"/>
+  <line class="arr" x1="474" y1="503" x2="474" y2="461"/>
+  <line class="arr" x1="474" y1="423" x2="474" y2="379"/>
+  <line class="arr" x1="474" y1="349" x2="474" y2="295"/>
+  <line class="arr" x1="474" y1="257" x2="474" y2="230"/>
+  <line class="arr" x1="474" y1="192" x2="474" y2="125"/>
+
+  <!-- Residual connections -->
+  <polyline class="arr" points="474,855 584,855 584,615 490,615"/>
+  <polyline class="arr" points="474,587 584,587 584,363 490,363"/>
+
+  <!-- Boxes -->
+  <rect class="box" x="390" y="192" width="170" height="36" rx="9"/>
+  <text class="lbl" x="475" y="210">Linear output layer</text>
+  <rect class="box" x="396" y="257" width="158" height="36" rx="9"/>
+  <text class="lbl" x="475" y="275">Final RMSNorm</text>
+
+  <circle cx="474" cy="363" r="14" class="box"/>
+  <path class="ln" d="M466,363 h16 M474,355 v16"/>
+
+  <rect class="gbox" x="395" y="423" width="158" height="36" rx="9"/>
+  <text class="lbl" x="474" y="441">MoE</text>
+  <rect class="box" x="396" y="503" width="158" height="36" rx="9"/>
+  <text class="lbl" x="475" y="521">RMSNorm 2</text>
+
+  <circle cx="474" cy="615" r="14" class="box"/>
+  <path class="ln" d="M466,615 h16 M474,607 v16"/>
+
+  <rect x="365" y="662" width="196" height="70" rx="10" fill="#555" stroke="#000" stroke-width="2"/>
+  <text class="lbl" x="463" y="687" fill="#fff">Grouped-query</text>
+  <text class="lbl" x="463" y="708" fill="#fff">attention</text>
+
+  <rect class="box" x="394" y="773" width="158" height="36" rx="9"/>
+  <text class="lbl" x="473" y="791">RMSNorm 1</text>
+
+  <rect class="box" x="354" y="959" width="242" height="38" rx="9"/>
+  <text class="lbl" x="475" y="978">Token embedding layer</text>
+  <rect class="box" x="394" y="1108" width="158" height="38" rx="9"/>
+  <text class="lbl" x="473" y="1127">Tokenized text</text>
+  <text x="474" y="1214" font-family="Courier New, monospace" font-size="20" text-anchor="middle">Sample input text</text>
+
+  <!-- RoPE / NoPE -->
+  <rect class="box" x="192" y="679" width="134" height="38" rx="9"/>
+  <text class="lbl" x="259" y="698">RoPE / NoPE</text>
+  <line class="arr" x1="330" y1="697" x2="363" y2="697"/>
+
+  <!-- Brace + 48x -->
+  <path class="ln" stroke-width="2.5" d="M318,832 C300,836 306,850 300,858 C296,864 288,866 284,866 C288,866 296,868 300,874 C306,882 300,896 318,900"/>
+  <text x="232" y="892" font-size="24" font-weight="bold" class="blue">48 ×</text>
+
+  <!-- Left / bottom annotations -->
+  <line class="dot" x1="182" y1="724" x2="147" y2="815"/>
+  <text class="note" x="18" y="843">Native context</text>
+  <text class="note" x="18" y="870"><tspan class="blue">1M</tspan> tokens</text>
+  <text class="note" x="18" y="897">NoPE every <tspan class="blue">4th</tspan></text>
+  <text class="note" x="18" y="924">attention layer</text>
+
+  <line class="dot" x1="248" y1="907" x2="127" y2="1068"/>
+  <text class="note" x="8" y="1099">Dense and MoE</text>
+  <text class="note" x="8" y="1127">blocks alternate every</text>
+  <text class="note" x="8" y="1155">2nd block; hidden</text>
+  <text class="note" x="8" y="1183">size <tspan class="blue">16,384</tspan> for dense</text>
+  <text class="note" x="8" y="1211">layers</text>
+
+  <line class="dot" x1="596" y1="999" x2="704" y2="1158"/>
+  <text class="note" x="638" y="1190">Embedding</text>
+  <text class="note" x="638" y="1218">dimension of <tspan class="blue">5,120</tspan></text>
+
+  <line class="dot" x1="556" y1="190" x2="618" y2="135"/>
+  <text class="note" x="593" y="118">Vocabulary size of <tspan class="blue">202k</tspan></text>
+
+  <!-- SwiGLU module -->
+  <text class="note" x="866" y="155">Feed forward (SwiGLU) module</text>
+  <rect x="868" y="168" width="360" height="275" rx="20" fill="#d9d9d9" stroke="#000" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+  <rect class="box" x="893" y="195" width="150" height="44" rx="10"/>
+  <text class="lbl" x="968" y="217">Linear layer</text>
+  <rect class="box" x="893" y="285" width="150" height="44" rx="10"/>
+  <text class="lbl" x="968" y="307">SiLU activation</text>
+  <rect class="box" x="1055" y="285" width="150" height="44" rx="10"/>
+  <text class="lbl" x="1130" y="307">Linear layer</text>
+  <rect class="box" x="893" y="372" width="150" height="44" rx="10"/>
+  <text class="lbl" x="968" y="394">Linear layer</text>
+  <line class="arr" x1="968" y1="372" x2="968" y2="331"/>
+  <line class="arr" x1="968" y1="285" x2="968" y2="241"/>
+  <line class="ln" x1="968" y1="263" x2="1039" y2="263"/>
+  <polyline class="ln" points="1063,263 1128,263 1128,285"/>
+  <circle cx="1051" cy="263" r="12" class="box"/>
+  <path class="ln" d="M1044,256 l14,14 M1058,256 l-14,14"/>
+
+  <line class="dot" x1="1025" y1="425" x2="1060" y2="460"/>
+  <text class="note" x="982" y="481">Intermediate hidden</text>
+  <text class="note" x="982" y="508">layer dimension of</text>
+  <text class="note blue" x="982" y="535">8,192</text>
+
+  <!-- MoE layer -->
+  <line x1="556" y1="441" x2="800" y2="602" stroke="#1a9cf0" stroke-width="4" stroke-dasharray="3 4"/>
+  <rect x="802" y="563" width="440" height="432" rx="40" fill="none" stroke="#1a9cf0" stroke-width="4" stroke-dasharray="3 4"/>
+  <text x="1086" y="621" font-size="25" font-weight="bold">MoE layer</text>
+
+  <line class="arr" x1="1013" y1="632" x2="1013" y2="585"/>
+  <circle cx="1013" cy="650" r="18" class="box"/>
+  <path class="ln" stroke-width="2.5" d="M1003,650 h20 M1013,640 v20"/>
+
+  <rect class="gbox" x="816" y="739" width="160" height="36" rx="9"/>
+  <text class="lbl" x="895" y="757">Feed forward</text>
+  <rect x="943" y="770" width="34" height="34" rx="5" fill="#111"/>
+  <text class="lbl" x="960" y="787" fill="#fff" font-weight="bold">1</text>
+
+  <text x="1013" y="776" font-size="30" font-weight="bold" text-anchor="middle">· · ·</text>
+
+  <rect class="gbox" x="1048" y="734" width="160" height="36" rx="9"/>
+  <text class="lbl" x="1127" y="752">Feed forward</text>
+  <rect x="1163" y="762" width="50" height="36" rx="6" fill="#1a9cf0"/>
+  <text class="lbl" x="1188" y="780" fill="#fff" font-size="19">128</text>
+
+  <line class="arr" x1="900" y1="734" x2="1002" y2="672"/>
+  <line class="arr" x1="1013" y1="734" x2="1013" y2="670"/>
+  <line class="arr" x1="1125" y1="732" x2="1024" y2="672"/>
+
+  <rect x="966" y="876" width="94" height="52" rx="9" fill="#fff" stroke="#1a9cf0" stroke-width="3"/>
+  <text class="lbl" x="1013" y="902" font-size="20">Router</text>
+  <line class="arr" x1="1013" y1="876" x2="908" y2="792"/>
+  <line class="arr" x1="1015" y1="876" x2="1015" y2="792"/>
+  <line class="arr" x1="1017" y1="876" x2="1123" y2="792"/>
+  <line class="arr" x1="1018" y1="968" x2="1018" y2="931"/>
+
+  <line class="dot" x1="840" y1="738" x2="900" y2="448"/>
+
+  <!-- Resource savings -->
+  <text x="904" y="1033" font-size="22" font-weight="bold" class="blue">Resource savings:</text>
+  <g font-size="22">
+    <text x="904" y="1068">•</text>
+    <text x="932" y="1068">Model size is <tspan class="blue" font-weight="bold">400B</tspan></text>
+    <text x="904" y="1102">•</text>
+    <text x="932" y="1102">but only <tspan class="blue" font-weight="bold">1 (shared) +1 expert</tspan></text>
+    <text x="932" y="1128">active per token</text>
+    <text x="904" y="1164">•</text>
+    <text x="932" y="1164">only <tspan class="blue" font-weight="bold">17B</tspan> parameters are active</text>
+    <text x="932" y="1190">per inference step</text>
+  </g>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpmZWE0NDkzYi05ZDBmLTQ2YzAtYTBjYS0wOGVlZDY2MmIzZjEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaP2+5MC0huAbLtgmK7XvbQQAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoxYjJmOTM3Ny0yYzAyLTQzNWMtOTUxZC02OTE4OWE3Yzc4YTNscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo6IsDSC+yhSUynH0YFpG8XgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg3L7bbkIz/M9OeBotf7DmqzZOtlcy+19GG8ZZjY3lvMakZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaCoNCHJKdRJ8E7A3g8xWPigAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIGtIbd0BGlVOZ4Xcl5uyV6zZExGGg79r3mc24JYDsLcEZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GSNzZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmZlYTQ0OTNiLTlkMGYtNDZjMC1hMGNhLTA4ZWVkNjYyYjNmMS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjU1NTk4MTA3LWNmZWMtNGFiNC1iODUwLWJlY2RiNTgzY2RhYnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDcvttuQjP8z054Gi1/sOarNk62VzL7X0YbxlmNjeW8xqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggYK+bLSvOlY5iiYMGiX6K/TlGZzaZCeUEJqgCd1kq2L2iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggz61AbqrgOuy2stVQHjzf8b0C+hhKLy/Ho2G52F5uy2B0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQCYCAarx9bN5/9yKHEvE02hq95pGZjE5b6sq0nblMbmEoJSlVbVQAx0edTX+f1rICRUFEKVar2VDHqnJp1d+gqQ=</c2pa:manifest></metadata></svg>

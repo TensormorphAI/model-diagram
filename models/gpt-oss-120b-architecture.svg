@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1412 1300" width="1412" height="1300" font-family="Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="a" viewBox="0 0 10 12" refX="10" refY="6" markerWidth="10" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,6 L0,12 z" fill="#000"/>
+    </marker>
+    <style>
+      .t { font-size: 18px; fill: #000; }
+      .b { font-size: 23px; font-weight: 700; fill: #000; }
+      .p { fill: #7B2FF7; }
+      .box { fill: #fff; stroke: #000; stroke-width: 2; }
+      .ln { fill: none; stroke: #000; stroke-width: 2; }
+      .dot { fill: none; stroke: #000; stroke-width: 3.5; stroke-dasharray: 1 7; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="1412" height="1300" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="315" y="108" font-size="62" font-weight="700" fill="#7B2FF7" textLength="430" lengthAdjust="spacingAndGlyphs">gpt-oss (120B)</text>
+  <text x="621" y="158" class="b" textLength="264" lengthAdjust="spacingAndGlyphs">Vocabulary size of <tspan class="p">200k</tspan></text>
+
+  <!-- Outer model box -->
+  <rect x="252" y="203" width="492" height="921" rx="58" fill="#d9d9d9" stroke="#000" stroke-width="2"/>
+  <!-- Transformer block -->
+  <rect x="331" y="355" width="348" height="552" rx="48" fill="#b399de" stroke="#000" stroke-width="2"/>
+
+  <!-- Residual / flow lines -->
+  <path class="ln" d="M502 229 V168" marker-end="url(#a)"/>
+  <path class="ln" d="M502 295 V268" marker-end="url(#a)"/>
+  <path class="ln" d="M501 387 V332" marker-end="url(#a)"/>
+  <path class="ln" d="M501 459 V417" marker-end="url(#a)"/>
+  <path class="ln" d="M501 538 V498" marker-end="url(#a)"/>
+  <path class="ln" d="M500 636 V577"/>
+  <path class="ln" d="M501 577 V577" />
+  <path class="ln" d="M501 636 V577" marker-end="url(#a)"/>
+  <path class="ln" d="M500 696 V666" marker-end="url(#a)"/>
+  <path class="ln" d="M500 807 V768" marker-end="url(#a)"/>
+  <path class="ln" d="M500 992 V845" marker-end="url(#a)"/>
+  <path class="ln" d="M501 1141 V1032" marker-end="url(#a)"/>
+  <path class="ln" d="M501 1232 V1187" marker-end="url(#a)"/>
+  <!-- residual 1 -->
+  <path class="ln" d="M500 890 H609 V650 H520" marker-end="url(#a)"/>
+  <!-- residual 2 -->
+  <path class="ln" d="M500 621 H609 V402 H520" marker-end="url(#a)"/>
+  <!-- RoPE arrow -->
+  <path class="ln" d="M358 731 H391" marker-end="url(#a)"/>
+
+  <!-- Layer boxes -->
+  <rect class="box" x="419" y="229" width="167" height="37" rx="9"/>
+  <text class="t" x="430" y="254" textLength="145" lengthAdjust="spacingAndGlyphs">Linear output layer</text>
+
+  <rect class="box" x="424" y="295" width="157" height="35" rx="9"/>
+  <text class="t" x="441" y="318" textLength="122" lengthAdjust="spacingAndGlyphs">Final RMSNorm</text>
+
+  <rect x="423" y="459" width="157" height="37" rx="9" fill="#d9d9d9" stroke="#000" stroke-width="2"/>
+  <text class="t" x="484" y="484" textLength="36" lengthAdjust="spacingAndGlyphs">MoE</text>
+
+  <rect class="box" x="423" y="538" width="157" height="37" rx="9"/>
+  <text class="t" x="453" y="562" textLength="96" lengthAdjust="spacingAndGlyphs">RMSNorm 2</text>
+
+  <rect x="393" y="696" width="194" height="70" rx="12" fill="#595959" stroke="#000" stroke-width="2"/>
+  <text class="t" x="433" y="727" fill="#fff" style="fill:#fff" textLength="118" lengthAdjust="spacingAndGlyphs">Grouped-query</text>
+  <text class="t" x="443" y="747" style="fill:#fff" textLength="80" lengthAdjust="spacingAndGlyphs">attention</text>
+
+  <rect class="box" x="423" y="807" width="157" height="36" rx="9"/>
+  <text class="t" x="453" y="830" textLength="94" lengthAdjust="spacingAndGlyphs">RMSNorm 1</text>
+
+  <rect class="box" x="382" y="992" width="240" height="38" rx="9"/>
+  <text class="t" x="411" y="1018" textLength="181" lengthAdjust="spacingAndGlyphs">Token embedding layer</text>
+
+  <rect class="box" x="422" y="1141" width="158" height="38" rx="9"/>
+  <text class="t" x="445" y="1166" textLength="112" lengthAdjust="spacingAndGlyphs">Tokenized text</text>
+
+  <text x="397" y="1247" font-family="Menlo, Consolas, 'Courier New', monospace" font-size="21" fill="#000" textLength="203" lengthAdjust="spacingAndGlyphs">Sample input text</text>
+
+  <!-- RoPE -->
+  <rect class="box" x="224" y="712" width="132" height="39" rx="9"/>
+  <text class="t" x="267" y="737" textLength="45" lengthAdjust="spacingAndGlyphs">RoPE</text>
+
+  <!-- Plus circles -->
+  <g fill="#fff" stroke="#000" stroke-width="2">
+    <circle cx="501" cy="401" r="14"/>
+    <circle cx="500" cy="650" r="14"/>
+  </g>
+  <g stroke="#000" stroke-width="2">
+    <path d="M492 401 H510 M501 392 V410"/>
+    <path d="M491 650 H509 M500 641 V659"/>
+  </g>
+
+  <!-- 36x brace -->
+  <path d="M346 867 C326 867 326 880 326 892 C326 902 320 903 313 905 C320 907 326 910 326 920 C326 930 336 926 357 922" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <text x="264" y="925" font-size="27" font-weight="700" fill="#7B2FF7" textLength="52" lengthAdjust="spacingAndGlyphs">36 ×</text>
+
+  <!-- Callouts left/bottom -->
+  <path class="dot" d="M211 772 L180 860"/>
+  <text class="b" x="60" y="897" textLength="152" lengthAdjust="spacingAndGlyphs">YaRN context</text>
+  <text class="b" x="60" y="925" textLength="134" lengthAdjust="spacingAndGlyphs"><tspan class="p">128k</tspan> tokens</text>
+  <text class="b" x="60" y="952" textLength="155" lengthAdjust="spacingAndGlyphs"><tspan class="p">4k</tspan> RoPE base</text>
+
+  <path class="dot" d="M622 1034 L732 1195"/>
+  <text class="b" x="663" y="1222" textLength="127" lengthAdjust="spacingAndGlyphs">Embedding</text>
+  <text class="b" x="663" y="1250" textLength="211" lengthAdjust="spacingAndGlyphs">dimension of <tspan class="p">2,880</tspan></text>
+
+  <path class="dot" d="M589 768 L797 1118"/>
+  <text class="b" x="764" y="1140" textLength="100" lengthAdjust="spacingAndGlyphs"><tspan class="p">64</tspan> heads</text>
+
+  <path class="dot" d="M586 226 L644 177"/>
+
+  <!-- Purple dotted connector MoE -> MoE layer -->
+  <path d="M585 481 L828 636" fill="none" stroke="#7B2FF7" stroke-width="4" stroke-dasharray="1 8" stroke-linecap="round"/>
+
+  <!-- Feed forward (SwiGLU) module -->
+  <text class="b" x="890" y="194" textLength="350" lengthAdjust="spacingAndGlyphs">Feed forward (SwiGLU) module</text>
+  <rect x="891" y="207" width="356" height="273" rx="28" fill="#d9d9d9" stroke="#000" stroke-width="4" stroke-dasharray="1 7" stroke-linecap="round"/>
+
+  <rect class="box" x="915" y="231" width="149" height="45" rx="12"/>
+  <text class="t" x="944" y="260" textLength="90" lengthAdjust="spacingAndGlyphs">Linear layer</text>
+  <rect class="box" x="915" y="322" width="149" height="45" rx="12"/>
+  <text class="t" x="931" y="351" textLength="117" lengthAdjust="spacingAndGlyphs">SiLU activation</text>
+  <rect class="box" x="1075" y="322" width="149" height="45" rx="12"/>
+  <text class="t" x="1104" y="351" textLength="90" lengthAdjust="spacingAndGlyphs">Linear layer</text>
+  <rect class="box" x="915" y="410" width="149" height="45" rx="12"/>
+  <text class="t" x="944" y="438" textLength="90" lengthAdjust="spacingAndGlyphs">Linear layer</text>
+
+  <path class="ln" d="M992 410 V369" marker-end="url(#a)"/>
+  <path class="ln" d="M992 322 V282" marker-end="url(#a)"/>
+  <path class="ln" d="M992 301 H1060 M1084 301 H1147 V322"/>
+  <circle cx="1072" cy="301" r="12" fill="#fff" stroke="#000" stroke-width="2"/>
+  <path d="M1065 294 L1079 308 M1079 294 L1065 308" stroke="#000" stroke-width="2"/>
+
+  <path class="dot" d="M1046 462 L1080 498"/>
+  <path class="dot" d="M925 480 L864 770"/>
+
+  <text class="b" x="958" y="530" textLength="259" lengthAdjust="spacingAndGlyphs">Input expert size: <tspan class="p">2,880</tspan></text>
+  <text class="b" x="958" y="563" textLength="384" lengthAdjust="spacingAndGlyphs">Intermediate projection size: <tspan class="p">2,880</tspan></text>
+
+  <!-- MoE layer box -->
+  <rect x="826" y="598" width="433" height="432" rx="42" fill="#fff" stroke="#7B2FF7" stroke-width="4" stroke-dasharray="1 8" stroke-linecap="round"/>
+  <text class="b" x="1105" y="656" font-size="26" textLength="124" lengthAdjust="spacingAndGlyphs">MoE layer</text>
+
+  <path class="ln" d="M1033 668 V622" marker-end="url(#a)"/>
+  <circle cx="1033" cy="685" r="17" fill="#fff" stroke="#000" stroke-width="2.5"/>
+  <path d="M1022 685 H1044 M1033 674 V696" stroke="#000" stroke-width="2.5"/>
+
+  <rect x="839" y="773" width="157" height="37" rx="9" fill="#d9d9d9" stroke="#000" stroke-width="2"/>
+  <text class="t" x="866" y="797" textLength="102" lengthAdjust="spacingAndGlyphs">Feed forward</text>
+  <rect x="965" y="805" width="34" height="33" rx="5" fill="#000"/>
+  <text x="982" y="829" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+
+  <rect x="1068" y="768" width="157" height="36" rx="9" fill="#d9d9d9" stroke="#000" stroke-width="2"/>
+  <text class="t" x="1095" y="792" textLength="102" lengthAdjust="spacingAndGlyphs">Feed forward</text>
+  <rect x="1181" y="798" width="49" height="34" rx="7" fill="#7B2FF7"/>
+  <text x="1205.5" y="821" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">128</text>
+
+  <g fill="#000">
+    <circle cx="1014" cy="803" r="3.2"/>
+    <circle cx="1034" cy="803" r="3.2"/>
+    <circle cx="1054" cy="803" r="3.2"/>
+  </g>
+
+  <path class="ln" d="M922 766 L1024 710" marker-end="url(#a)"/>
+  <path class="ln" d="M1033 768 V706" marker-end="url(#a)"/>
+  <path class="ln" d="M1143 766 L1044 710" marker-end="url(#a)"/>
+
+  <rect x="989" y="909" width="90" height="48" rx="13" fill="#fff" stroke="#7B2FF7" stroke-width="3.5"/>
+  <text x="1003" y="941" font-size="21" fill="#000" textLength="63" lengthAdjust="spacingAndGlyphs">Router</text>
+  <path class="ln" d="M1035 998 V960" marker-end="url(#a)"/>
+  <path class="ln" d="M1034 909 L932 826" marker-end="url(#a)"/>
+  <path class="ln" d="M1036 909 V827" marker-end="url(#a)"/>
+  <path class="ln" d="M1038 909 L1142 826" marker-end="url(#a)"/>
+
+  <!-- Resource savings -->
+  <text class="b p" x="927" y="1067" textLength="206" lengthAdjust="spacingAndGlyphs">Resource savings:</text>
+  <g font-size="22" fill="#000">
+    <text x="926" y="1100">•</text>
+    <text x="954" y="1100" textLength="198" lengthAdjust="spacingAndGlyphs">Model size is <tspan class="p" font-weight="700">120B</tspan></text>
+    <text x="926" y="1133">•</text>
+    <text x="954" y="1133" textLength="305" lengthAdjust="spacingAndGlyphs">but only <tspan class="p" font-weight="700">4 experts</tspan> active per</text>
+    <text x="954" y="1158" textLength="57" lengthAdjust="spacingAndGlyphs">token</text>
+    <text x="926" y="1193">•</text>
+    <text x="954" y="1193" textLength="333" lengthAdjust="spacingAndGlyphs">only <tspan class="p" font-weight="700">5.1B</tspan> parameters are active</text>
+    <text x="954" y="1218" textLength="189" lengthAdjust="spacingAndGlyphs">per inference step</text>
+  </g>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYToyMTdiN2IxNS1mNjYxLTQ5MzUtYWViNi1jMjBiY2RhMDFhYTAAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaMTLGrBpyt0hk0aA64b+fa8AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoxYTVhOTk2My00NTkzLTQwYTQtYTkzZS05YzA0MGY3YTVlNWVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoOlv6n4EUYxmyvsj4IVr/hgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggQPjB2ar2EXu9UWlzePukylzI7kv2Jb3HwgqsCQ7q60qkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaE7jSa5gWJqz8GwtCgUqPLQAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYINI2wzbO3Fmy2/huLbJQVb37lhSVtkSUbsOqZVGAeDI3ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GSrNZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjIxN2I3YjE1LWY2NjEtNDkzNS1hZWI2LWMyMGJjZGEwMWFhMC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmVlMTYzOWQwLWVkMzktNGU2OS05MWU4LTljY2IyM2FiYjc5ZnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBA+MHZqvYRe71RaXN4+6TKXMjuS/YlvcfCCqwJDurrSqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg/GzAsIQNEYe2Jg7tlCAGl4qtxRVvnjWUzNiSgkmIEq6iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg22Ckix1+8TBdD4z58uJPUpSGXZp8ZYwhbvS1ptFDvD90Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQIZGNlzBF7qI2LkgvNFiTtG4O9RI3mB+JsXFYJi2PgcjDRoj2J5kvv1/DE0ULQDe+YPpNk9eKNdPsg5Euo25YyE=</c2pa:manifest></metadata></svg>

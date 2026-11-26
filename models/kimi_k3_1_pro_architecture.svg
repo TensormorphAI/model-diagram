@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1290 1230" width="1290" height="1230" font-family="Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111"/>
+    </marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e8417a"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#222;stroke-width:1.5}
+      .gray{fill:#d6d6d6;stroke:#222;stroke-width:1.5}
+      .pinkbox{fill:#fac4d8;stroke:#e8417a;stroke-width:2}
+      .ln{fill:none;stroke:#111;stroke-width:2.5}
+      .lnt{fill:none;stroke:#111;stroke-width:1.5}
+      .pl{fill:none;stroke:#e8417a;stroke-width:2}
+      .t{font-size:14px;fill:#111;text-anchor:middle;dominant-baseline:middle}
+      .ts{font-size:12px;fill:#111;text-anchor:middle;dominant-baseline:middle}
+      .pk{fill:#e8417a;font-size:14px}
+      .dot{fill:none;stroke:#111;stroke-width:3;stroke-dasharray:2 5;stroke-linecap:round}
+      .mono{font-family:"Courier New", Menlo, monospace;font-size:17px;fill:#111}
+    </style>
+  </defs>
+
+  <rect width="1290" height="1230" fill="#fff"/>
+
+  <!-- ================= LEFT: MAIN MODEL ================= -->
+  <text x="453" y="95" text-anchor="middle" font-size="58" font-weight="bold" fill="#0f8a72">Kimi K3.1 Pro (2.8T)</text>
+
+  <rect x="210" y="175" width="472" height="880" rx="40" fill="#dcdcdc" stroke="#333" stroke-width="1.5"/>
+
+  <!-- output stack -->
+  <line class="ln" x1="453" y1="181" x2="453" y2="136" marker-end="url(#ab)"/>
+  <rect class="box" x="373" y="181" width="158" height="32" rx="8"/>
+  <text class="t" x="452" y="197">Linear output layer</text>
+  <line class="ln" x1="453" y1="236" x2="453" y2="215" marker-end="url(#ab)"/>
+  <rect class="box" x="377" y="236" width="150" height="32" rx="8"/>
+  <text class="t" x="452" y="252">Final RMSNorm</text>
+  <line class="ln" x1="453" y1="287" x2="453" y2="270" marker-end="url(#ab)"/>
+  <rect class="pinkbox" x="382" y="287" width="138" height="32" rx="8"/>
+  <text class="t" x="451" y="303">Final Block AttnRes</text>
+
+  <!-- green repeated block -->
+  <rect x="288" y="318" width="335" height="520" rx="30" fill="#a5dcc0" stroke="#333" stroke-width="1.5"/>
+  <line class="ln" x1="453" y1="349" x2="453" y2="321" marker-end="url(#ab)"/>
+
+  <!-- top plus (updated group sum) -->
+  <circle cx="453" cy="362" r="13" fill="#fff" stroke="#111" stroke-width="2"/>
+  <path d="M446,362 H460 M453,355 V369" stroke="#111" stroke-width="2"/>
+  <text class="pk" x="563" y="338" text-anchor="middle">Updated</text>
+  <text class="pk" x="563" y="355" text-anchor="middle">group sum</text>
+
+  <!-- FFN sublayer -->
+  <text x="292" y="393" font-size="16" font-weight="bold" fill="#e8417a">FFN / MoE sublayer</text>
+  <rect x="341" y="402" width="200" height="153" rx="10" fill="#eaf7f0" stroke="#e8417a" stroke-width="2" stroke-dasharray="7 5"/>
+  <rect class="gray" x="376" y="418" width="150" height="34" rx="8"/>
+  <text class="t" x="451" y="435">FFN / LatentMoE</text>
+  <rect class="box" x="376" y="493" width="150" height="34" rx="8"/>
+  <text class="t" x="451" y="510">RMSNorm 2</text>
+  <line class="ln" x1="453" y1="493" x2="453" y2="454" marker-end="url(#ab)"/>
+  <line class="ln" x1="453" y1="418" x2="453" y2="377" marker-end="url(#ab)"/>
+
+  <!-- middle plus (current group sum) -->
+  <circle cx="453" cy="598" r="13" fill="#fff" stroke="#111" stroke-width="2"/>
+  <path d="M446,598 H460 M453,591 V605" stroke="#111" stroke-width="2"/>
+  <text class="pk" x="518" y="573" text-anchor="middle">Current</text>
+  <text class="pk" x="518" y="590" text-anchor="middle">group sum</text>
+  <path class="ln" d="M453,585 V577 H297 V516" marker-end="url(#ab)"/>
+
+  <!-- alpha (FFN) -->
+  <rect x="279" y="436" width="36" height="33" rx="8" fill="#fff" stroke="#e8417a" stroke-width="2"/>
+  <text x="297" y="460" text-anchor="middle" font-size="22" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" fill="#e8417a">w</text>
+  <line class="pl" x1="297" y1="469" x2="297" y2="485" marker-end="url(#ap)"/>
+  <circle cx="296" cy="500" r="13" fill="#fff" stroke="#e8417a" stroke-width="2"/>
+  <text x="296" y="506" text-anchor="middle" font-size="20" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" fill="#e8417a">α</text>
+  <path class="pl" d="M309,500 H321 V545 H453 V530" marker-end="url(#ap)"/>
+
+  <!-- Attn sublayer -->
+  <text x="325" y="613" font-size="16" font-weight="bold" fill="#e8417a">Attn sublayer</text>
+  <rect x="337" y="622" width="207" height="190" rx="10" fill="#eaf7f0" stroke="#e8417a" stroke-width="2" stroke-dasharray="7 5"/>
+  <rect x="348" y="643" width="186" height="66" rx="10" fill="#4a4a4a" stroke="#222" stroke-width="1.5"/>
+  <text class="t" x="441" y="667" fill="#fff" style="fill:#fff">Kimi Delta Attn or</text>
+  <text class="t" x="441" y="686" style="fill:#fff">Gated sparse attn</text>
+  <line class="ln" x1="453" y1="643" x2="453" y2="613" marker-end="url(#ab)"/>
+  <rect class="box" x="376" y="749" width="150" height="34" rx="8"/>
+  <text class="t" x="451" y="766">RMSNorm 1</text>
+  <line class="ln" x1="453" y1="749" x2="453" y2="711" marker-end="url(#ab)"/>
+
+  <!-- NoPE -->
+  <rect class="box" x="248" y="663" width="66" height="26" rx="6"/>
+  <text class="t" x="281" y="676">NoPE</text>
+  <line class="ln" x1="314" y1="676" x2="346" y2="676" marker-end="url(#ab)"/>
+
+  <!-- alpha (Attn) -->
+  <rect x="276" y="719" width="36" height="33" rx="8" fill="#fff" stroke="#e8417a" stroke-width="2"/>
+  <text x="294" y="743" text-anchor="middle" font-size="22" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" fill="#e8417a">w</text>
+  <line class="pl" x1="294" y1="752" x2="294" y2="768" marker-end="url(#ap)"/>
+  <circle cx="293" cy="783" r="13" fill="#fff" stroke="#e8417a" stroke-width="2"/>
+  <text x="293" y="789" text-anchor="middle" font-size="20" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif" fill="#e8417a">α</text>
+  <path class="pl" d="M306,783 H322 V808 H453 V786" marker-end="url(#ap)"/>
+
+  <!-- residual group-sum lines -->
+  <path class="ln" d="M370,808 V828 H583 V362 H469" marker-end="url(#ab)"/>
+  <path class="ln" d="M555,828 V598 H469" marker-end="url(#ab)"/>
+
+  <!-- Depth sources -->
+  <rect x="51" y="351" width="139" height="167" rx="8" fill="#fff" stroke="#555" stroke-width="2.5"/>
+  <text x="120" y="376" text-anchor="middle" font-size="14" font-weight="bold">Depth sources</text>
+  <rect class="pinkbox" x="62" y="397" width="118" height="34" rx="8"/>
+  <text class="t" x="121" y="414">Embedding</text>
+  <rect class="pinkbox" x="62" y="449" width="118" height="44" rx="8"/>
+  <text class="t" x="121" y="463">Earlier block</text>
+  <text class="t" x="121" y="481">Summaries</text>
+
+  <path class="pl" d="M180,413 H230"/>
+  <path class="pl" d="M180,469 H230"/>
+  <circle cx="222" cy="413" r="4" fill="#e8417a"/>
+  <circle cx="222" cy="469" r="4" fill="#e8417a"/>
+  <path class="pl" d="M230,413 V500 H281" marker-end="url(#ap)"/>
+  <path class="pl" d="M222,413 V717 H247 V783 H278" marker-end="url(#ap)"/>
+  <path class="pl" d="M120,351 V304 H380" marker-end="url(#ap)"/>
+
+  <!-- token embedding & input -->
+  <rect class="box" x="337" y="927" width="230" height="34" rx="8"/>
+  <text class="t" x="452" y="944">Token embedding layer</text>
+  <path class="pl" d="M337,943 H10 V413 H60" marker-end="url(#ap)"/>
+  <rect class="box" x="377" y="1069" width="150" height="36" rx="8"/>
+  <text class="t" x="452" y="1087">Tokenized text</text>
+  <line class="ln" x1="453" y1="1069" x2="453" y2="963" marker-end="url(#ab)"/>
+  <line class="ln" x1="453" y1="1140" x2="453" y2="1107" marker-end="url(#ab)"/>
+  <text class="mono" x="448" y="1172" text-anchor="middle">Sample input text</text>
+
+  <!-- annotations -->
+  <text x="300" y="858" text-anchor="middle" font-size="64" font-weight="300" fill="#111">{</text>
+  <text x="226" y="860" font-size="20" font-weight="bold" fill="#0f8a72">93 ×</text>
+  <text class="pk" x="228" y="893">8 AttnRes blocks</text>
+  <text class="pk" x="228" y="914">7 × 12 layers + one 9-layer block</text>
+  <text x="538" y="983" text-anchor="middle" font-size="15" font-weight="bold">(Vision component</text>
+  <text x="538" y="1004" text-anchor="middle" font-size="15" font-weight="bold">not shown)</text>
+
+  <text x="108" y="792" text-anchor="middle" font-size="21" font-weight="bold">Native context</text>
+  <text x="31" y="818" font-size="21" font-weight="bold" fill="#0f8a72">1M</text>
+  <text x="68" y="818" font-size="21" font-weight="bold">tokens</text>
+  <path class="dot" d="M192,800 L248,690"/>
+
+  <text x="110" y="895" text-anchor="middle" font-size="15" font-weight="bold">Layer 1 dense, layers</text>
+  <text x="110" y="916" text-anchor="middle" font-size="15" font-weight="bold">2-93 LatentMoE</text>
+  <path class="dot" d="M160,880 L232,846"/>
+
+  <!-- connectors to detail panels -->
+  <path class="dot" d="M536,662 L795,300"/>
+  <path class="dot" d="M536,690 L795,785"/>
+
+  <!-- ================= RIGHT TOP: DSA ================= -->
+  <text x="1020" y="24" text-anchor="middle" font-size="19" font-weight="bold">Gated DeepSeek Sparse Attention (DSA)</text>
+  <rect x="795" y="43" width="465" height="385" rx="30" fill="none" stroke="#111" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+
+  <line class="ln" x1="1001" y1="60" x2="1001" y2="40" marker-end="url(#ab)"/>
+  <rect class="gray" x="968" y="60" width="66" height="34" rx="8"/>
+  <text class="t" x="1001" y="77">Linear</text>
+  <line class="ln" x1="1001" y1="125" x2="1001" y2="96" marker-end="url(#ab)"/>
+  <circle cx="1001" cy="138" r="13" fill="#fff" stroke="#111" stroke-width="2"/>
+  <path d="M993,130 L1009,146 M1009,130 L993,146" stroke="#111" stroke-width="2"/>
+  <line class="ln" x1="1001" y1="161" x2="1001" y2="153" marker-end="url(#ab)"/>
+  <rect x="883" y="161" width="236" height="34" rx="8" fill="#f77fbf" stroke="#222" stroke-width="1.5"/>
+  <text class="t" x="1001" y="178">Sparse MLA (top-2048 tokens)</text>
+
+  <text x="900" y="215" text-anchor="middle" font-size="18" font-weight="bold">Q</text>
+  <text x="984" y="214" text-anchor="middle" font-size="18" font-weight="bold">K</text>
+  <text x="1066" y="214" text-anchor="middle" font-size="18" font-weight="bold">V</text>
+
+  <!-- Q path -->
+  <text x="845" y="272" text-anchor="middle" font-size="14">QK-Norm</text>
+  <rect class="box" x="884" y="250" width="72" height="34" rx="8"/>
+  <text class="ts" x="920" y="267">RMSNorm</text>
+  <rect class="gray" x="883" y="372" width="66" height="34" rx="8"/>
+  <text class="t" x="916" y="389">Linear</text>
+  <line class="lnt" x1="920" y1="372" x2="920" y2="286" marker-end="url(#ab)"/>
+  <line class="lnt" x1="920" y1="250" x2="920" y2="197" marker-end="url(#ab)"/>
+
+  <!-- K path -->
+  <rect class="gray" x="966" y="372" width="66" height="34" rx="8"/>
+  <text class="t" x="999" y="389">Linear</text>
+  <line class="lnt" x1="1001" y1="372" x2="1001" y2="347" marker-end="url(#ab)"/>
+  <rect x="963" y="311" width="72" height="34" rx="8" fill="#f77fbf" stroke="#222" stroke-width="1.5"/>
+  <text class="t" x="999" y="328">Latent</text>
+  <line class="lnt" x1="1001" y1="311" x2="1001" y2="296" marker-end="url(#ab)"/>
+  <rect class="gray" x="966" y="260" width="66" height="34" rx="8"/>
+  <text class="t" x="999" y="277">Linear</text>
+  <rect class="box" x="963" y="220" width="72" height="34" rx="8"/>
+  <text class="ts" x="999" y="237">RMSNorm</text>
+  <line class="lnt" x1="1001" y1="220" x2="1001" y2="197" marker-end="url(#ab)"/>
+
+  <!-- V path -->
+  <path class="lnt" d="M1035,328 H1084 V295" marker-end="url(#ab)"/>
+  <rect class="gray" x="1051" y="259" width="66" height="34" rx="8"/>
+  <text class="t" x="1084" y="276">Linear</text>
+  <line class="lnt" x1="1084" y1="259" x2="1084" y2="197" marker-end="url(#ab)"/>
+
+  <!-- gate -->
+  <rect class="box" x="1133" y="370" width="66" height="34" rx="8"/>
+  <text class="t" x="1166" y="387">Linear</text>
+  <line class="lnt" x1="1165" y1="370" x2="1165" y2="244" marker-end="url(#ab)"/>
+  <circle cx="1165" cy="229" r="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="1165" y="236" text-anchor="middle" font-size="20" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif">σ</text>
+  <path class="lnt" d="M1165,216 V138 H1016" marker-end="url(#ab)"/>
+  <text x="1213" y="225" text-anchor="middle" font-size="14">Sigmoid</text>
+  <text x="1213" y="242" text-anchor="middle" font-size="14">Gate</text>
+
+  <!-- ================= RIGHT BOTTOM: KDA ================= -->
+  <text x="1020" y="485" text-anchor="middle" font-size="19" font-weight="bold">Kimi Delta Attention (KDA)</text>
+  <rect x="795" y="503" width="480" height="468" rx="30" fill="none" stroke="#111" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+
+  <rect class="gray" x="975" y="518" width="66" height="34" rx="8"/>
+  <text class="t" x="1008" y="535">Linear</text>
+  <line class="lnt" x1="1008" y1="581" x2="1008" y2="554" marker-end="url(#ab)"/>
+  <circle cx="1008" cy="594" r="13" fill="#fff" stroke="#111" stroke-width="2"/>
+  <path d="M1000,586 L1016,602 M1016,586 L1000,602" stroke="#111" stroke-width="2"/>
+  <rect class="box" x="971" y="615" width="72" height="32" rx="8"/>
+  <text class="ts" x="1007" y="631">RMSNorm</text>
+  <line class="lnt" x1="1008" y1="615" x2="1008" y2="609" marker-end="url(#ab)"/>
+  <rect x="891" y="657" width="236" height="34" rx="8" fill="#fdf5c9" stroke="#222" stroke-width="1.5"/>
+  <text class="t" x="1009" y="674">Gated Delta Rule</text>
+  <line class="lnt" x1="1008" y1="657" x2="1008" y2="649" marker-end="url(#ab)"/>
+
+  <text x="913" y="733" text-anchor="middle" font-size="18" font-weight="bold">Q</text>
+  <text x="950" y="733" text-anchor="middle" font-size="18" font-weight="bold">K</text>
+  <text x="1019" y="782" text-anchor="middle" font-size="18" font-weight="bold">V</text>
+  <text x="1077" y="782" text-anchor="middle" font-size="20" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif">α</text>
+  <text x="1117" y="782" text-anchor="middle" font-size="20" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif">β</text>
+
+  <!-- Q/K path (stacked) -->
+  <rect class="gray" x="890" y="902" width="66" height="34" rx="8"/>
+  <rect class="gray" x="903" y="916" width="66" height="34" rx="8"/>
+  <text class="t" x="936" y="933">Linear</text>
+  <rect x="890" y="845" width="70" height="34" rx="8" fill="#f47b7b" stroke="#222" stroke-width="1.5"/>
+  <rect x="903" y="856" width="70" height="34" rx="8" fill="#f47b7b" stroke="#222" stroke-width="1.5"/>
+  <text class="t" x="934" y="873">Conv</text>
+  <circle cx="927" cy="822" r="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <circle cx="939" cy="827" r="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="939" y="834" text-anchor="middle" font-size="19" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif">ϕ</text>
+  <rect x="893" y="753" width="66" height="30" rx="8" fill="#f9e27a" stroke="#222" stroke-width="1.5"/>
+  <rect x="905" y="765" width="66" height="30" rx="8" fill="#f9e27a" stroke="#222" stroke-width="1.5"/>
+  <text class="ts" x="938" y="780">L2 Norm</text>
+  <line class="lnt" x1="930" y1="902" x2="930" y2="693" marker-end="url(#ab)"/>
+  <line class="lnt" x1="942" y1="916" x2="942" y2="693" marker-end="url(#ab)"/>
+
+  <!-- V path -->
+  <rect class="gray" x="975" y="902" width="66" height="34" rx="8"/>
+  <text class="t" x="1008" y="919">Linear</text>
+  <rect x="974" y="845" width="68" height="34" rx="8" fill="#f47b7b" stroke="#222" stroke-width="1.5"/>
+  <text class="t" x="1008" y="862">Conv</text>
+  <circle cx="1009" cy="819" r="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="1009" y="826" text-anchor="middle" font-size="19" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif">ϕ</text>
+  <text x="1044" y="825" text-anchor="middle" font-size="14">SiLU</text>
+  <line class="lnt" x1="1009" y1="902" x2="1009" y2="881"/>
+  <line class="lnt" x1="1009" y1="845" x2="1009" y2="832"/>
+  <line class="lnt" x1="1009" y1="806" x2="1009" y2="693" marker-end="url(#ab)"/>
+
+  <!-- alpha / beta path (stacked) -->
+  <rect class="gray" x="1057" y="902" width="66" height="34" rx="8"/>
+  <rect class="gray" x="1065" y="920" width="66" height="34" rx="8"/>
+  <text class="t" x="1098" y="937">Linear</text>
+  <circle cx="1089" cy="856" r="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <circle cx="1101" cy="862" r="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="1101" y="869" text-anchor="middle" font-size="20" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif">σ</text>
+  <line class="lnt" x1="1091" y1="902" x2="1091" y2="693" marker-end="url(#ab)"/>
+  <line class="lnt" x1="1103" y1="920" x2="1103" y2="693" marker-end="url(#ab)"/>
+
+  <!-- gate -->
+  <rect class="gray" x="1141" y="902" width="66" height="34" rx="8"/>
+  <text class="t" x="1174" y="919">Linear</text>
+  <line class="lnt" x1="1173" y1="902" x2="1173" y2="750" marker-end="url(#ab)"/>
+  <circle cx="1173" cy="735" r="13" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <text x="1173" y="742" text-anchor="middle" font-size="20" font-style="italic" font-family="Georgia, 'Times New Roman', 'DejaVu Serif', serif">σ</text>
+  <path class="lnt" d="M1173,722 V594 H1023" marker-end="url(#ab)"/>
+  <text x="1220" y="731" text-anchor="middle" font-size="14">Sigmoid</text>
+  <text x="1220" y="748" text-anchor="middle" font-size="14">Gate</text>
+
+  <!-- ================= LAYER TABLE ================= -->
+  <text class="mono" x="804" y="1013">69 KDA + 24 DSA layers</text>
+  <line x1="804" y1="1028" x2="1256" y2="1028" stroke="#111" stroke-width="1.5"/>
+  <text class="mono" x="804" y="1057" xml:space="preserve">Layer 1     : KDA → dense FFN</text>
+  <text class="mono" x="804" y="1079" xml:space="preserve">Layers 2-3  : KDA → LatentMoE</text>
+  <text class="mono" x="804" y="1101" xml:space="preserve">Layer 4     : Gated DSA → LatentMoE</text>
+  <text class="mono" x="804" y="1123">...</text>
+  <text class="mono" x="804" y="1145" xml:space="preserve">Layers 92-93: Gated DSA → LatentMoE</text>
+  <text class="mono" x="804" y="1190">DSA indexer selects up to 2048 tokens</text>
+  <text class="mono" x="804" y="1212">32 index heads, 128 dimensions per head</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpiNTJmYWRiOS1hZDA0LTRjNTktOTg3YS04NmQ0YzdmYWQ2YWUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaJASACVpBVUUSFsF6KbtSAsAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0NDc5ZjViYi01ZDFiLTRlNjEtODM0YS03M2QwODM2ZjJlZWNscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNowwFcqQStlLY+ZLZvijxrYwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggI7xeAw8g6Nzec5bC0Qb3+1ETF3ZMTJ1Y1ZaR0n+6rr2kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaNBW2n5DhkzktF2IRfKC+D8AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYILyxB5R/INxPfuXLHeh4IH7xS4DDCzRpG1hRmFD914/bZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GUktZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmI1MmZhZGI5LWFkMDQtNGM1OS05ODdhLTg2ZDRjN2ZhZDZhZS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmU3ODQwOTEzLTk2OGQtNGE2ZS1iODQ2LTM1NjllNDc4NWUyMHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCAjvF4DDyDo3N5zlsLRBvf7URMXdkxMnVjVlpHSf7quvaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggmqlvXGFUktufMxKiyUeQwUK7wBhtNzMfkVH4vwgEAZmiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg+BD5zvxLjxHS6XlEHO0ttk7TBn2wX2pSHSq084HmTWJ0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQPzur8w3T8VmKClgY1EqWKn25ptLg3lerFq/JwqGml3wL+yiF7zfdPzI7zCM7frE9qGniNJzl86sQfSKb6BslaI=</c2pa:manifest></metadata></svg>

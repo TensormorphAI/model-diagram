@@ -1,0 +1,294 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1215" width="1300" height="1215" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111"/>
+    </marker>
+    <marker id="aho" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#E8641B"/>
+    </marker>
+    <linearGradient id="loopGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FDDCBC"/>
+      <stop offset="0.45" stop-color="#FBA65A"/>
+      <stop offset="1" stop-color="#F57C00"/>
+    </linearGradient>
+    <style>
+      .t{font-family:Helvetica,Arial,sans-serif;font-size:14px;fill:#111}
+      .c{text-anchor:middle}
+      .bd{font-weight:700}
+      .or{fill:#F26B1D}
+      .b{fill:#fff;stroke:#222;stroke-width:1.5}
+      .o{fill:#FDE0C6;stroke:#E8641B;stroke-width:1.5}
+      .g{fill:#E2E2E2;stroke:#222;stroke-width:1.5}
+      .ln{stroke:#111;stroke-width:1.5;fill:none}
+      .ol{stroke:#E8641B;stroke-width:2;fill:none}
+      .dot{stroke:#111;stroke-width:2.2;stroke-dasharray:1 4;stroke-linecap:round;fill:none}
+      .rdot{stroke:#E53935;stroke-width:2.5;stroke-dasharray:1 5;stroke-linecap:round;fill:none}
+    </style>
+  </defs>
+
+  <rect width="1300" height="1215" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="670" y="46" class="t c bd or" font-size="46">Inkling 2 Mini (26.4B)</text>
+  <text x="12" y="81" class="t bd or" font-size="18">One token through the decoder</text>
+  <text x="670" y="81" class="t c" font-size="17">24 distinct layers, 48 layer applications per token</text>
+
+  <!-- Top-left loop overview -->
+  <text x="223" y="129" class="t c bd" font-size="15">Same 12 middle layers</text>
+  <path d="M155,152 V140 H295 V152" class="ol"/>
+  <path d="M225,140 V152" class="ol"/>
+  <rect x="8" y="152" width="106" height="42" rx="6" class="b"/>
+  <text x="61" y="169" class="t c bd" font-size="13">6 layers</text>
+  <text x="61" y="186" class="t c" font-size="13">before the loop</text>
+  <rect x="124" y="152" width="62" height="42" rx="6" class="o"/>
+  <text x="155" y="178" class="t c bd">Pass 1</text>
+  <rect x="194" y="152" width="62" height="42" rx="6" class="o"/>
+  <text x="225" y="178" class="t c bd">Pass 2</text>
+  <rect x="264" y="152" width="62" height="42" rx="6" class="o"/>
+  <text x="295" y="178" class="t c bd">Pass 3</text>
+  <rect x="337" y="152" width="106" height="42" rx="6" class="b"/>
+  <text x="390" y="169" class="t c bd" font-size="13">6 layers</text>
+  <text x="390" y="186" class="t c" font-size="13">after the loop</text>
+  <path d="M114,173 H122" class="ln" marker-end="url(#ah)"/>
+  <path d="M186,173 H192" class="ln" marker-end="url(#ah)"/>
+  <path d="M256,173 H262" class="ln" marker-end="url(#ah)"/>
+  <path d="M326,173 H335" class="ln" marker-end="url(#ah)"/>
+  <path d="M61,202 V217 H150 M300,217 H390 V202" class="ln"/>
+  <text x="225" y="222" class="t c">12 layers run once</text>
+
+  <text x="12" y="272" class="t" font-size="15">6 + 12 + 6 = <tspan class="bd">24 distinct layers</tspan></text>
+  <text x="12" y="291" class="t" font-size="15">6 + 12 + 12 + 12 + 6 = <tspan class="bd">48 layer applications</tspan></text>
+  <text class="t" font-size="14">
+    <tspan x="12" y="321">The decoder layers before, inside, and after the loop all</tspan>
+    <tspan x="12" y="339">use attention and a feed-forward network. Each layer has</tspan>
+    <tspan x="12" y="357">its own weights. Each middle layer uses its weights on</tspan>
+    <tspan x="12" y="375">both passes.</tspan>
+  </text>
+
+  <!-- Depth sources -->
+  <text x="355" y="415" class="t c bd" font-size="15">Block attention residuals</text>
+  <rect x="269" y="428" width="174" height="137" rx="8" fill="#fff" stroke="#666" stroke-width="2"/>
+  <text x="356" y="455" class="t c bd" font-size="17">Depth sources</text>
+  <rect x="281" y="470" width="150" height="28" rx="6" class="o"/>
+  <text x="356" y="489" class="t c">Token embeddings</text>
+  <rect x="281" y="517" width="150" height="28" rx="6" class="o"/>
+  <text x="356" y="536" class="t c">Earlier block sums</text>
+
+  <!-- Main gray panel -->
+  <rect x="472" y="128" width="388" height="938" rx="28" fill="#E4E4E4" stroke="#555" stroke-width="1.5"/>
+
+  <!-- Orange depth-source wiring -->
+  <path d="M431,484 H459 M431,531 H459 M459,660 V277 H586" class="ol" marker-end="url(#aho)"/>
+  <path d="M459,550 H553" class="ol" marker-end="url(#aho)"/>
+  <path d="M459,660 H396 V846 H553" class="ol" marker-end="url(#aho)"/>
+  <circle cx="459" cy="484" r="3.5" fill="#E8641B"/>
+  <circle cx="459" cy="531" r="3.5" fill="#E8641B"/>
+  <circle cx="459" cy="550" r="3.5" fill="#E8641B"/>
+  <path d="M578,1010 H555 V1030 H250 V484 H279" class="ol" marker-end="url(#aho)"/>
+
+  <!-- Top of stack -->
+  <path d="M668,143 V122" class="ln" marker-end="url(#ah)"/>
+  <rect x="604" y="143" width="130" height="26" rx="6" class="b"/>
+  <text x="669" y="161" class="t c">Logit softcap (30)</text>
+  <path d="M668,178 V171" class="ln" marker-end="url(#ah)"/>
+  <rect x="604" y="178" width="130" height="28" rx="6" class="b"/>
+  <text x="669" y="197" class="t c">Linear output layer</text>
+  <path d="M668,228 V208" class="ln" marker-end="url(#ah)"/>
+  <rect x="608" y="228" width="122" height="26" rx="6" class="b"/>
+  <text x="669" y="246" class="t c">Final RMSNorm</text>
+  <path d="M668,265 V256" class="ln" marker-end="url(#ah)"/>
+  <rect x="588" y="265" width="160" height="26" rx="6" class="o"/>
+  <text x="668" y="283" class="t c">Final Block AttnRes</text>
+  <path d="M668,300 V293" class="ln" marker-end="url(#ah)"/>
+  <rect x="571" y="308" width="198" height="42" rx="6" class="b"/>
+  <rect x="568" y="305" width="198" height="42" rx="6" class="b"/>
+  <rect x="565" y="302" width="198" height="42" rx="6" class="b"/>
+  <text x="664" y="320" class="t c bd" font-size="13">Layers after the loop</text>
+  <text x="664" y="337" class="t c" font-size="13">19–24 run once after pass 3</text>
+
+  <text x="768" y="120" class="t bd" font-size="17">Vocabulary size <tspan class="or">200,058</tspan></text>
+
+  <!-- Loop block -->
+  <path d="M668,390 V352" class="ln" marker-end="url(#ah)"/>
+  <rect x="535" y="390" width="272" height="497" rx="28" fill="url(#loopGrad)" stroke="#222" stroke-width="1.5"/>
+
+  <!-- Recurrence callout -->
+  <path d="M668,367 H845 V822 H812" stroke="#E8641B" stroke-width="3.5" fill="none" marker-end="url(#aho)"/>
+  <rect x="770" y="346" width="196" height="42" rx="7" fill="#fff" stroke="#F28C38" stroke-width="3"/>
+  <text x="868" y="364" class="t c bd" font-size="14">Same 12 layers, 3 passes</text>
+  <text x="868" y="381" class="t c" font-size="12.5">Gated message on passes 2–3</text>
+
+  <!-- Upper sub-block (MoE) -->
+  <circle cx="668" cy="411" r="11" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <path d="M662,411 H674 M668,405 V417" class="ln"/>
+  <path d="M668,400 V392" class="ln"/>
+  <path d="M668,435 V424" class="ln" marker-end="url(#ah)"/>
+  <rect x="600" y="435" width="137" height="28" rx="6" class="b"/>
+  <text x="668" y="454" class="t c">Short conv (kernel 4)</text>
+  <path d="M668,484 V465" class="ln" marker-end="url(#ah)"/>
+  <rect x="606" y="484" width="124" height="28" rx="6" class="g"/>
+  <text x="668" y="503" class="t c">MoE</text>
+  <path d="M668,538 V514" class="ln" marker-end="url(#ah)"/>
+  <rect x="606" y="538" width="124" height="28" rx="6" class="b"/>
+  <text x="668" y="557" class="t c">RMSNorm 2</text>
+  <!-- residual + block-attn Q (upper) -->
+  <path d="M668,615 V568" class="ln" marker-end="url(#ah)"/>
+  <path d="M668,590 H565 V563" class="ln" marker-end="url(#ah)"/>
+  <path d="M668,590 H752 V411 H681" class="ln" marker-end="url(#ah)"/>
+  <path d="M575,551 H588 V577 H668" class="ol"/>
+  <rect x="553" y="506" width="22" height="22" rx="3" fill="#fff" stroke="#E8641B" stroke-width="1.5"/>
+  <text x="564" y="522" class="t c or" font-style="italic" font-size="13">W</text>
+  <path d="M564,528 V539" class="ol" marker-end="url(#aho)"/>
+  <circle cx="565" cy="551" r="10" fill="#fff" stroke="#E8641B" stroke-width="1.5"/>
+  <text x="565" y="556" class="t c or" font-style="italic" font-size="13">Q</text>
+
+  <!-- Lower sub-block (attention) -->
+  <circle cx="668" cy="626" r="11" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <path d="M662,626 H674 M668,620 V632" class="ln"/>
+  <path d="M668,655 V639" class="ln" marker-end="url(#ah)"/>
+  <rect x="596" y="655" width="140" height="30" rx="6" class="b"/>
+  <text x="666" y="675" class="t c">Short conv (kernel 4)</text>
+  <path d="M668,714 V687" class="ln" marker-end="url(#ah)"/>
+  <rect x="587" y="714" width="162" height="90" rx="7" fill="#555" stroke="#222" stroke-width="1.5"/>
+  <text class="t c" fill="#fff" font-size="13.5" style="fill:#fff">
+    <tspan x="668" y="740">Gated grouped-query</tspan>
+    <tspan x="668" y="757">attention (<tspan style="fill:#FFA726" font-weight="700">GQA</tspan>)</tspan>
+    <tspan x="668" y="774"><tspan style="fill:#FFA726" font-weight="700">5</tspan> local layers, then</tspan>
+    <tspan x="668" y="791"><tspan style="fill:#FFA726" font-weight="700">1</tspan> global layer</tspan>
+  </text>
+  <path d="M668,834 V806" class="ln" marker-end="url(#ah)"/>
+  <rect x="608" y="834" width="124" height="28" rx="6" class="b"/>
+  <text x="670" y="853" class="t c">RMSNorm 1</text>
+  <path d="M668,887 V864" class="ln" marker-end="url(#ah)"/>
+  <path d="M668,878 H565 V859" class="ln" marker-end="url(#ah)"/>
+  <path d="M668,878 H752 V626 H681" class="ln" marker-end="url(#ah)"/>
+  <path d="M575,847 H588 V870 H668" class="ol"/>
+  <rect x="553" y="802" width="22" height="22" rx="3" fill="#fff" stroke="#E8641B" stroke-width="1.5"/>
+  <text x="564" y="818" class="t c or" font-style="italic" font-size="13">W</text>
+  <path d="M564,824 V835" class="ol" marker-end="url(#aho)"/>
+  <circle cx="565" cy="847" r="10" fill="#fff" stroke="#E8641B" stroke-width="1.5"/>
+  <text x="565" y="852" class="t c or" font-style="italic" font-size="13">Q</text>
+
+  <!-- Attention side inputs -->
+  <rect x="422" y="687" width="125" height="26" rx="5" class="b"/>
+  <text x="484" y="705" class="t c" font-size="13">K/V short convs</text>
+  <rect x="422" y="725" width="128" height="42" rx="5" class="b"/>
+  <text x="486" y="742" class="t c" font-size="13">Learned relative-</text>
+  <text x="486" y="759" class="t c" font-size="13">position bias</text>
+  <rect x="422" y="780" width="128" height="24" rx="5" class="b"/>
+  <text x="486" y="797" class="t c" font-size="13">Q/K L2 clip, V norm</text>
+  <path d="M547,700 L584,718" class="ln" marker-end="url(#ah)"/>
+  <path d="M550,746 H584" class="ln" marker-end="url(#ah)"/>
+  <path d="M550,792 L584,776" class="ln" marker-end="url(#ah)"/>
+
+  <!-- 12x per pass -->
+  <path d="M548,858 q-8,4 -8,14 q0,8 -6,12 q6,4 6,12 q0,10 8,14" class="ln" stroke-width="2"/>
+  <text x="505" y="903" class="t c bd or" font-size="21">12 ×</text>
+  <text x="516" y="921" class="t c" font-size="14">per pass</text>
+
+  <!-- Bottom of stack -->
+  <path d="M668,930 V889" class="ln" marker-end="url(#ah)"/>
+  <rect x="566" y="936" width="210" height="42" rx="6" class="b"/>
+  <rect x="563" y="933" width="210" height="42" rx="6" class="b"/>
+  <rect x="560" y="930" width="210" height="42" rx="6" class="b"/>
+  <text x="668" y="948" class="t c bd" font-size="13">Layers before the loop</text>
+  <text x="668" y="965" class="t c" font-size="13">1–6 feed all three passes</text>
+  <path d="M668,996 V980" class="ln" marker-end="url(#ah)"/>
+  <rect x="578" y="996" width="182" height="28" rx="6" class="b"/>
+  <text x="669" y="1015" class="t c">Embedding RMSNorm</text>
+  <path d="M668,1042 V1026" class="ln" marker-end="url(#ah)"/>
+  <rect x="574" y="1042" width="190" height="28" rx="6" class="b"/>
+  <text x="669" y="1061" class="t c">Token embedding layer</text>
+  <path d="M668,1112 V1072" class="ln" marker-end="url(#ah)"/>
+  <rect x="605" y="1112" width="124" height="28" rx="6" class="b"/>
+  <text x="667" y="1131" class="t c">Tokenized text</text>
+  <path d="M668,1168 V1142" class="ln" marker-end="url(#ah)"/>
+  <text x="668" y="1199" class="t c" font-family="Menlo,Consolas,monospace" style="font-family:Menlo,Consolas,monospace" font-size="16">Sample input text</text>
+
+  <!-- Left-bottom notes -->
+  <text x="381" y="881" class="t c bd" font-size="18">Native context</text>
+  <text x="361" y="904" class="t c bd" font-size="18"><tspan class="or">1M</tspan> tokens</text>
+  <text x="273" y="969" class="t bd or" font-size="17">Middle layers 7–18</text>
+  <text class="t" font-size="13.5">
+    <tspan x="273" y="988">On later passes, each layer</tspan>
+    <tspan x="273" y="1005">gates the previous pass’s</tspan>
+    <tspan x="273" y="1022">block outputs.</tspan>
+  </text>
+  <text x="273" y="1053" class="t bd or" font-size="17">4 AttnRes blocks</text>
+  <text x="273" y="1076" class="t bd" font-size="17">6 layers per block</text>
+  <text class="t" font-size="14">
+    <tspan x="273" y="1096">Global layers mix Q, K,</tspan>
+    <tspan x="273" y="1114">and V inputs separately</tspan>
+  </text>
+
+  <!-- Right-bottom notes -->
+  <text x="875" y="985" class="t bd" font-size="17"><tspan class="or">24</tspan> query heads</text>
+  <text x="875" y="1008" class="t bd" font-size="17"><tspan class="or">8</tspan> KV heads</text>
+  <text x="875" y="1030" class="t" font-size="14.5">Local window</text>
+  <text x="875" y="1048" class="t" font-size="14.5">1,024 tokens</text>
+  <text x="795" y="1193" class="t bd" font-size="17">Embedding width <tspan class="or">2,304</tspan></text>
+
+  <!-- Feed forward (SwiGLU) module -->
+  <text x="1112" y="240" class="t c bd" font-size="17">Feed forward (SwiGLU) module</text>
+  <rect x="975" y="250" width="280" height="213" rx="12" fill="#E4E4E4" stroke="#222" stroke-width="2.5" stroke-dasharray="2 4" stroke-linecap="round"/>
+  <rect x="994" y="270" width="116" height="34" rx="7" class="b"/>
+  <text x="1052" y="292" class="t c">Linear layer</text>
+  <rect x="994" y="340" width="116" height="34" rx="7" class="b"/>
+  <text x="1052" y="362" class="t c">Softcapped SiLU</text>
+  <rect x="1120" y="340" width="116" height="34" rx="7" class="b"/>
+  <text x="1178" y="362" class="t c">Linear + softcap</text>
+  <rect x="994" y="400" width="116" height="34" rx="7" class="b"/>
+  <text x="1052" y="422" class="t c">Linear layer</text>
+  <path d="M1115,463 V447 H1052 V436" class="ln" marker-end="url(#ah)"/>
+  <path d="M1115,447 H1178 V376" class="ln" marker-end="url(#ah)"/>
+  <path d="M1052,400 V376" class="ln" marker-end="url(#ah)"/>
+  <path d="M1052,340 V306" class="ln" marker-end="url(#ah)"/>
+  <path d="M1052,323 H1109 M1127,323 H1178 V340" class="ln"/>
+  <circle cx="1118" cy="323" r="9" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <path d="M1112,317 L1124,329 M1124,317 L1112,329" class="ln"/>
+  <text x="1150" y="504" class="t c bd" font-size="17">Expert FFN width</text>
+  <text x="1075" y="527" class="t bd or" font-size="17">1,152</text>
+
+  <!-- MoE layer -->
+  <rect x="922" y="558" width="343" height="340" rx="30" fill="#fff" stroke="#E53935" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+  <text x="1192" y="604" class="t c bd" font-size="19">MoE layer</text>
+  <circle cx="1087" cy="626" r="13" fill="#fff" stroke="#111" stroke-width="1.8"/>
+  <path d="M1079,626 H1095 M1087,618 V634" class="ln" stroke-width="1.8"/>
+  <path d="M1087,613 V578" class="ln" marker-end="url(#ah)"/>
+  <rect x="934" y="696" width="122" height="26" rx="6" class="g"/>
+  <text x="995" y="714" class="t c">Feed forward</text>
+  <rect x="1115" y="691" width="122" height="26" rx="6" class="g"/>
+  <text x="1176" y="709" class="t c">Feed forward</text>
+  <rect x="1035" y="720" width="22" height="26" rx="3" fill="#111"/>
+  <text x="1046" y="738" class="t c bd" style="fill:#fff">1</text>
+  <rect x="1205" y="715" width="36" height="26" rx="5" fill="#F57C00"/>
+  <text x="1223" y="733" class="t c bd" style="fill:#fff">128</text>
+  <text x="1087" y="722" class="t c bd" font-size="22">· · ·</text>
+  <path d="M995,696 L1075,634" class="ln" marker-end="url(#ah)"/>
+  <path d="M1176,691 L1099,634" class="ln" marker-end="url(#ah)"/>
+  <path d="M1087,700 V641" class="ln" marker-end="url(#ah)"/>
+  <rect x="1052" y="805" width="72" height="34" rx="8" fill="#fff" stroke="#E53935" stroke-width="2"/>
+  <text x="1088" y="827" class="t c" font-size="15">Router</text>
+  <path d="M1088,872 V841" class="ln" marker-end="url(#ah)"/>
+  <path d="M1070,805 L1000,724" class="ln" marker-end="url(#ah)"/>
+  <path d="M1088,805 V729" class="ln" marker-end="url(#ah)"/>
+  <path d="M1106,805 L1170,719" class="ln" marker-end="url(#ah)"/>
+
+  <!-- Parameters and routing -->
+  <text x="1022" y="931" class="t bd or" font-size="17">Parameters and routing</text>
+  <text class="t" font-size="14.5">
+    <tspan x="1024" y="955">•  <tspan class="bd or">26.4B</tspan> total parameters</tspan>
+    <tspan x="1024" y="978">•  <tspan class="bd or">8 of 128</tspan> experts per token, <tspan class="bd or">0 shared</tspan></tspan>
+    <tspan x="1024" y="1001">•  <tspan class="bd or">3.4B</tspan> unique active parameters</tspan>
+    <tspan x="1024" y="1024">•  <tspan class="bd or">5.4B</tspan> weight activations per token</tspan>
+  </text>
+
+  <!-- Dotted leader lines -->
+  <path d="M736,160 L782,124" class="dot"/>
+  <path d="M445,196 L585,312" class="dot"/>
+  <path d="M732,498 L922,585" class="rdot"/>
+  <path d="M955,694 L1015,466" class="dot"/>
+  <path d="M1112,482 L1092,466" class="dot"/>
+  <path d="M742,806 L900,962" class="dot"/>
+  <path d="M766,1068 L850,1158" class="dot"/>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYToxMTQ3ZWU3Ni0xZmFjLTRlZDAtODc0YS00NzZhZjhhOGRkODkAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaKRZq4FOWSL4yp6JNVGNBYYAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDozZjJhZmZhNy00N2MyLTQ3M2YtOGFmZS1mMjNhOGQ0NjA1OGNscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo7OWYIrH/TUvozDVJh6s1ygAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg0jEjzEey/XcjR5usfBW9Py3dXeQcGthkOpby3o0edtqkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaFqgKha0qMn2ChDZ5Wt34UAAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIIxfBAHAc4k4OoispvdtbsPwWh8YWoVb215zMCdfrsflZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GUU8Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjExNDdlZTc2LTFmYWMtNGVkMC04NzRhLTQ3NmFmOGE4ZGQ4OS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjRlYzFiYzgwLWQ1ODQtNDZjMS1hODc4LTYwMGRjOWU5ZWMwZnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDSMSPMR7L9dyNHm6x8Fb0/Ld1d5Bwa2GQ6lvLejR522qJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggARKzYK/7FZTu+0dYqCGQc/PE80FxP/xamB/zR6H+6omiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggk/VwRWH1wEgWx2VeRML77cXsul1NnAJyyb1cLr2AbxJ0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQPfAQ3baKTn2/4d/2gSamc7tRb9cj8BWvsmAgaovW7aJ4te+W+XiALx/6g7YnU4On1rmw7Xv3/a0CaWXECDyjMU=</c2pa:manifest></metadata></svg>
