@@ -199,6 +199,12 @@ a:focus-visible,
   resize: none;
 }
 
+.side .facts {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .side .outline {
   height: 200px;
   background: var(--panel);

@@ -36,6 +36,8 @@ One of them cycles through all the demos and checks that no listener is left on 
 - `src/main.ts`: the shell, navigation by URL hash (`#/<demo id>`), the demo lifecycle and the event log.
 - `src/reset.ts`: resets the global configuration and registries of the library between demos.
 - `src/demos/`: one file per demo, registered in `src/demos/index.ts`.
+- `src/modelviz/`: the model architecture editor (`model-viz` demo), see [`MASTER_ARCHITECTURE.md`](./MASTER_ARCHITECTURE.md).
+- `src/svg-export.ts`: the SVG export shared by the demos.
 - `scripts/copy-core-assets.mjs`: copies the `images` and `i18n` folders of the library to `public/`, the library loads
   them by URL at runtime.
 - `e2e/`: the end-to-end tests.

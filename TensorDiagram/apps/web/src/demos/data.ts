@@ -9,6 +9,7 @@ import {
   type TooltipHandler,
   xmlUtils,
 } from '@tensormorph/tensordiagramcore';
+import { exportSvg } from '../svg-export.js';
 import type { Demo } from '../types.js';
 
 export const data: Demo = {
@@ -165,21 +166,8 @@ export const data: Demo = {
     ctx.button(
       'Export SVG',
       () => {
-        graph.clearSelection(); // the selection handles are drawn in the same SVG
-        const svg = graph.container.querySelector('svg')?.cloneNode(true) as
-          SVGSVGElement | undefined;
-        if (!svg) return;
-        const bounds = graph.getGraphBounds();
-        const border = 10;
-        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-        svg.setAttribute(
-          'viewBox',
-          `${bounds.x - border} ${bounds.y - border} ${bounds.width + 2 * border} ${bounds.height + 2 * border}`
-        );
-        svg.setAttribute('width', String(Math.ceil(bounds.width + 2 * border)));
-        svg.setAttribute('height', String(Math.ceil(bounds.height + 2 * border)));
-        svg.removeAttribute('style');
-        const url = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(new XMLSerializer().serializeToString(svg))}`;
+        const url = exportSvg(graph);
+        if (!url) return;
         const preview = document.createElement('img');
         Object.assign(preview, { src: url, alt: 'SVG export' });
         preview.style.maxWidth = '100%';
